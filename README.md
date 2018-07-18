@@ -4,15 +4,9 @@
 ## Additional materials
 
  * The support site (code and data): [GitHub WinVector/PDSwR2](https://github.com/WinVector/PDSwR2)
- * [Code examples](https://github.com/WinVector/PDSwR2/tree/master/CodeExamples) (also as R Markdown notebooks: [Notebooks running all examples](RunExamples) )
  * The discussion boards: [Forum: Practical Data Science with R](http://www.manning-sandbox.com/forum.jspa?forumID=863)
  * [Errata](http://winvector.github.io/PDSwR/PracticalDataScienceWithRErrata.html)
 
-## Zip file of code excerpts from the book:
-
- * [CodeExamples.zip](CodeExamples.zip)
- * [CodeExamples directory](CodeExamples)
- * [Notebooks running all examples](RunExamples)
 
 ## More from the authors:
 
