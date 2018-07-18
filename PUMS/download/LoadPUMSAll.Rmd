@@ -1,0 +1,125 @@
+---
+title: "LoadPUMSAll"
+author: "Win-Vector LLC"
+date: "4/21/2018"
+output: github_document
+---
+
+Data dowloaded 4/21/2018 from:
+
+* https://www.census.gov/data/developers/data-sets/acs-1year.2016.html
+* https://www.census.gov/programs-surveys/acs/technical-documentation/pums.html
+* http://www2.census.gov/programs-surveys/acs/tech_docs/pums/data_dict/PUMSDataDict16.txt
+* https://www2.census.gov/programs-surveys/acs/data/pums/2016/1-Year/
+
+
+First in a `bash` shell perform the following steps:
+
+```
+wget https://www2.census.gov/programs-surveys/acs/data/pums/2016/1-Year/csv_hus.zip
+md5 csv_hus.zip
+# MD5 (csv_hus.zip) = c81d4b96a95d573c1b10fc7f230d5f7a
+wget https://www2.census.gov/programs-surveys/acs/data/pums/2016/1-Year/csv_pus.zip
+md5 csv_pus.zip
+# MD5 (csv_pus.zip) = 06142320c3865620b0630d74d74181db
+wget http://www2.census.gov/programs-surveys/acs/tech_docs/pums/data_dict/PUMSDataDict16.txt
+md5 PUMSDataDict16.txt
+# MD5 (PUMSDataDict16.txt) = 56b4e8fcc7596cc8b69c9e878f2e699aunzip csv_hus.zip
+unzip csv_pus.zip
+gzip -9 ss16*.csv
+```
+
+Now the files are compressed comma separted files with headers:
+
+* `ss16husa.csv.gz`
+* `ss16husb.csv.gz`
+* `ss16pusa.csv.gz`
+* `ss16pusb.csv.gz`
+
+Read them into a PostreSQL database.
+
+```{r}
+library("readr")
+library("rquery")
+library("wrapr")
+
+data_dict <- readRDS("data_dict.RDS")
+
+# build DB connection
+db <- DBI::dbConnect(RPostgreSQL::PostgreSQL(),
+                        host = 'localhost',
+                        port = 5432,
+                        user = 'johnmount',
+                        password = '')
+rquery_opts <- dbi_connection_tests(db)
+options(rquery_opts)
+
+tabs <- c("ss16husa", "ss16husb",
+          "ss16pusa", "ss16pusb") := 
+  c("hus", "hus",
+    "pus", "pus")
+
+for(nam in c(names(tabs), unique(tabs))) {
+  dbi_remove_table(db, nam)
+}
+
+tables <- list()
+
+# load data into database
+for(nam in names(tabs)) {
+  print(base::date())
+  print(nam)
+  tab_group <- tabs[[nam]]
+  fnam <- paste0(nam, ".csv.gz")
+
+  dat <- read_csv(fnam,
+                  col_types = cols(.default = "c"))
+  ti <- rquery::dbi_copy_to(db, nam, dat, 
+                            overwrite = TRUE, temporary = TRUE)
+  tables[[nam]] <- ti
+  rm(list = "dat")
+}
+print(base::date())
+
+hd <- data_dict[data_dict$table=="hus", , drop = FALSE]
+hm <- data.frame(column_name = hd$field_name, 
+                 old_value = hd$field_keys, 
+                 new_value = hd$field_values,
+                 stringsAsFactors = FALSE)
+hq <- unionall(list(tables[["ss16husa"]],
+                     tables[["ss16husb"]])) %.>%
+  map_column_values(., hm)
+cat(format(hq))
+hq %.>%
+  op_diagram(.) %.>%
+  DiagrammeR::grViz(.) %.>%
+  print(.)
+materialize(db, hq, "hus")
+
+pd <- data_dict[data_dict$table=="pus", , drop = FALSE]
+pm <- data.frame(column_name = pd$field_name, 
+                 old_value = pd$field_keys, 
+                 new_value = pd$field_values,
+                 stringsAsFactors = FALSE)
+pq <- unionall(list(tables[["ss16pusa"]], 
+                     tables[["ss16pusb"]])) %.>%
+   map_column_values(., pm)
+cat(format(pq))
+pq %.>%
+  op_diagram(.) %.>%
+  DiagrammeR::grViz(.) %.>%
+  print(.)
+materialize(db, pq, "pus")
+
+for(nam in names(tabs)) {
+  dbi_remove_table(db, nam)
+}
+
+cdata::qlook(db, "hus")
+
+cdata::qlook(db, "pus")
+
+DBI::dbDisconnect(db)
+```
+
+

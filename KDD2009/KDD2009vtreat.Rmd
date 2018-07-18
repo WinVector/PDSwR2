@@ -1,0 +1,153 @@
+
+
+Practical data science with R built chapter 6 built a number of single variable models.
+In Listing 6.11 it used an ad-hoc entropy based out of sample effect size estimate
+for variable selection.  This likely (though it isn't completely rigorous) picked 
+variables conservatively.
+
+We show here how to repeat this work on the KDD2009 dataset using more standard
+techniques more quickly.
+For vtreat details see: 
+   http://www.win-vector.com/blog/2014/08/vtreat-designing-a-package-for-variable-treatment/
+and Chapter 6 of Practical Data Science with R: 
+    http://www.amazon.com/Practical-Data-Science/dp/1617291560
+For details on data see: 
+    https://github.com/WinVector/zmPDSwR/tree/master/KDD2009
+There is an issue that any data row used to build the single variable models isn't
+exchangable with future unseen rows for the purposes of scoring and training.  So
+the most hygienic way to work is to use one subset of data to build the single variable models,
+and then another to built the composite model, and a third for scoring.  In particular
+models trained using rows used to build sub-models think the sub-models have large effects
+that the sub-models will in the future, and under-estimate degrees of freedom of complicated
+sub-models.
+
+
+```{r kddexlibs, tidy=FALSE}
+date()
+#load some libraries
+library('vtreat')
+library('WVPlots') # https://github.com/WinVector/WVPlots
+
+library('parallel')
+library('gbm')
+library('class')
+
+
+# load the data as in the book
+# change this path to match your directory structure
+dir = '~/Documents/work/PracticalDataScienceWithR/zmPDSwR/KDD2009/' 
+
+d = read.table(paste(dir,'orange_small_train.data.gz',sep=''),
+                header=T,sep='\t',na.strings=c('NA',''), 
+               stringsAsFactors=FALSE)
+churn = read.table(paste(dir,'orange_small_train_churn.labels.txt',sep=''),
+                    header=F,sep='\t')
+d$churn = churn$V1
+appetency = read.table(paste(dir,'orange_small_train_appetency.labels.txt',sep=''),
+                        header=F,sep='\t')
+d$appetency = appetency$V1
+upselling = read.table(paste(dir,'orange_small_train_upselling.labels.txt',sep=''),
+                        header=F,sep='\t')
+d$upselling = upselling$V1
+set.seed(729375)
+d$rgroup = runif(dim(d)[[1]])
+dTrain = subset(d,rgroup<=0.9)  # set for building models and impact coding
+dTest = subset(d,rgroup>0.9) # set for evaluation
+rm(list=c('d','churn','appetency','upselling','dir'))
+outcomes = c('churn','appetency','upselling')
+vars = setdiff(colnames(dTrain),
+                c(outcomes,'rgroup'))
+yName = 'churn'
+yTarget = 1
+
+set.seed(239525)
+
+cl = parallel::makeCluster(4)
+date()
+```
+
+
+
+
+```{r kddtreat, tidy=FALSE}
+date()
+# Run other models (with proper coding/training separation).
+#
+# This gets us back to AUC 0.72 range
+
+kddPrune = 0.05
+
+cfe = mkCrossFrameCExperiment(dTrain,
+    vars,yName,yTarget,
+    smFactor=2.0, 
+    parallelCluster=cl)
+treatmentsC = cfe$treatments
+scoreFrame = treatmentsC$scoreFrame
+selvars <- scoreFrame$varName[scoreFrame$sig<=kddPrune]
+treatedTrainM <- cfe$crossFrame[,c(yName,selvars),drop=FALSE]
+treatedTrainM[[yName]] = treatedTrainM[[yName]]==yTarget
+
+treatedTest = prepare(treatmentsC,
+                      dTest,
+                      pruneSig=NULL, 
+                      varRestriction = selvars,
+                      parallelCluster=cl)
+treatedTest[[yName]] = treatedTest[[yName]]==yTarget
+
+# prepare plotting frames
+treatedTrainP = treatedTrainM[, yName, drop=FALSE]
+treatedTestP = treatedTest[, yName, drop=FALSE]
+date()
+```
+
+```{r kddmodels, tidy=FALSE}
+date()
+formulaS = paste(yName,paste(selvars,collapse=' + '),sep=' ~ ')
+mname = 'gbmPred'
+print(paste(mname,length(selvars)))
+modelGBMs = gbm(as.formula(formulaS),
+                data=treatedTrainM,
+                distribution='bernoulli',
+                n.trees=4000,
+                interaction.depth=3,
+                keep.data=FALSE,
+                cv.folds=5)
+nTrees = gbm.perf(modelGBMs)
+print(nTrees)
+treatedTrainP[[mname]] = predict(modelGBMs,newdata=treatedTrainM,type='response',
+                                 n.trees=nTrees) 
+treatedTestP[[mname]] = predict(modelGBMs,newdata=treatedTest,type='response',
+                                n.trees=nTrees)
+date()
+```
+
+```{r kddplot, tidy=FALSE}
+date()
+t1 = paste(mname,'trainingM data')
+print(DoubleDensityPlot(treatedTrainP, mname, yName, 
+                        title=t1))
+print(ROCPlot(treatedTrainP, mname, yName, yTarget,
+              title=t1))
+print(WVPlots::PRPlot(treatedTrainP, mname, yName, yTarget,
+              title=t1))
+
+t2 = paste(mname,'test data')
+print(DoubleDensityPlot(treatedTestP, mname, yName, 
+                        title=t2))
+print(ROCPlot(treatedTestP, mname, yName, yTarget,
+              title=t2))
+print(WVPlots::PRPlot(treatedTestP, mname, yName, yTarget,
+              title=t2))
+
+print(date())
+print("*****************************")
+date()
+```
+
+```{r shutdown, tidy=FALSE}
+if(!is.null(cl)) {
+    parallel::stopCluster(cl)
+    cl = NULL
+}
+```
+

@@ -1,0 +1,105 @@
+---
+title: "PUMS1"
+author: "Win-Vector LLC"
+date: "4/26/2018"
+output: github_document
+---
+
+```{r}
+library("DBI")
+library("dplyr") 
+library("rquery")
+
+
+db <- dbConnect(RSQLite::SQLite(), ":memory:") 	
+dbWriteTable(db, "dpus", readRDS("ss16pus.RDS")) 	
+dbWriteTable(db, "dhus", readRDS("ss16hus.RDS"))
+
+
+dbGetQuery(db, "SELECT * FROM dpus LIMIT 5")
+
+dpus <- tbl(db, "dpus") 
+dhus <- tbl(db, "dhus")
+
+# print(dpus)  	
+# glimpse(dpus)
+
+# view(rsummary(db, "dpus")) 
+
+
+
+
+dpus <- dbReadTable(db, "dpus") 
+
+dpus <- dpus[, c("AGEP", "COW", "ESR",  "PERNP", 
+                 "PINCP","SCHL", "SEX", "WKHP")]
+
+                 
+for(ci in c("AGEP", "PERNP", "PINCP", "WKHP")) { 	
+  dpus[[ci]] <- as.numeric(dpus[[ci]])
+}
+
+dpus$COW <- strtrim(dpus$COW, 50) 
+
+# str(dpus) 
+
+
+
+
+target_emp_levs <- c(  
+  "Employee of a private for-profit company or busine",
+  "Employee of a private not-for-profit, tax-exempt, ",
+  "Federal government employee",                    
+  "Local government employee (city, county, etc.)",   
+  "Self-employed in own incorporated business, profes",
+  "Self-employed in own not incorporated business, pr",
+  "State government employee")
+
+
+complete <- complete.cases(dpus) 
+
+stdworker <- with(dpus,  
+                  (PINCP>1000) & 
+                    (ESR=="Civilian employed, at work") & 
+                    (PINCP<=250000) & 
+                    (PERNP>1000) & (PERNP<=250000) & 
+                    (WKHP>=30) & 
+                    (AGEP>=18) & (AGEP<=65) & 
+                    (COW %in% target_emp_levs))
+                    
+dpus <- dpus[complete & stdworker, , drop = FALSE] 
+
+no_advanced_degree <- is.na(dpus$SCHL) |  
+  (!(dpus$SCHL %in% c("Associate's degree",
+                      "Bachelor's degree",
+                      "Doctorate degree",
+                      "Master's degree",
+                      "Professional degree beyond a bachelor's degree")))
+dpus$SCHL[no_advanced_degree] <- "No Advanced Degree"
+
+dpus$SCHL <- relevel(factor(dpus$SCHL), 	
+                     "No Advanced Degree")                
+dpus$COW <- relevel(factor(dpus$COW), 
+                    target_emp_levs[[1]])
+dpus$ESR <- relevel(factor(dpus$ESR), 
+                    "Civilian employed, at work")
+dpus$SEX <- relevel(factor(dpus$SEX), 
+                    "Male")
+                    
+saveRDS(dpus, "dpus_std_employee.RDS") 	
+                    
+summary(dpus) 
+
+
+
+
+plt <- WVPlots::ScatterHist(
+  dpus, "AGEP", "PINCP",
+  "Expected income (PINCP) as function age (AGEP)",
+  smoothmethod = "lm",
+  point_alpha = 0.025)
+print(plt)
+
+DBI::dbDisconnect(db)
+```
+

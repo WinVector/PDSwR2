@@ -1,0 +1,107 @@
+---
+title: "PUMS1_dplyr"
+author: "Win-Vector LLC"
+date: "4/24/2018"
+output: github_document
+---
+
+```{r}
+library("DBI")
+library("dplyr")
+library("rquery")
+
+db <- dbConnect(RSQLite::SQLite(), ":memory:") 	
+dbWriteTable(db, "dpus", readRDS("ss16pus.RDS")) 	
+dbWriteTable(db, "dhus", readRDS("ss16hus.RDS"))
+
+dbGetQuery(db, "SELECT * FROM dpus LIMIT 5") 	
+
+dpus <- tbl(db, "dpus") 	
+dhus <- tbl(db, "dhus")
+
+# print(dpus)  	
+
+# view(rsummary(db, "dpus")) 
+
+
+
+# perform as many of the steps of PUMS1.Rmd
+# in dplyr as practical.
+# Notice the data remains in the database for these early steps.
+# 
+
+
+
+
+target_emp_levs <- c(
+  "Employee of a private for-profit company or busine",
+  "Employee of a private not-for-profit, tax-exempt, ",
+  "Federal government employee",                    
+  "Local government employee (city, county, etc.)",   
+  "Self-employed in own incorporated business, profes",
+  "Self-employed in own not incorporated business, pr",
+  "State government employee")
+
+
+dpus <- dpus %>%
+  select(., AGEP, COW, ESR,  PERNP, 
+         PINCP, SCHL, SEX, WKHP) %>%
+  mutate_at(., c("AGEP", "PERNP", "PINCP", "WKHP"),
+            as.numeric) %>%
+  filter_all(., all_vars(!is.na(.))) %>% 
+  mutate(., COW = SUBSTR(COW, 1, 50)) %>%
+  filter(., (PINCP>1000) & 
+           (ESR=="Civilian employed, at work") & 
+           (PINCP<=250000) & 
+           (PERNP>1000) & (PERNP<=250000) & 
+           (WKHP>=30) & 
+           (AGEP>=18) & (AGEP<=65) & 
+           (COW %in% target_emp_levs)) %>%
+  mutate(., 
+         SCHL = ifelse(is.na(SCHL) |
+                         (!(SCHL %in% 
+                              c("Associate's degree",
+                                "Bachelor's degree",
+                                "Doctorate degree",
+                                "Master's degree",
+                                "Professional degree beyond a bachelor's degree"))),
+                       "No Advanced Degree",
+                       SCHL))
+
+glimpse(dpus)
+
+dpus %>%
+  group_by(., SCHL, SEX) %>%
+  summarize(., mean_income = mean(PINCP)) %>%
+  ungroup(.) %>%
+  arrange(., SCHL, SEX)
+
+# bring data from database to R
+dpus <- collect(dpus)
+
+dpus$SCHL <- relevel(factor(dpus$SCHL), 
+                     "No Advanced Degree")
+dpus$COW <- relevel(factor(dpus$COW), 
+                    target_emp_levs[[1]])
+dpus$SEX <- relevel(factor(dpus$SEX), 
+                    "Male")
+
+set.seed(2019)
+is_train <- runif(nrow(dpus))>=0.2
+dpus_train <- dpus[is_train, , drop = FALSE]
+dpus_test <- dpus[!is_train, , drop = FALSE]
+
+model <- lm(PINCP ~ AGEP + COW + SCHL + SEX, 
+            data = dpus_train)
+summary(model)
+
+dpus_test$predicted_income <- predict(model,
+                                      newdata = dpus_test)
+WVPlots::ScatterHist(dpus_test, "predicted_income", "PINCP",
+                     "PINCP as function of predicted income on held-out data",
+                     smoothmethod = "identity",
+                     contour = TRUE)
+
+DBI::dbDisconnect(db)
+```
+
