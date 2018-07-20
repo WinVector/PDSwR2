@@ -1,0 +1,15 @@
+# informalexample A.1 of section A.1.2 
+# (informalexample A.1 of section A.1.2)  : Working with R and other tools : Installing the tools : Installing Tools 
+
+# Answer "n" to:
+#  "Do you want to install from sources the packages which need compilation?"
+# Answer "y" to install location questions.
+update.packages(ask = FALSE, checkBuilt = TRUE)
+
+pkgs <- c("DBI", "RSQLite", "WVPlots", "arules", "cdata",
+          "dplyr", "ggplot2", "gridExtra", "hexbin",
+          "kernlab", "knitr", "mgcv", "plotly", "randomForest",
+          "rpart", "rquery", "sigr", "sqldf", "vtreat",
+          "wrapr", "xgboost")
+install.packages(pkgs)
+

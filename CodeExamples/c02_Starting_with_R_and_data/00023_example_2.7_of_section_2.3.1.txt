@@ -1,0 +1,43 @@
+# example 2.7 of section 2.3.1 
+# (example 2.7 of section 2.3.1)  : Starting with R and data : Working with relational databases : A production-size example 
+# Title: PUMS data provenance documentation (PDSwR2/PUMS/download/LoadPUMS.Rmd) 
+
+Data dowloaded 4/21/2018 from: 	# Note: 1 
+
+  https://www.census.gov/data/developers/data-sets/acs-1year.2016.html            	# Note: 2 
+  https://www.census.gov/programs-surveys/acs/technical-documentation/pums.html
+  http://www2.census.gov/programs-surveys/acs/tech_docs/pums/data_dict/PUMSDataDict16.txt
+  https://www2.census.gov/programs-surveys/acs/data/pums/2016/1-Year/
+
+
+First in a `bash` shell perform the following steps:
+
+wget https://www2.census.gov/programs-surveys/acs/data/pums/2016/1-Year/csv_hus.zip  	# Note: 3 
+md5 csv_hus.zip
+# MD5 (csv_hus.zip) = c81d4b96a95d573c1b10fc7f230d5f7a      	# Note: 4 
+wget https://www2.census.gov/programs-surveys/acs/data/pums/2016/1-Year/csv_pus.zip
+md5 csv_pus.zip
+# MD5 (csv_pus.zip) = 06142320c3865620b0630d74d74181db
+wget http://www2.census.gov/programs-surveys/acs/tech_docs/pums/data_dict/PUMSDataDict16.txt
+md5 PUMSDataDict16.txt
+# MD5 (PUMSDataDict16.txt) = 56b4e8fcc7596cc8b69c9e878f2e699aunzip csv_hus.zip
+
+# Note 1: 
+#   When we downloaded the data. 
+
+# Note 2: 
+#   Where we found the data documentation. This 
+#   is important to record as many data files don’t 
+#   contain links back to the documentation. 
+
+# Note 3: 
+#   The exact steps we took. 
+
+# Note 4: 
+#   Cryptographic hashes of the file contents we 
+#   downloaded. These are very short summaries (called 
+#   hashes) that are very unlikely to have the same 
+#   value for different files. These summaries can 
+#   later help us determine if another researcher in 
+#   our organization is using the same data. 
+

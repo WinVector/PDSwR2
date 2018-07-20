@@ -1,0 +1,9 @@
+# informalexample 2.14 of section 2.2.2 
+# (informalexample 2.14 of section 2.2.2)  : Starting with R and data : Working with data from files : Using R with less-structured data 
+
+mapping <- c('A11' = '... < 0 DM',
+             'A12' = '0 <= ... < 200 DM',
+             'A13' = '... >= 200 DM / salary assignments for at least 1 year',
+             ...
+                )
+

@@ -1,0 +1,7 @@
+# informalexample 3.1 of section 3.2.1 
+# (informalexample 3.1 of section 3.2.1)  : Exploring data : Spotting problems using graphics and visualization : Visually checking distributions for a single variable 
+
+## Warning in self$trans$transform(x): NaNs produced
+## Warning: Transformation introduced infinite values in continuous x-axis
+## Warning: Removed 6856 rows containing non-finite values (stat_density).
+
