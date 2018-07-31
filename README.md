@@ -7,6 +7,11 @@
  * The discussion boards: [Forum: Practical Data Science with R](http://www.manning-sandbox.com/forum.jspa?forumID=863)
  * [Errata](http://winvector.github.io/PDSwR/PracticalDataScienceWithRErrata.html)
 
+## Zip file of code excerpts from the book:
+
+ * [CodeExamples.zip](CodeExamples.zip)
+ * [CodeExamples directory](CodeExamples)
+
 
 ## More from the authors:
 
