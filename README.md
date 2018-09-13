@@ -1,4 +1,69 @@
+
+
+
+
 # New Example code and data for "Practical Data Science with R" by Nina Zumel and John Mount.
+
+
+We are very proud to present early access to our book [*Practical Data Science with R 2nd Edition*](https://www.manning.com/books/practical-data-science-with-r-second-edition).
+
+This is the book for you if you are a data scientist, want to be a data
+scientist, or want to work with data scientists. This is a good "what
+next" book for analysts and programmers wanting to know more about
+machine learning and data wrangling.
+[![PracticalDataScienceCover](http://www.win-vector.com/blog/wp-content/uploads/2018/08/NewImage-3.png){height="600"}](https://www.manning.com/books/practical-data-science-with-r-second-edition)
+Our goal is to present data science from a pragmatic, practice-oriented
+viewpoint. The book will complement other analytics, statistics, machine
+learning, data science and R books with the following features:
+
+-   This book teaches you how to work as a data scientist. Learn how
+    important listening, collaboration, honest presentation and
+    iteration are to what we do.
+-   The key emphasis of the book is process: collecting requirements,
+    loading data, examining data, building models, validating models,
+    documenting and deploying models to production.
+-   We provide over 10 significant example datasets, and demonstrate the
+    concepts that we discuss with fully worked exercises using standard
+    R methods. We feel that this approach allows us to illustrate what
+    we really want to teach and to demonstrate all the preparatory steps
+    necessary to any real-world project. Every result and almost every
+    graph in the book is given as a fully worked example.
+-   This book is scrupulously correct on statistics, but presents topics
+    in the context and order a practitioner worries about them. For
+    example we emphasize construction of predictive models and model
+    evaluation and prediction over the more standard topics of summary
+    statistics and packaged procedures (such as ANOVA).
+
+In support of [*Practical Data Science with R 2nd Edition*](https://www.manning.com/books/practical-data-science-with-r-second-edition)
+we are providing:
+
+-   Table of contents, and a free example chapter available from the
+    Manning book page
+    [](https://www.manning.com/books/practical-data-science-with-r-second-edition).
+-   A [public repository of data
+    sets](https://github.com/WinVector/PDSwR2) (under a Creative Commons
+    Attribution-NonCommercial 3.0 Unported License where possible).
+-   Downloadable [example code.](https://github.com/WinVector/PDSwR2/tree/master/CodeExamples)
+
+The first edition is available in print as 416 pages softbound black and
+white or as a color
+[eBook](http://www.win-vector.com/blog/2014/12/is-there-a-kindle-edition-of-practical-data-science-with-r/).
+The print version comes with a complimentary eBook version (an insert
+when the book is purchased new), in all three formats: PDF, ePub, and
+Kindle. The eBook can be purchased separately from Manning Publications.
+The second edition is under preview subscription (or MEAP, Manning Early
+Access Program) and includes an eBook copy of the previous edition
+(Practical Data Science with R First Edition) at no additional cost!
+
+![IMG0383](http://www.win-vector.com/blog/wp-content/uploads/2014/10/IMG_0383.jpg "IMG_0383.jpg"){width="600" height="554"} Order now on the [Manning book page](https://www.manning.com/books/practical-data-science-with-r-second-edition).
+
+![PDSwRamzn](http://www.win-vector.com/blog/wp-content/uploads/2014/10/PDSwRamzn.png "PDSwRamzn.png"){width="600" height="131"} For more about the book please check out:
+
+-   [How does Practical Data Science with R stand out?](http://www.win-vector.com/blog/2014/06/how-does-practical-data-science-with-r-stand-out/)
+-   [On Writing Our Book: A Little Philosophy](http://www.win-vector.com/blog/2013/05/on-writing-our-book-a-little-philosophy/)
+
+![600387630642](http://www.win-vector.com/blog/wp-content/uploads/2014/10/600_387630642.jpeg "600_387630642.jpeg")
+
 
 
 ## Additional materials
