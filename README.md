@@ -11,7 +11,9 @@ This is the book for you if you are a data scientist, want to be a data
 scientist, or want to work with data scientists. This is a good "what
 next" book for analysts and programmers wanting to know more about
 machine learning and data wrangling.
-[![PracticalDataScienceCover](http://www.win-vector.com/blog/wp-content/uploads/2018/08/NewImage-3.png){height="600"}](https://www.manning.com/books/practical-data-science-with-r-second-edition)
+[![PracticalDataScienceCover](http://www.win-vector.com/blog/wp-content/uploads/2018/08/NewImage-3.png)](https://www.manning.com/books/practical-data-science-with-r-second-edition)
+
+
 Our goal is to present data science from a pragmatic, practice-oriented
 viewpoint. The book will complement other analytics, statistics, machine
 learning, data science and R books with the following features:
@@ -55,14 +57,18 @@ The second edition is under preview subscription (or MEAP, Manning Early
 Access Program) and includes an eBook copy of the previous edition
 (Practical Data Science with R First Edition) at no additional cost!
 
-![IMG0383](http://www.win-vector.com/blog/wp-content/uploads/2014/10/IMG_0383.jpg "IMG_0383.jpg"){width="600" height="554"} Order now on the [Manning book page](https://www.manning.com/books/practical-data-science-with-r-second-edition).
+![IMG0383](http://www.win-vector.com/blog/wp-content/uploads/2014/10/IMG_0383.jpg "IMG_0383.jpg")
 
-![PDSwRamzn](http://www.win-vector.com/blog/wp-content/uploads/2014/10/PDSwRamzn.png "PDSwRamzn.png"){width="600" height="131"} For more about the book please check out:
+Available for order now on the [Manning book page](https://www.manning.com/books/practical-data-science-with-r-second-edition).
+
+![PDSwRamzn](http://www.win-vector.com/blog/wp-content/uploads/2014/10/PDSwRamzn.png "PDSwRamzn.png")
+
+For more about the book please check out:
 
 -   [How does Practical Data Science with R stand out?](http://www.win-vector.com/blog/2014/06/how-does-practical-data-science-with-r-stand-out/)
 -   [On Writing Our Book: A Little Philosophy](http://www.win-vector.com/blog/2013/05/on-writing-our-book-a-little-philosophy/)
 
-![600387630642](http://www.win-vector.com/blog/wp-content/uploads/2014/10/600_387630642.jpeg "600_387630642.jpeg")
+![600387630642](http://www.win-vector.com/blog/wp-content/uploads/2014/10/600_387630642.jpeg)
 
 
 
