@@ -14,20 +14,19 @@ head(median_income_table)
 ## 5   California         25000
 ## 6     Colorado         32000
 
-training_prepared <- training_prepared %>%
-  left_join(., median_income_table, by="state_of_res") %>% 	# Note: 2 
-  mutate(income_normalized = income/median_income) %>%
-  select(-median_income)
+training_prepared <-  training_prepared %>%
+  left_join(., median_income_table, by="state_of_res") %>%  	# Note: 2 
+  mutate(income_normalized = income/median_income) 
 
-head(training_prepared[, c("income", "income_normalized")])
+head(training_prepared[, c("income", "median_income", "income_normalized")]) 	# Note: 3 
 
-##   income income_normalized
-## 1  22000         1.0426540
-## 2  23200         1.0995261
-## 3  21000         0.9952607
-## 4  37770         1.7900474
-## 5  39000         1.8483412
-## 6  11100         0.5260664
+##   income median_income income_normalized
+## 1  22000         21100         1.0426540
+## 2  23200         21100         1.0995261
+## 3  21000         21100         0.9952607
+## 4  37770         21100         1.7900474
+## 5  39000         21100         1.8483412
+## 6  11100         21100         0.5260664
 
 summary(training_prepared$income_normalized)
 
@@ -39,6 +38,9 @@ summary(training_prepared$income_normalized)
 #   directory PDSwR2/Custdata. Here we assume that this is your working directory. 
 
 # Note 2: 
-#   Temporarily join median_income_table into the customer data, so you can normalize each person's income 
+#   Join median_income_table into the customer data, so you can normalize each person's income 
 #   by the median income of their state. 
+
+# Note 3: 
+#   Compare the values of income and income_normalized. 
 

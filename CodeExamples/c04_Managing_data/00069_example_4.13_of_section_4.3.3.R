@@ -22,7 +22,7 @@ household_data <- dplyr::left_join(household_data, 	# Note: 4
 #   Get the unique household ids. 
 
 # Note 3: 
-#   Generate a unique sampling group id per household. 
+#   Generate a unique sampling group id per household, and put in a column named gp. 
 
 # Note 4: 
 #   Join the household ids back into the original data. 

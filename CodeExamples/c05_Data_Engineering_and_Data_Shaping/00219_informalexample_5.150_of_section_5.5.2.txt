@@ -1,0 +1,12 @@
+# informalexample 5.150 of section 5.5.2 
+# (informalexample 5.150 of section 5.5.2)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from multiple rows to multiple columns. 
+
+##      weight           Time           Chick    
+##  Min.   : 35.0   Min.   : 0.00   13     : 12  
+##  1st Qu.: 63.0   1st Qu.: 4.00   9      : 12  
+##  Median :103.0   Median :10.00   20     : 12  
+##  Mean   :121.8   Mean   :10.72   10     : 12  
+##  3rd Qu.:163.8   3rd Qu.:16.00   17     : 12  
+##  Max.   :373.0   Max.   :21.00   19     : 12  
+##                                  (Other):506
+

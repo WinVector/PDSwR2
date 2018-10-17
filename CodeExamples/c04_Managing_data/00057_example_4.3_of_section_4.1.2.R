@@ -7,8 +7,8 @@ count_missing = function(df) {                     	# Note: 1
 }
 
 nacounts <- count_missing(customer_data)
-ix = which(nacounts > 0)                         	# Note: 2 
-nacounts[ix]
+hasNA = which(nacounts > 0)                         	# Note: 2 
+nacounts[hasNA]
 
 ##          is_employed               income         housing_type 
 ##                25774                   45                 1720 

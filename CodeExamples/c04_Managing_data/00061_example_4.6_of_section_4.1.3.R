@@ -2,12 +2,12 @@
 # (example 4.6 of section 4.1.3)  : Managing data : Cleaning data : The vtreat package for automatically treating missing variables 
 # Title: Examining the data treatment 
 
-ix <- which(is.na(customer_data$housing_type)) 	# Note: 1 
+htmissing <- which(is.na(customer_data$housing_type)) 	# Note: 1 
                                         
 columns_to_look_at <- c("custid", "is_employed", "num_vehicles",
                            "housing_type", "health_ins")
                                         
-customer_data[ix, columns_to_look_at] %>% head()                                       	# Note: 2 
+customer_data[htmissing, columns_to_look_at] %>% head()                                       	# Note: 2 
 ##           custid is_employed num_vehicles housing_type health_ins
 ## 55  000082691_01        TRUE           NA         <NA>      FALSE
 ## 65  000116191_01        TRUE           NA         <NA>       TRUE
@@ -20,7 +20,7 @@ columns_to_look_at = c("custid", "is_employed", "is_employed_isBAD",
                        "num_vehicles","num_vehicles_isBAD",
                        "housing_type", "health_ins")
                                         
-training_prepared[ix, columns_to_look_at] %>%  head()                                          	# Note: 3 
+training_prepared[htmissing, columns_to_look_at] %>%  head()                                          	# Note: 3 
 ##           custid is_employed is_employed_isBAD num_vehicles
 ## 55  000082691_01   1.0000000                 0       2.0655
 ## 65  000116191_01   1.0000000                 0       2.0655

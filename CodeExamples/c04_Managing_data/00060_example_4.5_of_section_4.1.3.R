@@ -29,7 +29,7 @@ sum(nacounts)
 
 # Note 1: 
 #   The prepared data has additional columns that are not in the  
-#   original data 
+#   original data, most importantly those with the _isBAD designation. 
 
 # Note 2: 
 #   The prepared data has no missing values. 

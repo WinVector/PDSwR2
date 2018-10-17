@@ -13,7 +13,8 @@ customer_data <- customer_data %>%
 #   Load the data. 
 
 # Note 2: 
-#   The dplyr package has a useful function, na_if(), which turns a specific problematic value (in this case, 0) to NA 
+#   The function mutate() from the dplyr package adds columns to a data frame, or modifies existing columns. 
+#   The function na_if(), also from dplyr, turns a specific problematic value (in this case, 0) to NA 
 
 # Note 3: 
 #   Convert negative incomes to NA 
