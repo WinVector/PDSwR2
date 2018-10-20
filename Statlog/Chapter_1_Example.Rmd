@@ -1,0 +1,80 @@
+---
+title: "Chapter_1_Example"
+output: github_document
+---
+
+```{r build model}
+library("rpart")
+
+load("GCDData.RData")
+
+model <- rpart(Good_Loan ~ 
+                 Duration_in_month +
+                 Installment_rate_in_percentage_of_disposable_income +
+                 Credit_amount +
+                 Other_installment_plans,
+               data = d,
+               control = rpart.control(maxdept = 4),
+               method = "class")
+```
+
+```{r present_model}
+library("rpart.plot")
+
+print(model)
+
+rpart.plot(model)
+```
+
+```{r add_column}
+d$Loan.status <- d$Good_Loan
+```
+
+
+```{r example_1.1_of_section_1.2.4 }
+# example 1.1 of section 1.2.4 
+# (example 1.1 of section 1.2.4)  : The data science process : Stages of a data science project : Model evaluation and critique 
+# Title: Calculating the confusion matrix 
+
+conf_mat <- table(actual = d$Loan.status, pred = predict(model, type = 'class'))  	# Note: 1 
+conf_mat
+
+
+(accuracy <- sum(diag(conf_mat)) / sum(conf_mat))   	# Note: 2 
+
+(precision <- conf_mat["BadLoan", "BadLoan"] / sum(conf_mat[, "BadLoan"])) 	# Note: 3 
+
+(recall <- conf_mat["BadLoan", "BadLoan"] / sum(conf_mat["BadLoan", ])) 	# Note: 4 
+
+(fpr <- conf_mat["GoodLoan","BadLoan"] / sum(conf_mat["GoodLoan", ])) 	# Note: 5 
+
+
+# Note 1: 
+#   Create the confusion matrix. 
+
+# Note 2: 
+#   accuracy 
+#   confusion matrix 
+#   Overall model accuracy: 73% of the 
+#   predictions were correct. 
+
+# Note 3: 
+#   precision 
+#   confusion matrix 
+#   Model precision: 76% of the 
+#   applicants predicted as bad really did 
+#   default. 
+
+# Note 4: 
+#   recall 
+#   confusion matrix 
+#   Model recall: the model found 14% of 
+#   the defaulting loans. 
+
+# Note 5: 
+#   false positive rate 
+#   confusion matrix 
+#   False positive rate: 2% of the good 
+#   applicants were mistakenly identified as 
+#   bad. 
+```
