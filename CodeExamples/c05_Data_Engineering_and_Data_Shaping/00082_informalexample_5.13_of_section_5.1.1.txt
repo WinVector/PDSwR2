@@ -1,0 +1,11 @@
+# informalexample 5.13 of section 5.1.1 
+# (informalexample 5.13 of section 5.1.1)  : Data Engineering and Data Shaping : Data Selection : Subsetting Rows and Columns 
+
+##   Petal.Length Petal.Width    Species
+## 1          4.7         1.4 versicolor
+## 2          4.5         1.5 versicolor
+## 3          4.9         1.5 versicolor
+## 4          4.0         1.3 versicolor
+## 5          4.6         1.5 versicolor
+## 6          4.5         1.3 versicolor
+

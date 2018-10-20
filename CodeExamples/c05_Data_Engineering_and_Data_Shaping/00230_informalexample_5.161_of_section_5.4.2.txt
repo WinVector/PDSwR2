@@ -1,0 +1,7 @@
+# informalexample 5.161 of section 5.4.2 
+# (informalexample 5.161 of section 5.4.2)  : Data Engineering and Data Shaping : Multi Table Data Transforms : Princpled methods to combine data from multiple tables 
+
+##    bid ask bid_quantity ask_quantity when quote_time price quantity
+## 1:   5   6          100          100    3          2   5.5      100
+## 2:   8  10          100          100    9          7   9.0      200
+

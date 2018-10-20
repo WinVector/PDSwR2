@@ -1,0 +1,7 @@
+# informalexample 5.159 of section 5.4.2 
+# (informalexample 5.159 of section 5.4.2)  : Data Engineering and Data Shaping : Multi Table Data Transforms : Princpled methods to combine data from multiple tables 
+
+##    price quantity when
+## 1:   5.5      100    3
+## 2:   9.0      200    9
+

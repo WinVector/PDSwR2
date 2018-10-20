@@ -1,0 +1,16 @@
+# informalexample 6.7 of section 6.3.5 
+# (informalexample 6.7 of section 6.3.5)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Explaining the classifier's predictions 
+
+## $texts
+                                ##                                                                                                                                                                                                         test_12034 
+                                ##                                           "I don't know why I even watched this film. I think it was because I liked the idea of the scenery and was hoping the film would be as good. Very boring and pointless." 
+                                ##                                                                                                                                                                                                         test_10294 
+                                ## "To anyone who likes the TV series: forget the movie. The jokes are bad and some topics are much too sensitive to laugh about it.<br /><br />We have seen much better acting by R. Dueringer in \"Hinterholz 8\"." 
+                                ## 
+                                ## $labels
+                                ## test_12034 test_10294 
+                                ##          0          0 
+                                ## 
+                                ## $predictions
+                                ## [1] 0 1
+

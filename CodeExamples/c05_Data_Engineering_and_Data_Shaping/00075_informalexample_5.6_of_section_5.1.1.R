@@ -4,7 +4,6 @@
 columns_we_want <- c("Petal.Length", "Petal.Width", "Species")
 rows_we_want <- iris$Petal.Length > 2
 
-iris_base <- iris[rows_we_want, columns_we_want, drop = FALSE]
-
-head(iris_base)
+# before
+head(iris)
 

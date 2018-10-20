@@ -1,7 +1,12 @@
 # informalexample 5.128 of section 5.4.2 
 # (informalexample 5.128 of section 5.4.2)  : Data Engineering and Data Shaping : Multi Table Data Transforms : Princpled methods to combine data from multiple tables 
 
-library("dplyr")
+library("data.table")
 
-inner_join(productTable, salesTable, by="productID")
+productTable_data.table <- as.data.table(productTable)
+salesTable_data.table <- as.data.table(salesTable)
+
+# index notation for join
+# idea is rows are produced for each row inside the []
+salesTable_data.table[productTable_data.table, on = "productID"]
 

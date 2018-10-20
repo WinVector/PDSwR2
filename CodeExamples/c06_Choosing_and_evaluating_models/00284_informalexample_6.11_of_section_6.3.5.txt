@@ -1,0 +1,5 @@
+# informalexample 6.11 of section 6.3.5 
+# (informalexample 6.11 of section 6.3.5)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Explaining the classifier's predictions 
+
+## [1] 0.6052929
+

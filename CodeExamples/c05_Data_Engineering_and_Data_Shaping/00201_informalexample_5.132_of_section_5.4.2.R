@@ -3,9 +3,8 @@
 
 library("data.table")
 
-productTable_data.table <- as.data.table(productTable)
-salesTable_data.table <- as.data.table(salesTable)
-
-merge(productTable_data.table, salesTable_data.table, 
-      by="productID", all = TRUE)
+joint_table <- productTable
+joint_table$unitsSold <- salesTable$unitsSold[match(joint_table$productID, 
+                                                    salesTable$productID)]
+print(joint_table)
 

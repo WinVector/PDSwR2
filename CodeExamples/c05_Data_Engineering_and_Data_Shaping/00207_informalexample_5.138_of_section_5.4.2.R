@@ -6,6 +6,5 @@ library("data.table")
 productTable_data.table <- as.data.table(productTable)
 salesTable_data.table <- as.data.table(salesTable)
 
-merge(productTable_data.table, salesTable_data.table, 
-      by="productID", all.y = TRUE)
+merge(productTable, salesTable, by="productID")
 
