@@ -10,7 +10,7 @@ pkgs <- c(
     "randomForest", "readr", "readxls", "rmarkdown", "rpart",
     "rpart.plot",
     "rquery", "sigr", "sqldf", "tidyr", "vtreat", "wrapr",
-    "xgboost" )
+    "xgboost", "zoo" )
 install.packages(pkgs)
 
    
