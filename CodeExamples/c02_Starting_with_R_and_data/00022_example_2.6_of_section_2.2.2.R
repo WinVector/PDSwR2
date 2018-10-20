@@ -1,11 +1,11 @@
 # example 2.6 of section 2.2.2 
 # (example 2.6 of section 2.2.2)  : Starting with R and data : Working with data from files : Using R with less-structured data 
-# Title: Summary of Good.Loan and Purpose 
+# Title: Summary of Good_Loan and Purpose 
 
 setwd("PDSwR2/Statlog") 	# Note: 1 
 d <- readRDS("creditdata.RDS") 	# Note: 2 
 
-table(d$Purpose, d$Good.Loan) 
+table(d$Purpose, d$Good_Loan) 
                      
 ##                       BadLoan GoodLoan
 ##   business                 34       63

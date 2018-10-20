@@ -2,7 +2,7 @@
 # (example 3.1 of section 3.1)  : Exploring data : Using summary statistics to spot problems 
 # Title: The summary() command 
 
-setwd("PDSwR2/XXX") 	# Note: 1 
+setwd("PDSwR2/Custdata") 	# Note: 1 
 customer_data = readRDS("custdata.RDS")
 summary(customer_data)
 ##     custid              sex        is_employed       income       	# Note: 2 
@@ -39,7 +39,7 @@ summary(customer_data)
 ##                   (Other)     :42942   NA's   :1720
 
 # Note 1: 
-#   Change this to your actual path to the XXX directory where you unpacked PDSwR2 
+#   Change this to your actual path to the directory where you unpacked PDSwR2 
 
 # Note 2: 
 #   The variable is_employed is missing for 
