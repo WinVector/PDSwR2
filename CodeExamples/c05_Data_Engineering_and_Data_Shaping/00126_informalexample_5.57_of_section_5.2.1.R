@@ -2,10 +2,10 @@
 # (informalexample 5.57 of section 5.2.1)  : Data Engineering and Data Shaping : Basic Data Transforms : Add new columns 
 
 library("dplyr")
+library("zoo")
 
-airquality_with_date2 <- airquality %>%
-  mutate(., date = dmy(datestr(Day, Month, 1973))) %>%
-  select(., Ozone, date)
-
-head(airquality_with_date2)
+airquality_with_date %>% 
+  mutate(.,
+         OzoneCorrected = na.locf(., na.rm = FALSE)) %>% 
+  summary(.)
 
