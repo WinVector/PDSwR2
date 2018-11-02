@@ -1,7 +1,9 @@
 # informalexample 5.60 of section 5.2.3 
 # (informalexample 5.60 of section 5.2.3)  : Data Engineering and Data Shaping : Basic Data Transforms : Parametric programming 
 
-d <- data.frame(x = 1:2, y = 3:4, zero = 5:6)
+library("dplyr")
+d <- data.frame(x = 1:2, y = 3:4)
 
-print(d$x)
+x <- "y"
+d %>% select(., x)
 

@@ -3,5 +3,5 @@
 
 library("dplyr")
 
-left_join(productTable, salesTable, by="productID")
+full_join(productTable, salesTable, by="productID")
 

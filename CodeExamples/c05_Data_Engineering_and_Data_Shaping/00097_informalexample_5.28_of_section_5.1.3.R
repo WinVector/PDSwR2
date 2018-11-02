@@ -3,9 +3,15 @@
 
 library("data.table")
 
-DT_ordered <- as.data.table(data)
+DT_purchases <- as.data.table(purchases)
 
-# similar to base-R solution
-order_index <- with(DT_ordered, order(x, y, decreasing = TRUE))
-DT_ordered[order_index, ]
+order_cols <- c("day", "hour") 	# Note: 1 
+setorderv(DT_purchases, order_cols)
+
+DT_purchases[ , running_total := cumsum(n_purchase)]
+
+# print(DT_purchases)
+
+# Note 1: 
+#   re-order data 
 

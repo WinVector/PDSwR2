@@ -1,32 +1,19 @@
 # informalexample 5.92 of section 5.4.1 
 # (informalexample 5.92 of section 5.4.1)  : Data Engineering and Data Shaping : Multi Table Data Transforms : Combining two or more ordered data.frames quickly 
 
-productTable <- wrapr::build_frame(
-   "productID", "price" |
-   "p1"       , 9.99    |
-   "p2"       , 16.29   |
-   "p3"       , 19.99   |
-   "p4"       , 5.49    |
-   "p5"       , 24.49   )
+library("data.table")
 
+# convert to data.table
+dt <- as.data.table(rbind_base)
 
-salesTable <- wrapr::build_frame(
-   "productID", "sold_store", "sold_online" |
-   "p1"       , 6           , 64            |
-   "p2"       , 31          , 1             |
-   "p3"       , 30          , 23            |
-   "p4"       , 31          , 67            |
-   "p5"       , 43          , 51            )
+# arbitrary user defined function
+f <- function(.BY, .SD) {
+  max(.SD$price)
+}
 
-productTable2 <- wrapr::build_frame(
-   "productID", "price" |
-   "n1"       , 25.49   |
-   "n2"       , 33.99   |
-   "n3"       , 17.99   )
+# apply the function to each group
+# and collect results
+dt[ , max_price := f(.BY, .SD), by = table]
 
-# often data as factor columns,
-# convert a column to factor to demonstrate 
-# workint with such columns
-productTable$productID <- factor(productTable$productID)
-productTable2$productID <- factor(productTable2$productID)
+print(dt)
 

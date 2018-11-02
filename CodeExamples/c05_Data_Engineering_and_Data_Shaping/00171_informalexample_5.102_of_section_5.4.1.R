@@ -1,7 +1,8 @@
 # informalexample 5.102 of section 5.4.1 
 # (informalexample 5.102 of section 5.4.1)  : Data Engineering and Data Shaping : Multi Table Data Transforms : Combining two or more ordered data.frames quickly 
 
-# split them apart
-tables <- split(rbind_base, rbind_base$table)
-tables
+library("dplyr")
+
+# list of data frames calling convention
+dplyr::bind_cols(list(productTable, salesTable[,-1]))
 

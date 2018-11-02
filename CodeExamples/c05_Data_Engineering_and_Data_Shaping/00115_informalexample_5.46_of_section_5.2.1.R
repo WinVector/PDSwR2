@@ -1,11 +1,11 @@
 # informalexample 5.46 of section 5.2.1 
 # (informalexample 5.46 of section 5.2.1)  : Data Engineering and Data Shaping : Basic Data Transforms : Add new columns 
 
-library("lubridate")
-library("ggplot2")
+library("dplyr")
+library("zoo")
 
-# create a function to make the date string.
-datestr = function(day, month, year) {
-  paste(day, month, year, sep="-")
-}
+airquality_with_date %>% 
+  mutate(.,
+         OzoneCorrected = na.locf(., na.rm = FALSE)) %>% 
+  summary(.)
 
