@@ -16,8 +16,8 @@ iris_data.table
 ## 2: versicolor        4.260       1.326
 ## 3:  virginica        5.552       2.026
 
-ggplot(mapping = aes(x=Petal.Length, y=Petal.Width, 
-                     shape=Species, color=Species)) + 
+ggplot(mapping = aes(x = Petal.Length, y = Petal.Width, 
+                     shape = Species, color = Species)) + 
   geom_point(data = iris, # raw data
              alpha = 0.5) + 
   geom_point(data = iris_data.table, # per-group summaries

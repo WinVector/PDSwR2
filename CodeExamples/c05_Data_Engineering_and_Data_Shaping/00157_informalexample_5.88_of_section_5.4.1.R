@@ -1,5 +1,5 @@
 # informalexample 5.88 of section 5.4.1 
-# (informalexample 5.88 of section 5.4.1)  : Data Engineering and Data Shaping : Multi Table Data Transforms : Combining two or more ordered data.frames quickly 
+# (informalexample 5.88 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
 
 # add an extra column telling us which table
 # each row comes from

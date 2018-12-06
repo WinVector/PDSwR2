@@ -4,7 +4,7 @@
 library("cdata")
 
 seatbelts_long3 <- unpivot_to_blocks(
-  seatbelts, 
+  Seatbelts, 
   nameForNewKeyColumn = "victim_type", 
   nameForNewValueColumn = "nvictims", 
   columnsToTakeFrom = c("DriversKilled", "front", "rear"))

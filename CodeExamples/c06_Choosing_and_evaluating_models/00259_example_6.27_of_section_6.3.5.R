@@ -1,5 +1,5 @@
-# example 6.24 of section 6.3.5 
-# (example 6.24 of section 6.3.5)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Explaining the classifier's predictions 
+# example 6.27 of section 6.3.5 
+# (example 6.27 of section 6.3.5)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Explaining the classifier's predictions 
 # Title: Examining two more reviews 
 
 casenames <-  c("test_12034", "test_10294")
@@ -26,7 +26,7 @@ list(texts = sample_cases,
 ## $predictions             	# Note: 2 
 ## [1] 0 1
                        
-explanation <- lime::explain(sample_case, 
+explanation <- lime::explain(sample_cases, 
                                     explainer, 
                                     n_labels = 1, 
                                     n_features = 5)

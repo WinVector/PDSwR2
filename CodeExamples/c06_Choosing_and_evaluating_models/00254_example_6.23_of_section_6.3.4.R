@@ -1,5 +1,5 @@
-# example 6.20 of section 6.3.4 
-# (example 6.20 of section 6.3.4)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Train the text classifier 
+# example 6.23 of section 6.3.4 
+# (example 6.23 of section 6.3.4)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Train the text classifier 
 # Title: Evaluate the review classifier 
 
 c(test_txt, test_labels) %<-%  readRDS("IMDBtest.RDS") 	# Note: 1 

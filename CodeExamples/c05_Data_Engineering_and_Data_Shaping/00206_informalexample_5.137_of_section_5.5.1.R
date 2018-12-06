@@ -4,7 +4,7 @@
 library("tidyr")
 
 seatbelts_long1 <- gather(
-  seatbelts, 
+  Seatbelts, 
   key = victim_type, 
   value = nvictims, 
   DriversKilled, front, rear)

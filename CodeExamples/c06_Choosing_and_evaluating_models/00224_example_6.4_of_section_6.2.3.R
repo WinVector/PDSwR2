@@ -6,7 +6,7 @@ confmat_akismet <- as.table(matrix(data=c(288-1,17,1,13882-17),nrow=2,ncol=2))
 rownames(confmat_akismet) <- rownames(confmat_spam)
 colnames(confmat_akismet) <- colnames(confmat_spam)
 print(confmat_akismet)
-##          FALSE  TRUE
+##       non-spam  spam
 ## non-spam   287     1
 ## spam        17 13865
 

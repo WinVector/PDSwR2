@@ -1,5 +1,5 @@
-# example 6.9 of section 6.2.5 
-# (example 6.9 of section 6.2.5)  : Choosing and evaluating models : Evaluating models : Evaluating probability models 
+# example 6.12 of section 6.2.5 
+# (example 6.12 of section 6.2.5)  : Choosing and evaluating models : Evaluating models : Evaluating probability models 
 # Title: Computing the null model’s log likelihood 
 
 (pNull <- mean(spamTrain$spam == 'spam'))

@@ -4,8 +4,8 @@
 # let's give an example of the kind of graph we have in mind, using just driver deaths
 library("ggplot2")
 
-ggplot(seatbelts, 
-       aes(x=date, y=DriversKilled, color=law, shape=law)) + 
+ggplot(Seatbelts, 
+       aes(x = date, y = DriversKilled, color = law, shape = law)) + 
   geom_point() + 
   geom_smooth(se=FALSE) + 
   ggtitle("UK car driver deaths by month")

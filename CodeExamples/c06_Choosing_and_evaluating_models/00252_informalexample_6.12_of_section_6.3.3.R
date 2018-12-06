@@ -1,5 +1,5 @@
-# informalexample 6.13 of section 6.3.3 
-# (informalexample 6.13 of section 6.3.3)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : LIME for Text Classification 
+# informalexample 6.12 of section 6.3.3 
+# (informalexample 6.12 of section 6.3.3)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : LIME for Text Classification 
 
 list(text = texts[12], label = labels[12])
 ## $text

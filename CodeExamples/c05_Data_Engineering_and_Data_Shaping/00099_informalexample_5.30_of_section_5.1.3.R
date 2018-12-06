@@ -13,7 +13,7 @@ data_list <- lapply( 	# Note: 3
     di
   })
 
-purchases_ordered <- do.call(rbind, data_list) 	# Note: 4 
+purchases_ordered <- do.call(base::rbind, data_list) 	# Note: 4 
 rownames(purchases_ordered) <- NULL 	# Note: 5 
 
 purchases_ordered

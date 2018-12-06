@@ -14,8 +14,8 @@ ChickSummary$q2_weight[ChickSummary$measurement=="count"] <- NA
 CW <- ChickWeight
 CW$measurement <- "weight"
 
-ggplot(ChickSummary, aes(x=Time, y=value, color=measurement)) + 	# Note: 3 
-  geom_line(data = CW, aes(x=Time, y=weight, group=Chick),
+ggplot(ChickSummary, aes(x = Time, y = value, color = measurement)) + 	# Note: 3 
+  geom_line(data = CW, aes(x = Time, y = weight, group = Chick),
             color="LightGray") +
   geom_line(size=2) + 
   geom_ribbon(aes(ymin = q1_weight, ymax = q2_weight), 

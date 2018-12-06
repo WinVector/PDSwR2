@@ -1,5 +1,5 @@
 # informalexample 5.87 of section 5.4.1 
-# (informalexample 5.87 of section 5.4.1)  : Data Engineering and Data Shaping : Multi Table Data Transforms : Combining two or more ordered data.frames quickly 
+# (informalexample 5.87 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
 
 ## Warning in bind_rows_(x, .id): Unequal factor levels: coercing to character
 

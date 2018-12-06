@@ -1,5 +1,5 @@
-# example 6.11 of section 6.3.2 
-# (example 6.11 of section 6.3.2)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Walking through LIME: a small example 
+# example 6.14 of section 6.3.2 
+# (example 6.14 of section 6.3.2)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Walking through LIME: a small example 
 # Title: Load the iris dataset 
 
 iris <- iris
@@ -25,5 +25,5 @@ head(train)
 #   Setosa is the positive class. 
 
 # Note 2: 
-#   Use 75% of the data for training, the remainder as holdout. 
+#   Use 75% of the data for training, the remainder as holdout (i.e. test data). 
 

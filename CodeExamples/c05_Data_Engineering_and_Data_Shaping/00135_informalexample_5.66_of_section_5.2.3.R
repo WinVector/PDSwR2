@@ -3,7 +3,7 @@
 
 library("dplyr")
 
-d <- data.frame(x = 1:2, y = 3:4, z= 5:6)
+d <- data.frame(x = 1:2, y = 3:4, z = 5:6)
 aliases = c(NEW_COL_NAME = "q",
             ARG1_NAME    = "x",
             ARG2_NAME    = "y")

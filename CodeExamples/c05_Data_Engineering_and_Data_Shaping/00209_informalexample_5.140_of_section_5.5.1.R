@@ -4,7 +4,7 @@
 library("data.table")
 
 seatbelts_long2 <- 
-  melt.data.table(as.data.table(seatbelts),
+  melt.data.table(as.data.table(Seatbelts),
                   id.vars = NULL,
                   measure.vars = c("DriversKilled", "front", "rear"),
                   variable.name = "victim_type", 

@@ -1,5 +1,5 @@
-# example 6.10 of section 6.2.5 
-# (example 6.10 of section 6.2.5)  : Choosing and evaluating models : Evaluating models : Evaluating probability models 
+# example 6.13 of section 6.2.5 
+# (example 6.13 of section 6.2.5)  : Choosing and evaluating models : Evaluating models : Evaluating probability models 
 # Title: Computing the deviance and pseudo R-squared 
 
 library(sigr)

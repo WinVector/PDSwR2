@@ -1,10 +1,10 @@
 # informalexample 5.111 of section 5.4.2 
-# (informalexample 5.111 of section 5.4.2)  : Data Engineering and Data Shaping : Multi Table Data Transforms : Principled methods to combine data from multiple tables 
+# (informalexample 5.111 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
 
 library("data.table")
 
-joint_table <- productTable
-joint_table$unitsSold <- salesTable$unitsSold[match(joint_table$productID, 
+joined_table <- productTable
+joined_table$unitsSold <- salesTable$unitsSold[match(joined_table$productID, 
                                                     salesTable$productID)]
-print(joint_table)
+print(joined_table)
 

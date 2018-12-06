@@ -3,7 +3,7 @@
 
 library("data.table")
 
-d <- data.table(x = 1:2, y = 3:4, z= 5:6) 	# Note: 1 
+d <- data.table(x = 1:2, y = 3:4, z = 5:6) 	# Note: 1 
 
 COLS_WE_WANT <- c("x", "y") 	# Note: 2 
 

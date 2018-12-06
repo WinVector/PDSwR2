@@ -1,5 +1,5 @@
-# example 6.18 of section 6.3.3 
-# (example 6.18 of section 6.3.3)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : LIME for Text Classification 
+# example 6.21 of section 6.3.3 
+# (example 6.21 of section 6.3.3)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : LIME for Text Classification 
 # Title: Loading the IMDB training data 
 
 library(zeallot) 	# Note: 1 

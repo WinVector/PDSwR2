@@ -1,5 +1,5 @@
-# example 6.8 of section 6.2.5 
-# (example 6.8 of section 6.2.5)  : Choosing and evaluating models : Evaluating models : Evaluating probability models 
+# example 6.11 of section 6.2.5 
+# (example 6.11 of section 6.2.5)  : Choosing and evaluating models : Evaluating models : Evaluating probability models 
 # Title: Calculating log likelihood 
 
 ylogpy <- function(y, py) {           	# Note: 1 

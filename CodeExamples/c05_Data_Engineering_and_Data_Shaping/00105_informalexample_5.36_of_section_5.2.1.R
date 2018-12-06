@@ -20,7 +20,7 @@ head(airquality_with_date) 	# Note: 4
 ## 5    NA 1973-05-05
 ## 6    28 1973-05-06        
 
-ggplot(airquality_with_date, aes(x=date, y=Ozone)) + 	# Note: 5 
+ggplot(airquality_with_date, aes(x = date, y = Ozone)) + 	# Note: 5 
   geom_point() + 
   geom_line() + 
   xlab("Date") +

@@ -1,5 +1,5 @@
-# example 6.19 of section 6.3.4 
-# (example 6.19 of section 6.3.4)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Train the text classifier 
+# example 6.22 of section 6.3.4 
+# (example 6.22 of section 6.3.4)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Train the text classifier 
 # Title: Convert the texts and fit the model 
 
 source("lime_imdb_example.R")

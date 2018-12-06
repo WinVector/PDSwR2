@@ -1,5 +1,5 @@
-# example 6.17 of section 6.3.2 
-# (example 6.17 of section 6.3.2)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Walking through LIME: a small example 
+# example 6.20 of section 6.3.2 
+# (example 6.20 of section 6.3.2)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Walking through LIME: a small example 
 # Title: More iris examples 
 
 (example <- test[c(13, 24), 1:4]) 
