@@ -1,0 +1,111 @@
+
+From PracticalDataScienceWithR2nd/PDSwR2/PUMS/ss16pus.RDS
+
+Making the subset of data used for Chapter 8 Linear regression example scenario
+
+* Restrict data to full-time employees between 20 and 50 years of age,
+with income between $1000 and #250,000
+
+From Data Dictionary
+
+* PINCP = total person income
+* ESR = employment status recode
+* PERNP = total person's earnings
+* WKHP = usual hours worked per week over the last 12 months
+* AGEP = age
+* SCHL = educational attainment. 
+* SEX = sex.
+* COW = class of worker
+
+```{r}
+dpus = readRDS("ss16pus.RDS")
+dim(dpus)
+
+# change the numeric columns to numeric
+for(col in c('PINCP', 'PERNP', 'WKHP', 'AGEP')) {
+  dpus[[col]] = as.numeric(dpus[[col]])
+}
+
+summary(dpus[, wrapr::qc(ESR, PINCP, PERNP, WKHP, AGEP, COW, SCHL)])
+
+# build indicator for a very restricted subset
+dpus$stdworker <- with(dpus,
+                       (ESR == "Civilian employed, at work") &   
+                       (PINCP > 1000) & (PINCP<=250000) &  # personal income between $1000 - $250,000
+                       (PERNP > 1000) & (PERNP<=250000) &  # total earnings between $1000 - $250,000
+                       (!is.na(WKHP)) & (WKHP >= 40) &                     # full time (more than 40 hrs/week)
+                       (AGEP >= 20) & (AGEP <= 50) &      # between 20 and 50 years old
+                       (!(COW %in% c("Unemployed and last worked 5 years ago or earlier or never worked",
+                                     "Working without pay in family business or farm"))) &
+                       (!is.na(COW)) &
+                       (!is.na(SCHL)) )    
+
+# get a very restricted subset
+psub = subset(dpus, stdworker)  
+dim(psub)
+```
+
+
+Fix up factors
+
+```{r}
+
+# mostly to make this consistent with already existing code.
+psub$SEX <- relevel(as.factor(psub$SEX),'Male')
+
+# make the class of worker categories shorter
+summary(as.factor(psub$COW))
+
+(existingCOW <- sort(unique(psub$COW)) )
+(shorterCOW <- c("Employee of a private for profit",
+               "Private not-for-profit employee",
+               "Federal government employee",
+               "Local government employee",
+               "Self employed incorporated",
+               "Self employed not incorporated",
+               "State government employee"
+               ) )
+
+names(shorterCOW) <- existingCOW; print(shorterCOW)
+psub$COW <- as.factor(shorterCOW[psub$COW])
+summary(psub$COW)
+
+# simplify the educational levels
+summary(as.factor(psub$SCHL))
+
+(existingSCHL <- sort(unique(psub$SCHL)) )
+(shorterSCHL <- c( c("some college credit, no degree",
+                     "no high school diploma",
+                     "Associate's degree",
+                     "Bachelor's degree",
+                     "Doctorate degree",
+                     "GED or alternative credential"),
+                   rep("no high school diploma", 12),
+                   c("Master's degree",
+                     "no high school diploma",
+                     "no high school diploma",
+                     "Professional degree",
+                     "Regular high school diploma",
+                     "some college credit, no degree")) )
+names(shorterSCHL) <- existingSCHL; print(shorterSCHL)
+
+SCHLlevels  <- c(
+   "no high school diploma",
+  "Regular high school diploma",
+  "GED or alternative credential",
+  "some college credit, no degree",
+  "Associate's degree",
+  "Bachelor's degree",
+  "Master's degree",
+  "Professional degree",
+  "Doctorate degree")
+
+shorter <- shorterSCHL[psub$SCHL]
+
+psub$SCHL <- factor(shorter, levels=SCHLlevels)
+summary(psub$SCHL)
+
+# get a very restricted subset
+saveRDS(psub, "psub.RDS")
+
+```
