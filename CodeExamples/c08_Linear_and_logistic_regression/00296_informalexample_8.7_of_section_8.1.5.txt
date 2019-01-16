@@ -2,6 +2,6 @@
 # (informalexample 8.7 of section 8.1.5)  : Linear and logistic regression : Using linear regression : Reading the model summary and characterizing coefficient quality 
 
 Residuals:
-     Min       1Q   Median       3Q      Max
--1.29220 -0.14153  0.02458  0.17632  0.62532
+    Min      1Q  Median      3Q     Max 
+-1.5038 -0.1354  0.0187  0.1710  0.9741
 

@@ -2,23 +2,17 @@
 # (example 8.18 of section 8.2.5)  : Linear and logistic regression : Using logistic regression : Reading the model summary and characterizing coefficients 
 # Title: Calculating the significance of the observed fit 
 
-df.null <- dim(train)[[1]] - 1                            	# Note: 1 
-df.model <- dim(train)[[1]] - length(model$coefficients)  	# Note: 2 
-
-df.null
+( df.null <- dim(train)[[1]] - 1  )                          	# Note: 1 
 ## [1] 14211
-df.model
+
+( df.model <- dim(train)[[1]] - length(model$coefficients) ) 	# Note: 2 
 ## [1] 14198
 
-delDev <- null.dev - resid.dev                            	# Note: 3 
-deldf <- df.null - df.model
-p <- pchisq(delDev, deldf, lower.tail=F)                  	# Note: 4 
-
-delDev
+( delDev <- null.dev - resid.dev )                           	# Note: 3 
 ## [1] 235.724
-deldf
+( deldf <- df.null - df.model )
 ## [1] 13
-p
+( p <- pchisq(delDev, deldf, lower.tail=F) )                 	# Note: 4 
 ## [1] 5.84896e-43
 
 # Note 1: 

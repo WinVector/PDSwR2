@@ -3,7 +3,7 @@
 # Title: Building the model formula 
 
 complications <- c("ULD_MECO","ULD_PRECIP","ULD_BREECH")
- riskfactors <- c("URF_DIAB", "URF_CHYPER", "URF_PHYPER",
+riskfactors <- c("URF_DIAB", "URF_CHYPER", "URF_PHYPER",
                 "URF_ECLAM")
 y <- "atRisk"
 x <- c("PWGT",
@@ -13,5 +13,6 @@ x <- c("PWGT",
       "DPLURAL",
       complications,
       riskfactors)
-fmla <- paste(y, paste(x, collapse="+"), sep="~")
+library(wrapr)
+fmla <- mk_formula(y, x)
 

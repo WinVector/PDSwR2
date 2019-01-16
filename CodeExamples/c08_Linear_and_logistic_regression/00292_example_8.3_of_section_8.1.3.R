@@ -4,8 +4,7 @@
 
 ggplot(data=dtest,aes(x=predLogPINCP,
                      y=predLogPINCP-log(PINCP,base=10))) +
-  geom_point(alpha=0.2,color="black") +
-  geom_smooth(aes(x=predLogPINCP,
-                  y=predLogPINCP-log(PINCP,base=10)),
-                  color="black")
+  geom_point(alpha=0.2,color="darkgray") +
+  geom_smooth(color="darkblue") + 
+  ylab("residual error (prediction - actual)")
 

@@ -3,9 +3,10 @@
 # Title: Summarizing residuals 
 
 summary(log(dtrain$PINCP,base=10) - predict(model,newdata=dtrain))
-##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max.
-## -1.29200 -0.14150  0.02458  0.00000  0.17630  0.62530
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -1.5038 -0.1354  0.0187  0.0000  0.1710  0.9741
+
 summary(log(dtest$PINCP,base=10) - predict(model,newdata=dtest))
-##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max.
-## -1.494000 -0.165300  0.018920 -0.004637  0.175500  0.868100
+##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+## -1.789150 -0.130733  0.027413  0.006359  0.175847  0.912646
 

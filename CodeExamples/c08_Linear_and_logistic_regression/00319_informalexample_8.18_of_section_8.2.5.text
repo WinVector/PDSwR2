@@ -1,0 +1,5 @@
+# informalexample 8.18 of section 8.2.5 
+# (informalexample 8.18 of section 8.2.5)  : Linear and logistic regression : Using logistic regression : Reading the model summary and characterizing coefficients 
+
+df.null =  dim(train)[[1]] - 1
+

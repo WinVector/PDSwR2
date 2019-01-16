@@ -1,5 +1,5 @@
-# example 8.14 of section 8.2.4 
-# (example 8.14 of section 8.2.4)  : Linear and logistic regression : Using logistic regression : Finding relations and extracting advice from logistic models 
+# example 8.15 of section 8.2.4 
+# (example 8.15 of section 8.2.4)  : Linear and logistic regression : Using logistic regression : Finding relations and extracting advice from logistic models 
 # Title: The model coefficients 
 
 coefficients(model)

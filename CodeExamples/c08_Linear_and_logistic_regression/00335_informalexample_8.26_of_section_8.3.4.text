@@ -1,0 +1,6 @@
+# informalexample 8.26 of section 8.3.4 
+# (informalexample 8.26 of section 8.3.4)  : Linear and logistic regression : Regularization : Elastic Net 
+
+(1 - alpha) * (b[1]^2 + ...  + b[n]^2) + 
+    alpha * (|b[1]| + |b[2]| + .... |b[n]|)
+

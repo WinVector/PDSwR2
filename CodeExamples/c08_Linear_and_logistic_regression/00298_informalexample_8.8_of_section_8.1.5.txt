@@ -1,7 +1,7 @@
 # informalexample 8.8 of section 8.1.5 
 # (informalexample 8.8 of section 8.1.5)  : Linear and logistic regression : Using linear regression : Reading the model summary and characterizing coefficient quality 
 
-Residual standard error: 0.2691 on 578 degrees of freedom
-Multiple R-squared: 0.3383,     Adjusted R-squared: 0.3199
-F-statistic: 18.47 on 16 and 578 DF,  p-value: < 2.2e-16
+Residual standard error: 0.2688 on 11186 degrees of freedom
+Multiple R-squared:  0.2976,	Adjusted R-squared:  0.2966 
+F-statistic: 296.2 on 16 and 11186 DF,  p-value: < 2.2e-16
 

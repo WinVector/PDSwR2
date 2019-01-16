@@ -1,0 +1,5 @@
+# informalexample 8.25 of section 8.3.3 
+# (informalexample 8.25 of section 8.3.3)  : Linear and logistic regression : Regularization : Lasso Regression 
+
+(y - f(x))^2 + lambda * (|b[1]| + |b[2]| + .... |b[n]|)
+
