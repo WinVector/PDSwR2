@@ -1,5 +1,5 @@
-# example 7.12 of section 7.3.1 
-# (example 7.12 of section 7.3.1)  : Memorization methods : Building models using many variables : Variable selection 
+# example 7.15 of section 7.3.1 
+# (example 7.15 of section 7.3.1)  : Advanced Data Preparation : Building models using many variables : Variable selection 
 # Title: Selected categorical and numeric variables 
 
 ## [1] "predVar194, calibrationScore: 5.25759"

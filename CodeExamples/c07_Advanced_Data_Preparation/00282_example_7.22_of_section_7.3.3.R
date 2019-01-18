@@ -1,5 +1,5 @@
-# example 7.19 of section 7.3.3 
-# (example 7.19 of section 7.3.3)  : Memorization methods : Building models using many variables : Using nearest neighbor methods 
+# example 7.22 of section 7.3.3 
+# (example 7.22 of section 7.3.3)  : Advanced Data Preparation : Building models using many variables : Using nearest neighbor methods 
 # Title: Running k-nearest neighbors 
 
 library('class')
@@ -7,7 +7,7 @@ nK <- 200
 knnTrain <- dTrain[,selVars]  	# Note: 1 
 knnCl <- dTrain[,outcome]==pos 	# Note: 2 
 knnPred <- function(df) { 	# Note: 3 
-    knnDecision <- knn(knnTrain,df,knnCl,k=nK,prob=T)
+    knnDecision <- knn(knnTrain,df,knnCl,k=nK,prob=TRUE)
     ifelse(knnDecision==TRUE, 	# Note: 4 
        attributes(knnDecision)$prob,
        1-(attributes(knnDecision)$prob))

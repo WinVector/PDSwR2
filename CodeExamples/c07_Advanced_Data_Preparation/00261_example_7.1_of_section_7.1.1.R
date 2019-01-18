@@ -1,19 +1,19 @@
 # example 7.1 of section 7.1.1 
-# (example 7.1 of section 7.1.1)  : Memorization methods : KDD and KDD Cup 2009 : Getting started with KDD Cup 2009 data 
+# (example 7.1 of section 7.1.1)  : Advanced Data Preparation : KDD and KDD Cup 2009 : Getting started with KDD Cup 2009 data 
 # Title: Preparing the KDD data for analysis 
 
 d <- read.table('orange_small_train.data.gz',  	# Note: 1 
-   header=T,
+   header=TRUE,
    sep='\t',
    na.strings=c('NA','')) 	# Note: 2 
 churn <- read.table('orange_small_train_churn.labels.txt',
-   header=F,sep='\t') 	# Note: 3 
+   header=FALSE,sep='\t') 	# Note: 3 
 d$churn <- churn$V1 	# Note: 4 
 appetency <- read.table('orange_small_train_appetency.labels.txt',
-   header=F,sep='\t')
+   header=FALSE,sep='\t')
 d$appetency <- appetency$V1 	# Note: 5 
 upselling <- read.table('orange_small_train_upselling.labels.txt',
-   header=F,sep='\t')
+   header=FALSE,sep='\t')
 d$upselling <- upselling$V1 	# Note: 6 
 set.seed(729375) 	# Note: 7 
 d$rgroup <- runif(dim(d)[[1]])

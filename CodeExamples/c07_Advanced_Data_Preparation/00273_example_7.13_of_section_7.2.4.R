@@ -1,5 +1,5 @@
-# example 7.10 of section 7.2.3 
-# (example 7.10 of section 7.2.3)  : Memorization methods : Building single-variable models : Using cross-validation to estimate effects of overfitting 
+# example 7.13 of section 7.2.4 
+# (example 7.13 of section 7.2.4)  : Advanced Data Preparation : Building single-variable models : Using cross-validation to estimate effects of overfitting 
 # Title: Empirically cross-validating performance 
 
 fCross <- function() {

@@ -1,5 +1,5 @@
-# example 7.21 of section 7.3.3 
-# (example 7.21 of section 7.3.3)  : Memorization methods : Building models using many variables : Using nearest neighbor methods 
+# example 7.24 of section 7.3.3 
+# (example 7.24 of section 7.3.3)  : Advanced Data Preparation : Building models using many variables : Using nearest neighbor methods 
 # Title: Plotting the receiver operating characteristic curve 
 
 plotROC <- function(predcol,outcol) {

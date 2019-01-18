@@ -1,5 +1,5 @@
-# example 7.11 of section 7.3.1 
-# (example 7.11 of section 7.3.1)  : Memorization methods : Building models using many variables : Variable selection 
+# example 7.14 of section 7.3.1 
+# (example 7.14 of section 7.3.1)  : Advanced Data Preparation : Building models using many variables : Variable selection 
 # Title: Basic variable selection 
 
 #    Each variable we use represents a chance of explaining

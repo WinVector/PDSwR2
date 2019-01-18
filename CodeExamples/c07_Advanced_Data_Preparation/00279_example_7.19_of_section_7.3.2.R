@@ -1,5 +1,5 @@
-# example 7.16 of section 7.3.2 
-# (example 7.16 of section 7.3.2)  : Memorization methods : Building models using many variables : Using decision trees 
+# example 7.19 of section 7.3.2 
+# (example 7.19 of section 7.3.2)  : Advanced Data Preparation : Building models using many variables : Using decision trees 
 # Title: Building a better decision tree 
 
 f <- paste(outcome,'>0 ~ ',paste(selVars,collapse=' + '),sep='')

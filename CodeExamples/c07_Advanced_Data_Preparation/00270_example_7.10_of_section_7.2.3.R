@@ -1,10 +1,10 @@
-# example 7.7 of section 7.2.2 
-# (example 7.7 of section 7.2.2)  : Memorization methods : Building single-variable models : Using numeric features 
+# example 7.10 of section 7.2.3 
+# (example 7.10 of section 7.2.3)  : Advanced Data Preparation : Building single-variable models : Using numeric features 
 # Title: Scoring numeric variables by AUC 
 
 mkPredN <- function(outCol,varCol,appCol) {
    cuts <- unique(as.numeric(quantile(varCol,
-      probs=seq(0, 1, 0.1),na.rm=T)))
+      probs=seq(0, 1, 0.1),na.rm=TRUE)))
    varC <- cut(varCol,cuts)
    appC <- cut(appCol,cuts)
    mkPredC(outCol,varC,appC)
