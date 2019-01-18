@@ -1,5 +1,5 @@
-# example 7.2 of section 7.2.1 
-# (example 7.2 of section 7.2.1)  : Advanced Data Preparation : Building single-variable models : Characterizing the outcome 
+# example 7.2 of section 7.3.1 
+# (example 7.2 of section 7.3.1)  : Advanced Data Preparation : Building single-variable models : Characterizing the outcome 
 # Title: Plotting the distribution of churn 
 
 table(

@@ -1,5 +1,5 @@
-# example 7.1 of section 7.1.1 
-# (example 7.1 of section 7.1.1)  : Advanced Data Preparation : KDD and KDD Cup 2009 : Getting started with KDD Cup 2009 data 
+# example 7.1 of section 7.2.1 
+# (example 7.1 of section 7.2.1)  : Advanced Data Preparation : KDD and KDD Cup 2009 : Getting started with KDD Cup 2009 data 
 # Title: Preparing the KDD data for analysis 
 
 d <- read.table('orange_small_train.data.gz',  	# Note: 1 

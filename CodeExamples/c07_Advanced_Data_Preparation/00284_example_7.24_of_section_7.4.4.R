@@ -1,5 +1,5 @@
-# example 7.26 of section 7.3.4 
-# (example 7.26 of section 7.3.4)  : Advanced Data Preparation : Building models using many variables : Using Naive Bayes 
+# example 7.24 of section 7.4.4 
+# (example 7.24 of section 7.4.4)  : Advanced Data Preparation : Building models using many variables : Using Naive Bayes 
 # Title: Building, applying, and evaluating a Naive Bayes model 
 
 pPos <- sum(dTrain[,outcome]==pos)/length(dTrain[,outcome])

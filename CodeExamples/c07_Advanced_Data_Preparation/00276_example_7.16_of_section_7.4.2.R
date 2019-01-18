@@ -1,5 +1,5 @@
-# example 7.18 of section 7.3.2 
-# (example 7.18 of section 7.3.2)  : Advanced Data Preparation : Building models using many variables : Using decision trees 
+# example 7.16 of section 7.4.2 
+# (example 7.16 of section 7.4.2)  : Advanced Data Preparation : Building models using many variables : Using decision trees 
 # Title: Building yet another bad decision tree 
 
 tmodel <- rpart(fV2,data=dTrain,

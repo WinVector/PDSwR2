@@ -1,5 +1,5 @@
-# example 7.25 of section 7.3.3 
-# (example 7.25 of section 7.3.3)  : Advanced Data Preparation : Building models using many variables : Using nearest neighbor methods 
+# example 7.23 of section 7.4.3 
+# (example 7.23 of section 7.4.3)  : Advanced Data Preparation : Building models using many variables : Using nearest neighbor methods 
 # Title: Plotting the performance of a logistic regression model 
 
 gmodel <- glm(as.formula(f),data=dTrain,family=binomial(link='logit'))

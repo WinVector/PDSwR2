@@ -1,5 +1,5 @@
-# example 7.27 of section 7.3.4 
-# (example 7.27 of section 7.3.4)  : Advanced Data Preparation : Building models using many variables : Using Naive Bayes 
+# example 7.25 of section 7.4.4 
+# (example 7.25 of section 7.4.4)  : Advanced Data Preparation : Building models using many variables : Using Naive Bayes 
 # Title: Using a Naive Bayes package 
 
 library('e1071')

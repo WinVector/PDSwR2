@@ -1,5 +1,5 @@
-# example 7.4 of section 7.2.2 
-# (example 7.4 of section 7.2.2)  : Advanced Data Preparation : Building single-variable models : Using categorical features 
+# example 7.4 of section 7.3.2 
+# (example 7.4 of section 7.3.2)  : Advanced Data Preparation : Building single-variable models : Building single variable models from categorical features 
 # Title: Churn rates grouped by variable 218 codes 
 
 table218[, 2]/sum(table218)

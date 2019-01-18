@@ -1,5 +1,5 @@
-# example 7.20 of section 7.3.2 
-# (example 7.20 of section 7.3.2)  : Advanced Data Preparation : Building models using many variables : Using decision trees 
+# example 7.18 of section 7.4.2 
+# (example 7.18 of section 7.4.2)  : Advanced Data Preparation : Building models using many variables : Using decision trees 
 # Title: Printing the decision tree 
 
 print(tmodel)
