@@ -1,0 +1,8 @@
+# informalexample 8.13 of section 8.2.1 
+# (informalexample 8.13 of section 8.2.1)  : Linear and logistic regression : Using logistic regression : Understanding logistic regression 
+
+log-odds[flight_delayed] = log(P[flight_delayed == TRUE] / P[flight_delayed == FALSE])
+
+Let: p = P[flight_delayed == TRUE]; then
+log-odds[flight_delayed] = log( p / (1-p) )
+

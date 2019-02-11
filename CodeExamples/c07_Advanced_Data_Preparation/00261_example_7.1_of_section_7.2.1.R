@@ -52,7 +52,7 @@ dTrain <- subset(dTrainAll,!useForCal)
 #   Add appetency as a new column. 
 
 # Note 6: 
-#   Add upselling as a new column. 
+#   Add up-selling as a new column. 
 
 # Note 7: 
 #   By setting the seed to the pseudo-random 

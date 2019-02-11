@@ -1,0 +1,5 @@
+# informalexample 8.1 of section 8.1.1 
+# (informalexample 8.1 of section 8.1.1)  : Linear and logistic regression : Using linear regression : Understanding linear regression 
+
+pounds_lost = bc0 + b.cals * daily_cals_down
+

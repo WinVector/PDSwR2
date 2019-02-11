@@ -1,0 +1,6 @@
+# example 8.8 of section 8.2.1 
+# (example 8.8 of section 8.2.1)  : Linear and logistic regression : Using logistic regression : Understanding logistic regression 
+# Title: The expression for a logistic regression model 
+
+P[y[i] in class of interest] ~ f(x[i,]) = s(a + b[1] x[i,1] + ... b[n] x[i,n])
+
