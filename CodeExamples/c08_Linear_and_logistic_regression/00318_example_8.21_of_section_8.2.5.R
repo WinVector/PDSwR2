@@ -12,7 +12,7 @@
 ## [1] 235.724
 ( deldf <- df.null - df.model )
 ## [1] 13
-( p <- pchisq(delDev, deldf, lower.tail=F) )                 	# Note: 4 
+( p <- pchisq(delDev, deldf, lower.tail = FALSE) )                 	# Note: 4 
 ## [1] 5.84896e-43
 
 # Note 1: 
