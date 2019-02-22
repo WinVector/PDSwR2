@@ -1,45 +1,33 @@
 # example 7.3 of section 7.2.2 
-# (example 7.3 of section 7.2.2)  : Advanced Data Preparation : KDD and KDD Cup 2009 : Characterizing the outcome 
-# Title: Scoring the null model 
+# (example 7.3 of section 7.2.2)  : Advanced Data Preparation : KDD and KDD Cup 2009 : The Bull in The China Shop Approach 
+# Title: Trying just one variable 
 
-(prevalence <- mean(dTrain$churn==1)) 	# Note: 1 
-# [1] 0.07379436
+model2 <- glm((churn == 1) ~ Var1, data = dTrainAll, family = binomial)
+summary(model2)
+## 
+## Call:
+## glm(formula = (churn == 1) ~ Var1, family = binomial, data = dTrainAll)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -0.3997  -0.3694  -0.3691  -0.3691   2.3326  
+## 
+## Coefficients:
+##               Estimate Std. Error z value Pr(>|z|)    
+## (Intercept) -2.6523837  0.1674387 -15.841   <2e-16 ***
+## Var1         0.0002429  0.0035759   0.068    0.946    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 302.09  on 620  degrees of freedom
+## Residual deviance: 302.08  on 619  degrees of freedom
+##   (44407 observations deleted due to missingness)
+## AIC: 306.08
+## 
+## Number of Fisher Scoring iterations: 5
 
-dTrain$null_prediction <- prevalence 	# Note: 2 
-dCal$null_prediction <- prevalence
-
-library("sigr") 	# Note: 3 
-
-calcAUC(dTrain$null_prediction, dTrain$churn==1) 	# Note: 4 
-# [1] 0.5
-calcAUC(dCal$null_prediction, dCal$churn==1)
-# [1] 0.5
-
-permTestAUC(dTrain, "null_prediction", "churn", yTarget = 1) 	# Note: 5 
-# [1] "AUC test alt. hyp. AUC>AUC(permuted): (AUC=0.5, s.d.=0, p=n.a.)."
-permTestAUC(dCal, "null_prediction", "churn", yTarget = 1)
-# [1] "AUC test alt. hyp. AUC>AUC(permuted): (AUC=0.5, s.d.=0, p=n.a.)."
-
-wrapChiSqTest(dTrain, "null_prediction", "churn", yTarget = 1) 	# Note: 6 
-# [1] "Chi-Square Test summary: pseudo-R2=0 (X2(1,N=40518)=0, p=n.s.)."
-wrapChiSqTest(dCal, "null_prediction", "churn", yTarget = 1)
-# [1] "Chi-Square Test summary: pseudo-R2=-2.009e-05 (X2(1,N=4510)=-0.04732, p=n.s.)."
-
-# Note 1: 
-#   Get the single probability we will use as our prediction. 
-
-# Note 2: 
-#   Copy this constant into every row as a new prediction column. 
-
-# Note 3: 
-#   Bring in the sigr package for easy model quality calculations. 
-
-# Note 4: 
-#   Calculate AUC on the training data, and unseen calibration data. For any prediction that doesn't move (any conatant) AUC will be 0.5. 
-
-# Note 5: 
-#   Re-calculate the AUC with a significance estimate (just to show how to do this in the future). 
-
-# Note 6: 
-#   Calculate the pseudo-r-squared, (related to the deviance per data row). 
+dim(dTrainAll)
+## [1] 45028   234
 

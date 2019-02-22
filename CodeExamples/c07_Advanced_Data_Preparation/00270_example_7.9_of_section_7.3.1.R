@@ -1,5 +1,5 @@
-# example 7.7 of section 7.3.1 
-# (example 7.7 of section 7.3.1)  : Advanced Data Preparation : Building single-variable models : Building single variable models from categorical features 
+# example 7.9 of section 7.3.1 
+# (example 7.9 of section 7.3.1)  : Advanced Data Preparation : Building single-variable models : Building single variable models from categorical features 
 # Title: Interpreting the single variable model 
 
 logit <- function(x) {

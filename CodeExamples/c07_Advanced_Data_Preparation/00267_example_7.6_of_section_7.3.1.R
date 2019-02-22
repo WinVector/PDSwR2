@@ -1,5 +1,5 @@
-# example 7.4 of section 7.3.1 
-# (example 7.4 of section 7.3.1)  : Advanced Data Preparation : Building single-variable models : Building single variable models from categorical features 
+# example 7.6 of section 7.3.1 
+# (example 7.6 of section 7.3.1)  : Advanced Data Preparation : Building single-variable models : Building single variable models from categorical features 
 # Title: Tabulating churn grouped by variable 218 levels 
 
 table218 <- table(

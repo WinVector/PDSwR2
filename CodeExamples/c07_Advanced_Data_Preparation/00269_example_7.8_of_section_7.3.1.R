@@ -1,5 +1,5 @@
-# example 7.6 of section 7.3.1 
-# (example 7.6 of section 7.3.1)  : Advanced Data Preparation : Building single-variable models : Building single variable models from categorical features 
+# example 7.8 of section 7.3.1 
+# (example 7.8 of section 7.3.1)  : Advanced Data Preparation : Building single-variable models : Building single variable models from categorical features 
 # Title: Build single-variable models for categorical variables 
 
 library("vtreat")  	# Note: 1 
