@@ -10,7 +10,7 @@ model1 <- glm(f1, data = dTrainAll, family = binomial) 	# Note: 3
 ## Error in `contrasts<-`(`*tmp*`, value = contr.funs[1 + isOF[nn]]): contrasts can be applied only to factors with 2 or more levels 	# Note: 4
 
 # Note 1: 
-#   Attache the wrapr package for convenience functions, such as mk_formula(). 
+#   Attach the wrapr package for convenience functions, such as mk_formula(). 
 
 # Note 2: 
 #   Build a model formula specification asking churn==1 be predicted as a function of our explanatory variables. 
