@@ -1,5 +1,0 @@
-# informalexample 8.12 of section 8.2.1 
-# (informalexample 8.12 of section 8.2.1)  : Linear and logistic regression : Using logistic regression : Understanding logistic regression 
-
-odds[flight_delayed] = P[flight_delayed == TRUE] / P[flight_delayed == FALSE]
-

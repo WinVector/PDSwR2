@@ -1,0 +1,7 @@
+# informalexample 7.17 of section 7.2.4 
+# (informalexample 7.17 of section 7.2.4)  : Linear and logistic regression : Using logistic regression : Finding relations and extracting advice from logistic models 
+
+p = odds * (1 - p) = odds - p * odds
+p * (1 + odds) = odds
+p = odds/(1 + odds)
+

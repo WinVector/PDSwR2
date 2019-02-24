@@ -1,0 +1,7 @@
+# informalexample 7.5 of section 7.1.4 
+# (informalexample 7.5 of section 7.1.4)  : Linear and logistic regression : Using linear regression : Finding relations and extracting advice 
+
+log10(income_bachelors) = log10(income_no_hs_degree) + 0.36
+log10(income_bachelors) - log10(income_no_hs_degree) = 0.36
+           (income_bachelors)/(income_no_hs_degree)  = 10^(0.36)
+

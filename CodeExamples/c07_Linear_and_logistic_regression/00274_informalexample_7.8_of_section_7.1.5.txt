@@ -1,0 +1,7 @@
+# informalexample 7.8 of section 7.1.5 
+# (informalexample 7.8 of section 7.1.5)  : Linear and logistic regression : Using linear regression : Reading the model summary and characterizing coefficient quality 
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-1.5038 -0.1354  0.0187  0.1710  0.9741
+

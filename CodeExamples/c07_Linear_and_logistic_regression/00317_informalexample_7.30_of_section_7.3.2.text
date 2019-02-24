@@ -1,0 +1,6 @@
+# informalexample 7.30 of section 7.3.2 
+# (informalexample 7.30 of section 7.3.2)  : Linear and logistic regression : Regularization : The types of regularized regression 
+
+(1 - alpha) * (b[1]^2 + ...  + b[n]^2) + 
+    alpha * ( abs(b[1]) + abs(b[2]) + .... abs(b[n]) )
+

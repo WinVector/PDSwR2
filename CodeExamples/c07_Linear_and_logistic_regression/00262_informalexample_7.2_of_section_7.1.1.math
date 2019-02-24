@@ -1,0 +1,5 @@
+# informalexample 7.2 of section 7.1.1 
+# (informalexample 7.2 of section 7.1.1)  : Linear and logistic regression : Using linear regression : Understanding linear regression 
+
+pounds_lost[i] = b0 + b.cals * daily_cals_down[i] + b.exercise * daily_exercise[i]
+

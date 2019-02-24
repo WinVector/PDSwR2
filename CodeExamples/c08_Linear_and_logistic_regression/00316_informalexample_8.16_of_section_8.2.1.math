@@ -1,5 +1,0 @@
-# informalexample 8.16 of section 8.2.1 
-# (informalexample 8.16 of section 8.2.1)  : Linear and logistic regression : Using logistic regression : Understanding logistic regression 
-
-P[flight_delayed[i] == TRUE] =  s(b0 + b_origin * origin[i] + b_destination * destination[i] + ...)
-

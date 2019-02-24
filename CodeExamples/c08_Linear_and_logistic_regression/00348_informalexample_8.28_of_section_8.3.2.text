@@ -1,5 +1,0 @@
-# informalexample 8.28 of section 8.3.2 
-# (informalexample 8.28 of section 8.3.2)  : Linear and logistic regression : Regularization : The types of regularized regression 
-
-(y - f(x))^2 + lambda * (b[1]^2 + ...  + b[n]^2)
-
