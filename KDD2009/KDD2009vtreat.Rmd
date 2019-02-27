@@ -16,7 +16,7 @@ date()
 #load some libraries
 library('vtreat')
 library('WVPlots') 
-
+library('sigr')
 library('parallel')
 library('xgboost')
 
@@ -187,8 +187,16 @@ treatedTestP[[mname]] = predict(model,
 date()
 ```
 
+```{r score}
+calcAUC(treatedTestP[[mname]], treatedTestP[[yName]]==yTarget)
+
+wrapChiSqTest(treatedTestP, mname, yName, yTarget = yTarget)
+```
+
 ```{r kddplot, tidy=FALSE}
 date()
+
+
 t1 = paste(mname,'trainingM data')
 print(DoubleDensityPlot(treatedTrainP, mname, yName, 
                         title=t1))
