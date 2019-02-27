@@ -1,0 +1,219 @@
+---
+title: "KDD2009vtreat"
+author: "John Mount"
+output: github_document
+---
+
+
+Practical data science with R built chapter 6 built a number of single variable models.
+In Listing 6.11 it used an ad-hoc entropy based out of sample effect size estimate
+for variable selection.  This likely (though it isn't completely rigorous) picked 
+variables conservatively.
+
+
+```{r kddexlibs, tidy=FALSE}
+date()
+#load some libraries
+library('vtreat')
+library('WVPlots') 
+
+library('parallel')
+library('xgboost')
+
+dir = "./"
+
+
+# generated/code/CodeExamples/c08_Advanced_Data_Preparation/00327_example_8.1_of_section_8.2.1.R 
+# example 8.1 of section 8.2.1 
+# (example 8.1 of section 8.2.1)  : Advanced Data Preparation : KDD and KDD Cup 2009 : Getting started with KDD Cup 2009 data 
+# Title: Preparing the KDD data for analysis 
+
+d <- read.table('orange_small_train.data.gz',  	# Note: 1 
+   header = TRUE,
+   sep = '\t',
+   na.strings = c('NA', '')) 	# Note: 2 
+                                                
+churn <- read.table('orange_small_train_churn.labels.txt',
+   header = FALSE, sep = '\t') 	# Note: 3 
+d$churn <- churn$V1 	# Note: 4 
+
+set.seed(729375) 	# Note: 5 
+rgroup <- base::sample(c('train', 'calibrate', 'test'), 	# Note: 6 
+   nrow(d), 
+   prob = c(0.8, 0.1, 0.1),
+   replace = TRUE)
+dTrain <- d[rgroup=='train', , drop = FALSE]
+dCal <- d[rgroup=='calibrate', , drop = FALSE]
+dTrainAll <- d[rgroup %in% c('train', 'calibrate'), , drop = FALSE]
+dTest <- d[rgroup == 'test', , drop = FALSE]
+                                                
+outcome <- 'churn' 
+vars <- setdiff(colnames(dTrainAll), outcome)
+
+                                                
+rm(list=c('d', 'churn', 'rgroup')) 	# Note: 9
+
+# Note 1: 
+#   Read the file of independent variables. All 
+#   data from 
+#   https://github.com/WinVector/PDSwR2/tree/master/KDD2009. 
+
+# Note 2: 
+#   Treat both NA and the empty string as missing 
+#   data. 
+
+# Note 3: 
+#   Read churn dependent variable. 
+
+# Note 4: 
+#   Add churn as a new column. 
+
+# Note 5: 
+#   By setting the seed to the pseudo-random 
+#   number generator, we make our work reproducible: 
+#   someone redoing it will see the exact same 
+#   results. 
+
+# Note 6: 
+#   Split data into train, calibration, and test sets. 
+#   We took extra care and wrote base::sample() even if 
+#   the popular dplyr package is attached, which also  
+#   has a function with this name. 
+
+# Note 9: 
+#   Remove unneeded objects from workspace. 
+
+# Note 10: 
+#   Further split training data into training and 
+#   calibration. 
+
+set.seed(239525)
+
+ncore <- parallel::detectCores()
+(cl = parallel::makeCluster(ncore))
+
+yName <- "churn"
+yTarget <- 1
+
+date()
+```
+
+```{r kddvarsel}
+date()
+
+var_values <- vtreat::value_variables_C(dTrain,
+    vars,yName,yTarget,
+    smFactor=2.0, 
+    parallelCluster=cl
+    )
+
+
+summary(var_values$sig < 1/nrow(var_values))
+
+length(vars)
+vars <- var_values$var[var_values$sig < 1/nrow(var_values)]
+length(vars)
+
+
+date()
+```
+
+
+```{r kddtreat, tidy=FALSE}
+date()
+
+# Run other models (with proper coding/training separation).
+#
+# This gets us back to AUC 0.74 range
+
+customCoders = list('c.PiecewiseV.num' = vtreat::solve_piecewise,
+                    'n.PiecewiseV.num' = vtreat::solve_piecewise,
+                    'c.knearest.num' = vtreat::square_window,
+                    'n.knearest.num' = vtreat::square_window)
+cfe = mkCrossFrameCExperiment(dTrain,
+                              vars,yName,yTarget,
+                              customCoders=customCoders,
+                              smFactor=2.0, 
+                              parallelCluster=cl)
+
+
+treatmentsC = cfe$treatments
+scoreFrame = treatmentsC$scoreFrame
+table(scoreFrame$code)
+selvars <- scoreFrame$varName
+treatedTrainM <- cfe$crossFrame[,c(yName,selvars),drop=FALSE]
+treatedTrainM[[yName]] = treatedTrainM[[yName]]==yTarget
+
+treatedTest = prepare(treatmentsC,
+                      dTest,
+                      pruneSig=NULL, 
+                      varRestriction = selvars,
+                      parallelCluster=cl)
+treatedTest[[yName]] = treatedTest[[yName]]==yTarget
+
+# prepare plotting frames
+treatedTrainP = treatedTrainM[, yName, drop=FALSE]
+treatedTestP = treatedTest[, yName, drop=FALSE]
+date()
+```
+
+```{r kddmodels, tidy=FALSE}
+date()
+mname = 'xgbPred'
+print(paste(mname,length(selvars)))
+
+params <- list(max_depth = 5, 
+              objective = "binary:logistic",
+              nthread = ncore)
+model <- xgb.cv(data = as.matrix(treatedTrainM[, selvars, drop = FALSE]),
+                label = treatedTrainM[[yName]],
+                nrounds = 400,
+                params = params,
+                nfold = 5,
+                early_stopping_rounds = 10,
+                eval_metric = "logloss")
+nrounds <- model$best_iteration
+print(paste("nrounds", nrounds))
+model <- xgboost(data = as.matrix(treatedTrainM[, selvars, drop = FALSE]),
+                 label = treatedTrainM[[yName]],
+                 nrounds = nrounds,
+                 params = params)
+treatedTrainP[[mname]] = predict(model, 
+                                 newdata=as.matrix(treatedTrainM[, selvars, drop = FALSE]), 
+                                 type='response')
+treatedTestP[[mname]] = predict(model,
+                                newdata=as.matrix(treatedTest[, selvars, drop = FALSE]), 
+                                n.trees=nTrees)
+date()
+```
+
+```{r kddplot, tidy=FALSE}
+date()
+t1 = paste(mname,'trainingM data')
+print(DoubleDensityPlot(treatedTrainP, mname, yName, 
+                        title=t1))
+print(ROCPlot(treatedTrainP, mname, yName, yTarget,
+              title=t1))
+print(WVPlots::PRPlot(treatedTrainP, mname, yName, yTarget,
+              title=t1))
+
+t2 = paste(mname,'test data')
+print(DoubleDensityPlot(treatedTestP, mname, yName, 
+                        title=t2))
+print(ROCPlot(treatedTestP, mname, yName, yTarget,
+              title=t2))
+print(WVPlots::PRPlot(treatedTestP, mname, yName, yTarget,
+              title=t2))
+
+print(date())
+print("*****************************")
+date()
+```
+
+```{r shutdown, tidy=FALSE}
+if(!is.null(cl)) {
+    parallel::stopCluster(cl)
+    cl = NULL
+}
+```
+
