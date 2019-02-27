@@ -190,6 +190,8 @@ date()
 ```{r score}
 calcAUC(treatedTestP[[mname]], treatedTestP[[yName]]==yTarget)
 
+permTestAUC(treatedTestP, mname, yName, yTarget = yTarget)
+
 wrapChiSqTest(treatedTestP, mname, yName, yTarget = yTarget)
 ```
 
