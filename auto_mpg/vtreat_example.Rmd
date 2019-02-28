@@ -1,0 +1,36 @@
+---
+title: "vtreat_example"
+output: github_document
+---
+
+```{r}
+auto_mpg <- readRDS('auto_mpg.RDS')
+
+str(auto_mpg)
+
+
+library("vtreat")
+library("wrapr")
+
+vars <- c("cylinders", "displacement", 
+          "horsepower", "weight", "acceleration",
+          "model_year", "origin")
+f <- mk_formula("mpg", vars)
+
+summary(lm(f, data = auto_mpg))
+
+cfe <- mkCrossFrameNExperiment(auto_mpg, vars, "mpg", 
+                               verbose = FALSE)
+treatment_plan <- cfe$treatments
+auto_mpg_treated <- cfe$crossFrame
+score_frame <- treatment_plan$scoreFrame
+new_vars <- score_frame$varName
+
+newf <- mk_formula("mpg", new_vars)
+new_model <- lm(newf, data = auto_mpg_treated)
+summary(new_model)
+
+auto_mpg$prediction <- predict(new_model, newdata = auto_mpg_treated)
+
+str(auto_mpg[!complete.cases(auto_mpg), , drop = FALSE])
+```
