@@ -7,17 +7,24 @@ output: github_document
 auto_mpg <- readRDS('auto_mpg.RDS')
 
 str(auto_mpg)
+```
 
-
-library("vtreat")
+```{r}
 library("wrapr")
 
 vars <- c("cylinders", "displacement", 
           "horsepower", "weight", "acceleration",
           "model_year", "origin")
 f <- mk_formula("mpg", vars)
+model <- lm(f, data = auto_mpg)
 
-summary(lm(f, data = auto_mpg))
+auto_mpg$prediction <- predict(model, newdata = auto_mpg)
+
+str(auto_mpg[!complete.cases(auto_mpg), , drop = FALSE])
+```
+
+```{r}
+library("vtreat")
 
 cfe <- mkCrossFrameNExperiment(auto_mpg, vars, "mpg", 
                                verbose = FALSE)
@@ -28,9 +35,7 @@ new_vars <- score_frame$varName
 
 newf <- mk_formula("mpg", new_vars)
 new_model <- lm(newf, data = auto_mpg_treated)
-summary(new_model)
 
 auto_mpg$prediction <- predict(new_model, newdata = auto_mpg_treated)
-
 str(auto_mpg[!complete.cases(auto_mpg), , drop = FALSE])
 ```
