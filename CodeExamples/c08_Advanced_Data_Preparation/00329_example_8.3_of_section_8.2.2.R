@@ -1,33 +1,23 @@
 # example 8.3 of section 8.2.2 
 # (example 8.3 of section 8.2.2)  : Advanced Data Preparation : KDD and KDD Cup 2009 : The Bull in The China Shop Approach 
-# Title: Trying just one variable 
+# Title: Attempting to model without preparation 
 
-model2 <- glm((churn == 1) ~ Var1, data = dTrainAll, family = binomial)
-summary(model2)
-## 
-## Call:
-## glm(formula = (churn == 1) ~ Var1, family = binomial, data = dTrainAll)
-## 
-## Deviance Residuals: 
-##     Min       1Q   Median       3Q      Max  
-## -0.3997  -0.3694  -0.3691  -0.3691   2.3326  
-## 
-## Coefficients:
-##               Estimate Std. Error z value Pr(>|z|)    
-## (Intercept) -2.6523837  0.1674387 -15.841   <2e-16 ***
-## Var1         0.0002429  0.0035759   0.068    0.946    
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
-## (Dispersion parameter for binomial family taken to be 1)
-## 
-##     Null deviance: 302.09  on 620  degrees of freedom
-## Residual deviance: 302.08  on 619  degrees of freedom
-##   (44407 observations deleted due to missingness)
-## AIC: 306.08
-## 
-## Number of Fisher Scoring iterations: 5
+library("wrapr")  	# Note: 1 
 
-dim(dTrainAll)
-## [1] 45028   234
+f1 <- mk_formula("churn", vars, outcome_target = 1) 	# Note: 2 
+model1 <- glm(f1, data = dTrainAll, family = binomial) 	# Note: 3 
+                                        
+# Error in `contrasts ... 	# Note: 4
+
+# Note 1: 
+#   Attach the wrapr package for convenience functions, such as mk_formula(). 
+
+# Note 2: 
+#   Build a model formula specification asking churn==1 be predicted as a function of our explanatory variables. 
+
+# Note 3: 
+#   Ask the glm() function to build a logistic regression model. 
+
+# Note 4: 
+#   The attempt failed with an error. 
 

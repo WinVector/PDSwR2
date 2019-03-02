@@ -3,35 +3,28 @@
 # Title: Preparing the KDD data for analysis 
 
 d <- read.table('orange_small_train.data.gz',  	# Note: 1 
-   header=TRUE,
-   sep='\t',
-   na.strings=c('NA','')) 	# Note: 2 
+   header = TRUE,
+   sep = '\t',
+   na.strings = c('NA', '')) 	# Note: 2 
+                                                
 churn <- read.table('orange_small_train_churn.labels.txt',
-   header=FALSE,sep='\t') 	# Note: 3 
+   header = FALSE, sep = '\t') 	# Note: 3 
 d$churn <- churn$V1 	# Note: 4 
-appetency <- read.table('orange_small_train_appetency.labels.txt',
-   header=FALSE,sep='\t')
-d$appetency <- appetency$V1 	# Note: 5 
-upselling <- read.table('orange_small_train_upselling.labels.txt',
-   header=FALSE,sep='\t')
-d$upselling <- upselling$V1 	# Note: 6 
-set.seed(729375) 	# Note: 7 
-d$rgroup <- runif(dim(d)[[1]])
-dTrainAll <- subset(d,rgroup<=0.9)
-dTest <- subset(d,rgroup>0.9) 	# Note: 8 
-outcomes=c('churn','appetency','upselling')
-vars <- setdiff(colnames(dTrainAll),
-   c(outcomes,'rgroup'))
-catVars <- vars[sapply(dTrainAll[,vars],class) %in%
-   c('factor','character')] 	# Note: 9 
-numericVars <- vars[sapply(dTrainAll[,vars],class) %in%
-   c('numeric','integer')] 	# Note: 10 
-rm(list=c('d','churn','appetency','upselling')) 	# Note: 11 
-outcome <- 'churn' 	# Note: 12 
-pos <- '1' 	# Note: 13 
-useForCal <- rbinom(n=dim(dTrainAll)[[1]],size=1,prob=0.1)>0 	# Note: 14 
-dCal <- subset(dTrainAll,useForCal)
-dTrain <- subset(dTrainAll,!useForCal)
+
+set.seed(729375) 	# Note: 5 
+rgroup <- base::sample(c('train', 'calibrate', 'test'), 	# Note: 6 
+   nrow(d), 
+   prob = c(0.8, 0.1, 0.1),
+   replace = TRUE)
+dTrain <- d[rgroup=='train', , drop = FALSE]
+dCal <- d[rgroup=='calibrate', , drop = FALSE]
+dTrainAll <- d[rgroup %in% c('train', 'calibrate'), , drop = FALSE]
+dTest <- d[rgroup == 'test', , drop = FALSE]
+                                                
+outcome <- 'churn' 
+vars <- setdiff(colnames(dTrainAll), outcome)
+
+rm(list=c('d', 'churn', 'rgroup')) 	# Note: 7
 
 # Note 1: 
 #   Read the file of independent variables. All 
@@ -49,39 +42,17 @@ dTrain <- subset(dTrainAll,!useForCal)
 #   Add churn as a new column. 
 
 # Note 5: 
-#   Add appetency as a new column. 
-
-# Note 6: 
-#   Add up-selling as a new column. 
-
-# Note 7: 
 #   By setting the seed to the pseudo-random 
 #   number generator, we make our work reproducible: 
 #   someone redoing it will see the exact same 
 #   results. 
 
-# Note 8: 
-#   Split data into train and test subsets. 
+# Note 6: 
+#   Split data into train, calibration, and test sets. 
+#   We took extra care and wrote base::sample() even if 
+#   the popular dplyr package is attached, which also  
+#   has a function with this name. 
 
-# Note 9: 
-#   Identify which features are categorical 
-#   variables. 
-
-# Note 10: 
-#   Identify which features are numeric 
-#   variables. 
-
-# Note 11: 
+# Note 7: 
 #   Remove unneeded objects from workspace. 
-
-# Note 12: 
-#   Choose which outcome to model (churn). 
-
-# Note 13: 
-#   Choose which outcome is considered 
-#   positive. 
-
-# Note 14: 
-#   Further split training data into training and 
-#   calibration. 
 

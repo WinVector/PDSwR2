@@ -1,5 +1,5 @@
-# informalexample 8.5 of section 8.4.3 
-# (informalexample 8.5 of section 8.4.3)  : Advanced Data Preparation : Building models using many variables : Evaluating the model 
+# informalexample 8.11 of section 8.4.2 
+# (informalexample 8.11 of section 8.4.2)  : Advanced Data Preparation : Advanced data preparation for classification : Building a model 
 
 WVPlots::ROCPlot(dTest_treated, "glm_pred", "churn", 1, 
                  "glm prediction on test, ROC plot")
