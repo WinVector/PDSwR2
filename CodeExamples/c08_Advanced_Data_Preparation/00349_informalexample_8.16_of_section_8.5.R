@@ -1,5 +1,5 @@
-# informalexample 8.12 of section 8.5 
-# (informalexample 8.12 of section 8.5)  : Advanced Data Preparation : Preparing data for regression modeling 
+# informalexample 8.16 of section 8.5 
+# (informalexample 8.16 of section 8.5)  : Advanced Data Preparation : Preparing data for regression modeling 
 
 auto_mpg <- readRDS('auto_mpg.RDS')
 

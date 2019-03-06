@@ -15,7 +15,7 @@ treatment_plan <- vtreat::designTreatmentsC( 	# Note: 3
   parallelCluster = cl)
 
 # Note 1: 
-#   Attache the vtreat package for functions such as designTreatmentsC(). 
+#   Attach the vtreat package for functions such as designTreatmentsC(). 
 
 # Note 2: 
 #   Start up a parallel cluster to speed up calculation. If you don't want a parallel cluster just set cl to NULL. 

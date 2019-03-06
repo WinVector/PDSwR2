@@ -1,5 +1,5 @@
-# informalexample 8.15 of section 8.6.2 
-# (informalexample 8.15 of section 8.6.2)  : Advanced Data Preparation : The vtreat package in general : Missing values 
+# informalexample 8.19 of section 8.6.2 
+# (informalexample 8.19 of section 8.6.2)  : Advanced Data Preparation : The vtreat package in general : Missing values 
 
 d <- wrapr::build_frame(
    "x1"    , "x2"         , "x3", "y" |
@@ -16,6 +16,6 @@ plan1 <- vtreat::design_missingness_treatment(d)
 vtreat::prepare(plan1, d)
 #   x1 x1_isBAD        x2 x3  y
 # 1  1        0         a  6 10
-# 2  2        1         b  7 20
+# 2  2        1         b  7 20   
 # 3  3        0 _invalid_  8 30
 

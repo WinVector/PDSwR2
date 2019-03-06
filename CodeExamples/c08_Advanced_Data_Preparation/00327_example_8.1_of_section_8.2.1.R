@@ -49,9 +49,8 @@ rm(list=c('d', 'churn', 'rgroup')) 	# Note: 7
 
 # Note 6: 
 #   Split data into train, calibration, and test sets. 
-#   We took extra care and wrote base::sample() even if 
-#   the popular dplyr package is attached, which also  
-#   has a function with this name. 
+#   Explicitly specify the base::sample() function to avoid 
+#   name collision with dplyr::sample(), if the dplyr package is loaded. 
 
 # Note 7: 
 #   Remove unneeded objects from workspace. 

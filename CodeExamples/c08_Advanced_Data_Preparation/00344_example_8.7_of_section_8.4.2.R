@@ -15,7 +15,7 @@ model <- glm(f, data = dTrainAll_treated, family = binomial) 	# Note: 3
 #   Build a formula specifying modeling churn==1 as a function of all variables. 
 
 # Note 2: 
-#   Use the modeling formula with R's glm() function. Both the method and the warning message are the topic of the next chapter. 
+#   Use the modeling formula with R's glm() function. 
 
 # Note 3: 
 #   Take heed of this warning, it is hinting we should move on to a regularized method such as glmnet. 

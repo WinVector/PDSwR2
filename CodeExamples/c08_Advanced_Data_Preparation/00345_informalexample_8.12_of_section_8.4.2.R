@@ -1,5 +1,5 @@
-# informalexample 8.8 of section 8.4.2 
-# (informalexample 8.8 of section 8.4.2)  : Advanced Data Preparation : Advanced data preparation for classification : Building a model 
+# informalexample 8.12 of section 8.4.2 
+# (informalexample 8.12 of section 8.4.2)  : Advanced Data Preparation : Advanced data preparation for classification : Building a model 
 
 library("sigr")
 
@@ -10,16 +10,13 @@ dTest_treated$glm_pred <- predict(model,   	# Note: 1
 # In predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
 #   prediction from a rank-deficient fit may be misleading
 
-calcAUC(dTest_treated$glm_pred, dTest_treated$churn==1)
+calcAUC(dTest_treated$glm_pred, dTest_treated$churn==1) 	# Note: 3 
 ## [1] 0.7232192
-
-permTestAUC(dTest_treated, "glm_pred", "churn", yTarget = 1)
-## [1] "AUC test alt. hyp. AUC>AUC(permuted): (AUC=0.7232, s.d.=0.01535, p<1e-05)."
-        
+       
 wrapChiSqTest(dTest_treated, "glm_pred", "churn", yTarget = 1)
 ## [1] "Chi-Square Test summary: pseudo-R2=0.08371 (X2(1,N=4975)=223.1, p<1e-05)."
 
-var_aucs <- vapply(newvars, 	# Note: 3 
+var_aucs <- vapply(newvars, 	# Note: 4 
        function(vi) {
          calcAUC(dTrainAll_treated[[vi]], dTrainAll_treated$churn==1)
        }, numeric(1))
@@ -34,5 +31,8 @@ var_aucs <- vapply(newvars, 	# Note: 3
 #   Again, take heed of this warning, it is hinting we should move on to a regularized method such as glmnet. 
 
 # Note 3: 
+#   Calculate the AUC of the model on hold-out data. 
+
+# Note 4: 
 #   Here we calculate the best single variable model AUC for comparison. 
 

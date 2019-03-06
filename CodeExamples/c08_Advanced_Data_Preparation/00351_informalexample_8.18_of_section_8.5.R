@@ -1,5 +1,5 @@
-# informalexample 8.14 of section 8.5 
-# (informalexample 8.14 of section 8.5)  : Advanced Data Preparation : Preparing data for regression modeling 
+# informalexample 8.18 of section 8.5 
+# (informalexample 8.18 of section 8.5)  : Advanced Data Preparation : Preparing data for regression modeling 
 
 library("vtreat")
 

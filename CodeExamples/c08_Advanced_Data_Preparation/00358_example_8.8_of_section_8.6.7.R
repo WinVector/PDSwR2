@@ -38,7 +38,7 @@ print(plan5) 	# Note: 6
 
 training_data1 <- vtreat::prepare(plan5, d) 	# Note: 7 
                                 
-res1 <- vtreat::patch_columns_into_frame(d, training_data1)
+res1 <- vtreat::patch_columns_into_frame(d, training_data1)  	# Note: 8 
 head(res1)
 #   x_bad  x_good x_bad_catN x_good_catN           y
 # 1     u non-neg  0.4070979   0.4305195 -0.05294738
@@ -48,10 +48,10 @@ head(res1)
 # 5     b     neg -0.3890076  -0.5706886 -0.86159347
 # 6     b non-neg -0.3890076   0.4305195 -0.52766549
 
-sigr::wrapFTest(res1, "x_good_catN", "y") 	# Note: 8 
+sigr::wrapFTest(res1, "x_good_catN", "y") 	# Note: 9 
 # [1] "F Test summary: (R2=0.2717, F(1,98)=36.56, p<1e-05)."
 
-sigr::wrapFTest(res1, "x_bad_catN", "y") 	# Note: 9 
+sigr::wrapFTest(res1, "x_bad_catN", "y") 	# Note: 10 
 # [1] "F Test summary: (R2=0.2342, F(1,98)=29.97, p<1e-05)."
 
 # Note 1: 
@@ -76,8 +76,11 @@ sigr::wrapFTest(res1, "x_bad_catN", "y") 	# Note: 9
 #   Call prepare() on the same data used to design the treatment plan- this is not always safe, as we shall see. 
 
 # Note 8: 
-#   Use a statistical F-test to check the predictive power of x_good_catN. 
+#   Combine the data frames d an training_data1, using training_data1 when there are columns with duplicate names. 
 
 # Note 9: 
+#   Use a statistical F-test to check the predictive power of x_good_catN. 
+
+# Note 10: 
 #   Here is the bad consequence: x_bad_catN's F-test is inflated and falsely looks significant. 
 

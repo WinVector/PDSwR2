@@ -14,11 +14,17 @@ cross_frame_experiment <- vtreat::mkCrossFrameCExperiment(
   verbose = FALSE,
   parallelCluster = cl)
 
-dTrainAll_treated <- cross_frame_experiment$crossFrame
+dTrainAll_treated <- cross_frame_experiment$crossFrame 	# Note: 1 
 treatment_plan <- cross_frame_experiment$treatments
 score_frame <- treatment_plan$scoreFrame
 
-dTest_treated <- prepare(treatment_plan, 
+dTest_treated <- prepare(treatment_plan, 	# Note: 2 
                          dTest,
                          parallelCluster = cl)
+
+# Note 1: 
+#   We will use the cross frame to train the logistic regression model. 
+
+# Note 2: 
+#   Prepare the test set so we can call the model on it. 
 
