@@ -1,5 +1,5 @@
 # informalexample 8.19 of section 8.6.2 
-# (informalexample 8.19 of section 8.6.2)  : Advanced Data Preparation : The vtreat package in general : Missing values 
+# (informalexample 8.19 of section 8.6.2)  : Advanced Data Preparation : Mastering the vtreat package : Missing values 
 
 d <- wrapr::build_frame(
    "x1"    , "x2"         , "x3", "y" |

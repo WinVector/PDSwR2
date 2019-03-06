@@ -1,5 +1,5 @@
 # informalexample 8.20 of section 8.6.3 
-# (informalexample 8.20 of section 8.6.3)  : Advanced Data Preparation : The vtreat package in general : Indicator variables 
+# (informalexample 8.20 of section 8.6.3)  : Advanced Data Preparation : Mastering the vtreat package : Indicator variables 
 
 d <- wrapr::build_frame(
    "x1"    , "x2"         , "x3", "y" |

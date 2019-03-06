@@ -3,6 +3,9 @@
 # Title: Attempting to model without preparation 
 
 library("wrapr")  	# Note: 1 
+                                        
+outcome <- 'churn'                                        
+vars <- setdiff(colnames(dTrainAll), outcome)
 
 f1 <- mk_formula("churn", vars, outcome_target = 1) 	# Note: 2 
 model1 <- glm(f1, data = dTrainAll, family = binomial) 	# Note: 3 

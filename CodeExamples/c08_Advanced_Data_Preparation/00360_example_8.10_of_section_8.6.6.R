@@ -1,5 +1,5 @@
-# example 8.9 of section 8.6.7 
-# (example 8.9 of section 8.6.7)  : Advanced Data Preparation : The vtreat package in general : The cross-frame 
+# example 8.10 of section 8.6.6 
+# (example 8.10 of section 8.6.6)  : Advanced Data Preparation : Mastering the vtreat package : The cross-frame 
 # Title: Using mkCrossFrameNExperiment() 
 
 cfe <- vtreat::mkCrossFrameNExperiment(d, 
@@ -37,7 +37,5 @@ plan6$scoreFrame 	# Note: 1
 # 2                 1   x_good catN
 
 # Note 1: 
-#   The F-tests on the data and the scoreFrame statistics now largely agree. Differences are due to the fact the cross validation used to produce the 
-#   cross frame is not the exact one used to in the scoreFrame (they are different cross-validation runs, and therefore see different noise). This is also a good point 
-#   to remind the reader: x_bad_catN is still shown to not be an effective variable (it has a low r-squared), but it did seem to squeak past-the significance test this time. 
+#   The F-tests on the data and the scoreFrame statistics now largely agree. 
 

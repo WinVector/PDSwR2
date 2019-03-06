@@ -12,11 +12,11 @@ dTest_treated$glm_pred <- predict(model,   	# Note: 1
 
 calcAUC(dTest_treated$glm_pred, dTest_treated$churn==1) 	# Note: 3 
 ## [1] 0.7232192
-       
-wrapChiSqTest(dTest_treated, "glm_pred", "churn", yTarget = 1)
-## [1] "Chi-Square Test summary: pseudo-R2=0.08371 (X2(1,N=4975)=223.1, p<1e-05)."
 
-var_aucs <- vapply(newvars, 	# Note: 4 
+permTestAUC(dTest_treated, "glm_pred", "churn", yTarget = 1) 	# Note: 4 
+## [1] "AUC test alt. hyp. AUC>AUC(permuted): (AUC=0.7232, s.d.=0.01535, p<1e-05)."
+       
+var_aucs <- vapply(newvars, 	# Note: 5 
        function(vi) {
          calcAUC(dTrainAll_treated[[vi]], dTrainAll_treated$churn==1)
        }, numeric(1))
@@ -34,5 +34,8 @@ var_aucs <- vapply(newvars, 	# Note: 4
 #   Calculate the AUC of the model on hold-out data. 
 
 # Note 4: 
+#   Calculate the AUC a second time, using an alternative method that also estimates a standard deviation or error-bar. 
+
+# Note 5: 
 #   Here we calculate the best single variable model AUC for comparison. 
 
