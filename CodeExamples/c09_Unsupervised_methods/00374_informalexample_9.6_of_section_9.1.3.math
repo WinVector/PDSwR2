@@ -1,0 +1,5 @@
+# informalexample 9.6 of section 9.1.3 
+# (informalexample 9.6 of section 9.1.3)  : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
+
+BSS = TSS - WSS
+

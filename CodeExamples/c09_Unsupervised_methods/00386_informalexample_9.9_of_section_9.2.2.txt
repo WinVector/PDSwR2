@@ -1,0 +1,7 @@
+# informalexample 9.9 of section 9.2.2 
+# (informalexample 9.9 of section 9.2.2)  : Unsupervised methods : Association rules : The example problem 
+
+|token                 | userid| rating|title                 |
+|:---------------------|------:|------:|:---------------------|
+|always have popsicles | 172742|      0|Always Have Popsicles |
+

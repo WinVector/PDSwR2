@@ -6,18 +6,21 @@ sqr_edist <- function(x, y) {             	# Note: 1
   sum((x-y)^2)
 }
 
-wss.cluster <- function(clustermat) {     	# Note: 2 
-  c0 <- apply(clustermat, 2, FUN=mean)    	# Note: 3 
+wss_cluster <- function(clustermat) {     	# Note: 2 
+  c0 <- colMeans(clustermat)     	# Note: 3 
   sum(apply(clustermat, 1, FUN=function(row){sqr_edist(row,c0)}))     	# Note: 4 
 }
 
-wss.total <- function(dmatrix, labels) {                               	# Note: 5 
+wss_total <- function(dmatrix, labels) {                               	# Note: 5 
   wsstot <- 0
   k <- length(unique(labels))
   for(i in 1:k)
-    wsstot <- wsstot + wss.cluster(subset(dmatrix, labels==i))         	# Note: 6 
+    wsstot <- wsstot + wss_cluster(subset(dmatrix, labels==i))         	# Note: 6 
   wsstot
 }
+
+wss_total(pmatrix, groups)  	# Note: 7  
+## [1] 71.94342
 
 # Note 1: 
 #   Function to calculate squared distance 
@@ -44,4 +47,7 @@ wss.total <- function(dmatrix, labels) {                               	# Note: 
 # Note 6: 
 #   Extract each cluster, calculate the 
 #   cluster’s WSS, and sum all the values. 
+
+# Note 7: 
+#   Calculate the total WSS for the current protein clustering. 
 

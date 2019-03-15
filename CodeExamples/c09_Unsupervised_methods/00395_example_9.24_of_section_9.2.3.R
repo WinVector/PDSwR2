@@ -1,5 +1,5 @@
-# example 9.20 of section 9.2.3 
-# (example 9.20 of section 9.2.3)  : Unsupervised methods : Association rules : Mining association rules with the arules package 
+# example 9.24 of section 9.2.3 
+# (example 9.24 of section 9.2.3)  : Unsupervised methods : Association rules : Mining association rules with the arules package 
 # Title: Scoring rules 
 
 measures <- interestMeasure(rules,                            	# Note: 1 

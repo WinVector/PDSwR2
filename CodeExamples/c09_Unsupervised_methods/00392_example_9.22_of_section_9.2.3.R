@@ -1,27 +1,34 @@
 # example 9.22 of section 9.2.3 
 # (example 9.22 of section 9.2.3)  : Unsupervised methods : Association rules : Mining association rules with the arules package 
-# Title: Inspecting rules 
+# Title: Finding the ten most frequent books 
 
-brulesConf <- sort(brules, by="confidence")  	# Note: 1 
+orderedBooks <- sort(bookCount, decreasing=T)   	# Note: 1 
+knitr::kable(orderedBooks[1:10])                   	# Note: 2 
+|                                                |    x|
+|:-----------------------------------------------|----:|
+|Wild Animus                                     | 2502|
+|The Lovely Bones: A Novel                       | 1295|
+|She's Come Undone                               |  934|
+|The Da Vinci Code                               |  905|
+|Harry Potter and the Sorcerer's Stone           |  832|
+|The Nanny Diaries: A Novel                      |  821|
+|A Painted House                                 |  819|
+|Bridget Jones's Diary                           |  772|
+|The Secret Life of Bees                         |  762|
+|Divine Secrets of the Ya-Ya Sisterhood: A Novel |  737|
 
-inspect(head(lhs(brulesConf), n=5))      	# Note: 2 
-##   items
-## 1 {Divine Secrets of the Ya-Ya Sisterhood: A Novel,
-##    Lucky : A Memoir}
-## 2 {Lucky : A Memoir,
-##    The Notebook}
-## 3 {Lucky : A Memoir,
-##    Wild Animus}
-## 4 {Midwives: A Novel,
-##    Wicked: The Life and Times of the Wicked Witch of the West}
-## 5 {Lucky : A Memoir,
-##    Summer Sisters}
+orderedBooks[1]/nrow(bookbaskets)               	# Note: 3 
+## Wild Animus
+##  0.02716376
 
 # Note 1: 
-#   Sort the rules by confidence. 
+#   Sort the count and list the 10 most popular 
+#   books. 
 
 # Note 2: 
-#   Use the lhs() function to get the left 
-#   itemsets of each rule; then inspect the top 
-#   five. 
+#   Display the top 10 books in a nice format 
+
+# Note 3: 
+#   The most popular book in the dataset 
+#   occurred in fewer than 3% of the baskets. 
 
