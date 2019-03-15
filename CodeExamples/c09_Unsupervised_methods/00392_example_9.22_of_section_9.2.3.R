@@ -2,7 +2,7 @@
 # (example 9.22 of section 9.2.3)  : Unsupervised methods : Association rules : Mining association rules with the arules package 
 # Title: Finding the ten most frequent books 
 
-orderedBooks <- sort(bookCount, decreasing=T)   	# Note: 1 
+orderedBooks <- sort(bookCount, decreasing=TRUE)   	# Note: 1 
 knitr::kable(orderedBooks[1:10])                   	# Note: 2 
 |                                                |    x|
 |:-----------------------------------------------|----:|
@@ -22,8 +22,7 @@ orderedBooks[1]/nrow(bookbaskets)               	# Note: 3
 ##  0.02716376
 
 # Note 1: 
-#   Sort the count and list the 10 most popular 
-#   books. 
+#   Sort the counts in decreasing order. 
 
 # Note 2: 
 #   Display the top 10 books in a nice format 

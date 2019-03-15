@@ -8,6 +8,3 @@ summary(bookCount)
 ##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
 ##    1.000    1.000    1.000    4.638    3.000 2502.000
 
-sum(bookFreq)
-## [1] 11.09909
-
