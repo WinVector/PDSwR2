@@ -1,7 +1,7 @@
-# informalexample 8.20 of section 8.6.3 
-# (informalexample 8.20 of section 8.6.3)  : Advanced Data Preparation : Mastering the vtreat package : Indicator variables 
+# informalexample 8.22 of section 8.6.3 
+# (informalexample 8.22 of section 8.6.3)  : Advanced Data Preparation : Mastering the vtreat package : Indicator variables 
 
-d <- wrapr::build_frame(
+d <- build_frame(
    "x1"    , "x2"         , "x3", "y" |
    1       , "a"          , 6   , 10  |
    NA_real_, "b"          , 7   , 20  |

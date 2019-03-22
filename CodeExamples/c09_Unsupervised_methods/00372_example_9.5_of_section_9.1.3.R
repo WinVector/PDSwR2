@@ -23,9 +23,10 @@ ggplot(project_plus, aes(x=PC1, y=PC2)) +        	# Note: 4
 
 # Note 2: 
 #   The predict() function will rotate the data 
-#   into the space described by the principal 
-#   components. We only want the projection on the 
-#   first two axes. 
+#   into the coordinates described by the principal 
+#   components. The first two columns of the rotated data 
+#   are the projection of the data on the first two principal  
+#   components. 
 
 # Note 3: 
 #   Create a data frame with the transformed 
@@ -33,5 +34,5 @@ ggplot(project_plus, aes(x=PC1, y=PC2)) +        	# Note: 4
 #   label of each point. 
 
 # Note 4: 
-#   Plot it. 
+#   Plot it. Put each cluster in a separate facet for legibility. 
 

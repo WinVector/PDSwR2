@@ -1,13 +1,12 @@
 # informalexample 5.137 of section 5.5.1 
 # (informalexample 5.137 of section 5.5.1)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from wide to tall form 
 
-library("tidyr")
+library("data.table")
 
-seatbelts_long1 <- gather(
-  Seatbelts, 
-  key = victim_type, 
-  value = nvictims, 
-  DriversKilled, front, rear)
-
-head(seatbelts_long1)
+seatbelts_long2 <- 
+  melt.data.table(as.data.table(Seatbelts),
+                  id.vars = NULL,
+                  measure.vars = c("DriversKilled", "front", "rear"),
+                  variable.name = "victim_type", 
+                  value.name = "nvictims")
 

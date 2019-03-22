@@ -79,8 +79,8 @@ cboot_hclust$bootbrd                                        	# Note: 8
 # Note 3: 
 #   Run clusterboot() with hclust 
 #   ('clustermethod=hclustCBI') using Ward’s method 
-#   ('method="ward.D"') and kbest.p clusters 
-#   ('k=kbest.p'). Return the results in an object 
+#   ('method="ward.D"') and kbest_p clusters 
+#   ('k=kbest_p'). Return the results in an object 
 #   called cboot_hclust. 
 
 # Note 4: 

@@ -1,6 +1,6 @@
 # example 9.17 of section 9.1.5 
 # (example 9.17 of section 9.1.5)  : Unsupervised methods : Cluster analysis : Assigning new points to clusters 
-# Title: An example of assigning points to cluster 
+# Title: An example of assigning points to clusters 
 
 assign_cluster(mvrnorm(1, mean1, diag(sd1)),    	# Note: 1 
                 tclusters$centers,

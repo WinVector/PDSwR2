@@ -36,7 +36,7 @@ rm(list=c('d', 'churn', 'rgroup')) 	# Note: 7
 #   data. 
 
 # Note 3: 
-#   Read churn dependent variable. 
+#   Read known churn outcomes. 
 
 # Note 4: 
 #   Add churn as a new column. 

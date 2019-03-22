@@ -31,5 +31,6 @@ head(d) 	# Note: 4
 #   x_good is a noisy prediction of the sign of y, so it does have some information about y. 
 
 # Note 4: 
-#   Take a look at our example data. 
+#   Take a look at our synthetic example data. The idea is: y is related to x_good in a noisy fashion, but unrelated to x_bad.  
+#   In this case we know what variables should be chosen, so we can tell if our acceptance procedure is working correctly. 
 

@@ -4,7 +4,7 @@
 
 library("vtreat")
 
-cl <- parallel::makeCluster(parallel::detectCores())
+parallel_cluster <- parallel::makeCluster(parallel::detectCores())
 
 cross_frame_experiment <- vtreat::mkCrossFrameCExperiment(
   dTrainAll, 
@@ -12,7 +12,7 @@ cross_frame_experiment <- vtreat::mkCrossFrameCExperiment(
   outcomename = "churn", 
   outcometarget = 1, 
   verbose = FALSE,
-  parallelCluster = cl)
+  parallelCluster = parallel_cluster)
 
 dTrainAll_treated <- cross_frame_experiment$crossFrame 	# Note: 1 
 treatment_plan <- cross_frame_experiment$treatments
@@ -20,7 +20,7 @@ score_frame <- treatment_plan$scoreFrame
 
 dTest_treated <- prepare(treatment_plan, 	# Note: 2 
                          dTest,
-                         parallelCluster = cl)
+                         parallelCluster = parallel_cluster)
 
 # Note 1: 
 #   We will use the cross frame to train the logistic regression model. 

@@ -1,5 +1,5 @@
-# informalexample 8.24 of section 8.6.5 
-# (informalexample 8.24 of section 8.6.5)  : Advanced Data Preparation : Mastering the vtreat package : The treatment plan 
+# informalexample 8.26 of section 8.6.5 
+# (informalexample 8.26 of section 8.6.5)  : Advanced Data Preparation : Mastering the vtreat package : The treatment plan 
 
 plan4$scoreFrame
 

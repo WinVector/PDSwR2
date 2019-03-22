@@ -1,5 +1,5 @@
-# informalexample 8.23 of section 8.6.5 
-# (informalexample 8.23 of section 8.6.5)  : Advanced Data Preparation : Mastering the vtreat package : The treatment plan 
+# informalexample 8.25 of section 8.6.5 
+# (informalexample 8.25 of section 8.6.5)  : Advanced Data Preparation : Mastering the vtreat package : The treatment plan 
 
 class(plan4)
 # [1] "treatmentplan"

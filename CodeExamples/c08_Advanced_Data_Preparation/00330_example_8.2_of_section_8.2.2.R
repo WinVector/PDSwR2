@@ -1,5 +1,5 @@
-# example 8.3 of section 8.2.2 
-# (example 8.3 of section 8.2.2)  : Advanced Data Preparation : KDD and KDD Cup 2009 : The Bull in The China Shop Approach 
+# example 8.2 of section 8.2.2 
+# (example 8.2 of section 8.2.2)  : Advanced Data Preparation : KDD and KDD Cup 2009 : The Bull in The China Shop Approach 
 # Title: Attempting to model without preparation 
 
 library("wrapr")  	# Note: 1 
@@ -7,8 +7,8 @@ library("wrapr")  	# Note: 1
 outcome <- 'churn'                                        
 vars <- setdiff(colnames(dTrainAll), outcome)
 
-f1 <- mk_formula("churn", vars, outcome_target = 1) 	# Note: 2 
-model1 <- glm(f1, data = dTrainAll, family = binomial) 	# Note: 3 
+formula1 <- mk_formula("churn", vars, outcome_target = 1) 	# Note: 2 
+model1 <- glm(formula1, data = dTrainAll, family = binomial) 	# Note: 3 
                                         
 # Error in `contrasts ... 	# Note: 4
 

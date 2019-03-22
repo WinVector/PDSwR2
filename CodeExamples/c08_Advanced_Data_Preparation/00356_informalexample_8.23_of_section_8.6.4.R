@@ -1,7 +1,7 @@
-# informalexample 8.21 of section 8.6.4 
-# (informalexample 8.21 of section 8.6.4)  : Advanced Data Preparation : Mastering the vtreat package : Impact coding 
+# informalexample 8.23 of section 8.6.4 
+# (informalexample 8.23 of section 8.6.4)  : Advanced Data Preparation : Mastering the vtreat package : Impact coding 
 
-d <- wrapr::build_frame(
+d <- build_frame(
    "x1"    , "x2"         , "x3", "y" |
    1       , "a"          , 6   , 10  |
    NA_real_, "b"          , 7   , 20  |

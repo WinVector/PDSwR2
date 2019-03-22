@@ -1,7 +1,11 @@
-# informalexample 8.11 of section 8.4.2 
-# (informalexample 8.11 of section 8.4.2)  : Advanced Data Preparation : Advanced data preparation for classification : Building a model 
+# informalexample 8.12 of section 8.4.2 
+# (informalexample 8.12 of section 8.4.2)  : Advanced Data Preparation : Advanced data preparation for classification : Building a model 
 
-score_frame$selected <- score_frame$sig < 1/nrow(score_frame) 	# Note: 1 
+k <- 1       	# Note: 1 
+(significance_cutoff <- k/nrow(score_frame))
+# [1] 0.001831502
+score_frame$selected <- score_frame$sig < significance_cutoff
+                                
 
 suppressPackageStartupMessages(library("dplyr")) 	# Note: 2 
 

@@ -10,29 +10,20 @@ clustering_asw <- kmeansruns(pmatrix, krange=1:10, criterion="asw")     	# Note:
 clustering_asw$bestk
 ## [1] 3
 
-clustering_ch$crit                                                  	# Note: 4 
+clustering_asw$crit                                                  	# Note: 4 
+## [1] 0.0000000 0.3271084 0.3351694 0.2617868 0.2639450 0.2734815 0.2471165 
+## [8] 0.2429985 0.2412922 0.2388293
+
+clustering_ch$crit                                                  	# Note: 5 
 ##  [1]  0.000000 14.094814 11.417985 10.418801 10.011797  9.964967  9.861682
 ##  [8]  9.412089  9.166676  9.075569
 
-cluster_meas$ch_crit                                                        	# Note: 5 
+cluster_meas$ch_crit                                                        	# Note: 6 
 ##  [1]       NaN 12.215107 10.359587  9.690891 10.011797  9.964967  9.506978
 ##  [8]  9.092065  8.822406  8.695065
 
-critframe <- data.frame(k=1:10, 
-                        ch=scale(clustering_ch$crit),           	# Note: 6 
-                        asw=scale(clustering_asw$crit))
-
-critframe = unpivot_to_blocks(critframe,                           	# Note: 7 
-                              nameForNewKeyColumn = "measure",
-                              nameForNewValueColumn = "score",
-                              columnsToTakeFrom = c("ch", "asw"))
-
-ggplot(critframe, aes(x=k, y=score, color=measure)) +
-   geom_point(aes(shape=measure)) + geom_line(aes(linetype=measure)) +
-   scale_x_continuous(breaks=1:10, labels=1:10) + 
-  scale_color_brewer(palette="Dark2")
  
-summary(clustering_ch)                                              	# Note: 8 
+summary(clustering_ch)                                              	# Note: 7 
 
 ##              Length Class  Mode   
 ## cluster      25     -none- numeric
@@ -62,21 +53,17 @@ summary(clustering_ch)                                              	# Note: 8
 #   silhouette width picks 3 clusters. 
 
 # Note 4: 
-#   Look at the values of the CH criterion as a function of k. 
+#   Look at the values of the asw criterion as a function of k. 
 
 # Note 5: 
+#   Look at the values of the CH criterion as a function of k. 
+
+# Note 6: 
 #   Compare the above to the CH values for the 
 #   hclust() clustering. They’re not quite the same, because the 
 #   two algorithms didn’t pick the same clusters. 
 
-# Note 6: 
-#   Prepare to plot the values for the two criteria. 
-#   Scale both vectors to be in comparable units. 
-
 # Note 7: 
-#   Reshape critframe for plotting. 
-
-# Note 8: 
 #   kmeansruns() also returns the output of 
 #   kmeans for k=bestk. 
 

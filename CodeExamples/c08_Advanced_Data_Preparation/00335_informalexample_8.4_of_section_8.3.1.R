@@ -1,16 +1,41 @@
 # informalexample 8.4 of section 8.3.1 
 # (informalexample 8.4 of section 8.3.1)  : Advanced Data Preparation : Basic data preparation for classification : The variable score frame 
 
-subset(score_frame, origName == "Var218")
+score_frame <-  treatment_plan$scoreFrame
+t(subset(score_frame, origName %in% c("Var126", "Var189")))
 
-##               varName varMoves         rsq          sig needsSplit
-## 389       Var218_catP     TRUE 0.011014574 2.602574e-52       TRUE
-## 390       Var218_catB     TRUE 0.012245152 5.924945e-58       TRUE
-## 488 Var218_lev_x_cJvF     TRUE 0.005295590 4.902238e-26      FALSE
-## 489 Var218_lev_x_UYBR     TRUE 0.001970131 1.218959e-10      FALSE
-##     extraModelDegrees origName code
-## 389                 2   Var218 catP
-## 390                 2   Var218 catB
-## 488                 0   Var218  lev
-## 489                 0   Var218  lev
+#                   225            226            341            342           
+# varName           "Var126"       "Var126_isBAD" "Var189"       "Var189_isBAD"  	# Note: 1 
+# varMoves          "TRUE"         "TRUE"         "TRUE"         "TRUE"        	# Note: 2 
+# rsq               "0.0030859179" "0.0136377093" "0.0118934515" "0.0001004614" 	# Note: 3 
+# sig               "7.876602e-16" "2.453679e-64" "2.427376e-56" "1.460688e-01" 	# Note: 4 
+# needsSplit        "FALSE"        "FALSE"        "FALSE"        "FALSE"       	# Note: 5 
+# extraModelDegrees "0"            "0"            "0"            "0"           	# Note: 6 
+# origName          "Var126"       "Var126"       "Var189"       "Var189"      	# Note: 7 
+# code              "clean"        "isBAD"        "clean"        "isBAD"          	# Note: 8
+
+# Note 1: 
+#   The name of the derived variable or column. 
+
+# Note 2: 
+#   An indicator that this variable is not always the same value (not a constant, which would be useless for modeling). 
+
+# Note 3: 
+#   The r-squared or pseudo-r-squared of the variable, what fraction of the outcome variation this variable can explain on its own in a linear model. 
+
+# Note 4: 
+#   The significance of the estimated r-squared. 
+
+# Note 5: 
+#   An indicator that when TRUE is a warning to the user that the variable is  
+#   hiding extra degrees of freedom (a measure of model complexity) and needs to be evaluated using cross-validation techniques.. 
+
+# Note 6: 
+#   How complex is the variable, for a categorical variable this is related to the number of levels. 
+
+# Note 7: 
+#   Name of the original column the variable was derived from. 
+
+# Note 8: 
+#   Name of the type of transformation used to build this variable. 
 

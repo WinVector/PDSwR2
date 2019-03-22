@@ -1,5 +1,5 @@
-# informalexample 5.138 of section 5.5.1 
-# (informalexample 5.138 of section 5.5.1)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from wide to tall form 
+# informalexample 5.140 of section 5.5.1 
+# (informalexample 5.140 of section 5.5.1)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from wide to tall form 
 
 ##         date     law   victim_type nvictims
 ## 1 1982-01-01 pre-law DriversKilled      115
