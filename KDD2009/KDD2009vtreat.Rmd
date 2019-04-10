@@ -5,10 +5,7 @@ output: github_document
 ---
 
 
-Practical data science with R built chapter 6 built a number of single variable models.
-In Listing 6.11 it used an ad-hoc entropy based out of sample effect size estimate
-for variable selection.  This likely (though it isn't completely rigorous) picked 
-variables conservatively.
+KDD2009 example using the `vtreat` `R` package.
 
 
 ```{r kddexlibs, tidy=FALSE}
