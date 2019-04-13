@@ -8,7 +8,7 @@ KDD2009 example using the `vtreat` `R` package.
 date()
 ```
 
-    ## [1] "Wed Apr 10 10:25:16 2019"
+    ## [1] "Sat Apr 13 06:06:07 2019"
 
 ``` r
 #load some libraries
@@ -32,9 +32,6 @@ library('xgboost')
     ## Warning: package 'xgboost' was built under R version 3.5.2
 
 ``` r
-dir = "./"
-
-
 # generated/code/CodeExamples/c08_Advanced_Data_Preparation/00327_example_8.1_of_section_8.2.1.R 
 # example 8.1 of section 8.2.1 
 # (example 8.1 of section 8.2.1)  : Advanced Data Preparation : KDD and KDD Cup 2009 : Getting started with KDD Cup 2009 data 
@@ -114,13 +111,13 @@ yTarget <- 1
 date()
 ```
 
-    ## [1] "Wed Apr 10 10:25:28 2019"
+    ## [1] "Sat Apr 13 06:06:19 2019"
 
 ``` r
 date()
 ```
 
-    ## [1] "Wed Apr 10 10:25:28 2019"
+    ## [1] "Sat Apr 13 06:06:19 2019"
 
 ``` r
 var_values <- vtreat::value_variables_C(dTrain,
@@ -153,13 +150,13 @@ length(vars)
 date()
 ```
 
-    ## [1] "Wed Apr 10 10:33:28 2019"
+    ## [1] "Sat Apr 13 06:14:27 2019"
 
 ``` r
 date()
 ```
 
-    ## [1] "Wed Apr 10 10:33:28 2019"
+    ## [1] "Sat Apr 13 06:14:27 2019"
 
 ``` r
 # Run other models (with proper coding/training separation).
@@ -177,9 +174,9 @@ cfe = mkCrossFrameCExperiment(dTrain,
                               parallelCluster=cl)
 ```
 
-    ## [1] "vtreat 1.4.0 start initial treatment design Wed Apr 10 10:33:28 2019"
-    ## [1] " start cross frame work Wed Apr 10 10:39:58 2019"
-    ## [1] " vtreat::mkCrossFrameCExperiment done Wed Apr 10 10:45:03 2019"
+    ## [1] "vtreat 1.4.0 start initial treatment design Sat Apr 13 06:14:27 2019"
+    ## [1] " start cross frame work Sat Apr 13 06:20:19 2019"
+    ## [1] " vtreat::mkCrossFrameCExperiment done Sat Apr 13 06:24:25 2019"
 
 ``` r
 treatmentsC = cfe$treatments
@@ -211,13 +208,13 @@ treatedTestP = treatedTest[, yName, drop=FALSE]
 date()
 ```
 
-    ## [1] "Wed Apr 10 10:45:04 2019"
+    ## [1] "Sat Apr 13 06:24:27 2019"
 
 ``` r
 date()
 ```
 
-    ## [1] "Wed Apr 10 10:45:04 2019"
+    ## [1] "Sat Apr 13 06:24:27 2019"
 
 ``` r
 mname = 'xgbPred'
@@ -239,40 +236,40 @@ model <- xgb.cv(data = as.matrix(treatedTrainM[, selvars, drop = FALSE]),
                 eval_metric = "logloss")
 ```
 
-    ## [1]  train-logloss:0.502193+0.000578 test-logloss:0.503657+0.001099 
+    ## [1]  train-logloss:0.502159+0.000620 test-logloss:0.503705+0.001144 
     ## Multiple eval metrics are present. Will use test_logloss for early stopping.
     ## Will train until test_logloss hasn't improved in 10 rounds.
     ## 
-    ## [2]  train-logloss:0.398788+0.001037 test-logloss:0.401501+0.002130 
-    ## [3]  train-logloss:0.336293+0.001184 test-logloss:0.340426+0.002931 
-    ## [4]  train-logloss:0.297012+0.001491 test-logloss:0.302506+0.003549 
-    ## [5]  train-logloss:0.271595+0.001531 test-logloss:0.278372+0.004130 
-    ## [6]  train-logloss:0.254769+0.001566 test-logloss:0.262993+0.004615 
-    ## [7]  train-logloss:0.243327+0.001584 test-logloss:0.253198+0.005169 
-    ## [8]  train-logloss:0.235735+0.001644 test-logloss:0.247203+0.005481 
-    ## [9]  train-logloss:0.230149+0.001598 test-logloss:0.243372+0.005684 
-    ## [10] train-logloss:0.225769+0.001678 test-logloss:0.241090+0.006208 
-    ## [11] train-logloss:0.222306+0.001778 test-logloss:0.239557+0.006249 
-    ## [12] train-logloss:0.219579+0.001914 test-logloss:0.238442+0.006230 
-    ## [13] train-logloss:0.217218+0.001746 test-logloss:0.237698+0.006417 
-    ## [14] train-logloss:0.215185+0.001551 test-logloss:0.237298+0.006517 
-    ## [15] train-logloss:0.212964+0.001414 test-logloss:0.236842+0.006548 
-    ## [16] train-logloss:0.211125+0.001387 test-logloss:0.236456+0.006581 
-    ## [17] train-logloss:0.209394+0.001626 test-logloss:0.236167+0.006658 
-    ## [18] train-logloss:0.207668+0.001594 test-logloss:0.236152+0.006799 
-    ## [19] train-logloss:0.205996+0.001464 test-logloss:0.236072+0.007031 
-    ## [20] train-logloss:0.204061+0.001659 test-logloss:0.236295+0.007137 
-    ## [21] train-logloss:0.202353+0.001624 test-logloss:0.236407+0.007216 
-    ## [22] train-logloss:0.201008+0.001359 test-logloss:0.236331+0.007251 
-    ## [23] train-logloss:0.199915+0.001331 test-logloss:0.236405+0.007242 
-    ## [24] train-logloss:0.198619+0.001152 test-logloss:0.236624+0.007147 
-    ## [25] train-logloss:0.197440+0.001129 test-logloss:0.236673+0.007105 
-    ## [26] train-logloss:0.195814+0.001401 test-logloss:0.237096+0.007094 
-    ## [27] train-logloss:0.194355+0.001503 test-logloss:0.237369+0.007021 
-    ## [28] train-logloss:0.193297+0.001931 test-logloss:0.237387+0.007177 
-    ## [29] train-logloss:0.192002+0.001789 test-logloss:0.237699+0.007054 
+    ## [2]  train-logloss:0.398753+0.001097 test-logloss:0.401479+0.002218 
+    ## [3]  train-logloss:0.336302+0.001233 test-logloss:0.340424+0.003055 
+    ## [4]  train-logloss:0.296987+0.001516 test-logloss:0.302583+0.003754 
+    ## [5]  train-logloss:0.271537+0.001521 test-logloss:0.278552+0.004470 
+    ## [6]  train-logloss:0.254783+0.001588 test-logloss:0.263004+0.005012 
+    ## [7]  train-logloss:0.243489+0.001624 test-logloss:0.253144+0.005416 
+    ## [8]  train-logloss:0.235563+0.001707 test-logloss:0.246959+0.005732 
+    ## [9]  train-logloss:0.230037+0.001569 test-logloss:0.243185+0.005829 
+    ## [10] train-logloss:0.225742+0.001519 test-logloss:0.240639+0.005974 
+    ## [11] train-logloss:0.222362+0.001614 test-logloss:0.238949+0.006371 
+    ## [12] train-logloss:0.219591+0.001556 test-logloss:0.237901+0.006568 
+    ## [13] train-logloss:0.217377+0.001563 test-logloss:0.237363+0.006704 
+    ## [14] train-logloss:0.215518+0.001576 test-logloss:0.237099+0.006719 
+    ## [15] train-logloss:0.213515+0.001549 test-logloss:0.236753+0.006572 
+    ## [16] train-logloss:0.211624+0.001351 test-logloss:0.236627+0.006714 
+    ## [17] train-logloss:0.209626+0.001522 test-logloss:0.236626+0.006633 
+    ## [18] train-logloss:0.207940+0.001689 test-logloss:0.236419+0.006786 
+    ## [19] train-logloss:0.206242+0.001860 test-logloss:0.236392+0.006808 
+    ## [20] train-logloss:0.204831+0.001800 test-logloss:0.236504+0.006879 
+    ## [21] train-logloss:0.203383+0.002027 test-logloss:0.236565+0.006968 
+    ## [22] train-logloss:0.202086+0.001897 test-logloss:0.236733+0.007030 
+    ## [23] train-logloss:0.200743+0.001976 test-logloss:0.236896+0.007089 
+    ## [24] train-logloss:0.199439+0.001718 test-logloss:0.236858+0.007081 
+    ## [25] train-logloss:0.198148+0.001348 test-logloss:0.237026+0.006904 
+    ## [26] train-logloss:0.197186+0.001331 test-logloss:0.237218+0.007037 
+    ## [27] train-logloss:0.196128+0.001258 test-logloss:0.237225+0.006925 
+    ## [28] train-logloss:0.195027+0.001381 test-logloss:0.237298+0.006904 
+    ## [29] train-logloss:0.193811+0.001495 test-logloss:0.237520+0.006961 
     ## Stopping. Best iteration:
-    ## [19] train-logloss:0.205996+0.001464 test-logloss:0.236072+0.007031
+    ## [19] train-logloss:0.206242+0.001860 test-logloss:0.236392+0.006808
 
 ``` r
 nrounds <- model$best_iteration
@@ -288,61 +285,65 @@ model <- xgboost(data = as.matrix(treatedTrainM[, selvars, drop = FALSE]),
                  params = params)
 ```
 
-    ## [1]  train-error:0.071231 
-    ## [2]  train-error:0.071031 
-    ## [3]  train-error:0.071355 
-    ## [4]  train-error:0.071530 
-    ## [5]  train-error:0.071655 
-    ## [6]  train-error:0.071306 
-    ## [7]  train-error:0.071306 
-    ## [8]  train-error:0.071231 
-    ## [9]  train-error:0.070931 
-    ## [10] train-error:0.070831 
-    ## [11] train-error:0.070856 
-    ## [12] train-error:0.070681 
-    ## [13] train-error:0.070357 
-    ## [14] train-error:0.070132 
-    ## [15] train-error:0.069982 
-    ## [16] train-error:0.069932 
-    ## [17] train-error:0.069708 
-    ## [18] train-error:0.069533 
-    ## [19] train-error:0.069308
+    ## [1]  train-error:0.071630 
+    ## [2]  train-error:0.071206 
+    ## [3]  train-error:0.071530 
+    ## [4]  train-error:0.071330 
+    ## [5]  train-error:0.071505 
+    ## [6]  train-error:0.071730 
+    ## [7]  train-error:0.071655 
+    ## [8]  train-error:0.071430 
+    ## [9]  train-error:0.071430 
+    ## [10] train-error:0.071380 
+    ## [11] train-error:0.071256 
+    ## [12] train-error:0.071206 
+    ## [13] train-error:0.070781 
+    ## [14] train-error:0.070457 
+    ## [15] train-error:0.070407 
+    ## [16] train-error:0.070357 
+    ## [17] train-error:0.069533 
+    ## [18] train-error:0.069308 
+    ## [19] train-error:0.069009
 
 ``` r
-treatedTrainP[[mname]] = predict(model, 
-                                 newdata=as.matrix(treatedTrainM[, selvars, drop = FALSE]), 
-                                 type='response')
-treatedTestP[[mname]] = predict(model,
-                                newdata=as.matrix(treatedTest[, selvars, drop = FALSE]), 
-                                n.trees=nTrees)
+treatedTrainP[[mname]] = predict(
+  model, 
+  newdata = as.matrix(treatedTrainM[, selvars, drop = FALSE]), 
+  n.trees = nTrees,
+  type = 'response')
+treatedTestP[[mname]] = predict(
+  model,
+  newdata = as.matrix(treatedTest[, selvars, drop = FALSE]), 
+  n.trees = nTrees,
+  type = "response")
 date()
 ```
 
-    ## [1] "Wed Apr 10 10:52:27 2019"
+    ## [1] "Sat Apr 13 06:30:27 2019"
 
 ``` r
 calcAUC(treatedTestP[[mname]], treatedTestP[[yName]]==yTarget)
 ```
 
-    ## [1] 0.7318291
+    ## [1] 0.7324135
 
 ``` r
 permTestAUC(treatedTestP, mname, yName, yTarget = yTarget)
 ```
 
-    ## [1] "AUC test alt. hyp. AUC>AUC(permuted): (AUC=0.7318, s.d.=0.01551, p<1e-05)."
+    ## [1] "AUC test alt. hyp. AUC>AUC(permuted): (AUC=0.7324, s.d.=0.0153, p<1e-05)."
 
 ``` r
 wrapChiSqTest(treatedTestP, mname, yName, yTarget = yTarget)
 ```
 
-    ## [1] "Chi-Square Test summary: pseudo-R2=0.09748 (X2(1,N=4975)=259.8, p<1e-05)."
+    ## [1] "Chi-Square Test summary: pseudo-R2=0.09674 (X2(1,N=4975)=257.8, p<1e-05)."
 
 ``` r
 date()
 ```
 
-    ## [1] "Wed Apr 10 10:52:29 2019"
+    ## [1] "Sat Apr 13 06:30:28 2019"
 
 ``` r
 t1 = paste(mname,'trainingM data')
@@ -350,21 +351,21 @@ print(DoubleDensityPlot(treatedTrainP, mname, yName,
                         title=t1))
 ```
 
-![](KDD2009vtreat_files/figure-markdown_github/kddplot-1.png)
+![](KDD2009vtreat_files/figure-gfm/kddplot-1.png)<!-- -->
 
 ``` r
 print(ROCPlot(treatedTrainP, mname, yName, yTarget,
               title=t1))
 ```
 
-![](KDD2009vtreat_files/figure-markdown_github/kddplot-2.png)
+![](KDD2009vtreat_files/figure-gfm/kddplot-2.png)<!-- -->
 
 ``` r
 print(WVPlots::PRPlot(treatedTrainP, mname, yName, yTarget,
               title=t1))
 ```
 
-![](KDD2009vtreat_files/figure-markdown_github/kddplot-3.png)
+![](KDD2009vtreat_files/figure-gfm/kddplot-3.png)<!-- -->
 
 ``` r
 t2 = paste(mname,'test data')
@@ -372,27 +373,27 @@ print(DoubleDensityPlot(treatedTestP, mname, yName,
                         title=t2))
 ```
 
-![](KDD2009vtreat_files/figure-markdown_github/kddplot-4.png)
+![](KDD2009vtreat_files/figure-gfm/kddplot-4.png)<!-- -->
 
 ``` r
 print(ROCPlot(treatedTestP, mname, yName, yTarget,
               title=t2))
 ```
 
-![](KDD2009vtreat_files/figure-markdown_github/kddplot-5.png)
+![](KDD2009vtreat_files/figure-gfm/kddplot-5.png)<!-- -->
 
 ``` r
 print(WVPlots::PRPlot(treatedTestP, mname, yName, yTarget,
               title=t2))
 ```
 
-![](KDD2009vtreat_files/figure-markdown_github/kddplot-6.png)
+![](KDD2009vtreat_files/figure-gfm/kddplot-6.png)<!-- -->
 
 ``` r
 print(date())
 ```
 
-    ## [1] "Wed Apr 10 10:52:36 2019"
+    ## [1] "Sat Apr 13 06:30:35 2019"
 
 ``` r
 print("*****************************")
@@ -404,7 +405,7 @@ print("*****************************")
 date()
 ```
 
-    ## [1] "Wed Apr 10 10:52:36 2019"
+    ## [1] "Sat Apr 13 06:30:35 2019"
 
 ``` r
 if(!is.null(cl)) {

@@ -17,8 +17,6 @@ library('sigr')
 library('parallel')
 library('xgboost')
 
-dir = "./"
-
 
 # generated/code/CodeExamples/c08_Advanced_Data_Preparation/00327_example_8.1_of_section_8.2.1.R 
 # example 8.1 of section 8.2.1 
@@ -175,12 +173,16 @@ model <- xgboost(data = as.matrix(treatedTrainM[, selvars, drop = FALSE]),
                  label = treatedTrainM[[yName]],
                  nrounds = nrounds,
                  params = params)
-treatedTrainP[[mname]] = predict(model, 
-                                 newdata=as.matrix(treatedTrainM[, selvars, drop = FALSE]), 
-                                 type='response')
-treatedTestP[[mname]] = predict(model,
-                                newdata=as.matrix(treatedTest[, selvars, drop = FALSE]), 
-                                n.trees=nTrees)
+treatedTrainP[[mname]] = predict(
+  model, 
+  newdata = as.matrix(treatedTrainM[, selvars, drop = FALSE]), 
+  n.trees = nTrees,
+  type = 'response')
+treatedTestP[[mname]] = predict(
+  model,
+  newdata = as.matrix(treatedTest[, selvars, drop = FALSE]), 
+  n.trees = nTrees,
+  type = "response")
 date()
 ```
 
