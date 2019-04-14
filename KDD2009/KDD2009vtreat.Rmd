@@ -33,17 +33,15 @@ churn <- read.table('orange_small_train_churn.labels.txt',
 d$churn <- churn$V1 	# Note: 4 
 
 set.seed(729375) 	# Note: 5 
-rgroup <- base::sample(c('train', 'calibrate', 'test'), 	# Note: 6 
+rgroup <- base::sample(c('train', 'test'), 	# Note: 6 
    nrow(d), 
-   prob = c(0.8, 0.1, 0.1),
+   prob = c(0.9, 0.1),
    replace = TRUE)
 dTrain <- d[rgroup=='train', , drop = FALSE]
-dCal <- d[rgroup=='calibrate', , drop = FALSE]
-dTrainAll <- d[rgroup %in% c('train', 'calibrate'), , drop = FALSE]
 dTest <- d[rgroup == 'test', , drop = FALSE]
                                                 
 outcome <- 'churn' 
-vars <- setdiff(colnames(dTrainAll), outcome)
+vars <- setdiff(colnames(dTrain), outcome)
 
                                                 
 rm(list=c('d', 'churn', 'rgroup')) 	# Note: 9
