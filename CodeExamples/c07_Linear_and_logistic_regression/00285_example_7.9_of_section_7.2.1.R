@@ -3,6 +3,6 @@
 # Title: Loading the CDC data 
 
 load("NatalRiskData.rData")
-train <- sdata[sdata$ORIGRANDGROUP<=5,]
-test <- sdata[sdata$ORIGRANDGROUP>5,]
+train <- sdata[sdata$ORIGRANDGROUP <= 5 , ]
+test <- sdata[sdata$ORIGRANDGROUP > 5, ]
 

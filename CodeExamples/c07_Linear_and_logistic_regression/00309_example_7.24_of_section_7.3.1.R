@@ -10,6 +10,6 @@ library(wrapr)
 ## <environment: base>
 
 model_glm <- glm(fmla,
-            data=cars_train,
-            family=binomial)
+            data = cars_train,
+            family = binomial)
 

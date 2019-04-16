@@ -1,5 +1,5 @@
 # informalexample 7.16 of section 7.2.1 
 # (informalexample 7.16 of section 7.2.1)  : Linear and logistic regression : Using logistic regression : Understanding logistic regression 
 
-P[flight_delayed[i] == TRUE] =  s(b0 + b_origin * origin[i] + b_destination * destination[i] + ...)
+P[flight_delayed[i] == TRUE] =  s(b0 + b_origin * origin[i] + ...)
 

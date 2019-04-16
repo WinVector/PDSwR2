@@ -2,14 +2,14 @@
 # (example 7.13 of section 7.2.3)  : Linear and logistic regression : Using logistic regression : Making predictions 
 # Title: Logistic regression preserves marginal probabilities 
 
-sum(train$atRisk==TRUE)  	# Note: 1 
+sum(train$atRisk == TRUE)  	# Note: 1 
 ## [1] 273
 
 sum(train$pred)   	# Note: 2 
 ## [1] 273
 
 premature <- subset(train, GESTREC3 == "< 37 weeks")   	# Note: 3 
-sum(premature$atRisk==TRUE)
+sum(premature$atRisk == TRUE)
 ## [1] 112
 
 sum(premature$pred)  	# Note: 4 

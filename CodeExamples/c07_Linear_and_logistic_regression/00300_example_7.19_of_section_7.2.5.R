@@ -9,29 +9,29 @@ loglikelihood <- function(y, py) {                                 	# Note: 1
 (pnull <- mean(as.numeric(train$atRisk))  )                              	# Note: 2 
 ## [1] 0.01920912
 
-(null.dev <- -2*loglikelihood(as.numeric(train$atRisk), pnull) )        	# Note: 3 
+(null.dev <- -2  *loglikelihood(as.numeric(train$atRisk), pnull) )        	# Note: 3 
 ## [1] 2698.716
 
 model$null.deviance                                                     	# Note: 4 
 ## [1] 2698.716
 
-pred <- predict(model, newdata=train, type="response")      	# Note: 5 
-(resid.dev <- -2*loglikelihood(as.numeric(train$atRisk), pred) )         	# Note: 6 
+pred <- predict(model, newdata = train, type = "response")      	# Note: 5 
+(resid.dev <- -2 * loglikelihood(as.numeric(train$atRisk), pred) )         	# Note: 6 
 ## [1] 2462.992
 
 model$deviance                                                         	# Note: 7 
 ## [1] 2462.992
 
 testy <- as.numeric(test$atRisk)                                    	# Note: 8 
-testpred <- predict(model, newdata=test,
-                        type="response")
+testpred <- predict(model, newdata = test,
+                        type = "response")
 ( pnull.test <- mean(testy) )
 ## [1] 0.0172713
 
-( null.dev.test <- -2*loglikelihood(testy, pnull.test) )
+( null.dev.test <- -2 * loglikelihood(testy, pnull.test) )
 ## [1] 2110.91
 
-( resid.dev.test <- -2*loglikelihood(testy, testpred) )
+( resid.dev.test <- -2 * loglikelihood(testy, testpred) )
 ## [1] 1947.094
 
 # Note 1: 

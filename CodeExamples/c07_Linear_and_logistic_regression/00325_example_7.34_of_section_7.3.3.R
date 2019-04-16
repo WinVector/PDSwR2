@@ -15,10 +15,10 @@ minix <- which.min(enet_performance$cvm)           	# Note: 5
 (best_alpha <- elastic_net$alpha[minix])           	# Note: 6 
 ## [1] 0.729
 
-ggplot(enet_performance, aes(x=alpha, y=cvm)) +          	# Note: 7 
+ggplot(enet_performance, aes(x = alpha, y = cvm)) +          	# Note: 7 
   geom_point() + 
   geom_line() + 
-  geom_vline(xintercept = best_alpha, color="red", linetype=2) + 
+  geom_vline(xintercept = best_alpha, color = "red", linetype = 2) + 
   ggtitle("CV loss as a function of alpha")
 
 # Note 1: 

@@ -12,7 +12,7 @@ confmat <- function(dframe, predvar) {     	# Note: 3
   cmat <- table(truth = ifelse(dframe$fail, "unacceptable", "passed"),
                prediction = ifelse(dframe[[predvar]] > 0.5, 
                                    "unacceptable", "passed"))
-  accuracy <- sum(diag(cmat))/sum(cmat)
+  accuracy <- sum(diag(cmat)) / sum(cmat)
   deviance <- calcDeviance(dframe[[predvar]], dframe$fail)
   
   list(confusion_matrix = cmat,

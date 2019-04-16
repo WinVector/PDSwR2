@@ -5,7 +5,7 @@
 (model_enet <- cv.glmnet(fmla, 
                        cars_train,
                        alpha = best_alpha,
-                       family="binomial"))
+                       family = "binomial"))
 
 ## Call:
 ## cv.glmnet.formula(formula = fmla, data = cars_train, alpha = best_alpha, 
@@ -20,7 +20,7 @@
 
 prediction <- predict(model_enet,
                       newdata = cars_test,
-                      type="response")
+                      type = "response")
 
 cars_test$pred_enet <- as.numeric(prediction)
 

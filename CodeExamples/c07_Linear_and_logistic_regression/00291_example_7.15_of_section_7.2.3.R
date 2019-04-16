@@ -2,6 +2,8 @@
 # (example 7.15 of section 7.2.3)  : Linear and logistic regression : Using logistic regression : Making predictions 
 # Title: Exploring modeling trade-offs 
 
+library("WVPlots")
+library("ggplot2")
 plt <- PRTPlot(train, "pred", "atRisk", TRUE,    	# Note: 1 
         plotvars = c("enrichment", "recall"),
         thresholdrange = c(0,0.05),                                       

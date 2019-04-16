@@ -4,7 +4,7 @@
 
 (elastic_net <- cva.glmnet(fmla, 
                           cars_train,
-                          family="binomial"))
+                          family = "binomial"))
 ## Call:
 ## cva.glmnet.formula(formula = fmla, data = cars_train, family = "binomial")
 ## 

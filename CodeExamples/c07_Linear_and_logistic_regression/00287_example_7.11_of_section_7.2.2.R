@@ -9,5 +9,5 @@ print(fmla)
 ##     URF_ECLAM
 ## <environment: base>
 
-model <- glm(fmla, data=train, family=binomial(link="logit"))
+model <- glm(fmla, data = train, family = binomial(link = "logit"))
 

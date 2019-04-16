@@ -4,7 +4,7 @@
 
 complications <- c("ULD_MECO","ULD_PRECIP","ULD_BREECH")
 riskfactors <- c("URF_DIAB", "URF_CHYPER", "URF_PHYPER",
-                "URF_ECLAM")
+                  "URF_ECLAM")
 y <- "atRisk"
 x <- c("PWGT",
       "UPREVIS",

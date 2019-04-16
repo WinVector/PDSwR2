@@ -5,7 +5,7 @@ log10(income_bachelors) - log10(income_no_hs_degree) = 0.36
        log10(income_hs) - log10(income_no_hs_degree) = 0.11
 
 log10(income_bachelors) - log10(income_hs) = 0.36 - 0.11  	# Note: 1 
-           (income_bachelors)/(income_hs)  = 10^(0.36 - 0.11)
+         (income_bachelors) / (income_hs)  = 10^(0.36 - 0.11)
 
 # Note 1: 
 #   Subtract the second equation from the first 

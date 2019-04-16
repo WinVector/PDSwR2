@@ -7,8 +7,8 @@ coef_frame <- data.frame(coef = names(coefs),
                         value = coefs)
 
 library(ggplot2)
-ggplot(coef_frame, aes(x=coef, y=value)) + 
-  geom_pointrange(aes(ymin=0, ymax=value)) + 
+ggplot(coef_frame, aes(x = coef, y = value)) + 
+  geom_pointrange(aes(ymin = 0, ymax = value)) + 
   ggtitle("Coefficients of logistic regression model") + 
   coord_flip()
 

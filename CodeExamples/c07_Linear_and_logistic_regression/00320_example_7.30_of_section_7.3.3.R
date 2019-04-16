@@ -4,7 +4,7 @@
 
 prediction <- predict(model_ridge,
                      newdata = cars_test,
-                     type="response")
+                     type = "response")
 
 cars_test$pred_ridge <- as.numeric(prediction)  	# Note: 1 
 

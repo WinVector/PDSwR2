@@ -17,7 +17,8 @@ outcome <- "fail"                     	# Note: 2
 
 set.seed(24351)
 gp <- runif(nrow(cars))  	# Note: 3 
-library(zeallot)
+                                
+library("zeallot")
 c(cars_test, cars_train) %<-% split(cars, gp < 0.7)  	# Note: 4 
                                     
 nrow(cars_test)
@@ -35,5 +36,7 @@ nrow(cars_train)
 #   Create the grouping variable for the test/train split (70% for training, 30% for test). 
 
 # Note 4: 
-#   The split() function will put the group "gp < 0.7 == FALSE" first. 
+#   The split() function returns a list of two groups with the group "gp < 0.7 == FALSE" first. 
+#   The zeallot packages's %<-% multi-assignment takes this list of values and unpacks them 
+#   into the variables named cars_test and cars_train. 
 

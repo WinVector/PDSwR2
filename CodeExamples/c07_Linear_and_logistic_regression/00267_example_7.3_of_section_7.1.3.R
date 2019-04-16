@@ -4,13 +4,13 @@
 
 library('ggplot2')
 ggplot(data = dtest, aes(x = predLogPINCP, y = log10(PINCP))) +
-   geom_point(alpha = 0.2,color = "darkgray") +
-   geom_smooth(color="darkblue") +
+   geom_point(alpha = 0.2, color = "darkgray") +
+   geom_smooth(color = "darkblue") +
    geom_line(aes(x = log10(PINCP),   	# Note: 1 
                  y = log10(PINCP)),
-             color = "blue", linetype=2) +
-   coord_cartesian(xlim = c(4,5.25),          	# Note: 2 
-                   ylim = c(c(3.5,5.5)))
+             color = "blue", linetype = 2) +
+   coord_cartesian(xlim = c(4, 5.25),          	# Note: 2 
+                   ylim = c(3.5, 5.5))
 
 # Note 1: 
 #   Plot the line x=y 

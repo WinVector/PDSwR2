@@ -32,8 +32,8 @@
 coef_frame <- data.frame(coef = rownames(coefs)[-1],
                         value = coefs[-1,1])
 
-ggplot(coef_frame, aes(x=coef, y=value)) + 
-  geom_pointrange(aes(ymin=0, ymax=value)) + 
+ggplot(coef_frame, aes(x = coef, y = value)) + 
+  geom_pointrange(aes(ymin = 0, ymax = value)) + 
   ggtitle("Coefficients of ridge model") + 
   coord_flip()
 

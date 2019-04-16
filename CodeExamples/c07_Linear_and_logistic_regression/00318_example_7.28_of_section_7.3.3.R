@@ -2,12 +2,13 @@
 # (example 7.28 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
 # Title: Fitting the ridge regression model 
 
+library(glmnet)
 library(glmnetUtils) 
 
 (model_ridge <- cv.glmnet(fmla,
                          cars_train,
-                         alpha=0,
-                         family="binomial"))  	# Note: 1 
+                         alpha = 0,
+                         family = "binomial"))  	# Note: 1 
 
 ## Call:
 ## cv.glmnet.formula(formula = fmla, data = cars_train, alpha = 0, 
