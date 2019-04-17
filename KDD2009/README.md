@@ -1,10 +1,10 @@
 
 
-# Example code and data for "Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014.
+# Example code and data for "Practical Data Science with R, 2nd Edition" by Nina Zumel and John Mount, Manning 2019.
 
 
- * The book: ["Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014](http://www.manning.com/zumel/)
- * The support site: [GitHub WinVector/zmPDSwR](https://github.com/WinVector/zmPDSwR)
+ * The book: ["Practical Data Science with R, 2nd Edition" by Nina Zumel and John Mount, Manning 2019](http://www.practicaldatascience.com)
+ * The support site: [GitHub WinVector/PDSwR2](https://github.com/WinVector/PDSwR2)
 
 
 ## The code and data in this directory supports examples from:
@@ -27,7 +27,7 @@ $ shasum *
 	8274d23235630717659898900b7f74092ff339ad  orange_small_train_appetency.labels.txt
 	ec2de79844657fb892ec9047e6304c12b296ff68  orange_small_train_churn.labels.txt
 	4cd2d7c9b20fd3638883a91a2fed6a03a4d5d015  orange_small_train_upselling.labels.txt
-Data to support examples in the chapter on memorization methods in "Practical Data Science with R" ( http://www.manning.com/zumel/ ).
+Data to support examples in the chapter on memorization methods in "Practical Data Science with R" ( http://www.practicaldatascience.com ).
 
 Load data:
 ```bash

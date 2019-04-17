@@ -1,10 +1,10 @@
 
 
-# Example code and data for "Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014.
+# Example code and data for "Practical Data Science with R, 2nd Edition" by Nina Zumel and John Mount, Manning 2019.
 
 
- * The book: ["Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014](http://www.manning.com/zumel/)  (book copyright Manning Publications Co., all rights reserved)
- * The support site: [GitHub WinVector/zmPDSwR](https://github.com/WinVector/zmPDSwR)
+ * The book: ["Practical Data Science with R, 2nd Edition" by Nina Zumel and John Mount, Manning 2019](http://www.practicaldatascience.com)  (book copyright Manning Publications Co., all rights reserved)
+ * The support site: [GitHub WinVector/PDSwR2](https://github.com/WinVector/PDSwR2)
 
 
 ## The code and data in this directory supports examples from:
@@ -12,8 +12,8 @@
 
 # SQL example in knitr Markdown
 
-Material from [Practical Data Science with R examples GitHub archive](https://github.com/WinVector/zmPDSwR/)
-In support of the Hotel/SQL example in Appendix A of [Practical Data Science with R](http://www.manning.com/zumel/) by Nina Zumel and John Mount.
+Material from [Practical Data Science with R examples GitHub archive](https://github.com/WinVector/PDSwR2/)
+In support of the Hotel/SQL example in Appendix A of [Practical Data Science with R](http://www.practicaldatascience.com) by Nina Zumel and John Mount.
 
 
  * start with README.Rmd and Workbook1.xlsx
