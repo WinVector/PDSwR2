@@ -4,7 +4,7 @@ Works derived from others (data sets) remain controlled by them.  We are distrib
 # Example code and data for "Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014.
 
  * The book: ["Practical Data Science with R" by Nina Zumel and John Mount, Manning 2014](http://www.manning.com/zumel/) (book copyright Manning Publications Co., all rights reserved)
- * The support site: [GitHub WinVector/zmPDSwR](https://github.com/WinVector/zmPDSwR)
+ * The support site: [GitHub WinVector/PDSwR2](https://github.com/WinVector/PDSwR2)
 
 
 ## License for additional documentation, notes, code, and derived data: 
