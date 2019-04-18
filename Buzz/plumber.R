@@ -6,7 +6,14 @@
 
 load('thRS500.Rdata')
 library(randomForest)
-numericPositions <- sapply(buzztrain[, varslist], is.numeric)
+
+
+#* Score a data frame.
+#* @param d data frame to score
+#* @post /score_data
+function(d) { 	
+  predict(fmodel, newdata = d, type = "prob")
+}
 
 #* Show a column of the i-th row of the data sample.
 #* @param i the row index
@@ -24,7 +31,7 @@ function(i) {
   predict(fmodel, newdata = dat, type = "prob")
 }
 
-#* Score the i-th row of the data sample.
+#* Score the i-th row of the data sample, with a modified explanatory variable.
 #* @param i the row index
 #* @param col the column name
 #* @param newval the new value for the column col

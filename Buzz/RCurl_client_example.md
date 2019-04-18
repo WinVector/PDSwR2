@@ -20,6 +20,7 @@ library("RCurl")
 ``` r
 library("jsonlite")
 
+
 post_query <- function(method, args) {
   hdr <- c("Content-Type" = "application/x-www-form-urlencoded")
   resp <- postForm(
@@ -29,6 +30,39 @@ post_query <- function(method, args) {
   fromJSON(resp)
 }
 
+data <- read.csv("buzz_sample.csv", 
+                 stringsAsFactors = FALSE, 
+                 strip.white = TRUE)
+
+scores <- post_query("score_data", 
+                     list(d = data))
+knitr::kable(scores)
+```
+
+|       |       |
+|------:|------:|
+|  1.000|  0.000|
+|  1.000|  0.000|
+|  1.000|  0.000|
+|  0.998|  0.002|
+|  0.094|  0.906|
+|  0.976|  0.024|
+|  0.992|  0.008|
+|  1.000|  0.000|
+|  0.972|  0.028|
+|  0.982|  0.018|
+
+``` r
+tab <- table(pred = scores[, 2]>0.5, truth = data$buzz)
+knitr::kable(tab)
+```
+
+|       |    0|    1|
+|-------|----:|----:|
+| FALSE |    9|    0|
+| TRUE  |    0|    1|
+
+``` r
 post_query("score_row_i", 
            list(i = 1))
 ```
