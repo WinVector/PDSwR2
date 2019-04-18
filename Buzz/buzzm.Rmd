@@ -211,7 +211,6 @@ fmodel <- randomForest(as.formula(bzFormula),
 Save a prepared R environment.
 
 ```{r save,message=F,eval=T}
-buzztrain <- head(buzztrain)
 fname <- 'thRS500.Rdata'
 items <- c("varslist", "fmodel", "buzztrain")
 save(list = items, file = fname)

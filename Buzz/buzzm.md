@@ -31,7 +31,7 @@ infile <- "TomsHardware-Relative-Sigma-500.data.txt"
 paste('checked at', date())
 ```
 
-    ## [1] "checked at Wed Apr 17 17:17:16 2019"
+    ## [1] "checked at Wed Apr 17 18:18:37 2019"
 
 ``` r
 system(paste('shasum', infile), intern=T)  # write down file hash
@@ -311,7 +311,6 @@ fmodel <- randomForest(as.formula(bzFormula),
 Save a prepared R environment.
 
 ``` r
-buzztrain <- head(buzztrain)
 fname <- 'thRS500.Rdata'
 items <- c("varslist", "fmodel", "buzztrain")
 save(list = items, file = fname)
@@ -325,10 +324,10 @@ print(paste('saved', fname))    # print to document
 paste('finished at', date())
 ```
 
-    ## [1] "finished at Wed Apr 17 17:20:46 2019"
+    ## [1] "finished at Wed Apr 17 18:22:09 2019"
 
 ``` r
 system(paste('shasum', fname), intern = TRUE)  # write down file hash
 ```
 
-    ## [1] "7037efaca1417ad81cb22216f84d49fcb7061e3f  thRS500.Rdata"
+    ## [1] "8745498698060af164ac2105100b04a8ada8360e  thRS500.Rdata"
