@@ -1,4 +1,4 @@
-Buzz\_score\_example.Rmd
+Buzz scoring example
 ================
 
 Example scoring (making predictions with) the Buzz data set.

@@ -1,9 +1,9 @@
 ---
-title: "Buzz_score_example.Rmd"
+title: "Buzz scoring example"
 output: github_document
 ---
 
-```{r, include=FALSE}
+```{r, include = FALSE}
 # process document with knitr or rmarkdown.
 # knitr::knit("Buzz_score_example.Rmd") # creates Buzz_score_example.md
 # rmarkdown::render("Buzz_score_example.Rmd", 
