@@ -31,7 +31,7 @@ infile <- "TomsHardware-Relative-Sigma-500.data.txt"
 paste('checked at', date())
 ```
 
-    ## [1] "checked at Wed Apr 17 18:18:37 2019"
+    ## [1] "checked at Thu Apr 18 09:30:23 2019"
 
 ``` r
 system(paste('shasum', infile), intern=T)  # write down file hash
@@ -297,37 +297,40 @@ WVPlots::ROCPlot(rtest, "pred", "truth", TRUE, "RF test performance, simpler mod
 
 Notice this has similar test performance as the first model. This is typical of random forests: the degree of over-fit in the training data is not a good predictor of good or bad performance on test data.
 
-So we are now left with a choice, unfortunately without clear guidance: which model do we use? In this case we are going to say: use the simpler model fit on all the data. The idea is the simpler model didn't test much worse and more data lets helps the model reduce over-fitting.
+So we are now left with a choice, unfortunately without clear guidance: which model do we use? In this case we are going to say: use the simpler model fit on all the data. The idea is the simpler model didn't test much worse and more data lets helps the model reduce over-fitting. We will return the simpler model fit only on training data, so we have some control and some disjoint test data to evaluate the model on.
+
+Save a sample of the test data.
 
 ``` r
-# train on all the data
-fmodel <- randomForest(as.formula(bzFormula),
-                      data = buzzdata,
-                      maxnodes = 50,
-                      nodesize = 100,
-                      importance = T)
+sample_test <- buzztest[sample.int(nrow(buzztest), 100), , drop = FALSE]
+write.csv(sample_test, "buzz_sample.csv", 
+          row.names = FALSE,
+          quote = FALSE)
 ```
 
-Save a prepared R environment.
+Save variable names, model, and test data.
 
 ``` r
-fname <- 'thRS500.Rdata'
-items <- c("varslist", "fmodel", "buzztrain")
-save(list = items, file = fname)
+fname <- 'thRS500.RDS'
+items <- c("varslist", "fmodel", "buzztest")
+saveRDS(object = list(varslist = varslist,
+                      fmodel = fmodel,
+                      buzztest = buzztest), 
+        file = fname)
 message(paste('saved', fname))  # message to running R console
 print(paste('saved', fname))    # print to document
 ```
 
-    ## [1] "saved thRS500.Rdata"
+    ## [1] "saved thRS500.RDS"
 
 ``` r
 paste('finished at', date())
 ```
 
-    ## [1] "finished at Wed Apr 17 18:22:09 2019"
+    ## [1] "finished at Thu Apr 18 09:33:05 2019"
 
 ``` r
 system(paste('shasum', fname), intern = TRUE)  # write down file hash
 ```
 
-    ## [1] "8745498698060af164ac2105100b04a8ada8360e  thRS500.Rdata"
+    ## [1] "f2b3b80bc6c5a72079b39308a5758a282bcdd5bf  thRS500.RDS"

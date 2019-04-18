@@ -22,10 +22,10 @@ Using:
 
 Crypto hashes:
 shasum TomsHardware-*.txt
-*  5a1cc7863a9da8d6e8380e1446f25eec2032bd91  TomsHardware-Absolute-Sigma-500.data.txt
-*  86f2c0f4fba4fb42fe4ee45b48078ab51dba227e  TomsHardware-Absolute-Sigma-500.names.txt
-*  c239182c786baf678b55f559b3d0223da91e869c  TomsHardware-Relative-Sigma-500.data.txt
-*  ec890723f91ae1dc87371e32943517bcfcd9e16a  TomsHardware-Relative-Sigma-500.names.txt
+  *  5a1cc7863a9da8d6e8380e1446f25eec2032bd91  TomsHardware-Absolute-Sigma-500.data.txt
+  *  86f2c0f4fba4fb42fe4ee45b48078ab51dba227e  TomsHardware-Absolute-Sigma-500.names.txt
+  *  c239182c786baf678b55f559b3d0223da91e869c  TomsHardware-Relative-Sigma-500.data.txt
+  *  ec890723f91ae1dc87371e32943517bcfcd9e16a  TomsHardware-Relative-Sigma-500.names.txt
 
 To run this example you need a system with R installed 
 (see [cran](http://cran.r-project.org)),
@@ -195,25 +195,28 @@ is not a good predictor of good or bad performance on test data.
 So we are now left with a choice, unfortunately without clear guidance: which model do we use?
 In this case we are going to say: use the simpler model fit on all the data.  The idea
 is the simpler model didn't test much worse and more data lets helps the model reduce over-fitting.
+We will return the simpler model fit only on training data, so we have some control and some disjoint test data
+to evaluate the model on.
 
-```{r model3}
-# train on all the data
-fmodel <- randomForest(as.formula(bzFormula),
-                      data = buzzdata,
-                      maxnodes = 50,
-                      nodesize = 100,
-                      importance = T)
+Save a sample of the test data.
+
+```{r savesample}
+sample_test <- buzztest[sample.int(nrow(buzztest), 100), , drop = FALSE]
+write.csv(sample_test, "buzz_sample.csv", 
+          row.names = FALSE,
+          quote = FALSE)
 ```
 
 
-
-
-Save a prepared R environment.
+Save variable names, model, and test data.
 
 ```{r save,message=F,eval=T}
-fname <- 'thRS500.Rdata'
-items <- c("varslist", "fmodel", "buzztrain")
-save(list = items, file = fname)
+fname <- 'thRS500.RDS'
+items <- c("varslist", "fmodel", "buzztest")
+saveRDS(object = list(varslist = varslist,
+                      fmodel = fmodel,
+                      buzztest = buzztest), 
+        file = fname)
 message(paste('saved', fname))  # message to running R console
 print(paste('saved', fname))    # print to document
 

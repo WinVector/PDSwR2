@@ -36,21 +36,17 @@ data <- read.csv("buzz_sample.csv",
 
 scores <- post_query("score_data", 
                      list(d = data))
-knitr::kable(scores)
+knitr::kable(head(scores))
 ```
 
 |       |       |
 |------:|------:|
-|  1.000|  0.000|
-|  1.000|  0.000|
-|  1.000|  0.000|
 |  0.998|  0.002|
-|  0.094|  0.906|
-|  0.976|  0.024|
-|  0.992|  0.008|
+|  0.350|  0.650|
 |  1.000|  0.000|
-|  0.972|  0.028|
-|  0.982|  0.018|
+|  1.000|  0.000|
+|  0.748|  0.252|
+|  0.008|  0.992|
 
 ``` r
 tab <- table(pred = scores[, 2]>0.5, truth = data$buzz)
@@ -59,28 +55,33 @@ knitr::kable(tab)
 
 |       |    0|    1|
 |-------|----:|----:|
-| FALSE |    9|    0|
-| TRUE  |    0|    1|
+| FALSE |   77|    3|
+| TRUE  |    4|   16|
 
 ``` r
+i = 27
+
 post_query("score_row_i", 
-           list(i = 1))
-```
-
-    ##      [,1] [,2]
-    ## [1,] 0.99 0.01
-
-``` r
-post_query("show_row_i_col", 
-           list(i = 1, col = "num.displays_01"))
-```
-
-    ## [1] 1108
-
-``` r
-post_query("score_row_i_modified", 
-           list(i = 1, col = "num.displays_01", newval = 0))
+           list(i = i))
 ```
 
     ##       [,1]  [,2]
-    ## [1,] 0.968 0.032
+    ## [1,] 0.634 0.366
+
+``` r
+post_query("show_row_i_col", 
+           list(i = i, 
+                col = "num.displays_01"))
+```
+
+    ## [1] 1781
+
+``` r
+post_query("score_row_i_modified", 
+           list(i = i, 
+                col = "num.displays_01", 
+                newval = 0))
+```
+
+    ##       [,1]  [,2]
+    ## [1,] 0.646 0.354
