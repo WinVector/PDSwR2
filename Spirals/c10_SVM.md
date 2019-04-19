@@ -163,6 +163,62 @@ ggplot(mapping = aes(x = x, y = y)) +
 #   Gaussian kernel, which is a nice geometric similarity measure. 
 ```
 
+``` r
+mSVMG <- svm(class~x+y,data=sTrain,kernel='radial',type='nu-classification',
+                          nu = 0.05) 
+
+sTest$predSVMG <- predict(mSVMG,newdata=sTest,type='response')
+
+shading <- expand.grid(
+  x = seq(-1.5, 1.5, by = 0.01),
+  y = seq(-1.5, 1.5, by = 0.01))
+shading$predSVMG <- predict(mSVMG, newdata = shading, type = 'response')
+
+ggplot(mapping = aes(x = x, y = y)) +
+  geom_tile(data = shading, aes(fill = predSVMG),
+            show.legend = FALSE, alpha = 0.5) +
+  scale_color_manual(values = c("#d95f02", "#1b9e77")) +
+  scale_fill_manual(values = c("white", "#1b9e77")) +
+  geom_text(data = sTest, aes(label = predSVMG), 
+            size=12) +
+  geom_text(data = s,aes(label = class, color = class),
+            alpha=0.7) +
+  coord_fixed() + 
+  theme_bw() + 
+  theme(legend.position='none') +
+  ggtitle("radial/Gaussian kernel small nu")
+```
+
+![](c10_SVM_files/figure-markdown_github/small_nu-1.png)
+
+``` r
+mSVMG <- svm(class~x+y,data=sTrain,kernel='radial',type='nu-classification',
+                          nu = 0.8)
+
+sTest$predSVMG <- predict(mSVMG,newdata=sTest,type='response')
+
+shading <- expand.grid(
+  x = seq(-1.5, 1.5, by = 0.01),
+  y = seq(-1.5, 1.5, by = 0.01))
+shading$predSVMG <- predict(mSVMG, newdata = shading, type = 'response')
+
+ggplot(mapping = aes(x = x, y = y)) +
+  geom_tile(data = shading, aes(fill = predSVMG),
+            show.legend = FALSE, alpha = 0.5) +
+  scale_color_manual(values = c("#d95f02", "#1b9e77")) +
+  scale_fill_manual(values = c("white", "#1b9e77")) +
+  geom_text(data = sTest, aes(label = predSVMG), 
+            size=12) +
+  geom_text(data = s,aes(label = class, color = class),
+            alpha=0.7) +
+  coord_fixed() + 
+  theme_bw() + 
+  theme(legend.position='none') +
+  ggtitle("radial/Gaussian kernel large nu")
+```
+
+![](c10_SVM_files/figure-markdown_github/large_nu-1.png)
+
 `xgboost` attempt.
 
 Worked version of exercise from Chapter 10 of [*Practical Data Science with R* 2nd Edition, Zumel, Mount; Manning 2019](http://www.practicaldatascience.com).
