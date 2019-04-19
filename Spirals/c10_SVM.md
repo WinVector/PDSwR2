@@ -1,6 +1,12 @@
 ch10 SVM
 ================
 
+Spirals example as from:
+
+> K. J. Lang and M. J. Witbrock, “Learning to tell two spirals apart.” In Proceedings of the 1988 Connectionist Models Summer School, D. Touretzky, G. Hinton, and T. Sejnowski (eds), Morgan Kaufmann, 1988 (pp. 52-59).
+
+Solutions as worked in Chapter 10 of [*Practical Data Science with R* 2nd Edition, Zumel, Mount; Manning 2019](http://www.practicaldatascience.com).
+
 00433\_example\_10.22\_of\_section\_10.3.1.R
 
 ``` r
@@ -158,6 +164,8 @@ ggplot(mapping = aes(x = x, y = y)) +
 ```
 
 `xgboost` attempt.
+
+Worked version of exercise from Chapter 10 of [*Practical Data Science with R* 2nd Edition, Zumel, Mount; Manning 2019](http://www.practicaldatascience.com).
 
 ``` r
 library("xgboost")
