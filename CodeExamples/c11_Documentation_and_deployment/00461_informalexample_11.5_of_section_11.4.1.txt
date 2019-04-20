@@ -1,8 +1,0 @@
-# informalexample 11.5 of section 11.4.1 
-# (informalexample 11.5 of section 11.4.1)  : Documentation and deployment : Deploying models : Deploying models as R HTTP services 
-
-val=1
-nerrors=0
-nwarnings=0
-...
-

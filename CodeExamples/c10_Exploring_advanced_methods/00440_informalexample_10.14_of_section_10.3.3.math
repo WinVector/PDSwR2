@@ -1,0 +1,5 @@
+# informalexample 10.14 of section 10.3.3 
+# (informalexample 10.14 of section 10.3.3)  : Exploring advanced methods : Solving "Inseparable" Problems Using Support Vector Machines : Understanding kernel functions 
+
+w = sum(a1 * phi(s1), ..., am * phi(sm))
+

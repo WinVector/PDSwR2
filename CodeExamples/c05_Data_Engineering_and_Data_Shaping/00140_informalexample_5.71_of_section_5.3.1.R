@@ -3,5 +3,10 @@
 
 packageVersion("dplyr")
 ## [1] ‘0.7.7’
-dplyr::coalesce(data$sensor1, data$sensor2)
+dplyr::coalesce(
+   as.numeric(data$sensor1), 	# Note: 1 
+   data$sensor2)
+
+# Note 1: 
+#   Work around issue that all-NA columns are often typed as logical, and dplyr will not convert the column type. 
 

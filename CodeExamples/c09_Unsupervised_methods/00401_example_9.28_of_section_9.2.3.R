@@ -8,6 +8,8 @@ brulesSub %>%
   lhs(.) %>%
   head(., n=5) %>%
   inspect(.)
+  
+brulesConf <- sort(brulesSub, by="confidence")
 
 inspect(head(lhs(brulesConf), n=5))
 ##   items

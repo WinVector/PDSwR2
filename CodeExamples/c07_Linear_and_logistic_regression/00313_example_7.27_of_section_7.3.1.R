@@ -38,7 +38,7 @@ confmat(cars_test, "pred_glm")
 #   Get the model's predictions on the test set 
 
 # Note 2: 
-#   For deviance calculation 
+#   Attach the sigr package for deviance calculation (sigr includes a number of goodness of fit summaries and tests) 
 
 # Note 3: 
 #   Convenience function to print confusion matrix,  

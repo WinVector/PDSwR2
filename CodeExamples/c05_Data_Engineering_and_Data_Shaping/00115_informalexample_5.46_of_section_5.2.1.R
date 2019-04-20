@@ -6,6 +6,6 @@ library("zoo")
 
 airquality_with_date %>% 
   mutate(.,
-         OzoneCorrected = na.locf(., na.rm = FALSE)) %>% 
+         OzoneCorrected = na.locf(Ozone, na.rm = FALSE)) %>% 
   summary(.)
 

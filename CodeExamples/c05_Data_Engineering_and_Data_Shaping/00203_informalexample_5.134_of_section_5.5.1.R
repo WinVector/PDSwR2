@@ -3,10 +3,12 @@
 
 library("datasets")
 library("xts")
-# remove attributes
-Seatbelts <- data.frame(Seatbelts) 
+
 # move the date index into a column
-Seatbelts$date <- index(as.xts(Seatbelts))
+dates <- index(as.xts(time(Seatbelts)))
+Seatbelts <- data.frame(Seatbelts) 
+Seatbelts$date <- dates
+  
 # restrict down to 1982 and 1983
 Seatbelts <- Seatbelts[ (Seatbelts$date >= as.yearmon("Jan 1982")) &
                           (Seatbelts$date <= as.yearmon("Dec 1983")),
