@@ -107,6 +107,17 @@ plot(pfit, labels=protein$Country)      	# Note: 3
 # Note 3: 
 #   Plot the dendrogram. 
 
+
+
+```
+
+
+
+
+00370_informalexample_9.5_of_section_9.1.3.R
+
+
+```{r 00370_informalexample_9.5_of_section_9.1.3.R , error = TRUE }
 # informalexample 9.5 of section 9.1.3 
 # (informalexample 9.5 of section 9.1.3)  : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
 

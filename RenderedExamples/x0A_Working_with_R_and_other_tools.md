@@ -1,5 +1,5 @@
 
-00465\_example\_A.1\_of\_section\_A.2.R
+00466\_example\_A.1\_of\_section\_A.2.R
 
 ``` r
 # example A.1 of section A.2 
@@ -100,7 +100,7 @@ vec
 ## [1] 1 2
 ```
 
-00466\_informalexample\_A.3\_of\_section\_A.2.1.R
+00467\_informalexample\_A.3\_of\_section\_A.2.1.R
 
 ``` r
 # informalexample A.3 of section A.2.1 
@@ -123,7 +123,7 @@ print(x)
 ## [1] 2
 ```
 
-00467\_example\_A.2\_of\_section\_A.2.1.R
+00468\_example\_A.2\_of\_section\_A.2.1.R
 
 ``` r
 # example A.2 of section A.2.1 
@@ -161,7 +161,7 @@ divide(denominator<-2,numerator<-1)  # yields 2, a wrong answer
 ## [1] 2
 ```
 
-00468\_example\_A.3\_of\_section\_A.2.1.R
+00469\_example\_A.3\_of\_section\_A.2.1.R
 
 ``` r
 # example A.3 of section A.2.1 
@@ -189,7 +189,7 @@ print(x)
 ## [1] 5
 ```
 
-00469\_example\_A.4\_of\_section\_A.2.1.R
+00470\_example\_A.4\_of\_section\_A.2.1.R
 
 ``` r
 # example A.4 of section A.2.1 
@@ -219,7 +219,7 @@ c(T,T,F,F) | c(T,F,T,F)
 ## [1]  TRUE  TRUE  TRUE FALSE
 ```
 
-00470\_informalexample\_A.4\_of\_section\_A.2.1.R
+00471\_informalexample\_A.4\_of\_section\_A.2.1.R
 
 ``` r
 # informalexample A.4 of section A.2.1 
@@ -235,7 +235,7 @@ add(1,2)
 ## [1] 3
 ```
 
-00471\_informalexample\_A.5\_of\_section\_A.2.1.R
+00472\_informalexample\_A.5\_of\_section\_A.2.1.R
 
 ``` r
 # informalexample A.5 of section A.2.1 
@@ -250,7 +250,7 @@ add(1,'fred')
 ## Error in a + b : non-numeric argument to binary operator
 ```
 
-00472\_example\_A.5\_of\_section\_A.2.1.R
+00473\_example\_A.5\_of\_section\_A.2.1.R
 
 ``` r
 # example A.5 of section A.2.1 
@@ -275,7 +275,7 @@ print(vec)
 ## [1] 1 2
 ```
 
-00473\_informalexample\_A.6\_of\_section\_A.2.2.R
+00474\_informalexample\_A.6\_of\_section\_A.2.2.R
 
 ``` r
 # informalexample A.6 of section A.2.2 
@@ -292,7 +292,7 @@ print(vec)
 ## [1] 2 5
 ```
 
-00474\_example\_A.6\_of\_section\_A.2.2.R
+00475\_example\_A.6\_of\_section\_A.2.2.R
 
 ``` r
 # example A.6 of section A.2.2 
@@ -359,7 +359,7 @@ x[c('a','a','b','b')]
 ## [1] "fred"
 ```
 
-00475\_example\_A.7\_of\_section\_A.2.2.R
+00476\_example\_A.7\_of\_section\_A.2.2.R
 
 ``` r
 # example A.7 of section A.2.2 
@@ -386,7 +386,7 @@ factor('apple',levels=c('red','orange'))
 ## Levels: red orange
 ```
 
-00476\_example\_A.8\_of\_section\_A.2.2.R
+00477\_example\_A.8\_of\_section\_A.2.2.R
 
 ``` r
 # example A.8 of section A.2.2 
@@ -428,7 +428,7 @@ print(predict(m,
 #   factors as strings. 
 ```
 
-00477\_example\_A.9\_of\_section\_A.2.3.R
+00478\_example\_A.9\_of\_section\_A.2.3.R
 
 ``` r
 # example A.9 of section A.2.3 
@@ -470,7 +470,7 @@ cars <- read.table(mkCon('../UCICar/car.data.csv'),     # Note: 4
 #   HTTPS. 
 ```
 
-00478\_informalexample\_A.7\_of\_section\_A.3.1.R
+00479\_informalexample\_A.7\_of\_section\_A.3.1.R
 
 ``` r
 # informalexample A.7 of section A.3.1 

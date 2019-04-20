@@ -7,7 +7,7 @@
 # Title: The summary() command 
 
 setwd("../../PDSwR2/Custdata")  # Note: 1 
-customer_data = readRDS("custdata.RDS")
+customer_data = readRDS("../Custdata/custdata.RDS")
 summary(customer_data)
 ```
 

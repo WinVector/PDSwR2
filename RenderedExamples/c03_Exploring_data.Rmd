@@ -13,7 +13,7 @@ output: github_document
 # Title: The summary() command 
 
 setwd("../../PDSwR2/Custdata") 	# Note: 1 
-customer_data = readRDS("custdata.RDS")
+customer_data = readRDS("../Custdata/custdata.RDS")
 summary(customer_data)
 ##     custid              sex        is_employed       income       	# Note: 2 
 ##  Length:73262       Female:37837   FALSE: 2351   Min.   :  -6900  

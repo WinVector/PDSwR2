@@ -114,11 +114,7 @@ outcome_summary["1"]/sum(outcome_summary)   # Note: 1
 # Title: Attempting to model without preparation 
 
 library("wrapr")    # Note: 1 
-```
-
-    ## Warning: package 'wrapr' was built under R version 3.5.2
-
-``` r
+                                        
 outcome <- 'churn'                                        
 vars <- setdiff(colnames(dTrainAll), outcome)
 
@@ -249,11 +245,7 @@ length(unique(dTrainAll$Var200))
 # Title: Basic data preparation for classification 
 
 library("vtreat")   # Note: 1 
-```
 
-    ## Warning: package 'vtreat' was built under R version 3.5.2
-
-``` r
 (parallel_cluster <- parallel::makeCluster(parallel::detectCores()))    # Note: 2 
 ```
 
@@ -571,11 +563,7 @@ dCal_treated <- prepare(treatment_plan,
 # (informalexample 8.10 of section 8.3.2)  : Advanced Data Preparation : Basic data preparation for classification : Properly using the treatment plan 
 
 library("sigr")
-```
 
-    ## Warning: package 'sigr' was built under R version 3.5.2
-
-``` r
 calcAUC(dTrain_treated$Var200_catB, dTrain_treated$churn)
 ```
 
@@ -670,11 +658,7 @@ score_frame$selected <- score_frame$sig < significance_cutoff
                                 
 
 suppressPackageStartupMessages(library("dplyr"))    # Note: 2 
-```
 
-    ## Warning: package 'dplyr' was built under R version 3.5.2
-
-``` r
 score_frame %>%
   group_by(., code, selected) %>%
   summarize(., 

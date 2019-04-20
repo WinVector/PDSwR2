@@ -105,7 +105,11 @@ pmatrix <- rm_scales(pmatrix)   # Note: 4
 distmat <- dist(pmatrix, method="euclidean")    # Note: 1 
 pfit <- hclust(distmat, method="ward.D")            # Note: 2 
 plot(pfit, labels=protein$Country)          # Note: 3
+```
 
+![](c09_Unsupervised_methods_files/figure-markdown_github/00369_example_9.3_of_section_9.1.3.R-1.png)
+
+``` r
 # Note 1: 
 #   Create the distance matrix. 
 
@@ -114,14 +118,18 @@ plot(pfit, labels=protein$Country)          # Note: 3
 
 # Note 3: 
 #   Plot the dendrogram. 
+```
 
+00370\_informalexample\_9.5\_of\_section\_9.1.3.R
+
+``` r
 # informalexample 9.5 of section 9.1.3 
 # (informalexample 9.5 of section 9.1.3)  : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
 
 rect.hclust(pfit, k=5)
 ```
 
-![](c09_Unsupervised_methods_files/figure-markdown_github/00369_example_9.3_of_section_9.1.3.R-1.png)
+    ## Error in rect(m[which[n]] + 0.66, par("usr")[3L], m[which[n] + 1] + 0.33, : plot.new has not been called yet
 
 00371\_example\_9.4\_of\_section\_9.1.3.R
 
@@ -240,11 +248,6 @@ print_clusters(protein, groups, cols_to_print)
 # Title: Projecting the clusters on the first two principal components 
 
 library(ggplot2)
-```
-
-    ## Warning: package 'ggplot2' was built under R version 3.5.2
-
-``` r
 princ <- prcomp(pmatrix)            # Note: 1 
 nComp <- 2
 project <- predict(princ, pmatrix)[,1:nComp]                # Note: 2 
@@ -510,7 +513,7 @@ print_clusters(protein, groups, cols_to_print)                                  
 cboot_hclust$bootmean                                           # Note: 7 
 ```
 
-    ## [1] 0.7926667 0.7775913 0.6568690 0.9052143 0.7173333
+    ## [1] 0.8300000 0.7753889 0.6374008 0.8829841 0.7645000
 
 ``` r
 ## [1] 0.8090000 0.7939643 0.6247976 0.9366667 0.7815000
@@ -518,7 +521,7 @@ cboot_hclust$bootmean                                           # Note: 7
 cboot_hclust$bootbrd                                            # Note: 8 
 ```
 
-    ## [1] 26 16 41 12 42
+    ## [1] 21 18 48 14 29
 
 ``` r
 ## [1] 19 14 45  9 30
@@ -790,17 +793,17 @@ pclusters$centers                                                       # Note: 
 ```
 
     ##        RedMeat  WhiteMeat        Eggs       Milk       Fish    Cereals
-    ## 1 -0.807569986 -0.8719354 -1.55330561 -1.0783324 -1.0386379  1.7200335
-    ## 2  0.006572897 -0.2290150  0.19147892  1.3458748  1.1582546 -0.8722721
-    ## 3 -0.508801956 -1.1088009 -0.41248496 -0.8320414  0.9819154  0.1300253
-    ## 4  1.011180399  0.7421332  0.94084150  0.5700581 -0.2671539 -0.6877583
-    ## 5 -0.570049402  0.5803879 -0.08589708 -0.4604938 -0.4537795  0.3181839
+    ## 1  0.006572897 -0.2290150  0.19147892  1.3458748  1.1582546 -0.8722721
+    ## 2 -0.570049402  0.5803879 -0.08589708 -0.4604938 -0.4537795  0.3181839
+    ## 3 -0.807569986 -0.8719354 -1.55330561 -1.0783324 -1.0386379  1.7200335
+    ## 4 -0.508801956 -1.1088009 -0.41248496 -0.8320414  0.9819154  0.1300253
+    ## 5  1.011180399  0.7421332  0.94084150  0.5700581 -0.2671539 -0.6877583
     ##       Starch       Nuts      Fr.Veg
-    ## 1 -1.4234267  0.9961313 -0.64360439
-    ## 2  0.1676780 -0.9553392 -1.11480485
-    ## 3 -0.1842010  1.3108846  1.62924487
-    ## 4  0.2288743 -0.5083895  0.02161979
-    ## 5  0.7857609 -0.2679180  0.06873983
+    ## 1  0.1676780 -0.9553392 -1.11480485
+    ## 2  0.7857609 -0.2679180  0.06873983
+    ## 3 -1.4234267  0.9961313 -0.64360439
+    ## 4 -0.1842010  1.3108846  1.62924487
+    ## 5  0.2288743 -0.5083895  0.02161979
 
 ``` r
 ##        RedMeat  WhiteMeat        Eggs       Milk       Fish    Cereals
@@ -819,7 +822,7 @@ pclusters$centers                                                       # Note: 
 pclusters$size                                                          # Note: 4 
 ```
 
-    ## [1] 4 4 4 8 5
+    ## [1] 4 5 4 4 8
 
 ``` r
 ## [1] 5 4 4 4 8
@@ -831,27 +834,35 @@ print_clusters(protein, groups, cols_to_print)                                  
 ```
 
     ## $`1`
-    ##       Country RedMeat Fish Fr.Veg
-    ## 1     Albania    10.1  0.2    1.7
-    ## 4    Bulgaria     7.8  1.2    4.2
-    ## 18    Romania     6.2  1.0    2.8
-    ## 25 Yugoslavia     4.4  0.6    3.2
-    ## 
-    ## $`2`
     ##    Country RedMeat Fish Fr.Veg
     ## 6  Denmark    10.6  9.9    2.4
     ## 8  Finland     9.5  5.8    1.4
     ## 15  Norway     9.4  9.7    2.7
     ## 20  Sweden     9.9  7.5    2.0
     ## 
+    ## $`2`
+    ##           Country RedMeat Fish Fr.Veg
+    ## 5  Czechoslovakia     9.7  2.0    4.0
+    ## 7       E Germany     8.4  5.4    3.6
+    ## 11        Hungary     5.3  0.3    4.2
+    ## 16         Poland     6.9  3.0    6.6
+    ## 23           USSR     9.3  3.0    2.9
+    ## 
     ## $`3`
+    ##       Country RedMeat Fish Fr.Veg
+    ## 1     Albania    10.1  0.2    1.7
+    ## 4    Bulgaria     7.8  1.2    4.2
+    ## 18    Romania     6.2  1.0    2.8
+    ## 25 Yugoslavia     4.4  0.6    3.2
+    ## 
+    ## $`4`
     ##     Country RedMeat Fish Fr.Veg
     ## 10   Greece    10.2  5.9    6.5
     ## 13    Italy     9.0  3.4    6.7
     ## 17 Portugal     6.2 14.2    7.9
     ## 19    Spain     7.1  7.0    7.2
     ## 
-    ## $`4`
+    ## $`5`
     ##        Country RedMeat Fish Fr.Veg
     ## 2      Austria     8.9  2.1    4.3
     ## 3      Belgium    13.5  4.5    4.0
@@ -861,14 +872,6 @@ print_clusters(protein, groups, cols_to_print)                                  
     ## 21 Switzerland    13.1  2.3    4.9
     ## 22          UK    17.4  4.3    3.3
     ## 24   W Germany    11.4  3.4    3.8
-    ## 
-    ## $`5`
-    ##           Country RedMeat Fish Fr.Veg
-    ## 5  Czechoslovakia     9.7  2.0    4.0
-    ## 7       E Germany     8.4  5.4    3.6
-    ## 11        Hungary     5.3  0.3    4.2
-    ## 16         Poland     6.9  3.0    6.6
-    ## 23           USSR     9.3  3.0    2.9
 
 ``` r
 ## $`1`
@@ -1325,6 +1328,13 @@ library(MASS)                                   # Note: 2
 
     ## Warning: package 'MASS' was built under R version 3.5.2
 
+    ## 
+    ## Attaching package: 'MASS'
+
+    ## The following object is masked from 'package:dplyr':
+    ## 
+    ##     select
+
 ``` r
 clust1 <- mvrnorm(100, mu=mean1, Sigma=diag(sd1))
 clust2 <- mvrnorm(100, mu=mean2, Sigma=diag(sd2))
@@ -1455,12 +1465,12 @@ library(arules)     # Note: 1
 
     ## Warning: package 'arules' was built under R version 3.5.2
 
-    ## Loading required package: Matrix
-
-    ## Warning: package 'Matrix' was built under R version 3.5.2
-
     ## 
     ## Attaching package: 'arules'
+
+    ## The following object is masked from 'package:dplyr':
+    ## 
+    ##     recode
 
     ## The following objects are masked from 'package:base':
     ## 
@@ -1729,12 +1739,12 @@ rules <- apriori(bookbaskets_use,                                   # Note: 1
     ## Absolute minimum support count: 81 
     ## 
     ## set item appearances ...[0 item(s)] done [0.00s].
-    ## set transactions ...[216031 item(s), 40822 transaction(s)] done [1.00s].
+    ## set transactions ...[216031 item(s), 40822 transaction(s)] done [0.95s].
     ## sorting and recoding items ... [1256 item(s)] done [0.03s].
-    ## creating transaction tree ... done [0.01s].
+    ## creating transaction tree ... done [0.02s].
     ## checking subsets of size 1 2 3 4 5 done [0.04s].
     ## writing ... [191 rule(s)] done [0.00s].
-    ## creating S4 object  ... done [0.07s].
+    ## creating S4 object  ... done [0.05s].
 
 ``` r
 summary(rules)
@@ -1864,7 +1874,16 @@ summary(measures)
 # Title: Get the five most confident rules 
 
 library(magrittr)                           # Note: 1  
+```
 
+    ## 
+    ## Attaching package: 'magrittr'
+
+    ## The following object is masked from 'package:tidyr':
+    ## 
+    ##     extract
+
+``` r
 rules %>% 
   sort(., by="confidence") %>%              # Note: 2  
   head(., n=5) %>%                          # Note: 3  
@@ -1935,12 +1954,12 @@ brules <- apriori(bookbaskets_use,
     ## Absolute minimum support count: 40 
     ## 
     ## set item appearances ...[1 item(s)] done [0.00s].
-    ## set transactions ...[216031 item(s), 40822 transaction(s)] done [1.09s].
-    ## sorting and recoding items ... [3172 item(s)] done [0.04s].
+    ## set transactions ...[216031 item(s), 40822 transaction(s)] done [0.91s].
+    ## sorting and recoding items ... [3172 item(s)] done [0.03s].
     ## creating transaction tree ... done [0.02s].
-    ## checking subsets of size 1 2 3 4 5 6 7 8 done [0.29s].
-    ## writing ... [46 rule(s)] done [0.05s].
-    ## creating S4 object  ... done [0.07s].
+    ## checking subsets of size 1 2 3 4 5 6 7 8 done [0.22s].
+    ## writing ... [46 rule(s)] done [0.04s].
+    ## creating S4 object  ... done [0.05s].
 
 ``` r
 summary(brules)

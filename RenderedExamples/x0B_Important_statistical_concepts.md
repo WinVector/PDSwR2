@@ -1,5 +1,5 @@
 
-00479\_example\_B.1\_of\_section\_B.1.1.R
+00480\_example\_B.1\_of\_section\_B.1.1.R
 
 ``` r
 # example B.1 of section B.1.1 
@@ -17,9 +17,9 @@ f <- dnorm(x)                           # normal with mean 0 and sd 1
 ggplot(data.frame(x=x,y=f), aes(x=x,y=y)) + geom_line()
 ```
 
-![](x0B_Important_statistical_concepts_files/figure-markdown_github/00479_example_B.1_of_section_B.1.1.R-1.png)
+![](x0B_Important_statistical_concepts_files/figure-markdown_github/00480_example_B.1_of_section_B.1.1.R-1.png)
 
-00480\_example\_B.2\_of\_section\_B.1.1.R
+00481\_example\_B.2\_of\_section\_B.1.1.R
 
 ``` r
 # example B.2 of section B.1.1 
@@ -37,9 +37,9 @@ ggplot(data.frame(x=u), aes(x=x)) + geom_density() +
    geom_line(data=data.frame(x=x,y=f), aes(x=x,y=y), linetype=2)
 ```
 
-![](x0B_Important_statistical_concepts_files/figure-markdown_github/00480_example_B.2_of_section_B.1.1.R-1.png)
+![](x0B_Important_statistical_concepts_files/figure-markdown_github/00481_example_B.2_of_section_B.1.1.R-1.png)
 
-00481\_example\_B.3\_of\_section\_B.1.1.R
+00482\_example\_B.3\_of\_section\_B.1.1.R
 
 ``` r
 # example B.3 of section B.1.1 
@@ -78,7 +78,7 @@ pnorm(2) - pnorm(-2)
 # [1] 0.9544997
 ```
 
-00482\_example\_B.4\_of\_section\_B.1.1.R
+00483\_example\_B.4\_of\_section\_B.1.1.R
 
 ``` r
 # example B.4 of section B.1.1 
@@ -135,9 +135,9 @@ ggplot(nframe, aes(x=x,y=y)) + geom_line() +
   geom_text(x=line, y=0, label=xstr, vjust=1)
 ```
 
-![](x0B_Important_statistical_concepts_files/figure-markdown_github/00482_example_B.4_of_section_B.1.1.R-1.png)
+![](x0B_Important_statistical_concepts_files/figure-markdown_github/00483_example_B.4_of_section_B.1.1.R-1.png)
 
-00483\_example\_B.5\_of\_section\_B.1.3.R
+00484\_example\_B.5\_of\_section\_B.1.3.R
 
 ``` r
 # example B.5 of section B.1.3 
@@ -151,14 +151,14 @@ u <- rlnorm(1001)
 mean(u)
 ```
 
-    ## [1] 1.689024
+    ## [1] 1.682559
 
 ``` r
 # [1] 1.638628
 median(u)
 ```
 
-    ## [1] 0.9324153
+    ## [1] 0.9673841
 
 ``` r
 # [1] 1.001051
@@ -167,7 +167,7 @@ median(u)
 mean(log(u))
 ```
 
-    ## [1] -0.02097923
+    ## [1] -0.02540333
 
 ``` r
 # [1] -0.002942916
@@ -176,7 +176,7 @@ mean(log(u))
 sd(log(u))
 ```
 
-    ## [1] 1.03576
+    ## [1] 1.052882
 
 ``` r
 # [1] 0.9820357
@@ -217,9 +217,9 @@ nplot <- function(plist) {
 nplot(list(p1, p2))
 ```
 
-![](x0B_Important_statistical_concepts_files/figure-markdown_github/00483_example_B.5_of_section_B.1.3.R-1.png)
+![](x0B_Important_statistical_concepts_files/figure-markdown_github/00484_example_B.5_of_section_B.1.3.R-1.png)
 
-00484\_example\_B.6\_of\_section\_B.1.3.R
+00485\_example\_B.6\_of\_section\_B.1.3.R
 
 ``` r
 # example B.6 of section B.1.3 
@@ -271,9 +271,9 @@ ggplot(lnormframe, aes(x=x,y=y)) + geom_line() +
   geom_text(x=line, y=0, label=xstr, hjust= 0, vjust=1)
 ```
 
-![](x0B_Important_statistical_concepts_files/figure-markdown_github/00484_example_B.6_of_section_B.1.3.R-1.png)
+![](x0B_Important_statistical_concepts_files/figure-markdown_github/00485_example_B.6_of_section_B.1.3.R-1.png)
 
-00485\_example\_B.7\_of\_section\_B.1.4.R
+00486\_example\_B.7\_of\_section\_B.1.4.R
 
 ``` r
 # example B.7 of section B.1.4 
@@ -315,9 +315,9 @@ ggplot(flips, aes(x=number.of.heads, y=probability)) +
   geom_line(aes(color=coin.type))
 ```
 
-![](x0B_Important_statistical_concepts_files/figure-markdown_github/00485_example_B.7_of_section_B.1.4.R-1.png)
+![](x0B_Important_statistical_concepts_files/figure-markdown_github/00486_example_B.7_of_section_B.1.4.R-1.png)
 
-00486\_example\_B.8\_of\_section\_B.1.4.R
+00487\_example\_B.8\_of\_section\_B.1.4.R
 
 ``` r
 # example B.8 of section B.1.4 
@@ -352,7 +352,7 @@ ggplot(data.frame(number.of.girls=numFemales, dummy=1),
   scale_y_continuous("number of classrooms")
 ```
 
-![](x0B_Important_statistical_concepts_files/figure-markdown_github/00486_example_B.8_of_section_B.1.4.R-1.png)
+![](x0B_Important_statistical_concepts_files/figure-markdown_github/00487_example_B.8_of_section_B.1.4.R-1.png)
 
 ``` r
 # Note 1: 
@@ -366,7 +366,7 @@ ggplot(data.frame(number.of.girls=numFemales, dummy=1),
 #   theoretical density curve. 
 ```
 
-00487\_example\_B.9\_of\_section\_B.1.4.R
+00488\_example\_B.9\_of\_section\_B.1.4.R
 
 ``` r
 # example B.9 of section B.1.4 
@@ -394,7 +394,7 @@ prettyprint_flips(flips_v1)
 
     ## outcome
     ## heads tails 
-    ##   736   264
+    ##   754   246
 
 ``` r
 # outcome
@@ -405,7 +405,7 @@ prettyprint_flips(flips_v2)
 
     ## outcome
     ## heads tails 
-    ##   748   252
+    ##   746   254
 
 ``` r
 # outcome
@@ -413,7 +413,7 @@ prettyprint_flips(flips_v2)
 # 743   257
 ```
 
-00488\_example\_B.10\_of\_section\_B.1.4.R
+00489\_example\_B.10\_of\_section\_B.1.4.R
 
 ``` r
 # example B.10 of section B.1.4 
@@ -481,7 +481,7 @@ c(left.edge, right.edge)
 # so with 95% probability you should see between 40 and 60 heads
 ```
 
-00489\_example\_B.11\_of\_section\_B.1.4.R
+00490\_example\_B.11\_of\_section\_B.1.4.R
 
 ``` r
 # example B.11 of section B.1.4 
@@ -524,7 +524,7 @@ pbinom(53, nflips, 0.5)
 # [1] 0.7579408
 ```
 
-00491\_example\_B.12\_of\_section\_B.2.2.R
+00492\_example\_B.12\_of\_section\_B.2.2.R
 
 ``` r
 # example B.12 of section B.2.2 
@@ -550,7 +550,7 @@ d <- rbind(     # Note: 1
 #   simulating a conversion rate of 5.5%. 
 ```
 
-00492\_example\_B.13\_of\_section\_B.2.2.R
+00493\_example\_B.13\_of\_section\_B.2.2.R
 
 ``` r
 # example B.13 of section B.2.2 
@@ -573,7 +573,7 @@ print(tab)
 ##     B  9398   602
 ```
 
-00493\_example\_B.14\_of\_section\_B.2.2.R
+00494\_example\_B.14\_of\_section\_B.2.2.R
 
 ``` r
 # example B.14 of section B.2.2 
@@ -606,7 +606,7 @@ print(commonRate)
 ## [1] 0.05111818
 ```
 
-00494\_example\_B.15\_of\_section\_B.2.2.R
+00495\_example\_B.15\_of\_section\_B.2.2.R
 
 ``` r
 # example B.15 of section B.2.2 
@@ -641,7 +641,7 @@ fisher.test(tab)
 ##   1.211706
 ```
 
-00495\_example\_B.16\_of\_section\_B.2.2.R
+00496\_example\_B.16\_of\_section\_B.2.2.R
 
 ``` r
 # example B.16 of section B.2.2 
@@ -682,7 +682,7 @@ print(pbinom(   # Note: 1
 #   estimated common rate. 
 ```
 
-00496\_example\_B.17\_of\_section\_B.2.2.R
+00497\_example\_B.17\_of\_section\_B.2.2.R
 
 ``` r
 # example B.17 of section B.2.2 
@@ -717,7 +717,7 @@ print(pbeta(    # Note: 1
 #   1-commonRate plus the B observations. 
 ```
 
-00497\_example\_B.18\_of\_section\_B.2.2.R
+00498\_example\_B.18\_of\_section\_B.2.2.R
 
 ``` r
 # example B.18 of section B.2.2 
@@ -735,9 +735,9 @@ ggplot(dat=plt) +
    geom_vline(aes(xintercept=aConversionRate),linetype=2)
 ```
 
-![](x0B_Important_statistical_concepts_files/figure-markdown_github/00497_example_B.18_of_section_B.2.2.R-1.png)
+![](x0B_Important_statistical_concepts_files/figure-markdown_github/00498_example_B.18_of_section_B.2.2.R-1.png)
 
-00498\_example\_B.19\_of\_section\_B.2.3.R
+00499\_example\_B.19\_of\_section\_B.2.3.R
 
 ``` r
 # example B.19 of section B.2.3 
@@ -758,7 +758,7 @@ print(est)
 ## [1] 8426
 ```
 
-00499\_example\_B.20\_of\_section\_B.2.3.R
+00500\_example\_B.20\_of\_section\_B.2.3.R
 
 ``` r
 # example B.20 of section B.2.3 
@@ -839,7 +839,7 @@ print(errorProb(0.045,0.004,size))
 #   experiment. 
 ```
 
-00500\_example\_B.21\_of\_section\_B.2.4.R
+00501\_example\_B.21\_of\_section\_B.2.4.R
 
 ``` r
 # example B.21 of section B.2.4 
@@ -868,7 +868,7 @@ print(with(d,cor(EarnedIncome,CapitalGains)))
 #   The correlation is -0.01, which is very near 0—indicating (as designed) no relation. 
 ```
 
-00501\_example\_B.22\_of\_section\_B.2.4.R
+00502\_example\_B.22\_of\_section\_B.2.4.R
 
 ``` r
 # example B.22 of section B.2.4 
@@ -907,7 +907,7 @@ with(d,cor.test(EarnedIncome,CapitalGains,method='spearman'))
 #0.03083108
 ```
 
-00502\_example\_B.23\_of\_section\_B.3.1.R
+00503\_example\_B.23\_of\_section\_B.3.1.R
 
 ``` r
 # example B.23 of section B.3.1 
@@ -941,7 +941,7 @@ print(with(veryHighIncome,cor.test(EarnedIncome,CapitalGains,
 #-0.8678571
 ```
 
-00503\_example\_B.24\_of\_section\_B.3.1.R
+00504\_example\_B.24\_of\_section\_B.3.1.R
 
 ``` r
 # example B.24 of section B.3.1 
@@ -954,7 +954,7 @@ ggplot(data=d,aes(x=EarnedIncome,y=CapitalGains)) +
    coord_cartesian(xlim=c(0,max(d)),ylim=c(0,max(d)))   # Note: 1 
 ```
 
-![](x0B_Important_statistical_concepts_files/figure-markdown_github/00503_example_B.24_of_section_B.3.1.R-1.png)
+![](x0B_Important_statistical_concepts_files/figure-markdown_github/00504_example_B.24_of_section_B.3.1.R-1.png)
 
 ``` r
 ggplot(data=veryHighIncome,aes(x=EarnedIncome,y=CapitalGains)) +
@@ -967,7 +967,7 @@ ggplot(data=veryHighIncome,aes(x=EarnedIncome,y=CapitalGains)) +
    coord_cartesian(xlim=c(0,max(d)),ylim=c(0,max(d)))   # Note: 2 
 ```
 
-![](x0B_Important_statistical_concepts_files/figure-markdown_github/00503_example_B.24_of_section_B.3.1.R-2.png)
+![](x0B_Important_statistical_concepts_files/figure-markdown_github/00504_example_B.24_of_section_B.3.1.R-2.png)
 
 ``` r
 print(with(subset(d,EarnedIncome+CapitalGains<500000),
@@ -1008,7 +1008,7 @@ print(with(subset(d,EarnedIncome+CapitalGains<500000),
 #   data. 
 ```
 
-00504\_example\_B.25\_of\_section\_B.3.2.R
+00505\_example\_B.25\_of\_section\_B.3.2.R
 
 ``` r
 # example B.25 of section B.3.2 
@@ -1062,7 +1062,7 @@ head(s)
 #   RStudio than in basic R. 
 ```
 
-00505\_example\_B.26\_of\_section\_B.3.2.R
+00506\_example\_B.26\_of\_section\_B.3.2.R
 
 ``` r
 # example B.26 of section B.3.2 
@@ -1100,7 +1100,7 @@ write.table(s,'synth.csv',sep=',',
 #   Add in a mean-0 noise term. 
 ```
 
-00506\_example\_B.27\_of\_section\_B.3.2.R
+00507\_example\_B.27\_of\_section\_B.3.2.R
 
 ``` r
 # example B.27 of section B.3.2 
@@ -1167,7 +1167,7 @@ print(summary(glm(data=s,
 ## Number of Fisher Scoring iterations: 6
 ```
 
-00507\_example\_B.28\_of\_section\_B.3.2.R
+00508\_example\_B.28\_of\_section\_B.3.2.R
 
 ``` r
 # example B.28 of section B.3.2 

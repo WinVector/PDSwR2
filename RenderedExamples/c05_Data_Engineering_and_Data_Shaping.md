@@ -6,11 +6,7 @@
 # (informalexample 5.1 of section 5.1.1)  : Data Engineering and Data Shaping : Data Selection : Subsetting Rows and Columns 
 
 library("ggplot2")  # Note: 1 
-```
 
-    ## Warning: package 'ggplot2' was built under R version 3.5.2
-
-``` r
 summary(iris)   # Note: 2 
 ```
 
@@ -134,6 +130,13 @@ library("data.table")
 
     ## Warning: package 'data.table' was built under R version 3.5.2
 
+    ## 
+    ## Attaching package: 'data.table'
+
+    ## The following objects are masked from 'package:dplyr':
+    ## 
+    ##     between, first, last
+
 ``` r
 iris_data.table <- as.data.table(iris)  # Note: 1 
 
@@ -228,26 +231,7 @@ dt[, ..x]   # Note: 5
 # (informalexample 5.11 of section 5.1.1)  : Data Engineering and Data Shaping : Data Selection : Subsetting Rows and Columns 
 
 library("dplyr")
-```
 
-    ## Warning: package 'dplyr' was built under R version 3.5.2
-
-    ## 
-    ## Attaching package: 'dplyr'
-
-    ## The following objects are masked from 'package:data.table':
-    ## 
-    ##     between, first, last
-
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     filter, lag
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     intersect, setdiff, setequal, union
-
-``` r
 iris_dplyr <- iris %>% 
   select(.,
          Petal.Length, Petal.Width, Species) %>%
@@ -779,13 +763,13 @@ library("wrapr")    # Note: 1
     ## 
     ## Attaching package: 'wrapr'
 
-    ## The following object is masked from 'package:dplyr':
-    ## 
-    ##     coalesce
-
     ## The following object is masked from 'package:data.table':
     ## 
     ##     :=
+
+    ## The following object is masked from 'package:dplyr':
+    ## 
+    ##     coalesce
 
 ``` r
 airquality %.>%     # Note: 2 
@@ -2060,11 +2044,11 @@ library("xts")
     ## 
     ## Attaching package: 'xts'
 
-    ## The following objects are masked from 'package:dplyr':
+    ## The following objects are masked from 'package:data.table':
     ## 
     ##     first, last
 
-    ## The following objects are masked from 'package:data.table':
+    ## The following objects are masked from 'package:dplyr':
     ## 
     ##     first, last
 
