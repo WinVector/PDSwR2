@@ -1,0 +1,2291 @@
+---
+output: github_document
+---
+
+
+
+00070_informalexample_5.1_of_section_5.1.1.R
+
+
+```{r 00070_informalexample_5.1_of_section_5.1.1.R }
+# informalexample 5.1 of section 5.1.1 
+# (informalexample 5.1 of section 5.1.1)  : Data Engineering and Data Shaping : Data Selection : Subsetting Rows and Columns 
+
+library("ggplot2") 	# Note: 1 
+
+summary(iris) 	# Note: 2 
+      
+##   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+##  Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
+##  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
+##  Median :5.800   Median :3.000   Median :4.350   Median :1.300  
+##  Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  
+##  3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  
+##  Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  
+##
+##        Species  
+##  setosa    :50  
+##  versicolor:50  
+##  virginica :50
+
+# Note 1: 
+#   Attach the ggplot2 package for later plotting. 
+
+# Note 2: 
+#   Take a look at the built-in iris data. 
+
+
+
+```
+
+
+
+
+00071_informalexample_5.2_of_section_5.1.1.R
+
+
+```{r 00071_informalexample_5.2_of_section_5.1.1.R }
+# informalexample 5.2 of section 5.1.1 
+# (informalexample 5.2 of section 5.1.1)  : Data Engineering and Data Shaping : Data Selection : Subsetting Rows and Columns 
+
+head(iris)
+
+
+
+```
+
+
+
+
+00073_informalexample_5.4_of_section_5.1.1.R
+
+
+```{r 00073_informalexample_5.4_of_section_5.1.1.R }
+# informalexample 5.4 of section 5.1.1 
+# (informalexample 5.4 of section 5.1.1)  : Data Engineering and Data Shaping : Data Selection : Subsetting Rows and Columns 
+
+ggplot(iris, 
+       aes(x = Petal.Length, y = Petal.Width, 
+           shape = Species, color = Species)) + 
+  geom_point(size =2 ) + 
+  ggtitle("Petal dimensions by iris species: all measurements")
+
+
+
+```
+
+
+
+
+00074_informalexample_5.5_of_section_5.1.1.R
+
+
+```{r 00074_informalexample_5.5_of_section_5.1.1.R }
+# informalexample 5.5 of section 5.1.1 
+# (informalexample 5.5 of section 5.1.1)  : Data Engineering and Data Shaping : Data Selection : Subsetting Rows and Columns 
+
+columns_we_want <- c("Petal.Length", "Petal.Width", "Species")
+rows_we_want <- iris$Petal.Length > 2
+
+# before
+head(iris)
+
+
+
+```
+
+
+
+
+00076_informalexample_5.7_of_section_5.1.1.R
+
+
+```{r 00076_informalexample_5.7_of_section_5.1.1.R }
+# informalexample 5.7 of section 5.1.1 
+# (informalexample 5.7 of section 5.1.1)  : Data Engineering and Data Shaping : Data Selection : Subsetting Rows and Columns 
+
+iris_base <- iris[rows_we_want, columns_we_want, drop = FALSE]
+
+# after
+head(iris_base)
+
+
+
+```
+
+
+
+
+00078_informalexample_5.9_of_section_5.1.1.R
+
+
+```{r 00078_informalexample_5.9_of_section_5.1.1.R }
+# informalexample 5.9 of section 5.1.1 
+# (informalexample 5.9 of section 5.1.1)  : Data Engineering and Data Shaping : Data Selection : Subsetting Rows and Columns 
+
+library("data.table")
+
+iris_data.table <- as.data.table(iris) 	# Note: 1 
+
+columns_we_want <- c("Petal.Length", "Petal.Width", "Species")
+rows_we_want <- iris_data.table$Petal.Length > 2
+
+iris_data.table <- iris_data.table[rows_we_want , ..columns_we_want] 	# Note: 2 
+
+head(iris_data.table)
+
+##    Petal.Length Petal.Width    Species
+## 1:          4.7         1.4 versicolor
+## 2:          4.5         1.5 versicolor
+## 3:          4.9         1.5 versicolor
+## 4:          4.0         1.3 versicolor
+## 5:          4.6         1.5 versicolor
+## 6:          4.5         1.3 versicolor
+
+# Note 1: 
+#   Convert to data.table class to get data.table semantics. 
+
+# Note 2: 
+#   The ".." notation tells data.table that "columns_we_want" isn't itself the name of a column but a variable referring to names of columns. 
+
+
+
+```
+
+
+
+
+00079_informalexample_5.10_of_section_5.1.1.R
+
+
+```{r 00079_informalexample_5.10_of_section_5.1.1.R }
+# informalexample 5.10 of section 5.1.1 
+# (informalexample 5.10 of section 5.1.1)  : Data Engineering and Data Shaping : Data Selection : Subsetting Rows and Columns 
+
+library("data.table")
+
+df <- data.frame(x = 1:2, y = 3:4) 	# Note: 1 
+
+# df[, x] 	# Note: 2 
+## Error in `[.data.frame`(df, , x) : object 'x' not found
+
+x <- "y"  	# Note: 3 
+dt <- data.table(df)
+
+dt[, x]  	# Note: 4 
+## [1] 1 2
+
+dt[, ..x] 	# Note: 5 
+##    y
+## 1: 3
+## 2: 4
+
+# Note 1: 
+#   Example data.frame. 
+
+# Note 2: 
+#   Notice writing df[, x] instead of df[, "x"] is an error (assuming x is not bound to a value in our environment). 
+
+# Note 3: 
+#   Set up data.table example. 
+
+# Note 4: 
+#   Notice this returns the column x much like d$x would. 
+
+# Note 5: 
+#   This uses data.table's "look up" idiom to get a data.table of columns referred to by the variable x. 
+
+
+
+```
+
+
+
+
+00080_informalexample_5.11_of_section_5.1.1.R
+
+
+```{r 00080_informalexample_5.11_of_section_5.1.1.R }
+# informalexample 5.11 of section 5.1.1 
+# (informalexample 5.11 of section 5.1.1)  : Data Engineering and Data Shaping : Data Selection : Subsetting Rows and Columns 
+
+library("dplyr")
+
+iris_dplyr <- iris %>% 
+  select(.,
+         Petal.Length, Petal.Width, Species) %>%
+  filter(.,
+         Petal.Length > 2)
+
+head(iris_dplyr)
+
+
+
+```
+
+
+
+
+00082_informalexample_5.13_of_section_5.1.2.R
+
+
+```{r 00082_informalexample_5.13_of_section_5.1.2.R }
+# informalexample 5.13 of section 5.1.2 
+# (informalexample 5.13 of section 5.1.2)  : Data Engineering and Data Shaping : Data Selection : Removing records with incomplete data 
+
+library("ggplot2")
+data(msleep) 	# Note: 1 
+
+str(msleep)
+
+## Classes 'tbl_df', 'tbl' and 'data.frame':    83 obs. of  11 variables:
+##  $ name        : chr  "Cheetah" "Owl monkey" "Mountain beaver" "Greater short-tailed shrew" ...
+##  $ genus       : chr  "Acinonyx" "Aotus" "Aplodontia" "Blarina" ...
+##  $ vore        : chr  "carni" "omni" "herbi" "omni" ...
+##  $ order       : chr  "Carnivora" "Primates" "Rodentia" "Soricomorpha" ...
+##  $ conservation: chr  "lc" NA "nt" "lc" ...
+##  $ sleep_total : num  12.1 17 14.4 14.9 4 14.4 8.7 7 10.1 3 ...
+##  $ sleep_rem   : num  NA 1.8 2.4 2.3 0.7 2.2 1.4 NA 2.9 NA ...
+##  $ sleep_cycle : num  NA NA NA 0.133 0.667 ...
+##  $ awake       : num  11.9 7 9.6 9.1 20 9.6 15.3 17 13.9 21 ...
+##  $ brainwt     : num  NA 0.0155 NA 0.00029 0.423 NA NA NA 0.07 0.0982 ...
+##  $ bodywt      : num  50 0.48 1.35 0.019 600 ...
+
+# Note 1: 
+#   Copy the msleep from the ggplot2 package into our workspace. 
+
+
+
+```
+
+
+
+
+00083_informalexample_5.14_of_section_5.1.2.R
+
+
+```{r 00083_informalexample_5.14_of_section_5.1.2.R }
+# informalexample 5.14 of section 5.1.2 
+# (informalexample 5.14 of section 5.1.2)  : Data Engineering and Data Shaping : Data Selection : Removing records with incomplete data 
+
+summary(msleep)
+
+
+
+```
+
+
+
+
+00085_informalexample_5.16_of_section_5.1.2.R
+
+
+```{r 00085_informalexample_5.16_of_section_5.1.2.R }
+# informalexample 5.16 of section 5.1.2 
+# (informalexample 5.16 of section 5.1.2)  : Data Engineering and Data Shaping : Data Selection : Removing records with incomplete data 
+
+clean_base_1 <- msleep[complete.cases(msleep), , drop = FALSE]
+
+summary(clean_base_1)
+
+
+
+```
+
+
+
+
+00087_informalexample_5.18_of_section_5.1.2.R
+
+
+```{r 00087_informalexample_5.18_of_section_5.1.2.R }
+# informalexample 5.18 of section 5.1.2 
+# (informalexample 5.18 of section 5.1.2)  : Data Engineering and Data Shaping : Data Selection : Removing records with incomplete data 
+
+nrow(clean_base_1)
+
+
+
+```
+
+
+
+
+00089_informalexample_5.20_of_section_5.1.2.R
+
+
+```{r 00089_informalexample_5.20_of_section_5.1.2.R }
+# informalexample 5.20 of section 5.1.2 
+# (informalexample 5.20 of section 5.1.2)  : Data Engineering and Data Shaping : Data Selection : Removing records with incomplete data 
+
+clean_base_2 = na.omit(msleep)
+nrow(clean_base_2)
+
+
+
+```
+
+
+
+
+00091_informalexample_5.22_of_section_5.1.2.R
+
+
+```{r 00091_informalexample_5.22_of_section_5.1.2.R }
+# informalexample 5.22 of section 5.1.2 
+# (informalexample 5.22 of section 5.1.2)  : Data Engineering and Data Shaping : Data Selection : Removing records with incomplete data 
+
+library("data.table")
+
+msleep_data.table <- as.data.table(msleep)
+
+clean_data.table = msleep_data.table[complete.cases(msleep_data.table), ]
+
+nrow(clean_data.table)
+
+
+
+```
+
+
+
+
+00093_informalexample_5.24_of_section_5.1.2.R
+
+
+```{r 00093_informalexample_5.24_of_section_5.1.2.R }
+# informalexample 5.24 of section 5.1.2 
+# (informalexample 5.24 of section 5.1.2)  : Data Engineering and Data Shaping : Data Selection : Removing records with incomplete data 
+
+library("dplyr")
+
+clean_dplyr <- msleep %>% 
+  filter(., complete.cases(.))
+
+nrow(clean_dplyr)
+
+
+
+```
+
+
+
+
+00095_informalexample_5.26_of_section_5.1.3.R
+
+
+```{r 00095_informalexample_5.26_of_section_5.1.3.R }
+# informalexample 5.26 of section 5.1.3 
+# (informalexample 5.26 of section 5.1.3)  : Data Engineering and Data Shaping : Data Selection : Ordering rows 
+
+purchases <- wrapr::build_frame( 	# Note: 1 
+   "day", "hour", "n_purchase" |
+   1    , 9     , 5            |
+   2    , 9     , 3            |
+   2    , 11    , 5            |
+   1    , 13    , 1            |
+   2    , 13    , 3            |
+   1    , 14    , 1            )
+
+# Note 1: 
+#   Use wrapr::build_frame to type data in directly in legible column order. 
+
+
+
+```
+
+
+
+
+00096_informalexample_5.27_of_section_5.1.3.R
+
+
+```{r 00096_informalexample_5.27_of_section_5.1.3.R }
+# informalexample 5.27 of section 5.1.3 
+# (informalexample 5.27 of section 5.1.3)  : Data Engineering and Data Shaping : Data Selection : Ordering rows 
+
+order_index <- with(purchases, order(day, hour)) 	# Note: 1 
+  
+purchases_ordered <- purchases[order_index, , drop = FALSE]
+purchases_ordered$running_total <- cumsum(purchases_ordered$n_purchase) 	# Note: 2 
+
+purchases_ordered
+
+##   day hour n_purchase running_total
+## 1   1    9          5             5
+## 4   1   13          1             6
+## 6   1   14          1             7
+## 2   2    9          3            10
+## 3   2   11          5            15
+## 5   2   13          3            18
+
+# Note 1: 
+#   with() executes the code in its second argument as if the columns of the first argument were variables. This lets us write "x" instead of "order$x". 
+
+# Note 2: 
+#   Compute the running sum. 
+
+
+
+```
+
+
+
+
+00097_informalexample_5.28_of_section_5.1.3.R
+
+
+```{r 00097_informalexample_5.28_of_section_5.1.3.R }
+# informalexample 5.28 of section 5.1.3 
+# (informalexample 5.28 of section 5.1.3)  : Data Engineering and Data Shaping : Data Selection : Ordering rows 
+
+library("data.table")
+
+DT_purchases <- as.data.table(purchases)
+
+order_cols <- c("day", "hour") 	# Note: 1 
+setorderv(DT_purchases, order_cols)
+
+DT_purchases[ , running_total := cumsum(n_purchase)]
+
+# print(DT_purchases)
+
+# Note 1: 
+#   re-order data 
+
+
+
+```
+
+
+
+
+00098_informalexample_5.29_of_section_5.1.3.R
+
+
+```{r 00098_informalexample_5.29_of_section_5.1.3.R }
+# informalexample 5.29 of section 5.1.3 
+# (informalexample 5.29 of section 5.1.3)  : Data Engineering and Data Shaping : Data Selection : Ordering rows 
+
+library("dplyr")
+
+res <- purchases %>%
+  arrange(., day, hour) %>%
+  mutate(., running_total = cumsum(n_purchase))
+  
+# print(res)
+
+
+
+```
+
+
+
+
+00099_informalexample_5.30_of_section_5.1.3.R
+
+
+```{r 00099_informalexample_5.30_of_section_5.1.3.R }
+# informalexample 5.30 of section 5.1.3 
+# (informalexample 5.30 of section 5.1.3)  : Data Engineering and Data Shaping : Data Selection : Ordering rows 
+
+order_index <- with(purchases, order(day, hour))  	# Note: 1 
+purchases_ordered <- purchases[order_index, , drop = FALSE]
+
+data_list <- split(purchases_ordered, purchases_ordered$day) 	# Note: 2 
+
+data_list <- lapply( 	# Note: 3 
+  data_list,
+  function(di) {
+    di$running_total <- cumsum(di$n_purchase)
+    di
+  })
+
+purchases_ordered <- do.call(base::rbind, data_list) 	# Note: 4 
+rownames(purchases_ordered) <- NULL 	# Note: 5 
+
+purchases_ordered
+
+##   day hour n_purchase running_total
+## 1   1    9          5             5
+## 2   1   13          1             6
+## 3   1   14          1             7
+## 4   2    9          3             3
+## 5   2   11          5             8
+## 6   2   13          3            11
+
+# Note 1: 
+#   First: sort the data. 
+
+# Note 2: 
+#   Now split data into a list of groups. 
+
+# Note 3: 
+#   Apply the cumsum to each group. 
+
+# Note 4: 
+#   Put the results back to together into a single data.frame. 
+
+# Note 5: 
+#   R often keeps annotations in the rownames(). In this case it is storing original row-numbers of the pieces we are assembling. This can confuse users in when printing, so it is good practice to remove these annotations as we do here. 
+
+
+
+```
+
+
+
+
+00100_informalexample_5.31_of_section_5.1.3.R
+
+
+```{r 00100_informalexample_5.31_of_section_5.1.3.R }
+# informalexample 5.31 of section 5.1.3 
+# (informalexample 5.31 of section 5.1.3)  : Data Engineering and Data Shaping : Data Selection : Ordering rows 
+
+library("data.table")
+
+# new copy for result solution
+DT_purchases <- as.data.table(purchases)[order(day, hour), 
+             .(hour = hour,
+               n_purchase = n_purchase, 
+               running_total = cumsum(n_purchase)),
+             by = "day"] 	# Note: 1 
+# print(DT_purchases) 	# Note: 2 
+
+# in-place solution
+DT_purchases <- as.data.table(purchases)
+order_cols <- c("day", "hour")
+setorderv(DT_purchases, order_cols)
+DT_purchases[ , running_total := cumsum(n_purchase), by = day]
+# print(DT_purchases) 	# Note: 3 
+
+# don't reorder the actual data variation!
+DT_purchases <- as.data.table(purchases)
+DT_purchases[order(day, hour), 
+             `:=`(hour = hour,
+               n_purchase = n_purchase, 
+               running_total = cumsum(n_purchase)),
+             by = "day"]
+# print(DT_purchases) 	# Note: 4
+
+# Note 1: 
+#   Adding the "by" keyword converts the calculation into a per-group calculation.. 
+
+# Note 2: 
+#   First solution: result is a second copy of the data .(=) notation. Only columns used in the calculation (such as "day") and those explicitly assigned to are in the result. 
+
+# Note 3: 
+#   Second solution: result is computed in-plance by ordering the table before the grouped caclulation. 
+
+# Note 4: 
+#   Third solution: result is in same order as the original table, but the cumulative some is computed as if we sorted the table, computed the grouped running sum, and then returned the table to the orginal order. 
+
+
+
+```
+
+
+
+
+00101_informalexample_5.32_of_section_5.1.3.R
+
+
+```{r 00101_informalexample_5.32_of_section_5.1.3.R }
+# informalexample 5.32 of section 5.1.3 
+# (informalexample 5.32 of section 5.1.3)  : Data Engineering and Data Shaping : Data Selection : Ordering rows 
+
+library("dplyr")
+
+res <- purchases %>%
+  arrange(., day, hour) %>%
+  group_by(., day) %>%
+  mutate(., running_total = cumsum(n_purchase)) %>%
+  ungroup(.)
+
+# print(res)
+
+
+
+```
+
+
+
+
+00102_informalexample_5.33_of_section_5.2.1.R
+
+
+```{r 00102_informalexample_5.33_of_section_5.2.1.R }
+# informalexample 5.33 of section 5.2.1 
+# (informalexample 5.33 of section 5.2.1)  : Data Engineering and Data Shaping : Basic Data Transforms : Add new columns 
+
+library("datasets")
+library("ggplot2")
+
+summary(airquality)
+
+
+
+```
+
+
+
+
+00104_informalexample_5.35_of_section_5.2.1.R
+
+
+```{r 00104_informalexample_5.35_of_section_5.2.1.R }
+# informalexample 5.35 of section 5.2.1 
+# (informalexample 5.35 of section 5.2.1)  : Data Engineering and Data Shaping : Basic Data Transforms : Add new columns 
+
+library("lubridate")
+library("ggplot2")
+
+# create a function to make the date string.
+datestr = function(day, month, year) {
+  paste(day, month, year, sep="-")
+}
+
+
+
+```
+
+
+
+
+00105_informalexample_5.36_of_section_5.2.1.R
+
+
+```{r 00105_informalexample_5.36_of_section_5.2.1.R }
+# informalexample 5.36 of section 5.2.1 
+# (informalexample 5.36 of section 5.2.1)  : Data Engineering and Data Shaping : Basic Data Transforms : Add new columns 
+
+airquality_with_date <- airquality 	# Note: 1 
+
+airquality_with_date$date <- with(airquality_with_date, 	# Note: 2 
+                                  dmy(datestr(Day, Month, 1973)))
+
+airquality_with_date <- airquality_with_date[, 	# Note: 3 
+                                             c("Ozone", "date"),
+                                             drop = FALSE]
+
+head(airquality_with_date) 	# Note: 4 
+        
+##   Ozone       date
+## 1    41 1973-05-01
+## 2    36 1973-05-02
+## 3    12 1973-05-03
+## 4    18 1973-05-04
+## 5    NA 1973-05-05
+## 6    28 1973-05-06        
+
+ggplot(airquality_with_date, aes(x = date, y = Ozone)) + 	# Note: 5 
+  geom_point() + 
+  geom_line() + 
+  xlab("Date") +
+  ggtitle("New York ozone readings, May 1 - Sept 30, 1973")
+
+# Note 1: 
+#   Build a copy of the data. 
+
+# Note 2: 
+#   Add the date column, with with() to refer to columns without needed the table name. 
+
+# Note 3: 
+#   Limit down to columns of interest. 
+
+# Note 4: 
+#   Show the results. 
+
+# Note 5: 
+#   Plot the results. 
+
+
+
+```
+
+
+
+
+00106_informalexample_5.37_of_section_5.2.1.R
+
+
+```{r 00106_informalexample_5.37_of_section_5.2.1.R }
+# informalexample 5.37 of section 5.2.1 
+# (informalexample 5.37 of section 5.2.1)  : Data Engineering and Data Shaping : Basic Data Transforms : Add new columns 
+
+library("wrapr") 	# Note: 1 
+
+airquality %.>% 	# Note: 2 
+  transform(., date = dmy(datestr(Day, Month, 1973))) %.>%
+  subset(., !is.na(Ozone), select =  c("Ozone", "date")) %.>%
+  head(.)
+
+##   Ozone       date
+## 1    41 1973-05-01
+## 2    36 1973-05-02
+## 3    12 1973-05-03
+## 4    18 1973-05-04
+## 6    28 1973-05-06
+## 7    23 1973-05-07
+
+# Note 1: 
+#   Attach the wrapr package to define the wrapr dot arrow pipe: %.>%. The dot arrow pipe is another R pipe and is described in the R Journal here: https://journal.r-project.org/archive/2018/RJ-2018-042/index.html 
+
+# Note 2: 
+#   Run all the steps as before using transform() and subset() adding an extra step of filtering down to rows that  
+#   do not have missing Ozone values. 
+
+
+
+```
+
+
+
+
+00107_informalexample_5.38_of_section_5.2.1.R
+
+
+```{r 00107_informalexample_5.38_of_section_5.2.1.R }
+# informalexample 5.38 of section 5.2.1 
+# (informalexample 5.38 of section 5.2.1)  : Data Engineering and Data Shaping : Basic Data Transforms : Add new columns 
+
+library("data.table")
+
+DT_airquality <- 
+  as.data.table(airquality)[ 	# Note: 1 
+    , date := dmy(datestr(Day, Month, 1973)) ][ 	# Note: 2 
+      , c("Ozone", "date")] 	# Note: 3 
+
+head(DT_airquality)
+
+##    Ozone       date
+## 1:    41 1973-05-01
+## 2:    36 1973-05-02
+## 3:    12 1973-05-03
+## 4:    18 1973-05-04
+## 5:    NA 1973-05-05
+## 6:    28 1973-05-06
+
+# Note 1: 
+#   Build a data.table copy of the data. 
+
+# Note 2: 
+#   Add the date column. 
+
+# Note 3: 
+#   Limit down to columns of interest. 
+
+
+
+```
+
+
+
+
+00108_informalexample_5.39_of_section_5.2.1.R
+
+
+```{r 00108_informalexample_5.39_of_section_5.2.1.R }
+# informalexample 5.39 of section 5.2.1 
+# (informalexample 5.39 of section 5.2.1)  : Data Engineering and Data Shaping : Basic Data Transforms : Add new columns 
+
+library("dplyr")
+
+airquality_with_date2 <- airquality %>%
+  mutate(., date = dmy(datestr(Day, Month, 1973))) %>%
+  select(., Ozone, date)
+
+head(airquality_with_date2)
+
+
+
+```
+
+
+
+
+00110_informalexample_5.41_of_section_5.2.1.R
+
+
+```{r 00110_informalexample_5.41_of_section_5.2.1.R }
+# informalexample 5.41 of section 5.2.1 
+# (informalexample 5.41 of section 5.2.1)  : Data Engineering and Data Shaping : Basic Data Transforms : Add new columns 
+
+library("zoo")
+
+airquality_corrected <- airquality_with_date
+airquality_corrected$OzoneCorrected <-
+  na.locf(airquality_corrected$Ozone, na.rm = FALSE)
+
+summary(airquality_corrected)
+
+
+
+```
+
+
+
+
+00112_informalexample_5.43_of_section_5.2.1.R
+
+
+```{r 00112_informalexample_5.43_of_section_5.2.1.R }
+# informalexample 5.43 of section 5.2.1 
+# (informalexample 5.43 of section 5.2.1)  : Data Engineering and Data Shaping : Basic Data Transforms : Add new columns 
+
+ggplot(airquality_corrected, aes(x = date, y = Ozone)) + 
+  geom_point(aes(y=Ozone)) + 
+  geom_line(aes(y=OzoneCorrected)) + 
+  ggtitle("New York ozone readings, May 1 - Sept 30, 1973",
+          subtitle = "(corrected)") +
+  xlab("Date")
+
+
+
+```
+
+
+
+
+00113_informalexample_5.44_of_section_5.2.1.R
+
+
+```{r 00113_informalexample_5.44_of_section_5.2.1.R }
+# informalexample 5.44 of section 5.2.1 
+# (informalexample 5.44 of section 5.2.1)  : Data Engineering and Data Shaping : Basic Data Transforms : Add new columns 
+
+library("data.table")
+library("zoo")
+
+DT_airquality[, OzoneCorrected := na.locf(Ozone, na.rm=FALSE)]
+
+summary(DT_airquality)
+
+
+
+```
+
+
+
+
+00115_informalexample_5.46_of_section_5.2.1.R
+
+
+```{r 00115_informalexample_5.46_of_section_5.2.1.R }
+# informalexample 5.46 of section 5.2.1 
+# (informalexample 5.46 of section 5.2.1)  : Data Engineering and Data Shaping : Basic Data Transforms : Add new columns 
+
+library("dplyr")
+library("zoo")
+
+airquality_with_date %>% 
+  mutate(.,
+         OzoneCorrected = na.locf(Ozone, na.rm = FALSE)) %>% 
+  summary(.)
+
+
+
+```
+
+
+
+
+00117_informalexample_5.48_of_section_5.2.2.R
+
+
+```{r 00117_informalexample_5.48_of_section_5.2.2.R }
+# informalexample 5.48 of section 5.2.2 
+# (informalexample 5.48 of section 5.2.2)  : Data Engineering and Data Shaping : Basic Data Transforms : Other simple operations 
+
+d <- data.frame(x = 1:2, y = 3:4)
+print(d)
+#>   x y
+#> 1 1 3
+#> 2 2 4
+
+colnames(d) <- c("BIGX", "BIGY")
+print(d)
+#>   BIGX BIGY
+#> 1    1    3
+#> 2    2    4
+
+d$BIGX <- NULL
+print(d)
+#>   BIGY
+#> 1    3
+#> 2    4
+
+
+
+```
+
+
+
+
+00118_informalexample_5.49_of_section_5.2.3.R
+
+
+```{r 00118_informalexample_5.49_of_section_5.2.3.R }
+# informalexample 5.49 of section 5.2.3 
+# (informalexample 5.49 of section 5.2.3)  : Data Engineering and Data Shaping : Basic Data Transforms : Parametric programming 
+
+d <- data.frame(x = 1:2, y = 3:4, zero = 5:6)
+
+print(d$x)
+
+
+
+```
+
+
+
+
+00120_informalexample_5.51_of_section_5.2.3.R
+
+
+```{r 00120_informalexample_5.51_of_section_5.2.3.R }
+# informalexample 5.51 of section 5.2.3 
+# (informalexample 5.51 of section 5.2.3)  : Data Engineering and Data Shaping : Basic Data Transforms : Parametric programming 
+
+d$q
+
+
+
+```
+
+
+
+
+00122_informalexample_5.53_of_section_5.2.3.R
+
+
+```{r 00122_informalexample_5.53_of_section_5.2.3.R }
+# informalexample 5.53 of section 5.2.3 
+# (informalexample 5.53 of section 5.2.3)  : Data Engineering and Data Shaping : Basic Data Transforms : Parametric programming 
+
+d$z
+
+
+
+```
+
+
+
+
+00124_informalexample_5.55_of_section_5.2.3.R
+
+
+```{r 00124_informalexample_5.55_of_section_5.2.3.R }
+# informalexample 5.55 of section 5.2.3 
+# (informalexample 5.55 of section 5.2.3)  : Data Engineering and Data Shaping : Basic Data Transforms : Parametric programming 
+
+# this value may come to us from somewhere else
+# or be very long and something we don't want
+# to type over and over again.
+columns_to_print <- c("x", "y") 
+
+for(ci in columns_to_print) {
+  print(ci)
+  print(d[[ci]])
+}
+
+
+
+```
+
+
+
+
+00126_informalexample_5.57_of_section_5.2.3.R
+
+
+```{r 00126_informalexample_5.57_of_section_5.2.3.R }
+# informalexample 5.57 of section 5.2.3 
+# (informalexample 5.57 of section 5.2.3)  : Data Engineering and Data Shaping : Basic Data Transforms : Parametric programming 
+
+data <- wrapr::build_frame(
+   "x", "y" |
+   1  , 1   |
+   0  , 0   |
+   1  , 0   |
+   0  , 1   |
+   0  , 0   |
+   1  , 1   )
+
+order_cols <- c("x", "y")
+ordering <- wrapr::orderv(data[, order_cols, drop = FALSE])
+data[ordering, , drop = FALSE]
+
+
+
+```
+
+
+
+
+00128_informalexample_5.59_of_section_5.2.3.R
+
+
+```{r 00128_informalexample_5.59_of_section_5.2.3.R }
+# informalexample 5.59 of section 5.2.3 
+# (informalexample 5.59 of section 5.2.3)  : Data Engineering and Data Shaping : Basic Data Transforms : Parametric programming 
+
+library("data.table")
+
+d <- data.table(x = 1:2, y = 3:4, z = 5:6) 	# Note: 1 
+
+COLS_WE_WANT <- c("x", "y") 	# Note: 2 
+
+d[, ..COLS_WE_WANT] 	# Note: 3 
+#    x y
+# 1: 1 3
+# 2: 2 4
+
+NEW_COL_NAME <- "q" 	# Note: 4  
+ARG1_NAME <- as.name("x") 	# Note: 5 
+ARG2_NAME <- as.name("y")
+
+d[ , eval(NEW_COL_NAME) := eval(ARG1_NAME) + eval(ARG2_NAME)] 	# Note: 6 
+
+print(d)
+#    x y z q
+# 1: 1 3 5 4
+# 2: 2 4 6 6
+
+# Note 1: 
+#   Example data 
+
+# Note 2: 
+#   List of columns we want to select, coming as a paremeter from somewhere else. 
+
+# Note 3: 
+#   Select the set of columns. 
+
+# Note 4: 
+#   Name of new column to produce, coming from somewhere else as a parameter. 
+
+# Note 5: 
+#   Names of columns to calculate with, to ensure they are interpreted as refering to values and not as strings we use as.naume(). 
+
+# Note 6: 
+#   Perform the calculation, signalling to data.table abstractions using eval(). 
+
+
+
+```
+
+
+
+
+00129_informalexample_5.60_of_section_5.2.3.R
+
+
+```{r 00129_informalexample_5.60_of_section_5.2.3.R }
+# informalexample 5.60 of section 5.2.3 
+# (informalexample 5.60 of section 5.2.3)  : Data Engineering and Data Shaping : Basic Data Transforms : Parametric programming 
+
+library("dplyr")
+d <- data.frame(x = 1:2, y = 3:4)
+
+x <- "y"
+d %>% select(., x)
+
+
+
+```
+
+
+
+
+00131_informalexample_5.62_of_section_5.2.3.R
+
+
+```{r 00131_informalexample_5.62_of_section_5.2.3.R }
+# informalexample 5.62 of section 5.2.3 
+# (informalexample 5.62 of section 5.2.3)  : Data Engineering and Data Shaping : Basic Data Transforms : Parametric programming 
+
+library("dplyr")
+d <- data.frame(x = 1:2, y = 3:4)
+
+COLUMN_WE_WANT <- "y"
+d %>% select(., !!COLUMN_WE_WANT)
+
+
+
+```
+
+
+
+
+00133_informalexample_5.64_of_section_5.2.3.R
+
+
+```{r 00133_informalexample_5.64_of_section_5.2.3.R }
+# informalexample 5.64 of section 5.2.3 
+# (informalexample 5.64 of section 5.2.3)  : Data Engineering and Data Shaping : Basic Data Transforms : Parametric programming 
+
+library("dplyr")
+
+d <- data.frame(x = 1:2, y = 3:4, z = 5:6)
+NEW_COL_NAME = "q"
+ARG1_NAME = as.name("x")
+ARG2_NAME = as.name("y")
+
+d %>%
+  mutate(., !!NEW_COL_NAME := !!ARG1_NAME + !!ARG2_NAME)
+
+
+
+```
+
+
+
+
+00135_informalexample_5.66_of_section_5.2.3.R
+
+
+```{r 00135_informalexample_5.66_of_section_5.2.3.R }
+# informalexample 5.66 of section 5.2.3 
+# (informalexample 5.66 of section 5.2.3)  : Data Engineering and Data Shaping : Basic Data Transforms : Parametric programming 
+
+library("dplyr")
+
+d <- data.frame(x = 1:2, y = 3:4, z = 5:6)
+aliases = c(NEW_COL_NAME = "q",
+            ARG1_NAME    = "x",
+            ARG2_NAME    = "y")
+
+wrapr::let(
+  aliases,
+  
+  d %>%
+    mutate(., NEW_COL_NAME = ARG1_NAME + ARG2_NAME)
+  
+)
+
+
+
+```
+
+
+
+
+00137_informalexample_5.68_of_section_5.3.1.R
+
+
+```{r 00137_informalexample_5.68_of_section_5.3.1.R }
+# informalexample 5.68 of section 5.3.1 
+# (informalexample 5.68 of section 5.3.1)  : Data Engineering and Data Shaping : Aggregating Transforms : Scenario 
+
+data <- wrapr::build_frame(
+   "time", "sensor1", "sensor2", "sensor3" |
+   1L    , NA       , -0.07528 , -0.07528  |
+   2L    , NA       , -0.164   , NA        |
+   3L    , NA       , -0.8119  , -0.8119   |
+   4L    , NA       , NA       , -0.461    |
+   5L    , NA       , NA       , NA        )
+
+
+
+```
+
+
+
+
+00138_informalexample_5.69_of_section_5.3.1.R
+
+
+```{r 00138_informalexample_5.69_of_section_5.3.1.R }
+# informalexample 5.69 of section 5.3.1 
+# (informalexample 5.69 of section 5.3.1)  : Data Engineering and Data Shaping : Aggregating Transforms : Scenario 
+
+library("wrapr")
+
+data$reading <- data$sensor1 %?% data$sensor2 %?% data$sensor3 %?% 0.0
+
+print(data)
+
+
+
+```
+
+
+
+
+00140_informalexample_5.71_of_section_5.3.1.R
+
+
+```{r 00140_informalexample_5.71_of_section_5.3.1.R }
+# informalexample 5.71 of section 5.3.1 
+# (informalexample 5.71 of section 5.3.1)  : Data Engineering and Data Shaping : Aggregating Transforms : Scenario 
+
+packageVersion("dplyr")
+## [1] ‘0.7.7’
+dplyr::coalesce(
+   as.numeric(data$sensor1), 	# Note: 1 
+   data$sensor2)
+
+# Note 1: 
+#   Work around issue that all-NA columns are often typed as logical, and dplyr will not convert the column type. 
+
+
+
+```
+
+
+
+
+00142_informalexample_5.73_of_section_5.3.2.R
+
+
+```{r 00142_informalexample_5.73_of_section_5.3.2.R }
+# informalexample 5.73 of section 5.3.2 
+# (informalexample 5.73 of section 5.3.2)  : Data Engineering and Data Shaping : Aggregating Transforms : Combining many rows into summary rows 
+
+library("datasets")
+library("ggplot2")
+
+head(iris)
+
+
+
+```
+
+
+
+
+00144_informalexample_5.75_of_section_5.3.2.R
+
+
+```{r 00144_informalexample_5.75_of_section_5.3.2.R }
+# informalexample 5.75 of section 5.3.2 
+# (informalexample 5.75 of section 5.3.2)  : Data Engineering and Data Shaping : Aggregating Transforms : Combining many rows into summary rows 
+
+library("data.table")
+
+iris_data.table <- as.data.table(iris)
+iris_data.table <- iris_data.table[, 
+                                   .(Petal.Length = mean(Petal.Length),
+                                     Petal.Width = mean(Petal.Width)), 
+                                   by = .(Species)]
+
+iris_data.table
+
+##       Species Petal.Length Petal.Width
+## 1:     setosa        1.462       0.246
+## 2: versicolor        4.260       1.326
+## 3:  virginica        5.552       2.026
+
+ggplot(mapping = aes(x = Petal.Length, y = Petal.Width, 
+                     shape = Species, color = Species)) + 
+  geom_point(data = iris, # raw data
+             alpha = 0.5) + 
+  geom_point(data = iris_data.table, # per-group summaries
+             size = 5) +
+  ggtitle("Average Petal dimensions by iris species\n(with raw data for reference)")
+
+
+
+```
+
+
+
+
+00145_informalexample_5.76_of_section_5.3.2.R
+
+
+```{r 00145_informalexample_5.76_of_section_5.3.2.R }
+# informalexample 5.76 of section 5.3.2 
+# (informalexample 5.76 of section 5.3.2)  : Data Engineering and Data Shaping : Aggregating Transforms : Combining many rows into summary rows 
+
+library("dplyr")
+
+iris %>% group_by(., Species) %>% 
+  summarize(.,
+            Petal.Length = mean(Petal.Length),
+            Petal.Width = mean(Petal.Width)) %>%
+  ungroup(.) -> iris.summary
+
+iris.summary
+
+
+
+```
+
+
+
+
+00147_informalexample_5.78_of_section_5.3.2.R
+
+
+```{r 00147_informalexample_5.78_of_section_5.3.2.R }
+# informalexample 5.78 of section 5.3.2 
+# (informalexample 5.78 of section 5.3.2)  : Data Engineering and Data Shaping : Aggregating Transforms : Combining many rows into summary rows 
+
+library("data.table")
+
+iris_data.table <- as.data.table(iris)
+
+iris_data.table[ , 
+                 `:=`(mean_Petal.Length = mean(Petal.Length),
+                      mean_Petal.Width = mean(Petal.Width)), 
+                 by = "Species"]
+
+# print(iris_data.table)
+
+
+
+```
+
+
+
+
+00148_informalexample_5.79_of_section_5.3.2.R
+
+
+```{r 00148_informalexample_5.79_of_section_5.3.2.R }
+# informalexample 5.79 of section 5.3.2 
+# (informalexample 5.79 of section 5.3.2)  : Data Engineering and Data Shaping : Aggregating Transforms : Combining many rows into summary rows 
+
+library("dplyr")
+
+iris_dplyr <- iris %>% 
+  group_by(., Species) %>% 
+  mutate(.,
+         mean_Petal.Length = mean(Petal.Length),
+         mean_Petal.Width = mean(Petal.Width)) %>%
+  ungroup(.)
+
+# print(iris_dplyr)
+
+
+
+```
+
+
+
+
+00149_informalexample_5.80_of_section_5.4.1.R
+
+
+```{r 00149_informalexample_5.80_of_section_5.4.1.R }
+# informalexample 5.80 of section 5.4.1 
+# (informalexample 5.80 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
+
+productTable <- wrapr::build_frame(
+   "productID", "price" |
+   "p1"       , 9.99    |
+   "p2"       , 16.29   |
+   "p3"       , 19.99   |
+   "p4"       , 5.49    |
+   "p5"       , 24.49   )
+
+
+salesTable <- wrapr::build_frame(
+   "productID", "sold_store", "sold_online" |
+   "p1"       , 6           , 64            |
+   "p2"       , 31          , 1             |
+   "p3"       , 30          , 23            |
+   "p4"       , 31          , 67            |
+   "p5"       , 43          , 51            )
+
+productTable2 <- wrapr::build_frame(
+   "productID", "price" |
+   "n1"       , 25.49   |
+   "n2"       , 33.99   |
+   "n3"       , 17.99   )
+
+productTable$productID <- factor(productTable$productID)
+productTable2$productID <- factor(productTable2$productID)
+
+
+
+```
+
+
+
+
+00150_informalexample_5.81_of_section_5.4.1.R
+
+
+```{r 00150_informalexample_5.81_of_section_5.4.1.R }
+# informalexample 5.81 of section 5.4.1 
+# (informalexample 5.81 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
+
+rbind_base = rbind(productTable, 
+                   productTable2)
+
+
+
+```
+
+
+
+
+00151_informalexample_5.82_of_section_5.4.1.R
+
+
+```{r 00151_informalexample_5.82_of_section_5.4.1.R }
+# informalexample 5.82 of section 5.4.1 
+# (informalexample 5.82 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
+
+str(rbind_base)
+
+
+
+```
+
+
+
+
+00153_informalexample_5.84_of_section_5.4.1.R
+
+
+```{r 00153_informalexample_5.84_of_section_5.4.1.R }
+# informalexample 5.84 of section 5.4.1 
+# (informalexample 5.84 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
+
+library("data.table")
+
+rbindlist(list(productTable, 
+               productTable2))
+
+
+
+```
+
+
+
+
+00155_informalexample_5.86_of_section_5.4.1.R
+
+
+```{r 00155_informalexample_5.86_of_section_5.4.1.R }
+# informalexample 5.86 of section 5.4.1 
+# (informalexample 5.86 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
+
+library("dplyr")
+
+bind_rows(list(productTable, 
+               productTable2))
+
+
+
+```
+
+
+
+
+00157_informalexample_5.88_of_section_5.4.1.R
+
+
+```{r 00157_informalexample_5.88_of_section_5.4.1.R }
+# informalexample 5.88 of section 5.4.1 
+# (informalexample 5.88 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
+
+# add an extra column telling us which table
+# each row comes from
+productTable_marked <- productTable
+productTable_marked$table <- "productTable"
+productTable2_marked <- productTable2
+productTable2_marked$table <- "productTable2"
+
+# combine the tables
+rbind_base <- rbind(productTable_marked, 
+                    productTable2_marked)
+rbind_base
+
+
+
+```
+
+
+
+
+00159_informalexample_5.90_of_section_5.4.1.R
+
+
+```{r 00159_informalexample_5.90_of_section_5.4.1.R }
+# informalexample 5.90 of section 5.4.1 
+# (informalexample 5.90 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
+
+# split them apart
+tables <- split(rbind_base, rbind_base$table)
+tables
+
+
+
+```
+
+
+
+
+00161_informalexample_5.92_of_section_5.4.1.R
+
+
+```{r 00161_informalexample_5.92_of_section_5.4.1.R }
+# informalexample 5.92 of section 5.4.1 
+# (informalexample 5.92 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
+
+library("data.table")
+
+# convert to data.table
+dt <- as.data.table(rbind_base)
+
+# arbitrary user defined function
+f <- function(.BY, .SD) {
+  max(.SD$price)
+}
+
+# apply the function to each group
+# and collect results
+dt[ , max_price := f(.BY, .SD), by = table]
+
+print(dt)
+
+
+
+```
+
+
+
+
+00163_informalexample_5.94_of_section_5.4.1.R
+
+
+```{r 00163_informalexample_5.94_of_section_5.4.1.R }
+# informalexample 5.94 of section 5.4.1 
+# (informalexample 5.94 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
+
+library("data.table")
+
+dt <- as.data.table(rbind_base)
+grouping_column <- "table"
+dt[ , max_price := max(price), by = eval(grouping_column)]
+
+print(dt)
+
+
+
+```
+
+
+
+
+00165_informalexample_5.96_of_section_5.4.1.R
+
+
+```{r 00165_informalexample_5.96_of_section_5.4.1.R }
+# informalexample 5.96 of section 5.4.1 
+# (informalexample 5.96 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
+
+rbind_base %>%
+  group_by(., table) %>%
+  mutate(., max_price = max(price)) %>%
+  ungroup(.)
+
+
+
+```
+
+
+
+
+00167_informalexample_5.98_of_section_5.4.1.R
+
+
+```{r 00167_informalexample_5.98_of_section_5.4.1.R }
+# informalexample 5.98 of section 5.4.1 
+# (informalexample 5.98 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
+
+cbind(productTable, salesTable[, -1])
+
+
+
+```
+
+
+
+
+00169_informalexample_5.100_of_section_5.4.1.R
+
+
+```{r 00169_informalexample_5.100_of_section_5.4.1.R }
+# informalexample 5.100 of section 5.4.1 
+# (informalexample 5.100 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
+
+library("data.table")
+
+cbind(as.data.table(productTable), 
+      as.data.table(salesTable[, -1]))
+
+
+
+```
+
+
+
+
+00171_informalexample_5.102_of_section_5.4.1.R
+
+
+```{r 00171_informalexample_5.102_of_section_5.4.1.R }
+# informalexample 5.102 of section 5.4.1 
+# (informalexample 5.102 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
+
+library("dplyr")
+
+# list of data frames calling convention
+dplyr::bind_cols(list(productTable, salesTable[, -1]))
+
+
+
+```
+
+
+
+
+00173_informalexample_5.104_of_section_5.4.2.R
+
+
+```{r 00173_informalexample_5.104_of_section_5.4.2.R }
+# informalexample 5.104 of section 5.4.2 
+# (informalexample 5.104 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+
+productTable <- wrapr::build_frame(
+   "productID", "price" |
+   "p1"       , 9.99    |
+   "p3"       , 19.99   |
+   "p4"       , 5.49    |
+   "p5"       , 24.49   )
+
+salesTable <- wrapr::build_frame(
+   "productID", "unitsSold" |
+   "p1"       , 10          |
+   "p2"       , 43          |
+   "p3"       , 55          |
+   "p4"       , 8           )
+
+
+
+```
+
+
+
+
+00174_informalexample_5.105_of_section_5.4.2.R
+
+
+```{r 00174_informalexample_5.105_of_section_5.4.2.R }
+# informalexample 5.105 of section 5.4.2 
+# (informalexample 5.105 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+
+merge(productTable, salesTable, by = "productID", all.x = TRUE)
+
+
+
+```
+
+
+
+
+00176_informalexample_5.107_of_section_5.4.2.R
+
+
+```{r 00176_informalexample_5.107_of_section_5.4.2.R }
+# informalexample 5.107 of section 5.4.2 
+# (informalexample 5.107 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+
+library("data.table")
+
+productTable_data.table <- as.data.table(productTable)
+salesTable_data.table <- as.data.table(salesTable)
+
+# index notation for join
+# idea is rows are produced for each row inside the []
+salesTable_data.table[productTable_data.table, on = "productID"]
+
+
+
+```
+
+
+
+
+00178_informalexample_5.109_of_section_5.4.2.R
+
+
+```{r 00178_informalexample_5.109_of_section_5.4.2.R }
+# informalexample 5.109 of section 5.4.2 
+# (informalexample 5.109 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+
+# data.table also overrides merge()
+merge(productTable, salesTable, by = "productID", all.x = TRUE)
+
+
+
+```
+
+
+
+
+00180_informalexample_5.111_of_section_5.4.2.R
+
+
+```{r 00180_informalexample_5.111_of_section_5.4.2.R }
+# informalexample 5.111 of section 5.4.2 
+# (informalexample 5.111 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+
+library("data.table")
+
+joined_table <- productTable
+joined_table$unitsSold <- salesTable$unitsSold[match(joined_table$productID, 
+                                                    salesTable$productID)]
+print(joined_table)
+
+
+
+```
+
+
+
+
+00182_informalexample_5.113_of_section_5.4.2.R
+
+
+```{r 00182_informalexample_5.113_of_section_5.4.2.R }
+# informalexample 5.113 of section 5.4.2 
+# (informalexample 5.113 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+
+library("dplyr")
+
+left_join(productTable, salesTable, by = "productID")
+
+
+
+```
+
+
+
+
+00184_informalexample_5.115_of_section_5.4.2.R
+
+
+```{r 00184_informalexample_5.115_of_section_5.4.2.R }
+# informalexample 5.115 of section 5.4.2 
+# (informalexample 5.115 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+
+merge(productTable, salesTable, by = "productID")
+
+
+
+```
+
+
+
+
+00186_informalexample_5.117_of_section_5.4.2.R
+
+
+```{r 00186_informalexample_5.117_of_section_5.4.2.R }
+# informalexample 5.117 of section 5.4.2 
+# (informalexample 5.117 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+
+library("data.table")
+
+productTable_data.table <- as.data.table(productTable)
+salesTable_data.table <- as.data.table(salesTable)
+
+merge(productTable, salesTable, by = "productID")
+
+
+
+```
+
+
+
+
+00188_informalexample_5.119_of_section_5.4.2.R
+
+
+```{r 00188_informalexample_5.119_of_section_5.4.2.R }
+# informalexample 5.119 of section 5.4.2 
+# (informalexample 5.119 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+
+library("dplyr")
+
+inner_join(productTable, salesTable, by = "productID")
+
+
+
+```
+
+
+
+
+00190_informalexample_5.121_of_section_5.4.2.R
+
+
+```{r 00190_informalexample_5.121_of_section_5.4.2.R }
+# informalexample 5.121 of section 5.4.2 
+# (informalexample 5.121 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+
+# note that merge orders the result by key column by default
+# use sort=FALSE to skip the sorting
+merge(productTable, salesTable, by = "productID", all=TRUE)
+
+
+
+```
+
+
+
+
+00192_informalexample_5.123_of_section_5.4.2.R
+
+
+```{r 00192_informalexample_5.123_of_section_5.4.2.R }
+# informalexample 5.123 of section 5.4.2 
+# (informalexample 5.123 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+
+library("data.table")
+
+productTable_data.table <- as.data.table(productTable)
+salesTable_data.table <- as.data.table(salesTable)
+
+merge(productTable_data.table, salesTable_data.table, 
+      by = "productID", all = TRUE)
+
+
+
+```
+
+
+
+
+00194_informalexample_5.125_of_section_5.4.2.R
+
+
+```{r 00194_informalexample_5.125_of_section_5.4.2.R }
+# informalexample 5.125 of section 5.4.2 
+# (informalexample 5.125 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+
+library("dplyr")
+
+full_join(productTable, salesTable, by = "productID")
+
+
+
+```
+
+
+
+
+00196_informalexample_5.127_of_section_5.4.2.R
+
+
+```{r 00196_informalexample_5.127_of_section_5.4.2.R }
+# informalexample 5.127 of section 5.4.2 
+# (informalexample 5.127 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+
+library("data.table")
+
+quotes <- data.table(
+  bid = c(5, 5, 7, 8),
+  ask = c(6, 6, 8, 10),
+  bid_quantity = c(100, 100, 100, 100),
+  ask_quantity = c(100, 100, 100, 100),
+  when = as.POSIXct(strptime(
+    c("2018-10-18 1:03:17", 
+      "2018-10-18 2:12:23", 
+      "2018-10-18 2:15:00", 
+      "2018-10-18 2:17:51"), 
+    "%Y-%m-%d %H:%M:%S")))
+
+print(quotes)
+
+
+
+```
+
+
+
+
+00198_informalexample_5.129_of_section_5.4.2.R
+
+
+```{r 00198_informalexample_5.129_of_section_5.4.2.R }
+# informalexample 5.129 of section 5.4.2 
+# (informalexample 5.129 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+
+trades <- data.table(
+  trade_id = c(32525, 32526),
+  price = c(5.5, 9),
+  quantity = c(100, 200),
+  when = as.POSIXct(strptime(
+    c("2018-10-18 2:13:42", 
+      "2018-10-18 2:19:20"), 
+    "%Y-%m-%d %H:%M:%S")))
+
+print(trades)
+
+
+
+```
+
+
+
+
+00200_informalexample_5.131_of_section_5.4.2.R
+
+
+```{r 00200_informalexample_5.131_of_section_5.4.2.R }
+# informalexample 5.131 of section 5.4.2 
+# (informalexample 5.131 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+
+trades[, trade_price := price]
+quotes[, `:=`(bid_price = bid, ask_price = ask) ]
+quotes[trades, on = .(bid <= price, ask >= price) ][
+  , .(when, bid, ask, bid_price, trade_price, ask_price, trade_id) ]
+
+##                   when bid ask bid_price trade_price ask_price trade_id
+## 1: 2018-10-18 01:03:17 5.5 5.5         5         5.5         6    32525
+## 2: 2018-10-18 02:12:23 5.5 5.5         5         5.5         6    32525
+## 3: 2018-10-18 02:17:51 9.0 9.0         8         9.0        10    32526
+
+
+
+```
+
+
+
+
+00201_informalexample_5.132_of_section_5.4.2.R
+
+
+```{r 00201_informalexample_5.132_of_section_5.4.2.R }
+# informalexample 5.132 of section 5.4.2 
+# (informalexample 5.132 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+
+quotes[ , quote_time := when ]
+trades[, trade_time := when]
+quotes[ trades, on = "when", roll = TRUE ][
+  , .(quote_time, bid_price, trade_price, ask_price, trade_id, trade_time) ]
+
+
+
+```
+
+
+
+
+00203_informalexample_5.134_of_section_5.5.1.R
+
+
+```{r 00203_informalexample_5.134_of_section_5.5.1.R }
+# informalexample 5.134 of section 5.5.1 
+# (informalexample 5.134 of section 5.5.1)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from wide to tall form 
+
+library("datasets")
+library("xts")
+
+# move the date index into a column
+dates <- index(as.xts(time(Seatbelts)))
+Seatbelts <- data.frame(Seatbelts) 
+Seatbelts$date <- dates
+  
+# restrict down to 1982 and 1983
+Seatbelts <- Seatbelts[ (Seatbelts$date >= as.yearmon("Jan 1982")) &
+                          (Seatbelts$date <= as.yearmon("Dec 1983")),
+                           , drop = FALSE]
+Seatbelts$date <- as.Date(Seatbelts$date)
+# mark if the seatbelt law was in effect
+Seatbelts$law <- ifelse(Seatbelts$law==1, "new law", "pre-law")
+# limit down to the columns we want
+Seatbelts <- Seatbelts[, c("date", "DriversKilled", "front", "rear", "law")]
+
+head(Seatbelts)
+
+
+
+```
+
+
+
+
+00205_informalexample_5.136_of_section_5.5.1.R
+
+
+```{r 00205_informalexample_5.136_of_section_5.5.1.R }
+# informalexample 5.136 of section 5.5.1 
+# (informalexample 5.136 of section 5.5.1)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from wide to tall form 
+
+# let's give an example of the kind of graph we have in mind, using just driver deaths
+library("ggplot2")
+
+ggplot(Seatbelts, 
+       aes(x = date, y = DriversKilled, color = law, shape = law)) + 
+  geom_point() + 
+  geom_smooth(se=FALSE) + 
+  ggtitle("UK car driver deaths by month")
+
+
+
+```
+
+
+
+
+00206_informalexample_5.137_of_section_5.5.1.R
+
+
+```{r 00206_informalexample_5.137_of_section_5.5.1.R }
+# informalexample 5.137 of section 5.5.1 
+# (informalexample 5.137 of section 5.5.1)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from wide to tall form 
+
+library("data.table")
+
+seatbelts_long2 <- 
+  melt.data.table(as.data.table(Seatbelts),
+                  id.vars = NULL,
+                  measure.vars = c("DriversKilled", "front", "rear"),
+                  variable.name = "victim_type", 
+                  value.name = "nvictims")
+
+
+
+```
+
+
+
+
+00207_informalexample_5.138_of_section_5.5.1.R
+
+
+```{r 00207_informalexample_5.138_of_section_5.5.1.R }
+# informalexample 5.138 of section 5.5.1 
+# (informalexample 5.138 of section 5.5.1)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from wide to tall form 
+
+library("cdata")
+
+seatbelts_long3 <- unpivot_to_blocks(
+  Seatbelts, 
+  nameForNewKeyColumn = "victim_type", 
+  nameForNewValueColumn = "nvictims", 
+  columnsToTakeFrom = c("DriversKilled", "front", "rear"))
+
+
+
+```
+
+
+
+
+00208_informalexample_5.139_of_section_5.5.1.R
+
+
+```{r 00208_informalexample_5.139_of_section_5.5.1.R }
+# informalexample 5.139 of section 5.5.1 
+# (informalexample 5.139 of section 5.5.1)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from wide to tall form 
+
+library("tidyr")
+
+seatbelts_long1 <- gather(
+  Seatbelts, 
+  key = victim_type, 
+  value = nvictims, 
+  DriversKilled, front, rear)
+
+head(seatbelts_long1)
+
+
+
+```
+
+
+
+
+00210_informalexample_5.141_of_section_5.5.1.R
+
+
+```{r 00210_informalexample_5.141_of_section_5.5.1.R }
+# informalexample 5.141 of section 5.5.1 
+# (informalexample 5.141 of section 5.5.1)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from wide to tall form 
+
+ggplot(seatbelts_long1, 
+       aes(x = date, y = nvictims, color = law, shape = law)) + 
+  geom_point() + 
+  geom_smooth(se=FALSE) + 
+  facet_wrap(~victim_type, ncol=1, scale="free_y") +  
+  ggtitle("UK auto fatalities by month and seating position")
+
+
+
+```
+
+
+
+
+00211_informalexample_5.142_of_section_5.5.2.R
+
+
+```{r 00211_informalexample_5.142_of_section_5.5.2.R }
+# informalexample 5.142 of section 5.5.2 
+# (informalexample 5.142 of section 5.5.2)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from tall to wide form 
+
+library("datasets")
+library("data.table")
+library("ggplot2")
+
+ChickWeight <- data.frame(ChickWeight) # get rid of attributes
+ChickWeight$Diet <- NULL # remove the diet label
+# pad names with zeros
+padz <- function(x, n=max(nchar(x))) gsub(" ", "0", formatC(x, width=n)) 
+# append "Chick" to the chick ids
+ChickWeight$Chick <- paste0("Chick", padz(as.character(ChickWeight$Chick)))
+
+head(ChickWeight)
+
+
+
+```
+
+
+
+
+00213_informalexample_5.144_of_section_5.5.2.R
+
+
+```{r 00213_informalexample_5.144_of_section_5.5.2.R }
+# informalexample 5.144 of section 5.5.2 
+# (informalexample 5.144 of section 5.5.2)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from tall to wide form 
+
+# aggregate count and mean weight by time
+ChickSummary <- as.data.table(ChickWeight)
+ChickSummary <- ChickSummary[, 
+             .(count = .N, 
+               weight = mean(weight),
+               q1_weight = quantile(weight, probs = 0.25),
+               q2_weight = quantile(weight, probs = 0.75)), 
+             by = Time]
+head(ChickSummary)
+
+
+
+```
+
+
+
+
+00215_informalexample_5.146_of_section_5.5.2.R
+
+
+```{r 00215_informalexample_5.146_of_section_5.5.2.R }
+# informalexample 5.146 of section 5.5.2 
+# (informalexample 5.146 of section 5.5.2)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from tall to wide form 
+
+library("ggplot2")
+
+ChickSummary <- cdata::unpivot_to_blocks( 	# Note: 1 
+  ChickSummary,
+  nameForNewKeyColumn = "measurement",
+  nameForNewValueColumn = "value",
+  columnsToTakeFrom = c("count", "weight"))
+
+ChickSummary$q1_weight[ChickSummary$measurement=="count"] <- NA 	# Note: 2 
+ChickSummary$q2_weight[ChickSummary$measurement=="count"] <- NA
+CW <- ChickWeight
+CW$measurement <- "weight"
+
+ggplot(ChickSummary, aes(x = Time, y = value, color = measurement)) + 	# Note: 3 
+  geom_line(data = CW, aes(x = Time, y = weight, group = Chick),
+            color="LightGray") +
+  geom_line(size=2) + 
+  geom_ribbon(aes(ymin = q1_weight, ymax = q2_weight), 
+              alpha = 0.3, colour = NA) +
+  facet_wrap(~measurement, ncol=1, scales = "free_y") +
+  theme(legend.position = "none") +
+  ylab(NULL) +
+  ggtitle("Chick Weight and Count Measurements by Time",
+          subtitle = "25% through 75% quartiles of weight shown shaded around mean")
+
+# Note 1: 
+#   Unpivot into tall form for plotting. 
+
+# Note 2: 
+#   Make sure we have the exact set of columns needed for plotting. 
+
+# Note 3: 
+#   Make the plot. 
+
+
+
+```
+
+
+
+
+00216_informalexample_5.147_of_section_5.5.2.R
+
+
+```{r 00216_informalexample_5.147_of_section_5.5.2.R }
+# informalexample 5.147 of section 5.5.2 
+# (informalexample 5.147 of section 5.5.2)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from tall to wide form 
+
+library("data.table")
+
+ChickWeight_wide2 <- dcast.data.table(
+  as.data.table(ChickWeight), 
+  Chick ~ Time,
+  value.var = "weight")
+
+
+
+```
+
+
+
+
+00217_informalexample_5.148_of_section_5.5.2.R
+
+
+```{r 00217_informalexample_5.148_of_section_5.5.2.R }
+# informalexample 5.148 of section 5.5.2 
+# (informalexample 5.148 of section 5.5.2)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from tall to wide form 
+
+library("cdata")
+
+ChickWeight_wide3 <- pivot_to_rowrecs(
+  ChickWeight, 
+  columnToTakeKeysFrom = "Time", 
+  columnToTakeValuesFrom = "weight",
+  rowKeyColumns = "Chick")
+
+
+
+```
+
+
+
+
+00218_informalexample_5.149_of_section_5.5.2.R
+
+
+```{r 00218_informalexample_5.149_of_section_5.5.2.R }
+# informalexample 5.149 of section 5.5.2 
+# (informalexample 5.149 of section 5.5.2)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from tall to wide form 
+
+library("tidyr")
+
+ChickWeight_wide1 <- spread(ChickWeight, 
+                            key = Time, 
+                            value = weight)
+
+head(ChickWeight_wide1)
+
+
+
+```
+
+
