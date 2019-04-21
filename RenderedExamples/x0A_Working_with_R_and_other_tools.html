@@ -33,7 +33,7 @@ body {
 <span class="dv">1</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## [1] 1
-<span class="dv">1</span><span class="op">/</span><span class="dv">2</span></code></pre></div>
+<span class="dv">1</span>/<span class="dv">2</span></code></pre></div>
 <pre><code>## [1] 0.5</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## [1] 0.5
 <span class="st">'Joe'</span></code></pre></div>
@@ -42,7 +42,7 @@ body {
 <span class="st">&quot;Joe&quot;</span></code></pre></div>
 <pre><code>## [1] &quot;Joe&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## [1] &quot;Joe&quot;
-<span class="st">&quot;Joe&quot;</span><span class="op">==</span><span class="st">'Joe'</span></code></pre></div>
+<span class="st">&quot;Joe&quot;</span>==<span class="st">'Joe'</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## [1] TRUE
 <span class="kw">c</span>()</code></pre></div>
@@ -75,7 +75,7 @@ vec</code></pre></div>
 <span class="co"># (informalexample A.3 of section A.2.1)  : Working with R and other tools : Starting with R : Primary features of R </span>
 
 x &lt;-<span class="st"> </span><span class="dv">2</span>
-x <span class="op">&lt;</span><span class="st"> </span><span class="op">-</span><span class="st"> </span><span class="dv">3</span></code></pre></div>
+x &lt;<span class="st"> </span>-<span class="st"> </span><span class="dv">3</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## [1] FALSE
 <span class="kw">print</span>(x)</code></pre></div>
@@ -86,7 +86,7 @@ x <span class="op">&lt;</span><span class="st"> </span><span class="op">-</span>
 <span class="co"># (example A.2 of section A.2.1)  : Working with R and other tools : Starting with R : Primary features of R </span>
 <span class="co"># Title: Binding values to function arguments </span>
 
-divide &lt;-<span class="st"> </span><span class="cf">function</span>(numerator,denominator) { numerator<span class="op">/</span>denominator }
+divide &lt;-<span class="st"> </span>function(numerator,denominator) { numerator/denominator }
 <span class="kw">divide</span>(<span class="dv">1</span>,<span class="dv">2</span>)</code></pre></div>
 <pre><code>## [1] 0.5</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## [1] 0.5
@@ -105,12 +105,12 @@ divide &lt;-<span class="st"> </span><span class="cf">function</span>(numerator,
 <span class="co"># Title: Demonstrating side effects </span>
 
 x&lt;-<span class="dv">1</span>
-good &lt;-<span class="st"> </span><span class="cf">function</span>() { x &lt;-<span class="st"> </span><span class="dv">5</span>}
+good &lt;-<span class="st"> </span>function() { x &lt;-<span class="st"> </span><span class="dv">5</span>}
 <span class="kw">good</span>()
 <span class="kw">print</span>(x)</code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## [1] 1
-bad &lt;-<span class="st"> </span><span class="cf">function</span>() { x &lt;&lt;-<span class="st"> </span><span class="dv">5</span>}
+bad &lt;-<span class="st"> </span>function() { x &lt;&lt;-<span class="st"> </span><span class="dv">5</span>}
 <span class="kw">bad</span>()
 <span class="kw">print</span>(x)</code></pre></div>
 <pre><code>## [1] 5</code></pre>
@@ -120,20 +120,20 @@ bad &lt;-<span class="st"> </span><span class="cf">function</span>() { x &lt;&lt
 <span class="co"># (example A.4 of section A.2.1)  : Working with R and other tools : Starting with R : Primary features of R </span>
 <span class="co"># Title: R truth tables for Boolean operators </span>
 
-<span class="kw">c</span>(T,T,F,F) <span class="op">==</span><span class="st"> </span><span class="kw">c</span>(T,F,T,F)</code></pre></div>
+<span class="kw">c</span>(T,T,F,F) ==<span class="st"> </span><span class="kw">c</span>(T,F,T,F)</code></pre></div>
 <pre><code>## [1]  TRUE FALSE FALSE  TRUE</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## [1]  TRUE FALSE FALSE  TRUE
-<span class="kw">c</span>(T,T,F,F) <span class="op">&amp;</span><span class="st"> </span><span class="kw">c</span>(T,F,T,F)</code></pre></div>
+<span class="kw">c</span>(T,T,F,F) &amp;<span class="st"> </span><span class="kw">c</span>(T,F,T,F)</code></pre></div>
 <pre><code>## [1]  TRUE FALSE FALSE FALSE</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## [1]  TRUE FALSE FALSE FALSE
-<span class="kw">c</span>(T,T,F,F) <span class="op">|</span><span class="st"> </span><span class="kw">c</span>(T,F,T,F)</code></pre></div>
+<span class="kw">c</span>(T,T,F,F) |<span class="st"> </span><span class="kw">c</span>(T,F,T,F)</code></pre></div>
 <pre><code>## [1]  TRUE  TRUE  TRUE FALSE</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## [1]  TRUE  TRUE  TRUE FALSE</code></pre></div>
 <p>00471_informalexample_A.4_of_section_A.2.1.R</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># informalexample A.4 of section A.2.1 </span>
 <span class="co"># (informalexample A.4 of section A.2.1)  : Working with R and other tools : Starting with R : Primary features of R </span>
 
-add &lt;-<span class="st"> </span><span class="cf">function</span>(a,b) { a <span class="op">+</span><span class="st"> </span>b}
+add &lt;-<span class="st"> </span>function(a,b) { a +<span class="st"> </span>b}
 <span class="kw">add</span>(<span class="dv">1</span>,<span class="dv">2</span>)</code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## [1] 3</code></pre></div>
@@ -150,7 +150,7 @@ add &lt;-<span class="st"> </span><span class="cf">function</span>(a,b) { a <spa
 <span class="co"># Title: Call-by-value effect </span>
 
 vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)
-fun &lt;-<span class="st"> </span><span class="cf">function</span>(v) { v[[<span class="dv">2</span>]]&lt;-<span class="dv">5</span>; <span class="kw">print</span>(v)}
+fun &lt;-<span class="st"> </span>function(v) { v[[<span class="dv">2</span>]]&lt;-<span class="dv">5</span>; <span class="kw">print</span>(v)}
 <span class="kw">fun</span>(vec)</code></pre></div>
 <pre><code>## [1] 1 5</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## [1] 1 5
@@ -175,10 +175,10 @@ x &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">'a
 <span class="kw">names</span>(x)</code></pre></div>
 <pre><code>## [1] &quot;a&quot; &quot;b&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## [1] &quot;a&quot; &quot;b&quot;
-x<span class="op">$</span>a</code></pre></div>
+x$a</code></pre></div>
 <pre><code>## [1] 6</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## [1] 6
-x<span class="op">$</span>b</code></pre></div>
+x$b</code></pre></div>
 <pre><code>## [1] &quot;fred&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## [1] &quot;fred&quot;
 x[[<span class="st">'a'</span>]]</code></pre></div>
@@ -231,7 +231,7 @@ x[<span class="kw">c</span>(<span class="st">'a'</span>,<span class="st">'a'</sp
 
 d &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x=</span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">'a'</span>,<span class="st">'b'</span>,<span class="st">'c'</span>)),
                    <span class="dt">y=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))
-m &lt;-<span class="st"> </span><span class="kw">lm</span>(y<span class="op">~</span><span class="dv">0</span><span class="op">+</span>x,<span class="dt">data=</span>d)   <span class="co"># Note: 1 </span>
+m &lt;-<span class="st"> </span><span class="kw">lm</span>(y~<span class="dv">0</span>+x,<span class="dt">data=</span>d)   <span class="co"># Note: 1 </span>
 <span class="kw">print</span>(<span class="kw">predict</span>(m,
    <span class="dt">newdata=</span><span class="kw">data.frame</span>(<span class="dt">x=</span><span class="st">'b'</span>))[[<span class="dv">1</span>]])     <span class="co"># Note: 2 </span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
@@ -267,7 +267,7 @@ m &lt;-<span class="st"> </span><span class="kw">lm</span>(y<span class="op">~</
 ## Loading required package: bitops</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">urlBase &lt;-<span class="st"> </span>
 <span class="st">  'https://raw.githubusercontent.com/WinVector/PDSwR2/master/'</span>  <span class="co"># Note: 2 </span>
-mkCon &lt;-<span class="st"> </span><span class="cf">function</span>(nm) {     <span class="co"># Note: 3 </span>
+mkCon &lt;-<span class="st"> </span>function(nm) {     <span class="co"># Note: 3 </span>
    <span class="kw">textConnection</span>(<span class="kw">getURL</span>(<span class="kw">paste</span>(urlBase,nm,<span class="dt">sep=</span><span class="st">'/'</span>)))
 }
 cars &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="kw">mkCon</span>(<span class="st">'../UCICar/car.data.csv'</span>),     <span class="co"># Note: 4 </span>
@@ -290,7 +290,7 @@ cars &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span clas
 <span class="co">#   HTTPS. </span></code></pre></div>
 <p>00479_informalexample_A.7_of_section_A.3.1.R</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># informalexample A.7 of section A.3.1 </span>
-<span class="co"># (informalexample A.7 of section A.3.1)  : Working with R and other tools : Using databases with R : </span><span class="al">TODO</span><span class="co">: new db section </span>
+<span class="co"># (informalexample A.7 of section A.3.1)  : Working with R and other tools : Using databases with R : TODO: new db section </span>
 
 <span class="kw">options</span>(<span class="dt">gsubfn.engine =</span> <span class="st">&quot;R&quot;</span>)</code></pre></div>
 

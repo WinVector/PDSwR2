@@ -13,6 +13,11 @@ spamTest <- subset(spamD,spamD$rgroup < 10)
 
 spamVars <- setdiff(colnames(spamD),list('rgroup','spam', 'isSpam'))
 library(wrapr)
+```
+
+    ## Warning: package 'wrapr' was built under R version 3.5.2
+
+``` r
 spamFormula <- mk_formula("isSpam", spamVars)   # Note: 2 
                    
 loglikelihood <- function(y, py) {          # Note: 3 
@@ -36,6 +41,11 @@ accuracyMeasures <- function(pred, truth, name="model") {       # Note: 4
 
 
 library(rpart)                                                          # Note: 7 
+```
+
+    ## Warning: package 'rpart' was built under R version 3.5.2
+
+``` r
 treemodel <- rpart(spamFormula, spamTrain, method="class")
 
 library(rpart.plot)     # Note: 8 
@@ -186,8 +196,8 @@ pandoc.table(perftable, justify=perf_justify)
     ## 
     ## model                 accuracy       f1   dev.norm
     ## ------------------- ---------- -------- ----------
-    ## bagging, training       0.9184   0.8939     0.5111
-    ## bagging, test           0.9083   0.8765     0.5833
+    ## bagging, training       0.9160   0.8897     0.5098
+    ## bagging, test           0.9105   0.8776     0.5717
 
 ``` r
 ## 
@@ -232,17 +242,6 @@ library(randomForest)               # Note: 1
     ## randomForest 4.6-14
 
     ## Type rfNews() to see new features/changes/bug fixes.
-
-    ## 
-    ## Attaching package: 'randomForest'
-
-    ## The following object is masked from 'package:ggplot2':
-    ## 
-    ##     margin
-
-    ## The following object is masked from 'package:dplyr':
-    ## 
-    ##     combine
 
 ``` r
 set.seed(5123512)   # Note: 2 
@@ -327,7 +326,7 @@ pandoc.table(trainf, justify=perf_justify)
     ## model                    accuracy       f1   dev.norm
     ## ---------------------- ---------- -------- ----------
     ## tree, training             0.8996   0.8691     0.6304
-    ## bagging, training          0.9184   0.8939     0.5111
+    ## bagging, training          0.9160   0.8897     0.5098
     ## random forest, train       0.9884   0.9852     0.1440
 
 ``` r
@@ -355,7 +354,7 @@ pandoc.table(testf, justify=perf_justify)
     ## model                   accuracy       f1   dev.norm
     ## --------------------- ---------- -------- ----------
     ## tree, test                0.8712   0.8280     0.7531
-    ## bagging, test             0.9083   0.8765     0.5833
+    ## bagging, test             0.9105   0.8776     0.5717
     ## random forest, test       0.9498   0.9341     0.3011
 
 ``` r
@@ -386,9 +385,9 @@ pandoc.table(difff, justify=perf_justify)
     ## 
     ## model             accuracy        f1   dev.norm
     ## --------------- ---------- --------- ----------
-    ## tree               0.02841   0.04111   -0.12275
-    ## bagging            0.01012   0.01744   -0.07211
-    ## random forest      0.03863   0.05110   -0.15711
+    ## tree              0.028411   0.04111   -0.12275
+    ## bagging           0.005523   0.01205   -0.06195
+    ## random forest     0.038633   0.05110   -0.15711
 
 ``` r
 ## 
@@ -576,7 +575,11 @@ input <- as.matrix(train[, 1:4])    # Note: 3
 # Title: Cross-validate to determine model size 
 
 library(xgboost)
+```
 
+    ## Warning: package 'xgboost' was built under R version 3.5.2
+
+``` r
 cv <- xgb.cv(input,     # Note: 1  
             label = train$class,    # Note: 2  
               params=list(
@@ -645,6 +648,18 @@ head(evalframe)     # Note: 9
 ## [1] 18
 
 library(ggplot2)
+```
+
+    ## Warning: package 'ggplot2' was built under R version 3.5.2
+
+    ## 
+    ## Attaching package: 'ggplot2'
+
+    ## The following object is masked from 'package:randomForest':
+    ## 
+    ##     margin
+
+``` r
 ggplot(evalframe, aes(x=iter, y=test_logloss_mean)) + 
   geom_line() + 
   geom_vline(xintercept = NROUNDS, color="darkred", linetype=2) + 
@@ -925,7 +940,11 @@ str(train[, input_vars])
 # Title: Use vtreat to prepare data for xgboost 
 
 library(vtreat)
+```
 
+    ## Warning: package 'vtreat' was built under R version 3.5.2
+
+``` r
 treatplan <- designTreatmentsZ(train,   # Note: 1 
                                input_vars,
                                codeRestriction = c("clean", "isBAD","lev" ),    # Note: 2                               
@@ -1122,21 +1141,7 @@ library(mgcv)                               # Note: 1
 
     ## Warning: package 'nlme' was built under R version 3.5.2
 
-    ## 
-    ## Attaching package: 'nlme'
-
-    ## The following object is masked from 'package:dplyr':
-    ## 
-    ##     collapse
-
     ## This is mgcv 1.8-28. For overview type 'help("mgcv-package")'.
-
-    ## 
-    ## Attaching package: 'mgcv'
-
-    ## The following object is masked _by_ '.GlobalEnv':
-    ## 
-    ##     s
 
 ``` r
 gam_model <- gam(y ~ s(x), data = train)    # Note: 2 
@@ -1289,6 +1294,11 @@ rmse(test$resid_gam)
 
 
 library(sigr)       # Note: 4 
+```
+
+    ## Warning: package 'sigr' was built under R version 3.5.2
+
+``` r
 wrapFTest(test, "pred_lin", "y")$R2
 ```
 
@@ -1728,14 +1738,6 @@ library('kernlab')
 
     ## 
     ## Attaching package: 'kernlab'
-
-    ## The following object is masked from 'package:arules':
-    ## 
-    ##     size
-
-    ## The following object is masked from 'package:scales':
-    ## 
-    ##     alpha
 
     ## The following object is masked from 'package:ggplot2':
     ## 

@@ -7,6 +7,22 @@
 # Title: Treating the age and income variables 
 
 library(dplyr)
+```
+
+    ## Warning: package 'dplyr' was built under R version 3.5.2
+
+    ## 
+    ## Attaching package: 'dplyr'
+
+    ## The following objects are masked from 'package:stats':
+    ## 
+    ##     filter, lag
+
+    ## The following objects are masked from 'package:base':
+    ## 
+    ##     intersect, setdiff, setequal, union
+
+``` r
 customer_data = readRDS("../Custdata/custdata.RDS")     # Note: 1 
 
 customer_data <- customer_data %>%

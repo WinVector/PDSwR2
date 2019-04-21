@@ -460,6 +460,11 @@ denominator = sum(delta_sq)                                                     
 # Title: Making a double density plot 
 
 library(WVPlots)
+```
+
+    ## Warning: package 'WVPlots' was built under R version 3.5.2
+
+``` r
 DoubleDensityPlot(spamTest, 
                   xvar = "pred",
                   truthVar = "spam",
@@ -490,13 +495,6 @@ library(sigr)
 ```
 
     ## Warning: package 'sigr' was built under R version 3.5.2
-
-    ## 
-    ## Attaching package: 'sigr'
-
-    ## The following object is masked from 'package:rmarkdown':
-    ## 
-    ##     render
 
 ``` r
 calcAUC(spamTest$pred, spamTest$spam=='spam')       # Note: 2 
@@ -659,13 +657,6 @@ source("../LIME_iris/lime_iris_example.R")  # Note: 1
 
     ## Warning: package 'xgboost' was built under R version 3.5.2
 
-    ## 
-    ## Attaching package: 'xgboost'
-
-    ## The following object is masked from 'package:dplyr':
-    ## 
-    ##     slice
-
 ``` r
 input <- as.matrix(train[, 1:4])                # Note: 2                  
 model <- fit_iris_example(input, train$class)
@@ -740,16 +731,6 @@ with(teframe, table(truth=isSetosa, pred=pred))         # Note: 3
 # Title: Build a LIME "explainer" from the model and training data 
 
 library(lime)
-```
-
-    ## 
-    ## Attaching package: 'lime'
-
-    ## The following object is masked from 'package:dplyr':
-    ## 
-    ##     explain
-
-``` r
 explainer <- lime(train[,1:4],              # Note: 1 
                      model = model, 
                      bin_continuous = TRUE,     # Note: 2 
@@ -956,7 +937,11 @@ list(text = texts[12], label = labels[12])
 # Title: Convert the texts and fit the model 
 
 source("../IMDB/lime_imdb_example.R")
-                                
+```
+
+    ## Warning: package 'wrapr' was built under R version 3.5.2
+
+``` r
 vocab <- create_pruned_vocabulary(texts)    # Note: 1                                
 dtm_train <- make_matrix(texts, vocab)      # Note: 2 
 model <- fit_imdb_model(dtm_train, labels)  # Note: 3

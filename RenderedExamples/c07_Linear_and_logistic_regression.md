@@ -39,6 +39,11 @@ dtrain$predLogPINCP <- predict(model, newdata = dtrain)
 # Title: Plotting log income as a function of predicted log income 
 
 library('ggplot2')
+```
+
+    ## Warning: package 'ggplot2' was built under R version 3.5.2
+
+``` r
 ggplot(data = dtest, aes(x = predLogPINCP, y = log10(PINCP))) +
    geom_point(alpha = 0.2, color = "darkgray") +
    geom_smooth(color = "darkblue") +
@@ -258,6 +263,11 @@ x <- c("PWGT",
       complications,
       riskfactors)
 library(wrapr)
+```
+
+    ## Warning: package 'wrapr' was built under R version 3.5.2
+
+``` r
 fmla <- mk_formula(y, x)
 ```
 
@@ -358,6 +368,11 @@ sum(premature$pred)     # Note: 4
 # Title: Plotting distribution of prediction score grouped by known outcome 
 
 library(WVPlots)
+```
+
+    ## Warning: package 'WVPlots' was built under R version 3.5.2
+
+``` r
 DoubleDensityPlot(train, "pred", "atRisk", 
                   title = "Distribution of natality risk scores")
 ```
@@ -1008,7 +1023,11 @@ cars_test$pred_glm <- predict(model_glm,
                              type = "response")     # Note: 1 
                              
 library(sigr)       # Note: 2  
+```
 
+    ## Warning: package 'sigr' was built under R version 3.5.2
+
+``` r
 confmat <- function(dframe, predvar) {      # Note: 3 
   cmat <- table(truth = ifelse(dframe$fail, "unacceptable", "passed"),
                prediction = ifelse(dframe[[predvar]] > 0.5, 
@@ -1074,13 +1093,6 @@ library(glmnet)
     ## Loading required package: Matrix
 
     ## Warning: package 'Matrix' was built under R version 3.5.2
-
-    ## 
-    ## Attaching package: 'Matrix'
-
-    ## The following object is masked from 'package:tidyr':
-    ## 
-    ##     expand
 
     ## Loading required package: foreach
 
