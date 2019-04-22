@@ -1,12 +1,12 @@
 # informalexample 5.136 of section 5.5.1 
 # (informalexample 5.136 of section 5.5.1)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from wide to tall form 
 
-# let's give an example of the kind of graph we have in mind, using just driver deaths
-library("ggplot2")
+library("data.table")
 
-ggplot(Seatbelts, 
-       aes(x = date, y = DriversKilled, color = law, shape = law)) + 
-  geom_point() + 
-  geom_smooth(se=FALSE) + 
-  ggtitle("UK car driver deaths by month")
+seatbelts_long2 <- 
+  melt.data.table(as.data.table(Seatbelts),
+                  id.vars = NULL,
+                  measure.vars = c("DriversKilled", "front", "rear"),
+                  variable.name = "victim_type", 
+                  value.name = "nvictims")
 

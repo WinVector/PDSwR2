@@ -4,7 +4,7 @@ output: github_document
 
 
 
-00220_example_6.1_of_section_6.2.3.R
+00219_example_6.1_of_section_6.2.3.R
 
 
 
@@ -55,7 +55,7 @@ spamTest$pred <- predict(spamModel,newdata = spamTest,
 
 
 
-00221_example_6.2_of_section_6.2.3.R
+00220_example_6.2_of_section_6.2.3.R
 
 
 
@@ -92,7 +92,7 @@ print(sample)
 
 
 
-00222_example_6.3_of_section_6.2.3.R
+00221_example_6.3_of_section_6.2.3.R
 
 
 
@@ -124,7 +124,7 @@ print(confmat_spam)
 
 
 
-00223_informalexample_6.1_of_section_6.2.3.R
+00222_informalexample_6.1_of_section_6.2.3.R
 
 
 
@@ -146,7 +146,7 @@ print(confmat_spam)
 
 
 
-00224_example_6.4_of_section_6.2.3.R
+00223_example_6.4_of_section_6.2.3.R
 
 
 
@@ -176,7 +176,7 @@ print(confmat_akismet)
 
 
 
-00225_informalexample_6.2_of_section_6.2.3.R
+00224_informalexample_6.2_of_section_6.2.3.R
 
 
 
@@ -198,7 +198,7 @@ print(confmat_akismet)
 
 
 
-00226_informalexample_6.3_of_section_6.2.3.R
+00225_informalexample_6.3_of_section_6.2.3.R
 
 
 
@@ -220,7 +220,7 @@ confmat_spam[2,2] / (confmat_spam[2,2]+ confmat_spam[1,2])
 
 
 
-00227_informalexample_6.4_of_section_6.2.3.R
+00226_informalexample_6.4_of_section_6.2.3.R
 
 
 
@@ -242,7 +242,7 @@ confmat_akismet[2,2] / (confmat_akismet[2,2] + confmat_akismet[1,2])
 
 
 
-00228_informalexample_6.5_of_section_6.2.3.R
+00227_informalexample_6.5_of_section_6.2.3.R
 
 
 
@@ -274,7 +274,7 @@ confmat_akismet[2,2] / (confmat_akismet[2,2] + confmat_akismet[2,1])
 
 
 
-00229_informalexample_6.6_of_section_6.2.3.R
+00228_informalexample_6.6_of_section_6.2.3.R
 
 
 
@@ -299,7 +299,7 @@ recall <- confmat_spam[2,2] / (confmat_spam[2,2] + confmat_spam[2,1])
 
 
 
-00230_example_6.5_of_section_6.2.3.R
+00229_example_6.5_of_section_6.2.3.R
 
 
 
@@ -458,7 +458,7 @@ get_performance(rbind(sTest, subset(removed, spam=="non-spam")))   	# Note: 5
 
 
 
-00231_informalexample_6.7_of_section_6.2.3.R
+00230_informalexample_6.7_of_section_6.2.3.R
 
 
 
@@ -480,7 +480,7 @@ confmat_spam[1,1] / (confmat_spam[1,1] + confmat_spam[1,2])
 
 
 
-00232_example_6.6_of_section_6.2.4.R
+00231_example_6.6_of_section_6.2.4.R
 
 
 
@@ -498,7 +498,7 @@ crickets$temp_pred <- predict(cricket_model, newdata=crickets)
 
 
 
-00233_example_6.7_of_section_6.2.4.R
+00232_example_6.7_of_section_6.2.4.R
 
 
 
@@ -522,7 +522,7 @@ error_sq <- (crickets$temp_pred - crickets$temperatureF)^2
 
 
 
-00234_example_6.8_of_section_6.2.4.R
+00233_example_6.8_of_section_6.2.4.R
 
 
 
@@ -566,7 +566,7 @@ denominator = sum(delta_sq)                                                   	#
 
 
 
-00235_example_6.9_of_section_6.2.5.R
+00234_example_6.9_of_section_6.2.5.R
 
 
 
@@ -589,12 +589,12 @@ DoubleDensityPlot(spamTest,
                   title = "Distribution of scores for spam filter")
 ```
 
-![plot of chunk 00235_example_6.9_of_section_6.2.5.R](figure/00235_example_6.9_of_section_6.2.5.R-1.png)
+![plot of chunk 00234_example_6.9_of_section_6.2.5.R](figure/00234_example_6.9_of_section_6.2.5.R-1.png)
 
 
 
 
-00236_example_6.10_of_section_6.2.5.R
+00235_example_6.10_of_section_6.2.5.R
 
 
 
@@ -611,7 +611,7 @@ ROCPlot(spamTest,                      	# Note: 1
         title = 'Spam filter test performance')
 ```
 
-![plot of chunk 00236_example_6.10_of_section_6.2.5.R](figure/00236_example_6.10_of_section_6.2.5.R-1.png)
+![plot of chunk 00235_example_6.10_of_section_6.2.5.R](figure/00235_example_6.10_of_section_6.2.5.R-1.png)
 
 ```r
 library(sigr)
@@ -642,7 +642,7 @@ calcAUC(spamTest$pred, spamTest$spam=='spam')   	# Note: 2
 
 
 
-00237_example_6.11_of_section_6.2.5.R
+00236_example_6.11_of_section_6.2.5.R
 
 
 
@@ -682,7 +682,7 @@ sum(ylogpy(y, spamTest$pred) +            	# Note: 3
 
 
 
-00238_example_6.12_of_section_6.2.5.R
+00237_example_6.12_of_section_6.2.5.R
 
 
 
@@ -715,7 +715,7 @@ sum(ylogpy(y, pNull) + ylogpy(1-y, 1-pNull))
 
 
 
-00239_example_6.13_of_section_6.2.5.R
+00238_example_6.13_of_section_6.2.5.R
 
 
 
@@ -759,7 +759,7 @@ library(sigr)
 
 
 
-00240_example_6.14_of_section_6.3.2.R
+00239_example_6.14_of_section_6.3.2.R
 
 
 
@@ -809,7 +809,7 @@ head(train)
 
 
 
-00241_example_6.15_of_section_6.3.2.R
+00240_example_6.15_of_section_6.3.2.R
 
 
 
@@ -856,7 +856,7 @@ model <- fit_iris_example(input, train$class)
 
 
 
-00242_example_6.16_of_section_6.3.2.R
+00241_example_6.16_of_section_6.3.2.R
 
 
 
@@ -903,7 +903,7 @@ with(teframe, table(truth=isSetosa, pred=pred))    		# Note: 3
 
 
 
-00243_example_6.17_of_section_6.3.2.R
+00242_example_6.17_of_section_6.3.2.R
 
 
 
@@ -931,7 +931,7 @@ explainer <- lime(train[,1:4],            	# Note: 1
 
 
 
-00244_example_6.18_of_section_6.3.2.R
+00243_example_6.18_of_section_6.3.2.R
 
 
 
@@ -985,7 +985,7 @@ round(predict(model, newdata = as.matrix(example)))
 
 
 
-00245_example_6.19_of_section_6.3.2.R
+00244_example_6.19_of_section_6.3.2.R
 
 
 
@@ -1009,7 +1009,7 @@ explanation <- lime::explain(example,
 
 
 
-00246_informalexample_6.8_of_section_6.3.2.R
+00245_informalexample_6.8_of_section_6.3.2.R
 
 
 
@@ -1020,12 +1020,12 @@ explanation <- lime::explain(example,
 plot_features(explanation)
 ```
 
-![plot of chunk 00246_informalexample_6.8_of_section_6.3.2.R](figure/00246_informalexample_6.8_of_section_6.3.2.R-1.png)
+![plot of chunk 00245_informalexample_6.8_of_section_6.3.2.R](figure/00245_informalexample_6.8_of_section_6.3.2.R-1.png)
 
 
 
 
-00249_example_6.20_of_section_6.3.2.R
+00248_example_6.20_of_section_6.3.2.R
 
 
 
@@ -1077,7 +1077,7 @@ explanation <- explain(example,
 plot_features(explanation)
 ```
 
-![plot of chunk 00249_example_6.20_of_section_6.3.2.R](figure/00249_example_6.20_of_section_6.3.2.R-1.png)
+![plot of chunk 00248_example_6.20_of_section_6.3.2.R](figure/00248_example_6.20_of_section_6.3.2.R-1.png)
 
 ```r
 # Note 1: 
@@ -1090,7 +1090,7 @@ plot_features(explanation)
 
 
 
-00250_example_6.21_of_section_6.3.3.R
+00249_example_6.21_of_section_6.3.3.R
 
 
 
@@ -1117,7 +1117,7 @@ c(texts, labels) %<-% readRDS("../IMDB/IMDBtrain.RDS") 	# Note: 2
 
 
 
-00252_informalexample_6.12_of_section_6.3.3.R
+00251_informalexample_6.12_of_section_6.3.3.R
 
 
 
@@ -1158,7 +1158,7 @@ list(text = texts[12], label = labels[12])
 
 
 
-00253_example_6.22_of_section_6.3.4.R
+00252_example_6.22_of_section_6.3.4.R
 
 
 
@@ -1192,7 +1192,7 @@ model <- fit_imdb_model(dtm_train, labels) 	# Note: 3
 
 
 
-00254_example_6.23_of_section_6.3.4.R
+00253_example_6.23_of_section_6.3.4.R
 
 
 
@@ -1240,7 +1240,7 @@ DoubleDensityPlot(teframe, "pred", "true_label",
                   "Distribution of test prediction scores") 	# Note: 7
 ```
 
-![plot of chunk 00254_example_6.23_of_section_6.3.4.R](figure/00254_example_6.23_of_section_6.3.4.R-1.png)
+![plot of chunk 00253_example_6.23_of_section_6.3.4.R](figure/00253_example_6.23_of_section_6.3.4.R-1.png)
 
 ```r
 # Note 1: 
@@ -1268,7 +1268,7 @@ DoubleDensityPlot(teframe, "pred", "true_label",
 
 
 
-00255_example_6.24_of_section_6.3.5.R
+00254_example_6.24_of_section_6.3.5.R
 
 
 
@@ -1284,7 +1284,7 @@ explainer <- lime(texts, model = model,
 
 
 
-00256_example_6.25_of_section_6.3.5.R
+00255_example_6.25_of_section_6.3.5.R
 
 
 
@@ -1331,7 +1331,7 @@ list(text = sample_case,
 
 
 
-00257_example_6.26_of_section_6.3.5.R
+00256_example_6.26_of_section_6.3.5.R
 
 
 
@@ -1348,12 +1348,12 @@ explanation <- lime::explain(sample_case,
 plot_features(explanation)
 ```
 
-![plot of chunk 00257_example_6.26_of_section_6.3.5.R](figure/00257_example_6.26_of_section_6.3.5.R-1.png)
+![plot of chunk 00256_example_6.26_of_section_6.3.5.R](figure/00256_example_6.26_of_section_6.3.5.R-1.png)
 
 
 
 
-00258_informalexample_6.13_of_section_6.3.5.R
+00257_informalexample_6.13_of_section_6.3.5.R
 
 
 
@@ -1364,12 +1364,12 @@ plot_features(explanation)
 plot_text_explanations(explanation)
 ```
 
-![plot of chunk 00258_informalexample_6.13_of_section_6.3.5.R](figure/00258_informalexample_6.13_of_section_6.3.5.R-1.png)
+![plot of chunk 00257_informalexample_6.13_of_section_6.3.5.R](figure/00257_informalexample_6.13_of_section_6.3.5.R-1.png)
 
 
 
 
-00259_example_6.27_of_section_6.3.5.R
+00258_example_6.27_of_section_6.3.5.R
 
 
 
@@ -1427,13 +1427,13 @@ explanation <- lime::explain(sample_cases,
 plot_features(explanation)
 ```
 
-![plot of chunk 00259_example_6.27_of_section_6.3.5.R](figure/00259_example_6.27_of_section_6.3.5.R-1.png)
+![plot of chunk 00258_example_6.27_of_section_6.3.5.R](figure/00258_example_6.27_of_section_6.3.5.R-1.png)
 
 ```r
 plot_text_explanations(explanation)
 ```
 
-![plot of chunk 00259_example_6.27_of_section_6.3.5.R](figure/00259_example_6.27_of_section_6.3.5.R-2.png)
+![plot of chunk 00258_example_6.27_of_section_6.3.5.R](figure/00258_example_6.27_of_section_6.3.5.R-2.png)
 
 ```r
 # Note 1: 
@@ -1446,7 +1446,7 @@ plot_text_explanations(explanation)
 
 
 
-00260_informalexample_6.14_of_section_6.3.5.R
+00259_informalexample_6.14_of_section_6.3.5.R
 
 
 

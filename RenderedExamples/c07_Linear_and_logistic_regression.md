@@ -4,7 +4,7 @@ output: github_document
 
 
 
-00266_example_7.2_of_section_7.1.1.R
+00265_example_7.2_of_section_7.1.1.R
 
 
 
@@ -41,7 +41,7 @@ dtrain$predLogPINCP <- predict(model, newdata = dtrain)
 
 
 
-00267_example_7.3_of_section_7.1.3.R
+00266_example_7.3_of_section_7.1.3.R
 
 
 
@@ -72,7 +72,7 @@ ggplot(data = dtest, aes(x = predLogPINCP, y = log10(PINCP))) +
 ## `geom_smooth()` using method = 'gam' and formula 'y ~ s(x, bs = "cs")'
 ```
 
-![plot of chunk 00267_example_7.3_of_section_7.1.3.R](figure/00267_example_7.3_of_section_7.1.3.R-1.png)
+![plot of chunk 00266_example_7.3_of_section_7.1.3.R](figure/00266_example_7.3_of_section_7.1.3.R-1.png)
 
 ```r
 # Note 1: 
@@ -85,7 +85,7 @@ ggplot(data = dtest, aes(x = predLogPINCP, y = log10(PINCP))) +
 
 
 
-00268_example_7.4_of_section_7.1.3.R
+00267_example_7.4_of_section_7.1.3.R
 
 
 
@@ -105,12 +105,12 @@ ggplot(data = dtest, aes(x = predLogPINCP,
 ## `geom_smooth()` using method = 'gam' and formula 'y ~ s(x, bs = "cs")'
 ```
 
-![plot of chunk 00268_example_7.4_of_section_7.1.3.R](figure/00268_example_7.4_of_section_7.1.3.R-1.png)
+![plot of chunk 00267_example_7.4_of_section_7.1.3.R](figure/00267_example_7.4_of_section_7.1.3.R-1.png)
 
 
 
 
-00269_example_7.5_of_section_7.1.3.R
+00268_example_7.5_of_section_7.1.3.R
 
 
 
@@ -151,7 +151,7 @@ rsq(log10(dtest$PINCP), dtest$predLogPINCP)   	# Note: 2
 
 
 
-00270_example_7.6_of_section_7.1.3.R
+00269_example_7.6_of_section_7.1.3.R
 
 
 
@@ -192,7 +192,7 @@ rmse(log10(dtest$PINCP), dtest$predLogPINCP)  	# Note: 2
 
 
 
-00275_example_7.7_of_section_7.1.5.R
+00274_example_7.7_of_section_7.1.5.R
 
 
 
@@ -229,7 +229,7 @@ rmse(log10(dtest$PINCP), dtest$predLogPINCP)  	# Note: 2
 
 
 
-00277_informalexample_7.10_of_section_7.1.5.R
+00276_informalexample_7.10_of_section_7.1.5.R
 
 
 
@@ -251,7 +251,7 @@ rmse(log10(dtest$PINCP), dtest$predLogPINCP)  	# Note: 2
 
 
 
-00278_informalexample_7.11_of_section_7.1.5.R
+00277_informalexample_7.11_of_section_7.1.5.R
 
 
 
@@ -273,7 +273,7 @@ rmse(log10(dtest$PINCP), dtest$predLogPINCP)  	# Note: 2
 
 
 
-00281_informalexample_7.14_of_section_7.2.1.R
+00280_informalexample_7.14_of_section_7.2.1.R
 
 
 
@@ -308,7 +308,7 @@ logit(s(-2))
 
 
 
-00285_example_7.9_of_section_7.2.1.R
+00284_example_7.9_of_section_7.2.1.R
 
 
 
@@ -325,7 +325,7 @@ test <- sdata[sdata$ORIGRANDGROUP > 5, ]
 
 
 
-00286_example_7.10_of_section_7.2.2.R
+00285_example_7.10_of_section_7.2.2.R
 
 
 
@@ -359,7 +359,7 @@ fmla <- mk_formula(y, x)
 
 
 
-00287_example_7.11_of_section_7.2.2.R
+00286_example_7.11_of_section_7.2.2.R
 
 
 
@@ -390,7 +390,7 @@ model <- glm(fmla, data = train, family = binomial(link = "logit"))
 
 
 
-00288_example_7.12_of_section_7.2.3.R
+00287_example_7.12_of_section_7.2.3.R
 
 
 
@@ -406,7 +406,7 @@ test$pred <- predict(model, newdata=test, type="response")
 
 
 
-00289_example_7.13_of_section_7.2.3.R
+00288_example_7.13_of_section_7.2.3.R
 
 
 
@@ -473,7 +473,7 @@ sum(premature$pred)  	# Note: 4
 
 
 
-00290_example_7.14_of_section_7.2.3.R
+00289_example_7.14_of_section_7.2.3.R
 
 
 
@@ -494,12 +494,12 @@ DoubleDensityPlot(train, "pred", "atRisk",
                   title = "Distribution of natality risk scores")
 ```
 
-![plot of chunk 00290_example_7.14_of_section_7.2.3.R](figure/00290_example_7.14_of_section_7.2.3.R-1.png)
+![plot of chunk 00289_example_7.14_of_section_7.2.3.R](figure/00289_example_7.14_of_section_7.2.3.R-1.png)
 
 
 
 
-00291_example_7.15_of_section_7.2.3.R
+00290_example_7.15_of_section_7.2.3.R
 
 
 
@@ -517,7 +517,7 @@ plt <- PRTPlot(train, "pred", "atRisk", TRUE,    	# Note: 1
 plt + geom_vline(xintercept = 0.02, color="red", linetype = 2)   	# Note: 2
 ```
 
-![plot of chunk 00291_example_7.15_of_section_7.2.3.R](figure/00291_example_7.15_of_section_7.2.3.R-1.png)
+![plot of chunk 00290_example_7.15_of_section_7.2.3.R](figure/00290_example_7.15_of_section_7.2.3.R-1.png)
 
 ```r
 # Note 1: 
@@ -531,7 +531,7 @@ plt + geom_vline(xintercept = 0.02, color="red", linetype = 2)   	# Note: 2
 
 
 
-00292_example_7.16_of_section_7.2.3.R
+00291_example_7.16_of_section_7.2.3.R
 
 
 
@@ -595,7 +595,7 @@ plt + geom_vline(xintercept = 0.02, color="red", linetype = 2)   	# Note: 2
 
 
 
-00293_example_7.17_of_section_7.2.4.R
+00292_example_7.17_of_section_7.2.4.R
 
 
 
@@ -640,7 +640,7 @@ coefficients(model)
 
 
 
-00295_example_7.18_of_section_7.2.5.R
+00294_example_7.18_of_section_7.2.5.R
 
 
 
@@ -728,7 +728,7 @@ summary(model)
 
 
 
-00300_example_7.19_of_section_7.2.5.R
+00299_example_7.19_of_section_7.2.5.R
 
 
 
@@ -864,7 +864,7 @@ testpred <- predict(model, newdata = test,
 
 
 
-00301_example_7.20_of_section_7.2.5.R
+00300_example_7.20_of_section_7.2.5.R
 
 
 
@@ -899,7 +899,7 @@ print(pr2.test)
 
 
 
-00304_example_7.21_of_section_7.2.5.R
+00303_example_7.21_of_section_7.2.5.R
 
 
 
@@ -977,7 +977,7 @@ print(pr2.test)
 
 
 
-00305_example_7.22_of_section_7.2.5.R
+00304_example_7.22_of_section_7.2.5.R
 
 
 
@@ -1002,7 +1002,7 @@ aic
 
 
 
-00308_example_7.23_of_section_7.3.1.R
+00307_example_7.23_of_section_7.3.1.R
 
 
 
@@ -1067,7 +1067,7 @@ nrow(cars_train)
 
 
 
-00309_example_7.24_of_section_7.3.1.R
+00308_example_7.24_of_section_7.3.1.R
 
 
 
@@ -1102,7 +1102,7 @@ model_glm <- glm(fmla,
 
 
 
-00310_informalexample_7.26_of_section_7.3.1.R
+00309_informalexample_7.26_of_section_7.3.1.R
 
 
 
@@ -1116,7 +1116,7 @@ model_glm <- glm(fmla,
 
 
 
-00311_example_7.25_of_section_7.3.1.R
+00310_example_7.25_of_section_7.3.1.R
 
 
 
@@ -1220,7 +1220,7 @@ summary(model_glm)
 
 
 
-00312_example_7.26_of_section_7.3.1.R
+00311_example_7.26_of_section_7.3.1.R
 
 
 
@@ -1240,7 +1240,7 @@ ggplot(coef_frame, aes(x = coef, y = value)) +
   coord_flip()
 ```
 
-![plot of chunk 00312_example_7.26_of_section_7.3.1.R](figure/00312_example_7.26_of_section_7.3.1.R-1.png)
+![plot of chunk 00311_example_7.26_of_section_7.3.1.R](figure/00311_example_7.26_of_section_7.3.1.R-1.png)
 
 ```r
 # Note 1: 
@@ -1250,7 +1250,7 @@ ggplot(coef_frame, aes(x = coef, y = value)) +
 
 
 
-00313_example_7.27_of_section_7.3.1.R
+00312_example_7.27_of_section_7.3.1.R
 
 
 
@@ -1328,7 +1328,7 @@ confmat(cars_test, "pred_glm")
 
 
 
-00318_example_7.28_of_section_7.3.3.R
+00317_example_7.28_of_section_7.3.3.R
 
 
 
@@ -1415,7 +1415,7 @@ library(glmnetUtils)
 
 
 
-00319_example_7.29_of_section_7.3.3.R
+00318_example_7.29_of_section_7.3.3.R
 
 
 
@@ -1489,7 +1489,7 @@ ggplot(coef_frame, aes(x = coef, y = value)) +
   coord_flip()
 ```
 
-![plot of chunk 00319_example_7.29_of_section_7.3.3.R](figure/00319_example_7.29_of_section_7.3.3.R-1.png)
+![plot of chunk 00318_example_7.29_of_section_7.3.3.R](figure/00318_example_7.29_of_section_7.3.3.R-1.png)
 
 ```r
 # Note 1: 
@@ -1499,7 +1499,7 @@ ggplot(coef_frame, aes(x = coef, y = value)) +
 
 
 
-00320_example_7.30_of_section_7.3.3.R
+00319_example_7.30_of_section_7.3.3.R
 
 
 
@@ -1552,7 +1552,7 @@ confmat(cars_test, "pred_ridge")
 
 
 
-00321_informalexample_7.31_of_section_7.3.3.R
+00320_informalexample_7.31_of_section_7.3.3.R
 
 
 
@@ -1569,7 +1569,7 @@ prediction <- predict(model_ridge,
 
 
 
-00322_example_7.31_of_section_7.3.3.R
+00321_example_7.31_of_section_7.3.3.R
 
 
 
@@ -1607,7 +1607,7 @@ prediction <- predict(model_ridge,
 
 
 
-00323_example_7.32_of_section_7.3.3.R
+00322_example_7.32_of_section_7.3.3.R
 
 
 
@@ -1632,7 +1632,7 @@ prediction <- predict(model_ridge,
 
 
 
-00324_example_7.33_of_section_7.3.3.R
+00323_example_7.33_of_section_7.3.3.R
 
 
 
@@ -1671,7 +1671,7 @@ prediction <- predict(model_ridge,
 
 
 
-00325_example_7.34_of_section_7.3.3.R
+00324_example_7.34_of_section_7.3.3.R
 
 
 
@@ -1707,7 +1707,7 @@ ggplot(enet_performance, aes(x = alpha, y = cvm)) +          	# Note: 7
   ggtitle("CV loss as a function of alpha")
 ```
 
-![plot of chunk 00325_example_7.34_of_section_7.3.3.R](figure/00325_example_7.34_of_section_7.3.3.R-1.png)
+![plot of chunk 00324_example_7.34_of_section_7.3.3.R](figure/00324_example_7.34_of_section_7.3.3.R-1.png)
 
 ```r
 # Note 1: 
@@ -1735,7 +1735,7 @@ ggplot(enet_performance, aes(x = alpha, y = cvm)) +          	# Note: 7
 
 
 
-00326_example_7.35_of_section_7.3.3.R
+00325_example_7.35_of_section_7.3.3.R
 
 
 

@@ -4,10 +4,10 @@ output: github_document
 
 
 
-00266_example_7.2_of_section_7.1.1.R
+00265_example_7.2_of_section_7.1.1.R
 
 
-```{r 00266_example_7.2_of_section_7.1.1.R }
+```{r 00265_example_7.2_of_section_7.1.1.R }
 # example 7.2 of section 7.1.1 
 # (example 7.2 of section 7.1.1)  : Linear and logistic regression : Using linear regression : Understanding linear regression 
 # Title: Loading the PUMS data and fitting a model 
@@ -43,10 +43,10 @@ dtrain$predLogPINCP <- predict(model, newdata = dtrain)
 
 
 
-00267_example_7.3_of_section_7.1.3.R
+00266_example_7.3_of_section_7.1.3.R
 
 
-```{r 00267_example_7.3_of_section_7.1.3.R }
+```{r 00266_example_7.3_of_section_7.1.3.R }
 # example 7.3 of section 7.1.3 
 # (example 7.3 of section 7.1.3)  : Linear and logistic regression : Using linear regression : Making predictions 
 # Title: Plotting log income as a function of predicted log income 
@@ -74,10 +74,10 @@ ggplot(data = dtest, aes(x = predLogPINCP, y = log10(PINCP))) +
 
 
 
-00268_example_7.4_of_section_7.1.3.R
+00267_example_7.4_of_section_7.1.3.R
 
 
-```{r 00268_example_7.4_of_section_7.1.3.R }
+```{r 00267_example_7.4_of_section_7.1.3.R }
 # example 7.4 of section 7.1.3 
 # (example 7.4 of section 7.1.3)  : Linear and logistic regression : Using linear regression : Making predictions 
 # Title: Plotting residuals income as a function of predicted log income 
@@ -95,10 +95,10 @@ ggplot(data = dtest, aes(x = predLogPINCP,
 
 
 
-00269_example_7.5_of_section_7.1.3.R
+00268_example_7.5_of_section_7.1.3.R
 
 
-```{r 00269_example_7.5_of_section_7.1.3.R }
+```{r 00268_example_7.5_of_section_7.1.3.R }
 # example 7.5 of section 7.1.3 
 # (example 7.5 of section 7.1.3)  : Linear and logistic regression : Using linear regression : Making predictions 
 # Title: Computing R-squared 
@@ -124,10 +124,10 @@ rsq(log10(dtest$PINCP), dtest$predLogPINCP)   	# Note: 2
 
 
 
-00270_example_7.6_of_section_7.1.3.R
+00269_example_7.6_of_section_7.1.3.R
 
 
-```{r 00270_example_7.6_of_section_7.1.3.R }
+```{r 00269_example_7.6_of_section_7.1.3.R }
 # example 7.6 of section 7.1.3 
 # (example 7.6 of section 7.1.3)  : Linear and logistic regression : Using linear regression : Making predictions 
 # Title: Calculating root mean square error 
@@ -153,10 +153,10 @@ rmse(log10(dtest$PINCP), dtest$predLogPINCP)  	# Note: 2
 
 
 
-00275_example_7.7_of_section_7.1.5.R
+00274_example_7.7_of_section_7.1.5.R
 
 
-```{r 00275_example_7.7_of_section_7.1.5.R }
+```{r 00274_example_7.7_of_section_7.1.5.R }
 # example 7.7 of section 7.1.5 
 # (example 7.7 of section 7.1.5)  : Linear and logistic regression : Using linear regression : Reading the model summary and characterizing coefficient quality 
 # Title: Summarizing residuals 
@@ -176,10 +176,10 @@ rmse(log10(dtest$PINCP), dtest$predLogPINCP)  	# Note: 2
 
 
 
-00277_informalexample_7.10_of_section_7.1.5.R
+00276_informalexample_7.10_of_section_7.1.5.R
 
 
-```{r 00277_informalexample_7.10_of_section_7.1.5.R }
+```{r 00276_informalexample_7.10_of_section_7.1.5.R }
 # informalexample 7.10 of section 7.1.5 
 # (informalexample 7.10 of section 7.1.5)  : Linear and logistic regression : Using linear regression : Reading the model summary and characterizing coefficient quality 
 
@@ -193,10 +193,10 @@ rmse(log10(dtest$PINCP), dtest$predLogPINCP)  	# Note: 2
 
 
 
-00278_informalexample_7.11_of_section_7.1.5.R
+00277_informalexample_7.11_of_section_7.1.5.R
 
 
-```{r 00278_informalexample_7.11_of_section_7.1.5.R }
+```{r 00277_informalexample_7.11_of_section_7.1.5.R }
 # informalexample 7.11 of section 7.1.5 
 # (informalexample 7.11 of section 7.1.5)  : Linear and logistic regression : Using linear regression : Reading the model summary and characterizing coefficient quality 
 
@@ -210,10 +210,10 @@ rmse(log10(dtest$PINCP), dtest$predLogPINCP)  	# Note: 2
 
 
 
-00281_informalexample_7.14_of_section_7.2.1.R
+00280_informalexample_7.14_of_section_7.2.1.R
 
 
-```{r 00281_informalexample_7.14_of_section_7.2.1.R }
+```{r 00280_informalexample_7.14_of_section_7.2.1.R }
 # informalexample 7.14 of section 7.2.1 
 # (informalexample 7.14 of section 7.2.1)  : Linear and logistic regression : Using logistic regression : Understanding logistic regression 
 
@@ -233,10 +233,10 @@ logit(s(-2))
 
 
 
-00285_example_7.9_of_section_7.2.1.R
+00284_example_7.9_of_section_7.2.1.R
 
 
-```{r 00285_example_7.9_of_section_7.2.1.R }
+```{r 00284_example_7.9_of_section_7.2.1.R }
 # example 7.9 of section 7.2.1 
 # (example 7.9 of section 7.2.1)  : Linear and logistic regression : Using logistic regression : Understanding logistic regression 
 # Title: Loading the CDC data 
@@ -252,10 +252,10 @@ test <- sdata[sdata$ORIGRANDGROUP > 5, ]
 
 
 
-00286_example_7.10_of_section_7.2.2.R
+00285_example_7.10_of_section_7.2.2.R
 
 
-```{r 00286_example_7.10_of_section_7.2.2.R }
+```{r 00285_example_7.10_of_section_7.2.2.R }
 # example 7.10 of section 7.2.2 
 # (example 7.10 of section 7.2.2)  : Linear and logistic regression : Using logistic regression : Building a logistic regression model 
 # Title: Building the model formula 
@@ -281,10 +281,10 @@ fmla <- mk_formula(y, x)
 
 
 
-00287_example_7.11_of_section_7.2.2.R
+00286_example_7.11_of_section_7.2.2.R
 
 
-```{r 00287_example_7.11_of_section_7.2.2.R }
+```{r 00286_example_7.11_of_section_7.2.2.R }
 # example 7.11 of section 7.2.2 
 # (example 7.11 of section 7.2.2)  : Linear and logistic regression : Using logistic regression : Building a logistic regression model 
 # Title: Fitting the logistic regression model 
@@ -305,10 +305,10 @@ model <- glm(fmla, data = train, family = binomial(link = "logit"))
 
 
 
-00288_example_7.12_of_section_7.2.3.R
+00287_example_7.12_of_section_7.2.3.R
 
 
-```{r 00288_example_7.12_of_section_7.2.3.R }
+```{r 00287_example_7.12_of_section_7.2.3.R }
 # example 7.12 of section 7.2.3 
 # (example 7.12 of section 7.2.3)  : Linear and logistic regression : Using logistic regression : Making predictions 
 # Title: Applying the logistic regression model 
@@ -323,10 +323,10 @@ test$pred <- predict(model, newdata=test, type="response")
 
 
 
-00289_example_7.13_of_section_7.2.3.R
+00288_example_7.13_of_section_7.2.3.R
 
 
-```{r 00289_example_7.13_of_section_7.2.3.R }
+```{r 00288_example_7.13_of_section_7.2.3.R }
 # example 7.13 of section 7.2.3 
 # (example 7.13 of section 7.2.3)  : Linear and logistic regression : Using logistic regression : Making predictions 
 # Title: Logistic regression preserves marginal probabilities 
@@ -364,10 +364,10 @@ sum(premature$pred)  	# Note: 4
 
 
 
-00290_example_7.14_of_section_7.2.3.R
+00289_example_7.14_of_section_7.2.3.R
 
 
-```{r 00290_example_7.14_of_section_7.2.3.R }
+```{r 00289_example_7.14_of_section_7.2.3.R }
 # example 7.14 of section 7.2.3 
 # (example 7.14 of section 7.2.3)  : Linear and logistic regression : Using logistic regression : Making predictions 
 # Title: Plotting distribution of prediction score grouped by known outcome 
@@ -383,10 +383,10 @@ DoubleDensityPlot(train, "pred", "atRisk",
 
 
 
-00291_example_7.15_of_section_7.2.3.R
+00290_example_7.15_of_section_7.2.3.R
 
 
-```{r 00291_example_7.15_of_section_7.2.3.R }
+```{r 00290_example_7.15_of_section_7.2.3.R }
 # example 7.15 of section 7.2.3 
 # (example 7.15 of section 7.2.3)  : Linear and logistic regression : Using logistic regression : Making predictions 
 # Title: Exploring modeling trade-offs 
@@ -413,10 +413,10 @@ plt + geom_vline(xintercept = 0.02, color="red", linetype = 2)   	# Note: 2
 
 
 
-00292_example_7.16_of_section_7.2.3.R
+00291_example_7.16_of_section_7.2.3.R
 
 
-```{r 00292_example_7.16_of_section_7.2.3.R }
+```{r 00291_example_7.16_of_section_7.2.3.R }
 # example 7.16 of section 7.2.3 
 # (example 7.16 of section 7.2.3)  : Linear and logistic regression : Using logistic regression : Making predictions 
 # Title: Evaluating the chosen model 
@@ -448,10 +448,10 @@ plt + geom_vline(xintercept = 0.02, color="red", linetype = 2)   	# Note: 2
 
 
 
-00293_example_7.17_of_section_7.2.4.R
+00292_example_7.17_of_section_7.2.4.R
 
 
-```{r 00293_example_7.17_of_section_7.2.4.R }
+```{r 00292_example_7.17_of_section_7.2.4.R }
 # example 7.17 of section 7.2.4 
 # (example 7.17 of section 7.2.4)  : Linear and logistic regression : Using logistic regression : Finding relations and extracting advice from logistic models 
 # Title: The model coefficients 
@@ -479,10 +479,10 @@ coefficients(model)
 
 
 
-00295_example_7.18_of_section_7.2.5.R
+00294_example_7.18_of_section_7.2.5.R
 
 
-```{r 00295_example_7.18_of_section_7.2.5.R }
+```{r 00294_example_7.18_of_section_7.2.5.R }
 # example 7.18 of section 7.2.5 
 # (example 7.18 of section 7.2.5)  : Linear and logistic regression : Using logistic regression : Reading the model summary and characterizing coefficients 
 # Title: The model summary 
@@ -530,10 +530,10 @@ summary(model)
 
 
 
-00300_example_7.19_of_section_7.2.5.R
+00299_example_7.19_of_section_7.2.5.R
 
 
-```{r 00300_example_7.19_of_section_7.2.5.R }
+```{r 00299_example_7.19_of_section_7.2.5.R }
 # example 7.19 of section 7.2.5 
 # (example 7.19 of section 7.2.5)  : Linear and logistic regression : Using logistic regression : Reading the model summary and characterizing coefficients 
 # Title: Computing deviance 
@@ -612,10 +612,10 @@ testpred <- predict(model, newdata = test,
 
 
 
-00301_example_7.20_of_section_7.2.5.R
+00300_example_7.20_of_section_7.2.5.R
 
 
-```{r 00301_example_7.20_of_section_7.2.5.R }
+```{r 00300_example_7.20_of_section_7.2.5.R }
 # example 7.20 of section 7.2.5 
 # (example 7.20 of section 7.2.5)  : Linear and logistic regression : Using logistic regression : Reading the model summary and characterizing coefficients 
 # Title: Calculating the pseudo R-squared 
@@ -635,10 +635,10 @@ print(pr2.test)
 
 
 
-00304_example_7.21_of_section_7.2.5.R
+00303_example_7.21_of_section_7.2.5.R
 
 
-```{r 00304_example_7.21_of_section_7.2.5.R }
+```{r 00303_example_7.21_of_section_7.2.5.R }
 # example 7.21 of section 7.2.5 
 # (example 7.21 of section 7.2.5)  : Linear and logistic regression : Using logistic regression : Reading the model summary and characterizing coefficients 
 # Title: Calculating the significance of the observed fit 
@@ -680,10 +680,10 @@ print(pr2.test)
 
 
 
-00305_example_7.22_of_section_7.2.5.R
+00304_example_7.22_of_section_7.2.5.R
 
 
-```{r 00305_example_7.22_of_section_7.2.5.R }
+```{r 00304_example_7.22_of_section_7.2.5.R }
 # example 7.22 of section 7.2.5 
 # (example 7.22 of section 7.2.5)  : Linear and logistic regression : Using logistic regression : Reading the model summary and characterizing coefficients 
 # Title: Calculating the Akaike information criterion 
@@ -700,10 +700,10 @@ aic
 
 
 
-00308_example_7.23_of_section_7.3.1.R
+00307_example_7.23_of_section_7.3.1.R
 
 
-```{r 00308_example_7.23_of_section_7.3.1.R }
+```{r 00307_example_7.23_of_section_7.3.1.R }
 # example 7.23 of section 7.3.1 
 # (example 7.23 of section 7.3.1)  : Linear and logistic regression : Regularization : An Example of Quasi-separation 
 # Title: Preparing the cars data 
@@ -753,10 +753,10 @@ nrow(cars_train)
 
 
 
-00309_example_7.24_of_section_7.3.1.R
+00308_example_7.24_of_section_7.3.1.R
 
 
-```{r 00309_example_7.24_of_section_7.3.1.R }
+```{r 00308_example_7.24_of_section_7.3.1.R }
 # example 7.24 of section 7.3.1 
 # (example 7.24 of section 7.3.1)  : Linear and logistic regression : Regularization : An Example of Quasi-separation 
 # Title: Fitting a logistic regression model 
@@ -779,10 +779,10 @@ model_glm <- glm(fmla,
 
 
 
-00310_informalexample_7.26_of_section_7.3.1.R
+00309_informalexample_7.26_of_section_7.3.1.R
 
 
-```{r 00310_informalexample_7.26_of_section_7.3.1.R }
+```{r 00309_informalexample_7.26_of_section_7.3.1.R }
 # informalexample 7.26 of section 7.3.1 
 # (informalexample 7.26 of section 7.3.1)  : Linear and logistic regression : Regularization : An Example of Quasi-separation 
 
@@ -795,10 +795,10 @@ model_glm <- glm(fmla,
 
 
 
-00311_example_7.25_of_section_7.3.1.R
+00310_example_7.25_of_section_7.3.1.R
 
 
-```{r 00311_example_7.25_of_section_7.3.1.R }
+```{r 00310_example_7.25_of_section_7.3.1.R }
 # example 7.25 of section 7.3.1 
 # (example 7.25 of section 7.3.1)  : Linear and logistic regression : Regularization : An Example of Quasi-separation 
 # Title: Looking at the model summary 
@@ -860,10 +860,10 @@ summary(model_glm)
 
 
 
-00312_example_7.26_of_section_7.3.1.R
+00311_example_7.26_of_section_7.3.1.R
 
 
-```{r 00312_example_7.26_of_section_7.3.1.R }
+```{r 00311_example_7.26_of_section_7.3.1.R }
 # example 7.26 of section 7.3.1 
 # (example 7.26 of section 7.3.1)  : Linear and logistic regression : Regularization : An Example of Quasi-separation 
 # Title: Looking at the logistic model's coefficients 
@@ -888,10 +888,10 @@ ggplot(coef_frame, aes(x = coef, y = value)) +
 
 
 
-00313_example_7.27_of_section_7.3.1.R
+00312_example_7.27_of_section_7.3.1.R
 
 
-```{r 00313_example_7.27_of_section_7.3.1.R }
+```{r 00312_example_7.27_of_section_7.3.1.R }
 # example 7.27 of section 7.3.1 
 # (example 7.27 of section 7.3.1)  : Linear and logistic regression : Regularization : An Example of Quasi-separation 
 # Title: The logistic model's test performance 
@@ -945,10 +945,10 @@ confmat(cars_test, "pred_glm")
 
 
 
-00318_example_7.28_of_section_7.3.3.R
+00317_example_7.28_of_section_7.3.3.R
 
 
-```{r 00318_example_7.28_of_section_7.3.3.R }
+```{r 00317_example_7.28_of_section_7.3.3.R }
 # example 7.28 of section 7.3.3 
 # (example 7.28 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
 # Title: Fitting the ridge regression model 
@@ -983,10 +983,10 @@ library(glmnetUtils)
 
 
 
-00319_example_7.29_of_section_7.3.3.R
+00318_example_7.29_of_section_7.3.3.R
 
 
-```{r 00319_example_7.29_of_section_7.3.3.R }
+```{r 00318_example_7.29_of_section_7.3.3.R }
 # example 7.29 of section 7.3.3 
 # (example 7.29 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
 # Title: Looking at the ridge model's coefficients 
@@ -1036,10 +1036,10 @@ ggplot(coef_frame, aes(x = coef, y = value)) +
 
 
 
-00320_example_7.30_of_section_7.3.3.R
+00319_example_7.30_of_section_7.3.3.R
 
 
-```{r 00320_example_7.30_of_section_7.3.3.R }
+```{r 00319_example_7.30_of_section_7.3.3.R }
 # example 7.30 of section 7.3.3 
 # (example 7.30 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
 # Title: Looking at the ridge model's test performance 
@@ -1074,10 +1074,10 @@ confmat(cars_test, "pred_ridge")
 
 
 
-00321_informalexample_7.31_of_section_7.3.3.R
+00320_informalexample_7.31_of_section_7.3.3.R
 
 
-```{r 00321_informalexample_7.31_of_section_7.3.3.R }
+```{r 00320_informalexample_7.31_of_section_7.3.3.R }
 # informalexample 7.31 of section 7.3.3 
 # (informalexample 7.31 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
 
@@ -1093,10 +1093,10 @@ prediction <- predict(model_ridge,
 
 
 
-00322_example_7.31_of_section_7.3.3.R
+00321_example_7.31_of_section_7.3.3.R
 
 
-```{r 00322_example_7.31_of_section_7.3.3.R }
+```{r 00321_example_7.31_of_section_7.3.3.R }
 # example 7.31 of section 7.3.3 
 # (example 7.31 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
 # Title: The lasso model's coefficients 
@@ -1133,10 +1133,10 @@ prediction <- predict(model_ridge,
 
 
 
-00323_example_7.32_of_section_7.3.3.R
+00322_example_7.32_of_section_7.3.3.R
 
 
-```{r 00323_example_7.32_of_section_7.3.3.R }
+```{r 00322_example_7.32_of_section_7.3.3.R }
 # example 7.32 of section 7.3.3 
 # (example 7.32 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
 # Title: The lasso model's test performance 
@@ -1160,10 +1160,10 @@ prediction <- predict(model_ridge,
 
 
 
-00324_example_7.33_of_section_7.3.3.R
+00323_example_7.33_of_section_7.3.3.R
 
 
-```{r 00324_example_7.33_of_section_7.3.3.R }
+```{r 00323_example_7.33_of_section_7.3.3.R }
 # example 7.33 of section 7.3.3 
 # (example 7.33 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
 # Title: Crossvalidating for both alpha and lambda 
@@ -1187,10 +1187,10 @@ prediction <- predict(model_ridge,
 
 
 
-00325_example_7.34_of_section_7.3.3.R
+00324_example_7.34_of_section_7.3.3.R
 
 
-```{r 00325_example_7.34_of_section_7.3.3.R }
+```{r 00324_example_7.34_of_section_7.3.3.R }
 # example 7.34 of section 7.3.3 
 # (example 7.34 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
 # Title: Finding the minimum error alpha 
@@ -1242,10 +1242,10 @@ ggplot(enet_performance, aes(x = alpha, y = cvm)) +          	# Note: 7
 
 
 
-00326_example_7.35_of_section_7.3.3.R
+00325_example_7.35_of_section_7.3.3.R
 
 
-```{r 00326_example_7.35_of_section_7.3.3.R }
+```{r 00325_example_7.35_of_section_7.3.3.R }
 # example 7.35 of section 7.3.3 
 # (example 7.35 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
 # Title: Fitting and evaluating the elastic net model 

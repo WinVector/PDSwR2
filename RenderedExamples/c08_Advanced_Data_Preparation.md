@@ -4,7 +4,7 @@ output: github_document
 
 
 
-00327_example_8.1_of_section_8.2.1.R
+00326_example_8.1_of_section_8.2.1.R
 
 
 
@@ -70,7 +70,7 @@ rm(list=c('d', 'churn', 'rgroup')) 	# Note: 7
 
 
 
-00328_informalexample_8.1_of_section_8.2.1.R
+00327_informalexample_8.1_of_section_8.2.1.R
 
 
 
@@ -103,7 +103,7 @@ knitr::kable(outcome_summary)
 
 
 
-00329_informalexample_8.2_of_section_8.2.1.R
+00328_informalexample_8.2_of_section_8.2.1.R
 
 
 
@@ -130,54 +130,7 @@ outcome_summary["1"]/sum(outcome_summary) 	# Note: 1
 
 
 
-00330_example_8.2_of_section_8.2.2.R
-
-
-
-```r
-# example 8.2 of section 8.2.2 
-# (example 8.2 of section 8.2.2)  : Advanced Data Preparation : KDD and KDD Cup 2009 : The Bull in The China Shop Approach 
-# Title: Attempting to model without preparation 
-
-library("wrapr")  	# Note: 1 
-```
-
-```
-## Warning: package 'wrapr' was built under R version 3.5.2
-```
-
-```r
-outcome <- 'churn'                                        
-vars <- setdiff(colnames(dTrainAll), outcome)
-
-formula1 <- mk_formula("churn", vars, outcome_target = 1) 	# Note: 2 
-model1 <- glm(formula1, data = dTrainAll, family = binomial) 	# Note: 3 
-```
-
-```
-## Error in `contrasts<-`(`*tmp*`, value = contr.funs[1 + isOF[nn]]): contrasts can be applied only to factors with 2 or more levels
-```
-
-```r
-# Error in `contrasts ... 	# Note: 4
-
-# Note 1: 
-#   Attach the wrapr package for convenience functions, such as mk_formula(). 
-
-# Note 2: 
-#   Build a model formula specification asking churn==1 be predicted as a function of our explanatory variables. 
-
-# Note 3: 
-#   Ask the glm() function to build a logistic regression model. 
-
-# Note 4: 
-#   The attempt failed with an error. 
-```
-
-
-
-
-00331_example_8.3_of_section_8.2.2.R
+00330_example_8.3_of_section_8.2.2.R
 
 
 
@@ -258,7 +211,7 @@ dim(dTrainAll)
 
 
 
-00332_informalexample_8.3_of_section_8.2.2.R
+00331_informalexample_8.3_of_section_8.2.2.R
 
 
 
@@ -292,7 +245,7 @@ length(unique(dTrainAll$Var200))
 
 
 
-00333_example_8.4_of_section_8.3.R
+00332_example_8.4_of_section_8.3.R
 
 
 
@@ -338,7 +291,7 @@ treatment_plan <- vtreat::designTreatmentsC( 	# Note: 3
 
 
 
-00334_example_8.5_of_section_8.3.R
+00333_example_8.5_of_section_8.3.R
 
 
 
@@ -379,7 +332,7 @@ head(colnames(dTrain_treated))      	# Note: 1
 
 
 
-00335_informalexample_8.4_of_section_8.3.1.R
+00334_informalexample_8.4_of_section_8.3.1.R
 
 
 
@@ -452,7 +405,7 @@ t(subset(score_frame, origName %in% c("Var126", "Var189")))
 
 
 
-00336_informalexample_8.5_of_section_8.3.1.R
+00335_informalexample_8.5_of_section_8.3.1.R
 
 
 
@@ -499,7 +452,7 @@ t(subset(score_frame, origName == "Var218"))
 
 
 
-00337_informalexample_8.6_of_section_8.3.1.R
+00336_informalexample_8.6_of_section_8.3.1.R
 
 
 
@@ -536,7 +489,7 @@ head(comparison)
 
 
 
-00338_informalexample_8.7_of_section_8.3.1.R
+00337_informalexample_8.7_of_section_8.3.1.R
 
 
 
@@ -629,7 +582,7 @@ head(comparison)
 
 
 
-00339_informalexample_8.8_of_section_8.3.1.R
+00338_informalexample_8.8_of_section_8.3.1.R
 
 
 
@@ -661,7 +614,7 @@ score_frame[score_frame$origName=="Var200", , drop = FALSE]
 
 
 
-00340_informalexample_8.9_of_section_8.3.2.R
+00339_informalexample_8.9_of_section_8.3.2.R
 
 
 
@@ -677,7 +630,7 @@ dCal_treated <- prepare(treatment_plan,
 
 
 
-00341_informalexample_8.10_of_section_8.3.2.R
+00340_informalexample_8.10_of_section_8.3.2.R
 
 
 
@@ -717,7 +670,7 @@ calcAUC(dCal_treated$Var200_catB, dCal_treated$churn)
 
 
 
-00342_example_8.6_of_section_8.4.1.R
+00341_example_8.6_of_section_8.4.1.R
 
 
 
@@ -756,7 +709,7 @@ dTest_treated <- prepare(treatment_plan, 	# Note: 2
 
 
 
-00343_informalexample_8.11_of_section_8.4.1.R
+00342_informalexample_8.11_of_section_8.4.1.R
 
 
 
@@ -790,7 +743,7 @@ calcAUC(dTest_treated$Var200_catB, dTest_treated$churn)
 
 
 
-00344_informalexample_8.12_of_section_8.4.2.R
+00343_informalexample_8.12_of_section_8.4.2.R
 
 
 
@@ -862,7 +815,7 @@ score_frame %>%
 
 
 
-00345_example_8.7_of_section_8.4.2.R
+00344_example_8.7_of_section_8.4.2.R
 
 
 
@@ -872,7 +825,24 @@ score_frame %>%
 # Title: Basic variable re-coding and selection 
 
 library("wrapr")
+```
 
+```
+## Warning: package 'wrapr' was built under R version 3.5.2
+```
+
+```
+## 
+## Attaching package: 'wrapr'
+```
+
+```
+## The following object is masked from 'package:dplyr':
+## 
+##     coalesce
+```
+
+```r
 newvars <- score_frame$varName[score_frame$selected] 	# Note: 1 
 
 f <- mk_formula("churn", newvars, outcome_target = 1) 	# Note: 2 
@@ -900,7 +870,7 @@ model <- glm(f, data = dTrainAll_treated, family = binomial) 	# Note: 3
 
 
 
-00346_informalexample_8.13_of_section_8.4.2.R
+00345_informalexample_8.13_of_section_8.4.2.R
 
 
 
@@ -980,7 +950,7 @@ var_aucs <- vapply(newvars, 	# Note: 5
 
 
 
-00347_informalexample_8.14_of_section_8.4.2.R
+00346_informalexample_8.14_of_section_8.4.2.R
 
 
 
@@ -1009,7 +979,7 @@ table(prediction = dTest_treated$glm_pred>=0.5,
 
 
 
-00348_informalexample_8.15_of_section_8.4.2.R
+00347_informalexample_8.15_of_section_8.4.2.R
 
 
 
@@ -1038,7 +1008,7 @@ table(prediction = dTest_treated$glm_pred>0.15,
 
 
 
-00349_informalexample_8.16_of_section_8.4.2.R
+00348_informalexample_8.16_of_section_8.4.2.R
 
 
 
@@ -1050,7 +1020,7 @@ WVPlots::DoubleDensityPlot(dTest_treated, "glm_pred", "churn",
                            "glm prediction on test, double density plot")
 ```
 
-![plot of chunk 00349_informalexample_8.16_of_section_8.4.2.R](figure/00349_informalexample_8.16_of_section_8.4.2.R-1.png)
+![plot of chunk 00348_informalexample_8.16_of_section_8.4.2.R](figure/00348_informalexample_8.16_of_section_8.4.2.R-1.png)
 
 ```r
 WVPlots::PRTPlot(dTest_treated, "glm_pred", "churn", 
@@ -1060,12 +1030,12 @@ WVPlots::PRTPlot(dTest_treated, "glm_pred", "churn",
                  thresholdrange = c(0, 1.0))
 ```
 
-![plot of chunk 00349_informalexample_8.16_of_section_8.4.2.R](figure/00349_informalexample_8.16_of_section_8.4.2.R-2.png)
+![plot of chunk 00348_informalexample_8.16_of_section_8.4.2.R](figure/00348_informalexample_8.16_of_section_8.4.2.R-2.png)
 
 
 
 
-00350_informalexample_8.17_of_section_8.5.R
+00349_informalexample_8.17_of_section_8.5.R
 
 
 
@@ -1097,7 +1067,7 @@ knitr::kable(head(auto_mpg)) 	# Note: 1
 
 
 
-00351_informalexample_8.18_of_section_8.5.R
+00350_informalexample_8.18_of_section_8.5.R
 
 
 
@@ -1161,7 +1131,7 @@ str(auto_mpg[!complete.cases(auto_mpg), , drop = FALSE])
 
 
 
-00352_informalexample_8.19_of_section_8.5.R
+00351_informalexample_8.19_of_section_8.5.R
 
 
 
@@ -1232,7 +1202,7 @@ str(auto_mpg[!complete.cases(auto_mpg), , drop = FALSE])
 
 
 
-00353_informalexample_8.20_of_section_8.6.2.R
+00352_informalexample_8.20_of_section_8.6.2.R
 
 
 
@@ -1267,7 +1237,7 @@ knitr::kable(d)
 
 
 
-00354_informalexample_8.21_of_section_8.6.2.R
+00353_informalexample_8.21_of_section_8.6.2.R
 
 
 
@@ -1296,7 +1266,7 @@ vtreat::prepare(plan1, d) %.>%  	# Note: 1
 
 
 
-00355_informalexample_8.22_of_section_8.6.3.R
+00354_informalexample_8.22_of_section_8.6.3.R
 
 
 
@@ -1354,7 +1324,7 @@ vtreat::prepare(plan2, d)
 
 
 
-00356_informalexample_8.23_of_section_8.6.4.R
+00355_informalexample_8.23_of_section_8.6.4.R
 
 
 
@@ -1408,7 +1378,7 @@ vtreat::prepare(plan3, d)
 
 
 
-00357_informalexample_8.24_of_section_8.6.4.R
+00356_informalexample_8.24_of_section_8.6.4.R
 
 
 
@@ -1442,7 +1412,7 @@ vtreat::prepare(plan4, d)
 
 
 
-00358_informalexample_8.25_of_section_8.6.5.R
+00357_informalexample_8.25_of_section_8.6.5.R
 
 
 
@@ -1476,7 +1446,7 @@ names(plan4)
 
 
 
-00359_informalexample_8.26_of_section_8.6.5.R
+00358_informalexample_8.26_of_section_8.6.5.R
 
 
 
@@ -1502,7 +1472,7 @@ plan4$scoreFrame
 
 
 
-00360_example_8.8_of_section_8.6.6.R
+00359_example_8.8_of_section_8.6.6.R
 
 
 
@@ -1560,7 +1530,7 @@ head(d) 	# Note: 4
 
 
 
-00361_example_8.9_of_section_8.6.6.R
+00360_example_8.9_of_section_8.6.6.R
 
 
 
@@ -1668,7 +1638,7 @@ sigr::wrapFTest(res1, "x_bad_catN", "y") 	# Note: 6
 
 
 
-00362_example_8.10_of_section_8.6.6.R
+00361_example_8.10_of_section_8.6.6.R
 
 
 

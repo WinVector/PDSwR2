@@ -4,7 +4,7 @@ output: github_document
 
 
 
-00402_example_10.1_of_section_10.1.1.R
+00401_example_10.1_of_section_10.1.1.R
 
 
 
@@ -70,7 +70,7 @@ library(rpart.plot)  	# Note: 8
 rpart.plot(treemodel, type=5, extra=6)     
 ```
 
-![plot of chunk 00402_example_10.1_of_section_10.1.1.R](figure/00402_example_10.1_of_section_10.1.1.R-1.png)
+![plot of chunk 00401_example_10.1_of_section_10.1.1.R](figure/00401_example_10.1_of_section_10.1.1.R-1.png)
 
 ```r
 predTrain <- predict(treemodel, newdata=spamTrain)[,2] 	# Note: 9 
@@ -127,7 +127,7 @@ testperf_tree <- accuracyMeasures(predTest,
 
 
 
-00403_informalexample_10.1_of_section_10.1.1.R
+00402_informalexample_10.1_of_section_10.1.1.R
 
 
 
@@ -173,7 +173,7 @@ pandoc.table(perftable, justify=perf_justify)
 
 
 
-00404_example_10.2_of_section_10.1.2.R
+00403_example_10.2_of_section_10.1.2.R
 
 
 
@@ -222,8 +222,8 @@ pandoc.table(perftable, justify=perf_justify)
 ## 
 ## model                 accuracy       f1   dev.norm
 ## ------------------- ---------- -------- ----------
-## bagging, training       0.9170   0.8916     0.5077
-## bagging, test           0.9127   0.8817     0.5683
+## bagging, training       0.9172   0.8920     0.5098
+## bagging, test           0.9105   0.8791     0.5779
 ```
 
 ```r
@@ -259,7 +259,7 @@ pandoc.table(perftable, justify=perf_justify)
 
 
 
-00405_example_10.3_of_section_10.1.3.R
+00404_example_10.3_of_section_10.1.3.R
 
 
 
@@ -352,7 +352,7 @@ pandoc.table(perftable, justify=perf_justify)
 
 
 
-00406_informalexample_10.2_of_section_10.1.3.R
+00405_informalexample_10.2_of_section_10.1.3.R
 
 
 
@@ -370,7 +370,7 @@ pandoc.table(trainf, justify=perf_justify)
 ## model                    accuracy       f1   dev.norm
 ## ---------------------- ---------- -------- ----------
 ## tree, training             0.8996   0.8691     0.6304
-## bagging, training          0.9170   0.8916     0.5077
+## bagging, training          0.9172   0.8920     0.5098
 ## random forest, train       0.9884   0.9852     0.1440
 ```
 
@@ -387,7 +387,7 @@ pandoc.table(trainf, justify=perf_justify)
 
 
 
-00407_informalexample_10.3_of_section_10.1.3.R
+00406_informalexample_10.3_of_section_10.1.3.R
 
 
 
@@ -405,7 +405,7 @@ pandoc.table(testf, justify=perf_justify)
 ## model                   accuracy       f1   dev.norm
 ## --------------------- ---------- -------- ----------
 ## tree, test                0.8712   0.8280     0.7531
-## bagging, test             0.9127   0.8817     0.5683
+## bagging, test             0.9105   0.8791     0.5779
 ## random forest, test       0.9498   0.9341     0.3011
 ```
 
@@ -422,7 +422,7 @@ pandoc.table(testf, justify=perf_justify)
 
 
 
-00408_informalexample_10.4_of_section_10.1.3.R
+00407_informalexample_10.4_of_section_10.1.3.R
 
 
 
@@ -441,11 +441,11 @@ pandoc.table(difff, justify=perf_justify)
 ```
 ## 
 ## 
-## model             accuracy         f1   dev.norm
-## --------------- ---------- ---------- ----------
-## tree              0.028411   0.041112   -0.12275
-## bagging           0.004305   0.009963   -0.06063
-## random forest     0.038633   0.051097   -0.15711
+## model             accuracy        f1   dev.norm
+## --------------- ---------- --------- ----------
+## tree              0.028411   0.04111   -0.12275
+## bagging           0.006729   0.01298   -0.06814
+## random forest     0.038633   0.05110   -0.15711
 ```
 
 ```r
@@ -461,7 +461,7 @@ pandoc.table(difff, justify=perf_justify)
 
 
 
-00409_example_10.4_of_section_10.1.3.R
+00408_example_10.4_of_section_10.1.3.R
 
 
 
@@ -516,7 +516,7 @@ varImp[1:10, ]                           	# Note: 2
 varImpPlot(fmodel, type=1)                       	# Note: 3
 ```
 
-![plot of chunk 00409_example_10.4_of_section_10.1.3.R](figure/00409_example_10.4_of_section_10.1.3.R-1.png)
+![plot of chunk 00408_example_10.4_of_section_10.1.3.R](figure/00408_example_10.4_of_section_10.1.3.R-1.png)
 
 ```r
 # Note 1: 
@@ -535,7 +535,7 @@ varImpPlot(fmodel, type=1)                       	# Note: 3
 
 
 
-00410_example_10.5_of_section_10.1.3.R
+00409_example_10.5_of_section_10.1.3.R
 
 
 
@@ -598,7 +598,7 @@ pandoc.table(perftable, justify=perf_justify)
 
 
 
-00411_example_10.6_of_section_10.1.4.R
+00410_example_10.6_of_section_10.1.4.R
 
 
 
@@ -650,7 +650,7 @@ input <- as.matrix(train[, 1:4]) 	# Note: 3
 
 
 
-00412_example_10.7_of_section_10.1.4.R
+00411_example_10.7_of_section_10.1.4.R
 
 
 
@@ -765,7 +765,7 @@ ggplot(evalframe, aes(x=iter, y=test_logloss_mean)) +
   ggtitle("Cross-validated log loss as a function of ensemble size")
 ```
 
-![plot of chunk 00412_example_10.7_of_section_10.1.4.R](figure/00412_example_10.7_of_section_10.1.4.R-1.png)
+![plot of chunk 00411_example_10.7_of_section_10.1.4.R](figure/00411_example_10.7_of_section_10.1.4.R-1.png)
 
 ```r
 # Note 1: 
@@ -809,7 +809,7 @@ ggplot(evalframe, aes(x=iter, y=test_logloss_mean)) +
 
 
 
-00413_example_10.8_of_section_10.1.4.R
+00412_example_10.8_of_section_10.1.4.R
 
 
 
@@ -851,7 +851,7 @@ accuracyMeasures(pred, test$class)
 
 
 
-00414_informalexample_10.5_of_section_10.1.4.R
+00413_informalexample_10.5_of_section_10.1.4.R
 
 
 
@@ -866,7 +866,7 @@ c(texts, labels) %<-% readRDS("../IMDB/IMDBtrain.RDS")
 
 
 
-00415_informalexample_10.6_of_section_10.1.4.R
+00414_informalexample_10.6_of_section_10.1.4.R
 
 
 
@@ -882,7 +882,7 @@ dtm_train <- make_matrix(texts, vocab)
 
 
 
-00416_informalexample_10.7_of_section_10.1.4.R
+00415_informalexample_10.7_of_section_10.1.4.R
 
 
 
@@ -963,7 +963,7 @@ evalframe <- as.data.frame(cv$evaluation_log)
 
 
 
-00417_informalexample_10.8_of_section_10.1.4.R
+00416_informalexample_10.8_of_section_10.1.4.R
 
 
 
@@ -1015,7 +1015,7 @@ pandoc.table(perftable, justify=perf_justify)
 
 
 
-00418_example_10.9_of_section_10.1.4.R
+00417_example_10.9_of_section_10.1.4.R
 
 
 
@@ -1074,7 +1074,7 @@ str(train[, input_vars])
 
 
 
-00419_example_10.10_of_section_10.1.4.R
+00418_example_10.10_of_section_10.1.4.R
 
 
 
@@ -1151,7 +1151,7 @@ str(train_treated)
 
 
 
-00420_example_10.11_of_section_10.1.4.R
+00419_example_10.11_of_section_10.1.4.R
 
 
 
@@ -1175,7 +1175,7 @@ pred <- predict(birthwt_model, as.matrix(test_treated))
 
 
 
-00423_example_10.12_of_section_10.2.2.R
+00422_example_10.12_of_section_10.2.2.R
 
 
 
@@ -1201,7 +1201,7 @@ test <-frame[select <= 0.1,]
 
 
 
-00424_example_10.13_of_section_10.2.2.R
+00423_example_10.13_of_section_10.2.2.R
 
 
 
@@ -1278,7 +1278,7 @@ ggplot(train, aes(x=pred_lin, y=y)) +
   geom_abline()
 ```
 
-![plot of chunk 00424_example_10.13_of_section_10.2.2.R](figure/00424_example_10.13_of_section_10.2.2.R-1.png)
+![plot of chunk 00423_example_10.13_of_section_10.2.2.R](figure/00423_example_10.13_of_section_10.2.2.R-1.png)
 
 ```r
 # Note 1: 
@@ -1295,7 +1295,7 @@ ggplot(train, aes(x=pred_lin, y=y)) +
 
 
 
-00425_example_10.14_of_section_10.2.2.R
+00424_example_10.14_of_section_10.2.2.R
 
 
 
@@ -1401,7 +1401,7 @@ ggplot(train, aes(x=pred, y=y)) +   	# Note: 9
   geom_abline()
 ```
 
-![plot of chunk 00425_example_10.14_of_section_10.2.2.R](figure/00425_example_10.14_of_section_10.2.2.R-1.png)
+![plot of chunk 00424_example_10.14_of_section_10.2.2.R](figure/00424_example_10.14_of_section_10.2.2.R-1.png)
 
 ```r
 # Note 1: 
@@ -1448,7 +1448,7 @@ ggplot(train, aes(x=pred, y=y)) +   	# Note: 9
 
 
 
-00426_example_10.15_of_section_10.2.2.R
+00425_example_10.15_of_section_10.2.2.R
 
 
 
@@ -1534,7 +1534,7 @@ wrapFTest(test, "pred_gam", "y")$R2
 
 
 
-00427_example_10.16_of_section_10.2.3.R
+00426_example_10.16_of_section_10.2.3.R
 
 
 
@@ -1573,12 +1573,12 @@ ggplot(xframe, aes(x=x)) +
      geom_line(aes(y=sx))
 ```
 
-![plot of chunk 00427_example_10.16_of_section_10.2.3.R](figure/00427_example_10.16_of_section_10.2.3.R-1.png)
+![plot of chunk 00426_example_10.16_of_section_10.2.3.R](figure/00426_example_10.16_of_section_10.2.3.R-1.png)
 
 
 
 
-00428_example_10.17_of_section_10.2.4.R
+00427_example_10.17_of_section_10.2.4.R
 
 
 
@@ -1738,7 +1738,7 @@ summary(gammodel)
 
 
 
-00429_example_10.18_of_section_10.2.4.R
+00428_example_10.18_of_section_10.2.4.R
 
 
 
@@ -1766,7 +1766,7 @@ ggplot(pframe, aes(PWGT)) +   	# Note: 6
 ## `geom_smooth()` using method = 'gam' and formula 'y ~ s(x, bs = "cs")'
 ```
 
-![plot of chunk 00429_example_10.18_of_section_10.2.4.R](figure/00429_example_10.18_of_section_10.2.4.R-1.png)
+![plot of chunk 00428_example_10.18_of_section_10.2.4.R](figure/00428_example_10.18_of_section_10.2.4.R-1.png)
 
 ```r
 # [...]  	# Note: 7
@@ -1801,7 +1801,7 @@ ggplot(pframe, aes(PWGT)) +   	# Note: 6
 
 
 
-00430_example_10.19_of_section_10.2.4.R
+00429_example_10.19_of_section_10.2.4.R
 
 
 
@@ -1876,7 +1876,7 @@ wrapFTest(test, "pred_gam", "DBWT")$R2
 
 
 
-00431_example_10.20_of_section_10.2.5.R
+00430_example_10.20_of_section_10.2.5.R
 
 
 
@@ -1892,7 +1892,7 @@ logmod <- glm(form, data=train, family=binomial(link="logit"))
 
 
 
-00432_example_10.21_of_section_10.2.5.R
+00431_example_10.21_of_section_10.2.5.R
 
 
 
@@ -1982,7 +1982,7 @@ summary(glogmod)
 
 
 
-00433_example_10.22_of_section_10.3.1.R
+00432_example_10.22_of_section_10.3.1.R
 
 
 
@@ -2022,7 +2022,7 @@ ggplot(data=s) + 	# Note: 4
   ggtitle("example task: separate the 1s from the 2s")
 ```
 
-![plot of chunk 00433_example_10.22_of_section_10.3.1.R](figure/00433_example_10.22_of_section_10.3.1.R-1.png)
+![plot of chunk 00432_example_10.22_of_section_10.3.1.R](figure/00432_example_10.22_of_section_10.3.1.R-1.png)
 
 ```r
 # Note 1: 
@@ -2045,7 +2045,7 @@ ggplot(data=s) + 	# Note: 4
 
 
 
-00434_example_10.23_of_section_10.3.1.R
+00433_example_10.23_of_section_10.3.1.R
 
 
 
@@ -2091,7 +2091,7 @@ ggplot(mapping = aes(x = x, y = y)) + 	# Note: 5
   ggtitle("linear kernel")
 ```
 
-![plot of chunk 00434_example_10.23_of_section_10.3.1.R](figure/00434_example_10.23_of_section_10.3.1.R-1.png)
+![plot of chunk 00433_example_10.23_of_section_10.3.1.R](figure/00433_example_10.23_of_section_10.3.1.R-1.png)
 
 ```r
 # Note 1: 
@@ -2118,7 +2118,7 @@ ggplot(mapping = aes(x = x, y = y)) + 	# Note: 5
 
 
 
-00435_example_10.24_of_section_10.3.1.R
+00434_example_10.24_of_section_10.3.1.R
 
 
 
@@ -2150,7 +2150,7 @@ ggplot(mapping = aes(x = x, y = y)) +
   ggtitle("radial/Gaussian kernel")
 ```
 
-![plot of chunk 00435_example_10.24_of_section_10.3.1.R](figure/00435_example_10.24_of_section_10.3.1.R-1.png)
+![plot of chunk 00434_example_10.24_of_section_10.3.1.R](figure/00434_example_10.24_of_section_10.3.1.R-1.png)
 
 ```r
 # Note 1: 
@@ -2161,7 +2161,7 @@ ggplot(mapping = aes(x = x, y = y)) +
 
 
 
-00439_example_10.25_of_section_10.3.3.R
+00438_example_10.25_of_section_10.3.3.R
 
 
 

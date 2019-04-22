@@ -1641,47 +1641,13 @@ print(data)
 
 
 
-00140_informalexample_5.71_of_section_5.3.1.R
+00141_informalexample_5.72_of_section_5.3.2.R
 
 
 
 ```r
-# informalexample 5.71 of section 5.3.1 
-# (informalexample 5.71 of section 5.3.1)  : Data Engineering and Data Shaping : Aggregating Transforms : Scenario 
-
-packageVersion("dplyr")
-```
-
-```
-## [1] '0.8.0.1'
-```
-
-```r
-## [1] ‘0.7.7’
-dplyr::coalesce(
-   as.numeric(data$sensor1), 	# Note: 1 
-   data$sensor2)
-```
-
-```
-## [1] -0.07528 -0.16400 -0.81190       NA       NA
-```
-
-```r
-# Note 1: 
-#   Work around issue that all-NA columns are often typed as logical, and dplyr will not convert the column type. 
-```
-
-
-
-
-00142_informalexample_5.73_of_section_5.3.2.R
-
-
-
-```r
-# informalexample 5.73 of section 5.3.2 
-# (informalexample 5.73 of section 5.3.2)  : Data Engineering and Data Shaping : Aggregating Transforms : Combining many rows into summary rows 
+# informalexample 5.72 of section 5.3.2 
+# (informalexample 5.72 of section 5.3.2)  : Data Engineering and Data Shaping : Aggregating Transforms : Combining many rows into summary rows 
 
 library("datasets")
 library("ggplot2")
@@ -1702,13 +1668,13 @@ head(iris)
 
 
 
-00144_informalexample_5.75_of_section_5.3.2.R
+00143_informalexample_5.74_of_section_5.3.2.R
 
 
 
 ```r
-# informalexample 5.75 of section 5.3.2 
-# (informalexample 5.75 of section 5.3.2)  : Data Engineering and Data Shaping : Aggregating Transforms : Combining many rows into summary rows 
+# informalexample 5.74 of section 5.3.2 
+# (informalexample 5.74 of section 5.3.2)  : Data Engineering and Data Shaping : Aggregating Transforms : Combining many rows into summary rows 
 
 library("data.table")
 
@@ -1743,18 +1709,18 @@ ggplot(mapping = aes(x = Petal.Length, y = Petal.Width,
   ggtitle("Average Petal dimensions by iris species\n(with raw data for reference)")
 ```
 
-![plot of chunk 00144_informalexample_5.75_of_section_5.3.2.R](figure/00144_informalexample_5.75_of_section_5.3.2.R-1.png)
+![plot of chunk 00143_informalexample_5.74_of_section_5.3.2.R](figure/00143_informalexample_5.74_of_section_5.3.2.R-1.png)
 
 
 
 
-00145_informalexample_5.76_of_section_5.3.2.R
+00144_informalexample_5.75_of_section_5.3.2.R
 
 
 
 ```r
-# informalexample 5.76 of section 5.3.2 
-# (informalexample 5.76 of section 5.3.2)  : Data Engineering and Data Shaping : Aggregating Transforms : Combining many rows into summary rows 
+# informalexample 5.75 of section 5.3.2 
+# (informalexample 5.75 of section 5.3.2)  : Data Engineering and Data Shaping : Aggregating Transforms : Combining many rows into summary rows 
 
 library("dplyr")
 
@@ -1779,13 +1745,13 @@ iris.summary
 
 
 
-00147_informalexample_5.78_of_section_5.3.2.R
+00146_informalexample_5.77_of_section_5.3.2.R
 
 
 
 ```r
-# informalexample 5.78 of section 5.3.2 
-# (informalexample 5.78 of section 5.3.2)  : Data Engineering and Data Shaping : Aggregating Transforms : Combining many rows into summary rows 
+# informalexample 5.77 of section 5.3.2 
+# (informalexample 5.77 of section 5.3.2)  : Data Engineering and Data Shaping : Aggregating Transforms : Combining many rows into summary rows 
 
 library("data.table")
 
@@ -1802,13 +1768,13 @@ iris_data.table[ ,
 
 
 
-00148_informalexample_5.79_of_section_5.3.2.R
+00147_informalexample_5.78_of_section_5.3.2.R
 
 
 
 ```r
-# informalexample 5.79 of section 5.3.2 
-# (informalexample 5.79 of section 5.3.2)  : Data Engineering and Data Shaping : Aggregating Transforms : Combining many rows into summary rows 
+# informalexample 5.78 of section 5.3.2 
+# (informalexample 5.78 of section 5.3.2)  : Data Engineering and Data Shaping : Aggregating Transforms : Combining many rows into summary rows 
 
 library("dplyr")
 
@@ -1825,13 +1791,13 @@ iris_dplyr <- iris %>%
 
 
 
-00149_informalexample_5.80_of_section_5.4.1.R
+00148_informalexample_5.79_of_section_5.4.1.R
 
 
 
 ```r
-# informalexample 5.80 of section 5.4.1 
-# (informalexample 5.80 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
+# informalexample 5.79 of section 5.4.1 
+# (informalexample 5.79 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
 
 productTable <- wrapr::build_frame(
    "productID", "price" |
@@ -1863,13 +1829,13 @@ productTable2$productID <- factor(productTable2$productID)
 
 
 
-00150_informalexample_5.81_of_section_5.4.1.R
+00149_informalexample_5.80_of_section_5.4.1.R
 
 
 
 ```r
-# informalexample 5.81 of section 5.4.1 
-# (informalexample 5.81 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
+# informalexample 5.80 of section 5.4.1 
+# (informalexample 5.80 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
 
 rbind_base = rbind(productTable, 
                    productTable2)
@@ -1878,13 +1844,13 @@ rbind_base = rbind(productTable,
 
 
 
-00151_informalexample_5.82_of_section_5.4.1.R
+00150_informalexample_5.81_of_section_5.4.1.R
 
 
 
 ```r
-# informalexample 5.82 of section 5.4.1 
-# (informalexample 5.82 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
+# informalexample 5.81 of section 5.4.1 
+# (informalexample 5.81 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
 
 str(rbind_base)
 ```
@@ -1898,13 +1864,13 @@ str(rbind_base)
 
 
 
-00153_informalexample_5.84_of_section_5.4.1.R
+00152_informalexample_5.83_of_section_5.4.1.R
 
 
 
 ```r
-# informalexample 5.84 of section 5.4.1 
-# (informalexample 5.84 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
+# informalexample 5.83 of section 5.4.1 
+# (informalexample 5.83 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
 
 library("data.table")
 
@@ -1927,13 +1893,13 @@ rbindlist(list(productTable,
 
 
 
-00155_informalexample_5.86_of_section_5.4.1.R
+00154_informalexample_5.85_of_section_5.4.1.R
 
 
 
 ```r
-# informalexample 5.86 of section 5.4.1 
-# (informalexample 5.86 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
+# informalexample 5.85 of section 5.4.1 
+# (informalexample 5.85 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
 
 library("dplyr")
 
@@ -1968,13 +1934,13 @@ bind_rows(list(productTable,
 
 
 
-00157_informalexample_5.88_of_section_5.4.1.R
+00156_informalexample_5.87_of_section_5.4.1.R
 
 
 
 ```r
-# informalexample 5.88 of section 5.4.1 
-# (informalexample 5.88 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
+# informalexample 5.87 of section 5.4.1 
+# (informalexample 5.87 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
 
 # add an extra column telling us which table
 # each row comes from
@@ -2004,13 +1970,13 @@ rbind_base
 
 
 
-00159_informalexample_5.90_of_section_5.4.1.R
+00158_informalexample_5.89_of_section_5.4.1.R
 
 
 
 ```r
-# informalexample 5.90 of section 5.4.1 
-# (informalexample 5.90 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
+# informalexample 5.89 of section 5.4.1 
+# (informalexample 5.89 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
 
 # split them apart
 tables <- split(rbind_base, rbind_base$table)
@@ -2036,13 +2002,13 @@ tables
 
 
 
-00161_informalexample_5.92_of_section_5.4.1.R
+00160_informalexample_5.91_of_section_5.4.1.R
 
 
 
 ```r
-# informalexample 5.92 of section 5.4.1 
-# (informalexample 5.92 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
+# informalexample 5.91 of section 5.4.1 
+# (informalexample 5.91 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
 
 library("data.table")
 
@@ -2076,13 +2042,13 @@ print(dt)
 
 
 
-00163_informalexample_5.94_of_section_5.4.1.R
+00162_informalexample_5.93_of_section_5.4.1.R
 
 
 
 ```r
-# informalexample 5.94 of section 5.4.1 
-# (informalexample 5.94 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
+# informalexample 5.93 of section 5.4.1 
+# (informalexample 5.93 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
 
 library("data.table")
 
@@ -2108,13 +2074,13 @@ print(dt)
 
 
 
-00165_informalexample_5.96_of_section_5.4.1.R
+00164_informalexample_5.95_of_section_5.4.1.R
 
 
 
 ```r
-# informalexample 5.96 of section 5.4.1 
-# (informalexample 5.96 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
+# informalexample 5.95 of section 5.4.1 
+# (informalexample 5.95 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
 
 rbind_base %>%
   group_by(., table) %>%
@@ -2139,13 +2105,13 @@ rbind_base %>%
 
 
 
-00167_informalexample_5.98_of_section_5.4.1.R
+00166_informalexample_5.97_of_section_5.4.1.R
 
 
 
 ```r
-# informalexample 5.98 of section 5.4.1 
-# (informalexample 5.98 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
+# informalexample 5.97 of section 5.4.1 
+# (informalexample 5.97 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
 
 cbind(productTable, salesTable[, -1])
 ```
@@ -2162,13 +2128,13 @@ cbind(productTable, salesTable[, -1])
 
 
 
-00169_informalexample_5.100_of_section_5.4.1.R
+00168_informalexample_5.99_of_section_5.4.1.R
 
 
 
 ```r
-# informalexample 5.100 of section 5.4.1 
-# (informalexample 5.100 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
+# informalexample 5.99 of section 5.4.1 
+# (informalexample 5.99 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
 
 library("data.table")
 
@@ -2188,13 +2154,13 @@ cbind(as.data.table(productTable),
 
 
 
-00171_informalexample_5.102_of_section_5.4.1.R
+00170_informalexample_5.101_of_section_5.4.1.R
 
 
 
 ```r
-# informalexample 5.102 of section 5.4.1 
-# (informalexample 5.102 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
+# informalexample 5.101 of section 5.4.1 
+# (informalexample 5.101 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
 
 library("dplyr")
 
@@ -2214,13 +2180,13 @@ dplyr::bind_cols(list(productTable, salesTable[, -1]))
 
 
 
-00173_informalexample_5.104_of_section_5.4.2.R
+00172_informalexample_5.103_of_section_5.4.2.R
 
 
 
 ```r
-# informalexample 5.104 of section 5.4.2 
-# (informalexample 5.104 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+# informalexample 5.103 of section 5.4.2 
+# (informalexample 5.103 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
 
 productTable <- wrapr::build_frame(
    "productID", "price" |
@@ -2240,13 +2206,13 @@ salesTable <- wrapr::build_frame(
 
 
 
-00174_informalexample_5.105_of_section_5.4.2.R
+00173_informalexample_5.104_of_section_5.4.2.R
 
 
 
 ```r
-# informalexample 5.105 of section 5.4.2 
-# (informalexample 5.105 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+# informalexample 5.104 of section 5.4.2 
+# (informalexample 5.104 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
 
 merge(productTable, salesTable, by = "productID", all.x = TRUE)
 ```
@@ -2262,13 +2228,13 @@ merge(productTable, salesTable, by = "productID", all.x = TRUE)
 
 
 
-00176_informalexample_5.107_of_section_5.4.2.R
+00175_informalexample_5.106_of_section_5.4.2.R
 
 
 
 ```r
-# informalexample 5.107 of section 5.4.2 
-# (informalexample 5.107 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+# informalexample 5.106 of section 5.4.2 
+# (informalexample 5.106 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
 
 library("data.table")
 
@@ -2291,13 +2257,13 @@ salesTable_data.table[productTable_data.table, on = "productID"]
 
 
 
-00178_informalexample_5.109_of_section_5.4.2.R
+00177_informalexample_5.108_of_section_5.4.2.R
 
 
 
 ```r
-# informalexample 5.109 of section 5.4.2 
-# (informalexample 5.109 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+# informalexample 5.108 of section 5.4.2 
+# (informalexample 5.108 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
 
 # data.table also overrides merge()
 merge(productTable, salesTable, by = "productID", all.x = TRUE)
@@ -2314,13 +2280,13 @@ merge(productTable, salesTable, by = "productID", all.x = TRUE)
 
 
 
-00180_informalexample_5.111_of_section_5.4.2.R
+00179_informalexample_5.110_of_section_5.4.2.R
 
 
 
 ```r
-# informalexample 5.111 of section 5.4.2 
-# (informalexample 5.111 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+# informalexample 5.110 of section 5.4.2 
+# (informalexample 5.110 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
 
 library("data.table")
 
@@ -2341,13 +2307,13 @@ print(joined_table)
 
 
 
-00182_informalexample_5.113_of_section_5.4.2.R
+00181_informalexample_5.112_of_section_5.4.2.R
 
 
 
 ```r
-# informalexample 5.113 of section 5.4.2 
-# (informalexample 5.113 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+# informalexample 5.112 of section 5.4.2 
+# (informalexample 5.112 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
 
 library("dplyr")
 
@@ -2365,13 +2331,13 @@ left_join(productTable, salesTable, by = "productID")
 
 
 
-00184_informalexample_5.115_of_section_5.4.2.R
+00183_informalexample_5.114_of_section_5.4.2.R
 
 
 
 ```r
-# informalexample 5.115 of section 5.4.2 
-# (informalexample 5.115 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+# informalexample 5.114 of section 5.4.2 
+# (informalexample 5.114 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
 
 merge(productTable, salesTable, by = "productID")
 ```
@@ -2386,13 +2352,13 @@ merge(productTable, salesTable, by = "productID")
 
 
 
-00186_informalexample_5.117_of_section_5.4.2.R
+00185_informalexample_5.116_of_section_5.4.2.R
 
 
 
 ```r
-# informalexample 5.117 of section 5.4.2 
-# (informalexample 5.117 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+# informalexample 5.116 of section 5.4.2 
+# (informalexample 5.116 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
 
 library("data.table")
 
@@ -2412,13 +2378,13 @@ merge(productTable, salesTable, by = "productID")
 
 
 
-00188_informalexample_5.119_of_section_5.4.2.R
+00187_informalexample_5.118_of_section_5.4.2.R
 
 
 
 ```r
-# informalexample 5.119 of section 5.4.2 
-# (informalexample 5.119 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+# informalexample 5.118 of section 5.4.2 
+# (informalexample 5.118 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
 
 library("dplyr")
 
@@ -2435,13 +2401,13 @@ inner_join(productTable, salesTable, by = "productID")
 
 
 
-00190_informalexample_5.121_of_section_5.4.2.R
+00189_informalexample_5.120_of_section_5.4.2.R
 
 
 
 ```r
-# informalexample 5.121 of section 5.4.2 
-# (informalexample 5.121 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+# informalexample 5.120 of section 5.4.2 
+# (informalexample 5.120 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
 
 # note that merge orders the result by key column by default
 # use sort=FALSE to skip the sorting
@@ -2460,13 +2426,13 @@ merge(productTable, salesTable, by = "productID", all=TRUE)
 
 
 
-00192_informalexample_5.123_of_section_5.4.2.R
+00191_informalexample_5.122_of_section_5.4.2.R
 
 
 
 ```r
-# informalexample 5.123 of section 5.4.2 
-# (informalexample 5.123 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+# informalexample 5.122 of section 5.4.2 
+# (informalexample 5.122 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
 
 library("data.table")
 
@@ -2489,13 +2455,13 @@ merge(productTable_data.table, salesTable_data.table,
 
 
 
-00194_informalexample_5.125_of_section_5.4.2.R
+00193_informalexample_5.124_of_section_5.4.2.R
 
 
 
 ```r
-# informalexample 5.125 of section 5.4.2 
-# (informalexample 5.125 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+# informalexample 5.124 of section 5.4.2 
+# (informalexample 5.124 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
 
 library("dplyr")
 
@@ -2514,13 +2480,13 @@ full_join(productTable, salesTable, by = "productID")
 
 
 
-00196_informalexample_5.127_of_section_5.4.2.R
+00195_informalexample_5.126_of_section_5.4.2.R
 
 
 
 ```r
-# informalexample 5.127 of section 5.4.2 
-# (informalexample 5.127 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+# informalexample 5.126 of section 5.4.2 
+# (informalexample 5.126 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
 
 library("data.table")
 
@@ -2550,13 +2516,13 @@ print(quotes)
 
 
 
-00198_informalexample_5.129_of_section_5.4.2.R
+00197_informalexample_5.128_of_section_5.4.2.R
 
 
 
 ```r
-# informalexample 5.129 of section 5.4.2 
-# (informalexample 5.129 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+# informalexample 5.128 of section 5.4.2 
+# (informalexample 5.128 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
 
 trades <- data.table(
   trade_id = c(32525, 32526),
@@ -2579,13 +2545,13 @@ print(trades)
 
 
 
-00200_informalexample_5.131_of_section_5.4.2.R
+00199_informalexample_5.130_of_section_5.4.2.R
 
 
 
 ```r
-# informalexample 5.131 of section 5.4.2 
-# (informalexample 5.131 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+# informalexample 5.130 of section 5.4.2 
+# (informalexample 5.130 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
 
 trades[, trade_price := price]
 quotes[, `:=`(bid_price = bid, ask_price = ask) ]
@@ -2610,13 +2576,13 @@ quotes[trades, on = .(bid <= price, ask >= price) ][
 
 
 
-00201_informalexample_5.132_of_section_5.4.2.R
+00200_informalexample_5.131_of_section_5.4.2.R
 
 
 
 ```r
-# informalexample 5.132 of section 5.4.2 
-# (informalexample 5.132 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+# informalexample 5.131 of section 5.4.2 
+# (informalexample 5.131 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
 
 quotes[ , quote_time := when ]
 trades[, trade_time := when]
@@ -2636,13 +2602,13 @@ quotes[ trades, on = "when", roll = TRUE ][
 
 
 
-00203_informalexample_5.134_of_section_5.5.1.R
+00202_informalexample_5.133_of_section_5.5.1.R
 
 
 
 ```r
-# informalexample 5.134 of section 5.5.1 
-# (informalexample 5.134 of section 5.5.1)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from wide to tall form 
+# informalexample 5.133 of section 5.5.1 
+# (informalexample 5.133 of section 5.5.1)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from wide to tall form 
 
 library("datasets")
 library("xts")
@@ -2697,13 +2663,13 @@ head(Seatbelts)
 
 
 
-00205_informalexample_5.136_of_section_5.5.1.R
+00204_informalexample_5.135_of_section_5.5.1.R
 
 
 
 ```r
-# informalexample 5.136 of section 5.5.1 
-# (informalexample 5.136 of section 5.5.1)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from wide to tall form 
+# informalexample 5.135 of section 5.5.1 
+# (informalexample 5.135 of section 5.5.1)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from wide to tall form 
 
 # let's give an example of the kind of graph we have in mind, using just driver deaths
 library("ggplot2")
@@ -2719,18 +2685,18 @@ ggplot(Seatbelts,
 ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-![plot of chunk 00205_informalexample_5.136_of_section_5.5.1.R](figure/00205_informalexample_5.136_of_section_5.5.1.R-1.png)
+![plot of chunk 00204_informalexample_5.135_of_section_5.5.1.R](figure/00204_informalexample_5.135_of_section_5.5.1.R-1.png)
 
 
 
 
-00206_informalexample_5.137_of_section_5.5.1.R
+00205_informalexample_5.136_of_section_5.5.1.R
 
 
 
 ```r
-# informalexample 5.137 of section 5.5.1 
-# (informalexample 5.137 of section 5.5.1)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from wide to tall form 
+# informalexample 5.136 of section 5.5.1 
+# (informalexample 5.136 of section 5.5.1)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from wide to tall form 
 
 library("data.table")
 
@@ -2745,13 +2711,13 @@ seatbelts_long2 <-
 
 
 
-00207_informalexample_5.138_of_section_5.5.1.R
+00206_informalexample_5.137_of_section_5.5.1.R
 
 
 
 ```r
-# informalexample 5.138 of section 5.5.1 
-# (informalexample 5.138 of section 5.5.1)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from wide to tall form 
+# informalexample 5.137 of section 5.5.1 
+# (informalexample 5.137 of section 5.5.1)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from wide to tall form 
 
 library("cdata")
 
@@ -2765,13 +2731,13 @@ seatbelts_long3 <- unpivot_to_blocks(
 
 
 
-00208_informalexample_5.139_of_section_5.5.1.R
+00207_informalexample_5.138_of_section_5.5.1.R
 
 
 
 ```r
-# informalexample 5.139 of section 5.5.1 
-# (informalexample 5.139 of section 5.5.1)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from wide to tall form 
+# informalexample 5.138 of section 5.5.1 
+# (informalexample 5.138 of section 5.5.1)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from wide to tall form 
 
 library("tidyr")
 ```
@@ -2803,13 +2769,13 @@ head(seatbelts_long1)
 
 
 
-00210_informalexample_5.141_of_section_5.5.1.R
+00209_informalexample_5.140_of_section_5.5.1.R
 
 
 
 ```r
-# informalexample 5.141 of section 5.5.1 
-# (informalexample 5.141 of section 5.5.1)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from wide to tall form 
+# informalexample 5.140 of section 5.5.1 
+# (informalexample 5.140 of section 5.5.1)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from wide to tall form 
 
 ggplot(seatbelts_long1, 
        aes(x = date, y = nvictims, color = law, shape = law)) + 
@@ -2823,18 +2789,18 @@ ggplot(seatbelts_long1,
 ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-![plot of chunk 00210_informalexample_5.141_of_section_5.5.1.R](figure/00210_informalexample_5.141_of_section_5.5.1.R-1.png)
+![plot of chunk 00209_informalexample_5.140_of_section_5.5.1.R](figure/00209_informalexample_5.140_of_section_5.5.1.R-1.png)
 
 
 
 
-00211_informalexample_5.142_of_section_5.5.2.R
+00210_informalexample_5.141_of_section_5.5.2.R
 
 
 
 ```r
-# informalexample 5.142 of section 5.5.2 
-# (informalexample 5.142 of section 5.5.2)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from tall to wide form 
+# informalexample 5.141 of section 5.5.2 
+# (informalexample 5.141 of section 5.5.2)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from tall to wide form 
 
 library("datasets")
 library("data.table")
@@ -2863,13 +2829,13 @@ head(ChickWeight)
 
 
 
-00213_informalexample_5.144_of_section_5.5.2.R
+00212_informalexample_5.143_of_section_5.5.2.R
 
 
 
 ```r
-# informalexample 5.144 of section 5.5.2 
-# (informalexample 5.144 of section 5.5.2)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from tall to wide form 
+# informalexample 5.143 of section 5.5.2 
+# (informalexample 5.143 of section 5.5.2)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from tall to wide form 
 
 # aggregate count and mean weight by time
 ChickSummary <- as.data.table(ChickWeight)
@@ -2895,13 +2861,13 @@ head(ChickSummary)
 
 
 
-00215_informalexample_5.146_of_section_5.5.2.R
+00214_informalexample_5.145_of_section_5.5.2.R
 
 
 
 ```r
-# informalexample 5.146 of section 5.5.2 
-# (informalexample 5.146 of section 5.5.2)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from tall to wide form 
+# informalexample 5.145 of section 5.5.2 
+# (informalexample 5.145 of section 5.5.2)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from tall to wide form 
 
 library("ggplot2")
 
@@ -2929,7 +2895,7 @@ ggplot(ChickSummary, aes(x = Time, y = value, color = measurement)) + 	# Note: 3
           subtitle = "25% through 75% quartiles of weight shown shaded around mean")
 ```
 
-![plot of chunk 00215_informalexample_5.146_of_section_5.5.2.R](figure/00215_informalexample_5.146_of_section_5.5.2.R-1.png)
+![plot of chunk 00214_informalexample_5.145_of_section_5.5.2.R](figure/00214_informalexample_5.145_of_section_5.5.2.R-1.png)
 
 ```r
 # Note 1: 
@@ -2945,13 +2911,13 @@ ggplot(ChickSummary, aes(x = Time, y = value, color = measurement)) + 	# Note: 3
 
 
 
-00216_informalexample_5.147_of_section_5.5.2.R
+00215_informalexample_5.146_of_section_5.5.2.R
 
 
 
 ```r
-# informalexample 5.147 of section 5.5.2 
-# (informalexample 5.147 of section 5.5.2)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from tall to wide form 
+# informalexample 5.146 of section 5.5.2 
+# (informalexample 5.146 of section 5.5.2)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from tall to wide form 
 
 library("data.table")
 
@@ -2964,13 +2930,13 @@ ChickWeight_wide2 <- dcast.data.table(
 
 
 
-00217_informalexample_5.148_of_section_5.5.2.R
+00216_informalexample_5.147_of_section_5.5.2.R
 
 
 
 ```r
-# informalexample 5.148 of section 5.5.2 
-# (informalexample 5.148 of section 5.5.2)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from tall to wide form 
+# informalexample 5.147 of section 5.5.2 
+# (informalexample 5.147 of section 5.5.2)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from tall to wide form 
 
 library("cdata")
 
@@ -2984,13 +2950,13 @@ ChickWeight_wide3 <- pivot_to_rowrecs(
 
 
 
-00218_informalexample_5.149_of_section_5.5.2.R
+00217_informalexample_5.148_of_section_5.5.2.R
 
 
 
 ```r
-# informalexample 5.149 of section 5.5.2 
-# (informalexample 5.149 of section 5.5.2)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from tall to wide form 
+# informalexample 5.148 of section 5.5.2 
+# (informalexample 5.148 of section 5.5.2)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from tall to wide form 
 
 library("tidyr")
 

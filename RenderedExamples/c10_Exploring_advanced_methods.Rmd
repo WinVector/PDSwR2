@@ -4,10 +4,10 @@ output: github_document
 
 
 
-00402_example_10.1_of_section_10.1.1.R
+00401_example_10.1_of_section_10.1.1.R
 
 
-```{r 00402_example_10.1_of_section_10.1.1.R }
+```{r 00401_example_10.1_of_section_10.1.1.R }
 # example 10.1 of section 10.1.1 
 # (example 10.1 of section 10.1.1)  : Exploring advanced methods : Tree-based Methods : A basic decision tree 
 # Title: Preparing Spambase data and evaluating a decision tree model 
@@ -104,10 +104,10 @@ testperf_tree <- accuracyMeasures(predTest,
 
 
 
-00403_informalexample_10.1_of_section_10.1.1.R
+00402_informalexample_10.1_of_section_10.1.1.R
 
 
-```{r 00403_informalexample_10.1_of_section_10.1.1.R }
+```{r 00402_informalexample_10.1_of_section_10.1.1.R }
 # informalexample 10.1 of section 10.1.1 
 # (informalexample 10.1 of section 10.1.1)  : Exploring advanced methods : Tree-based Methods : A basic decision tree 
 
@@ -140,10 +140,10 @@ pandoc.table(perftable, justify=perf_justify)
 
 
 
-00404_example_10.2_of_section_10.1.2.R
+00403_example_10.2_of_section_10.1.2.R
 
 
-```{r 00404_example_10.2_of_section_10.1.2.R }
+```{r 00403_example_10.2_of_section_10.1.2.R }
 # example 10.2 of section 10.1.2 
 # (example 10.2 of section 10.1.2)  : Exploring advanced methods : Tree-based Methods : Using bagging to improve prediction 
 # Title: Bagging decision trees 
@@ -216,10 +216,10 @@ pandoc.table(perftable, justify=perf_justify)
 
 
 
-00405_example_10.3_of_section_10.1.3.R
+00404_example_10.3_of_section_10.1.3.R
 
 
-```{r 00405_example_10.3_of_section_10.1.3.R }
+```{r 00404_example_10.3_of_section_10.1.3.R }
 # example 10.3 of section 10.1.3 
 # (example 10.3 of section 10.1.3)  : Exploring advanced methods : Tree-based Methods : Using random forests to further improve prediction 
 # Title: Using random forests 
@@ -289,10 +289,10 @@ pandoc.table(perftable, justify=perf_justify)
 
 
 
-00406_informalexample_10.2_of_section_10.1.3.R
+00405_informalexample_10.2_of_section_10.1.3.R
 
 
-```{r 00406_informalexample_10.2_of_section_10.1.3.R }
+```{r 00405_informalexample_10.2_of_section_10.1.3.R }
 # informalexample 10.2 of section 10.1.3 
 # (informalexample 10.2 of section 10.1.3)  : Exploring advanced methods : Tree-based Methods : Using random forests to further improve prediction 
 
@@ -313,10 +313,10 @@ pandoc.table(trainf, justify=perf_justify)
 
 
 
-00407_informalexample_10.3_of_section_10.1.3.R
+00406_informalexample_10.3_of_section_10.1.3.R
 
 
-```{r 00407_informalexample_10.3_of_section_10.1.3.R }
+```{r 00406_informalexample_10.3_of_section_10.1.3.R }
 # informalexample 10.3 of section 10.1.3 
 # (informalexample 10.3 of section 10.1.3)  : Exploring advanced methods : Tree-based Methods : Using random forests to further improve prediction 
 
@@ -337,10 +337,10 @@ pandoc.table(testf, justify=perf_justify)
 
 
 
-00408_informalexample_10.4_of_section_10.1.3.R
+00407_informalexample_10.4_of_section_10.1.3.R
 
 
-```{r 00408_informalexample_10.4_of_section_10.1.3.R }
+```{r 00407_informalexample_10.4_of_section_10.1.3.R }
 # informalexample 10.4 of section 10.1.3 
 # (informalexample 10.4 of section 10.1.3)  : Exploring advanced methods : Tree-based Methods : Using random forests to further improve prediction 
 
@@ -366,10 +366,10 @@ pandoc.table(difff, justify=perf_justify)
 
 
 
-00409_example_10.4_of_section_10.1.3.R
+00408_example_10.4_of_section_10.1.3.R
 
 
-```{r 00409_example_10.4_of_section_10.1.3.R }
+```{r 00408_example_10.4_of_section_10.1.3.R }
 # example 10.4 of section 10.1.3 
 # (example 10.4 of section 10.1.3)  : Exploring advanced methods : Tree-based Methods : Using random forests to further improve prediction 
 # Title: randomForest variable importances 
@@ -410,10 +410,10 @@ varImpPlot(fmodel, type=1)                       	# Note: 3
 
 
 
-00410_example_10.5_of_section_10.1.3.R
+00409_example_10.5_of_section_10.1.3.R
 
 
-```{r 00410_example_10.5_of_section_10.1.3.R }
+```{r 00409_example_10.5_of_section_10.1.3.R }
 # example 10.5 of section 10.1.3 
 # (example 10.5 of section 10.1.3)  : Exploring advanced methods : Tree-based Methods : Using random forests to further improve prediction 
 # Title: Fitting with fewer variables 
@@ -463,10 +463,10 @@ pandoc.table(perftable, justify=perf_justify)
 
 
 
-00411_example_10.6_of_section_10.1.4.R
+00410_example_10.6_of_section_10.1.4.R
 
 
-```{r 00411_example_10.6_of_section_10.1.4.R }
+```{r 00410_example_10.6_of_section_10.1.4.R }
 # example 10.6 of section 10.1.4 
 # (example 10.6 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient boosted trees 
 # Title: Load the iris data 
@@ -505,10 +505,10 @@ input <- as.matrix(train[, 1:4]) 	# Note: 3
 
 
 
-00412_example_10.7_of_section_10.1.4.R
+00411_example_10.7_of_section_10.1.4.R
 
 
-```{r 00412_example_10.7_of_section_10.1.4.R }
+```{r 00411_example_10.7_of_section_10.1.4.R }
 # example 10.7 of section 10.1.4 
 # (example 10.7 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient boosted trees 
 # Title: Cross-validate to determine model size 
@@ -596,10 +596,10 @@ ggplot(evalframe, aes(x=iter, y=test_logloss_mean)) +
 
 
 
-00413_example_10.8_of_section_10.1.4.R
+00412_example_10.8_of_section_10.1.4.R
 
 
-```{r 00413_example_10.8_of_section_10.1.4.R }
+```{r 00412_example_10.8_of_section_10.1.4.R }
 # example 10.8 of section 10.1.4 
 # (example 10.8 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient boosted trees 
 # Title: Fit an xgboost model 
@@ -633,10 +633,10 @@ accuracyMeasures(pred, test$class)
 
 
 
-00414_informalexample_10.5_of_section_10.1.4.R
+00413_informalexample_10.5_of_section_10.1.4.R
 
 
-```{r 00414_informalexample_10.5_of_section_10.1.4.R }
+```{r 00413_informalexample_10.5_of_section_10.1.4.R }
 # informalexample 10.5 of section 10.1.4 
 # (informalexample 10.5 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient boosted trees 
 
@@ -650,10 +650,10 @@ c(texts, labels) %<-% readRDS("../IMDB/IMDBtrain.RDS")
 
 
 
-00415_informalexample_10.6_of_section_10.1.4.R
+00414_informalexample_10.6_of_section_10.1.4.R
 
 
-```{r 00415_informalexample_10.6_of_section_10.1.4.R }
+```{r 00414_informalexample_10.6_of_section_10.1.4.R }
 # informalexample 10.6 of section 10.1.4 
 # (informalexample 10.6 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient boosted trees 
 
@@ -668,10 +668,10 @@ dtm_train <- make_matrix(texts, vocab)
 
 
 
-00416_informalexample_10.7_of_section_10.1.4.R
+00415_informalexample_10.7_of_section_10.1.4.R
 
 
-```{r 00416_informalexample_10.7_of_section_10.1.4.R }
+```{r 00415_informalexample_10.7_of_section_10.1.4.R }
 # informalexample 10.7 of section 10.1.4 
 # (informalexample 10.7 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient boosted trees 
 
@@ -700,10 +700,10 @@ evalframe <- as.data.frame(cv$evaluation_log)
 
 
 
-00417_informalexample_10.8_of_section_10.1.4.R
+00416_informalexample_10.8_of_section_10.1.4.R
 
 
-```{r 00417_informalexample_10.8_of_section_10.1.4.R }
+```{r 00416_informalexample_10.8_of_section_10.1.4.R }
 # informalexample 10.8 of section 10.1.4 
 # (informalexample 10.8 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient boosted trees 
 
@@ -742,10 +742,10 @@ pandoc.table(perftable, justify=perf_justify)
 
 
 
-00418_example_10.9_of_section_10.1.4.R
+00417_example_10.9_of_section_10.1.4.R
 
 
-```{r 00418_example_10.9_of_section_10.1.4.R }
+```{r 00417_example_10.9_of_section_10.1.4.R }
 # example 10.9 of section 10.1.4 
 # (example 10.9 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient boosted trees 
 # Title: Load the natality data 
@@ -786,10 +786,10 @@ str(train[, input_vars])
 
 
 
-00419_example_10.10_of_section_10.1.4.R
+00418_example_10.10_of_section_10.1.4.R
 
 
-```{r 00419_example_10.10_of_section_10.1.4.R }
+```{r 00418_example_10.10_of_section_10.1.4.R }
 # example 10.10 of section 10.1.4 
 # (example 10.10 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient boosted trees 
 # Title: Use vtreat to prepare data for xgboost 
@@ -839,10 +839,10 @@ str(train_treated)
 
 
 
-00420_example_10.11_of_section_10.1.4.R
+00419_example_10.11_of_section_10.1.4.R
 
 
-```{r 00420_example_10.11_of_section_10.1.4.R }
+```{r 00419_example_10.11_of_section_10.1.4.R }
 # example 10.11 of section 10.1.4 
 # (example 10.11 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient boosted trees 
 # Title: Fit and apply an xgboost model for birth weight 
@@ -865,10 +865,10 @@ pred <- predict(birthwt_model, as.matrix(test_treated))
 
 
 
-00423_example_10.12_of_section_10.2.2.R
+00422_example_10.12_of_section_10.2.2.R
 
 
-```{r 00423_example_10.12_of_section_10.2.2.R }
+```{r 00422_example_10.12_of_section_10.2.2.R }
 # example 10.12 of section 10.2.2 
 # (example 10.12 of section 10.2.2)  : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : A one-dimensional regression example 
 # Title: Preparing an artificial problem 
@@ -893,10 +893,10 @@ test <-frame[select <= 0.1,]
 
 
 
-00424_example_10.13_of_section_10.2.2.R
+00423_example_10.13_of_section_10.2.2.R
 
 
-```{r 00424_example_10.13_of_section_10.2.2.R }
+```{r 00423_example_10.13_of_section_10.2.2.R }
 # example 10.13 of section 10.2.2 
 # (example 10.13 of section 10.2.2)  : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : A one-dimensional regression example 
 # Title: Linear regression applied to the artificial example 
@@ -955,10 +955,10 @@ ggplot(train, aes(x=pred_lin, y=y)) +
 
 
 
-00425_example_10.14_of_section_10.2.2.R
+00424_example_10.14_of_section_10.2.2.R
 
 
-```{r 00425_example_10.14_of_section_10.2.2.R }
+```{r 00424_example_10.14_of_section_10.2.2.R }
 # example 10.14 of section 10.2.2 
 # (example 10.14 of section 10.2.2)  : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : A one-dimensional regression example 
 # Title: GAM applied to the artificial example 
@@ -1048,10 +1048,10 @@ ggplot(train, aes(x=pred, y=y)) +   	# Note: 9
 
 
 
-00426_example_10.15_of_section_10.2.2.R
+00425_example_10.15_of_section_10.2.2.R
 
 
-```{r 00426_example_10.15_of_section_10.2.2.R }
+```{r 00425_example_10.15_of_section_10.2.2.R }
 # example 10.15 of section 10.2.2 
 # (example 10.15 of section 10.2.2)  : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : A one-dimensional regression example 
 # Title: Comparing linear regression and GAM performance 
@@ -1101,10 +1101,10 @@ wrapFTest(test, "pred_gam", "y")$R2
 
 
 
-00427_example_10.16_of_section_10.2.3.R
+00426_example_10.16_of_section_10.2.3.R
 
 
-```{r 00427_example_10.16_of_section_10.2.3.R }
+```{r 00426_example_10.16_of_section_10.2.3.R }
 # example 10.16 of section 10.2.3 
 # (example 10.16 of section 10.2.3)  : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : Extracting the nonlinear relationships 
 # Title: Extracting a learned spline from a GAM 
@@ -1132,10 +1132,10 @@ ggplot(xframe, aes(x=x)) +
 
 
 
-00428_example_10.17_of_section_10.2.4.R
+00427_example_10.17_of_section_10.2.4.R
 
 
-```{r 00428_example_10.17_of_section_10.2.4.R }
+```{r 00427_example_10.17_of_section_10.2.4.R }
 # example 10.17 of section 10.2.4 
 # (example 10.17 of section 10.2.4)  : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : Using GAM on actual data 
 # Title: Applying linear regression (with and without GAM) to health data 
@@ -1232,10 +1232,10 @@ summary(gammodel)
 
 
 
-00429_example_10.18_of_section_10.2.4.R
+00428_example_10.18_of_section_10.2.4.R
 
 
-```{r 00429_example_10.18_of_section_10.2.4.R }
+```{r 00428_example_10.18_of_section_10.2.4.R }
 # example 10.18 of section 10.2.4 
 # (example 10.18 of section 10.2.4)  : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : Using GAM on actual data 
 # Title: Plotting GAM results 
@@ -1289,10 +1289,10 @@ ggplot(pframe, aes(PWGT)) +   	# Note: 6
 
 
 
-00430_example_10.19_of_section_10.2.4.R
+00429_example_10.19_of_section_10.2.4.R
 
 
-```{r 00430_example_10.19_of_section_10.2.4.R }
+```{r 00429_example_10.19_of_section_10.2.4.R }
 # example 10.19 of section 10.2.4 
 # (example 10.19 of section 10.2.4)  : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : Using GAM on actual data 
 # Title: Checking GAM model performance on hold-out data 
@@ -1338,10 +1338,10 @@ wrapFTest(test, "pred_gam", "DBWT")$R2
 
 
 
-00431_example_10.20_of_section_10.2.5.R
+00430_example_10.20_of_section_10.2.5.R
 
 
-```{r 00431_example_10.20_of_section_10.2.5.R }
+```{r 00430_example_10.20_of_section_10.2.5.R }
 # example 10.20 of section 10.2.5 
 # (example 10.20 of section 10.2.5)  : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : Using GAM for logistic regression 
 # Title: GLM logistic regression 
@@ -1356,10 +1356,10 @@ logmod <- glm(form, data=train, family=binomial(link="logit"))
 
 
 
-00432_example_10.21_of_section_10.2.5.R
+00431_example_10.21_of_section_10.2.5.R
 
 
-```{r 00432_example_10.21_of_section_10.2.5.R }
+```{r 00431_example_10.21_of_section_10.2.5.R }
 # example 10.21 of section 10.2.5 
 # (example 10.21 of section 10.2.5)  : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : Using GAM for logistic regression 
 # Title: GAM logistic regression 
@@ -1411,10 +1411,10 @@ summary(glogmod)
 
 
 
-00433_example_10.22_of_section_10.3.1.R
+00432_example_10.22_of_section_10.3.1.R
 
 
-```{r 00433_example_10.22_of_section_10.3.1.R }
+```{r 00432_example_10.22_of_section_10.3.1.R }
 # example 10.22 of section 10.3.1 
 # (example 10.22 of section 10.3.1)  : Exploring advanced methods : Solving "Inseparable" Problems Using Support Vector Machines : Using a SVM to solve a problem 
 # Title: Setting up the spirals data as an example classification problem 
@@ -1458,10 +1458,10 @@ ggplot(data=s) + 	# Note: 4
 
 
 
-00434_example_10.23_of_section_10.3.1.R
+00433_example_10.23_of_section_10.3.1.R
 
 
-```{r 00434_example_10.23_of_section_10.3.1.R }
+```{r 00433_example_10.23_of_section_10.3.1.R }
 # example 10.23 of section 10.3.1 
 # (example 10.23 of section 10.3.1)  : Exploring advanced methods : Solving "Inseparable" Problems Using Support Vector Machines : Using a SVM to solve a problem 
 # Title: SVM with a poor choice of kernel 
@@ -1522,10 +1522,10 @@ ggplot(mapping = aes(x = x, y = y)) + 	# Note: 5
 
 
 
-00435_example_10.24_of_section_10.3.1.R
+00434_example_10.24_of_section_10.3.1.R
 
 
-```{r 00435_example_10.24_of_section_10.3.1.R }
+```{r 00434_example_10.24_of_section_10.3.1.R }
 # example 10.24 of section 10.3.1 
 # (example 10.24 of section 10.3.1)  : Exploring advanced methods : Solving "Inseparable" Problems Using Support Vector Machines : Using a SVM to solve a problem 
 # Title: SVM with a good choice of kernel 
@@ -1563,10 +1563,10 @@ ggplot(mapping = aes(x = x, y = y)) +
 
 
 
-00439_example_10.25_of_section_10.3.3.R
+00438_example_10.25_of_section_10.3.3.R
 
 
-```{r 00439_example_10.25_of_section_10.3.3.R }
+```{r 00438_example_10.25_of_section_10.3.3.R }
 # example 10.25 of section 10.3.3 
 # (example 10.25 of section 10.3.3)  : Exploring advanced methods : Solving "Inseparable" Problems Using Support Vector Machines : Understanding kernel functions 
 # Title: An artificial kernel example 

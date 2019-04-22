@@ -4,10 +4,10 @@ output: github_document
 
 
 
-00443_informalexample_11.1_of_section_11.2.1.R
+00442_informalexample_11.1_of_section_11.2.1.R
 
 
-```{r 00443_informalexample_11.1_of_section_11.2.1.R }
+```{r 00442_informalexample_11.1_of_section_11.2.1.R }
 # informalexample 11.1 of section 11.2.1 
 # (informalexample 11.1 of section 11.2.1)  : Documentation and deployment : Using R markdown to produce milestone documentation : What is R markdown? 
 
@@ -20,10 +20,10 @@ rmarkdown::render("../Buzz/Buzz_score_example.Rmd", rmarkdown::html_document())
 
 
 
-00448_example_11.6_of_section_11.3.1.R
+00447_example_11.6_of_section_11.3.1.R
 
 
-```{r 00448_example_11.6_of_section_11.3.1.R }
+```{r 00447_example_11.6_of_section_11.3.1.R }
 # example 11.6 of section 11.3.1 
 # (example 11.6 of section 11.3.1)  : Documentation and deployment : Using comments and version control for running documentation : Writing effective comments 
 # Title: Example code comment 
@@ -48,10 +48,10 @@ pseudoLog10 <- function(x) { asinh(x/2)/log(10) }
 
 
 
-00449_example_11.7_of_section_11.3.1.R
+00448_example_11.7_of_section_11.3.1.R
 
 
-```{r 00449_example_11.7_of_section_11.3.1.R }
+```{r 00448_example_11.7_of_section_11.3.1.R }
 # example 11.7 of section 11.3.1 
 # (example 11.7 of section 11.3.1)  : Documentation and deployment : Using comments and version control for running documentation : Writing effective comments 
 # Title: Useless comment 
@@ -74,10 +74,10 @@ addone <- function(x) { x + 1 }
 
 
 
-00450_example_11.8_of_section_11.3.1.R
+00449_example_11.8_of_section_11.3.1.R
 
 
-```{r 00450_example_11.8_of_section_11.3.1.R }
+```{r 00449_example_11.8_of_section_11.3.1.R }
 # example 11.8 of section 11.3.1 
 # (example 11.8 of section 11.3.1)  : Documentation and deployment : Using comments and version control for running documentation : Writing effective comments 
 # Title: Worse than useless comment 
@@ -92,10 +92,10 @@ addtwo <- function(x) { x + 2 }
 
 
 
-00463_example_11.17_of_section_11.4.2.R
+00462_example_11.17_of_section_11.4.2.R
 
 
-```{r 00463_example_11.17_of_section_11.4.2.R }
+```{r 00462_example_11.17_of_section_11.4.2.R }
 # example 11.17 of section 11.4.2 
 # (example 11.17 of section 11.4.2)  : Documentation and deployment : Deploying models : Deploying models by export 
 # Title: Exporting the random forest model 

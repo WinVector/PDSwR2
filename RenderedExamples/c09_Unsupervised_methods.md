@@ -4,7 +4,7 @@ output: github_document
 
 
 
-00367_example_9.1_of_section_9.1.2.R
+00366_example_9.1_of_section_9.1.2.R
 
 
 
@@ -73,7 +73,7 @@ summary(protein)
 
 
 
-00368_example_9.2_of_section_9.1.2.R
+00367_example_9.2_of_section_9.1.2.R
 
 
 
@@ -112,7 +112,7 @@ pmatrix <- rm_scales(pmatrix)  	# Note: 4
 
 
 
-00369_example_9.3_of_section_9.1.3.R
+00368_example_9.3_of_section_9.1.3.R
 
 
 
@@ -123,10 +123,10 @@ pmatrix <- rm_scales(pmatrix)  	# Note: 4
 
 distmat <- dist(pmatrix, method="euclidean")   	# Note: 1 
 pfit <- hclust(distmat, method="ward.D")         	# Note: 2 
-plot(pfit, labels=protein$Country)      	# Note: 3
+plot(pfit, labels=protein$Country); rect.hclust(pfit, k=5);      	# Note: 3
 ```
 
-![plot of chunk 00369_example_9.3_of_section_9.1.3.R](figure/00369_example_9.3_of_section_9.1.3.R-1.png)
+![plot of chunk 00368_example_9.3_of_section_9.1.3.R](figure/00368_example_9.3_of_section_9.1.3.R-1.png)
 
 ```r
 # Note 1: 
@@ -142,25 +142,7 @@ plot(pfit, labels=protein$Country)      	# Note: 3
 
 
 
-00370_informalexample_9.5_of_section_9.1.3.R
-
-
-
-```r
-# informalexample 9.5 of section 9.1.3 
-# (informalexample 9.5 of section 9.1.3)  : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
-
-rect.hclust(pfit, k=5)
-```
-
-```
-## Error in rect(m[which[n]] + 0.66, par("usr")[3L], m[which[n] + 1] + 0.33, : plot.new has not been called yet
-```
-
-
-
-
-00371_example_9.4_of_section_9.1.3.R
+00370_example_9.4_of_section_9.1.3.R
 
 
 
@@ -276,7 +258,7 @@ print_clusters(protein, groups, cols_to_print)
 
 
 
-00372_example_9.5_of_section_9.1.3.R
+00371_example_9.5_of_section_9.1.3.R
 
 
 
@@ -308,7 +290,7 @@ ggplot(project_plus, aes(x=PC1, y=PC2)) +        	# Note: 4
   facet_wrap(~cluster, ncol=3, labeller = label_both)
 ```
 
-![plot of chunk 00372_example_9.5_of_section_9.1.3.R](figure/00372_example_9.5_of_section_9.1.3.R-1.png)
+![plot of chunk 00371_example_9.5_of_section_9.1.3.R](figure/00371_example_9.5_of_section_9.1.3.R-1.png)
 
 ```r
 # Note 1: 
@@ -334,7 +316,7 @@ ggplot(project_plus, aes(x=PC1, y=PC2)) +        	# Note: 4
 
 
 
-00373_example_9.6_of_section_9.1.3.R
+00372_example_9.6_of_section_9.1.3.R
 
 
 
@@ -570,7 +552,7 @@ cboot_hclust$bootmean                                       	# Note: 7
 ```
 
 ```
-## [1] 0.7876667 0.7822143 0.6357857 0.9193452 0.7626667
+## [1] 0.7960000 0.7349405 0.6256190 0.8877381 0.7575000
 ```
 
 ```r
@@ -580,7 +562,7 @@ cboot_hclust$bootbrd                                        	# Note: 8
 ```
 
 ```
-## [1] 24 14 43  9 29
+## [1] 23 26 48 16 31
 ```
 
 ```r
@@ -624,7 +606,7 @@ cboot_hclust$bootbrd                                        	# Note: 8
 
 
 
-00374_example_9.7_of_section_9.1.3.R
+00373_example_9.7_of_section_9.1.3.R
 
 
 
@@ -693,7 +675,7 @@ wss_total(pmatrix, groups)  	# Note: 7
 
 
 
-00375_example_9.8_of_section_9.1.3.R
+00374_example_9.8_of_section_9.1.3.R
 
 
 
@@ -729,7 +711,7 @@ ggplot(cluster_meas, aes(x=nclusters, y=wss)) +    	# Note: 5
   scale_x_continuous(breaks=breaks)
 ```
 
-![plot of chunk 00375_example_9.8_of_section_9.1.3.R](figure/00375_example_9.8_of_section_9.1.3.R-1.png)
+![plot of chunk 00374_example_9.8_of_section_9.1.3.R](figure/00374_example_9.8_of_section_9.1.3.R-1.png)
 
 ```r
 # Note 1: 
@@ -752,7 +734,7 @@ ggplot(cluster_meas, aes(x=nclusters, y=wss)) +    	# Note: 5
 
 
 
-00377_example_9.9_of_section_9.1.3.R
+00376_example_9.9_of_section_9.1.3.R
 
 
 
@@ -781,7 +763,7 @@ ggplot(cmlong, aes(x=nclusters, y=value)) +
   scale_x_continuous(breaks=1:10)
 ```
 
-![plot of chunk 00377_example_9.9_of_section_9.1.3.R](figure/00377_example_9.9_of_section_9.1.3.R-1.png)
+![plot of chunk 00376_example_9.9_of_section_9.1.3.R](figure/00376_example_9.9_of_section_9.1.3.R-1.png)
 
 ```r
 # Note 1: 
@@ -797,7 +779,7 @@ ggplot(cmlong, aes(x=nclusters, y=value)) +
 
 
 
-00380_example_9.10_of_section_9.1.3.R
+00379_example_9.10_of_section_9.1.3.R
 
 
 
@@ -826,7 +808,7 @@ ggplot(cluster_meas, aes(x=nclusters, y=ch_crit)) +
 ## Warning: Removed 1 rows containing missing values (geom_path).
 ```
 
-![plot of chunk 00380_example_9.10_of_section_9.1.3.R](figure/00380_example_9.10_of_section_9.1.3.R-1.png)
+![plot of chunk 00379_example_9.10_of_section_9.1.3.R](figure/00379_example_9.10_of_section_9.1.3.R-1.png)
 
 ```r
 # Note 1: 
@@ -842,7 +824,7 @@ ggplot(cluster_meas, aes(x=nclusters, y=ch_crit)) +
 
 
 
-00381_example_9.11_of_section_9.1.4.R
+00380_example_9.11_of_section_9.1.4.R
 
 
 
@@ -887,17 +869,17 @@ pclusters$centers                                                   	# Note: 3
 
 ```
 ##        RedMeat  WhiteMeat        Eggs       Milk       Fish    Cereals
-## 1  0.006572897 -0.2290150  0.19147892  1.3458748  1.1582546 -0.8722721
-## 2 -0.570049402  0.5803879 -0.08589708 -0.4604938 -0.4537795  0.3181839
-## 3 -0.508801956 -1.1088009 -0.41248496 -0.8320414  0.9819154  0.1300253
-## 4  1.011180399  0.7421332  0.94084150  0.5700581 -0.2671539 -0.6877583
-## 5 -0.807569986 -0.8719354 -1.55330561 -1.0783324 -1.0386379  1.7200335
+## 1 -0.807569986 -0.8719354 -1.55330561 -1.0783324 -1.0386379  1.7200335
+## 2  0.006572897 -0.2290150  0.19147892  1.3458748  1.1582546 -0.8722721
+## 3  1.011180399  0.7421332  0.94084150  0.5700581 -0.2671539 -0.6877583
+## 4 -0.508801956 -1.1088009 -0.41248496 -0.8320414  0.9819154  0.1300253
+## 5 -0.570049402  0.5803879 -0.08589708 -0.4604938 -0.4537795  0.3181839
 ##       Starch       Nuts      Fr.Veg
-## 1  0.1676780 -0.9553392 -1.11480485
-## 2  0.7857609 -0.2679180  0.06873983
-## 3 -0.1842010  1.3108846  1.62924487
-## 4  0.2288743 -0.5083895  0.02161979
-## 5 -1.4234267  0.9961313 -0.64360439
+## 1 -1.4234267  0.9961313 -0.64360439
+## 2  0.1676780 -0.9553392 -1.11480485
+## 3  0.2288743 -0.5083895  0.02161979
+## 4 -0.1842010  1.3108846  1.62924487
+## 5  0.7857609 -0.2679180  0.06873983
 ```
 
 ```r
@@ -918,7 +900,7 @@ pclusters$size                                                      	# Note: 4
 ```
 
 ```
-## [1] 4 5 4 8 4
+## [1] 4 4 8 4 5
 ```
 
 ```r
@@ -932,28 +914,20 @@ print_clusters(protein, groups, cols_to_print)                                  
 
 ```
 ## $`1`
+##       Country RedMeat Fish Fr.Veg
+## 1     Albania    10.1  0.2    1.7
+## 4    Bulgaria     7.8  1.2    4.2
+## 18    Romania     6.2  1.0    2.8
+## 25 Yugoslavia     4.4  0.6    3.2
+## 
+## $`2`
 ##    Country RedMeat Fish Fr.Veg
 ## 6  Denmark    10.6  9.9    2.4
 ## 8  Finland     9.5  5.8    1.4
 ## 15  Norway     9.4  9.7    2.7
 ## 20  Sweden     9.9  7.5    2.0
 ## 
-## $`2`
-##           Country RedMeat Fish Fr.Veg
-## 5  Czechoslovakia     9.7  2.0    4.0
-## 7       E Germany     8.4  5.4    3.6
-## 11        Hungary     5.3  0.3    4.2
-## 16         Poland     6.9  3.0    6.6
-## 23           USSR     9.3  3.0    2.9
-## 
 ## $`3`
-##     Country RedMeat Fish Fr.Veg
-## 10   Greece    10.2  5.9    6.5
-## 13    Italy     9.0  3.4    6.7
-## 17 Portugal     6.2 14.2    7.9
-## 19    Spain     7.1  7.0    7.2
-## 
-## $`4`
 ##        Country RedMeat Fish Fr.Veg
 ## 2      Austria     8.9  2.1    4.3
 ## 3      Belgium    13.5  4.5    4.0
@@ -964,12 +938,20 @@ print_clusters(protein, groups, cols_to_print)                                  
 ## 22          UK    17.4  4.3    3.3
 ## 24   W Germany    11.4  3.4    3.8
 ## 
+## $`4`
+##     Country RedMeat Fish Fr.Veg
+## 10   Greece    10.2  5.9    6.5
+## 13    Italy     9.0  3.4    6.7
+## 17 Portugal     6.2 14.2    7.9
+## 19    Spain     7.1  7.0    7.2
+## 
 ## $`5`
-##       Country RedMeat Fish Fr.Veg
-## 1     Albania    10.1  0.2    1.7
-## 4    Bulgaria     7.8  1.2    4.2
-## 18    Romania     6.2  1.0    2.8
-## 25 Yugoslavia     4.4  0.6    3.2
+##           Country RedMeat Fish Fr.Veg
+## 5  Czechoslovakia     9.7  2.0    4.0
+## 7       E Germany     8.4  5.4    3.6
+## 11        Hungary     5.3  0.3    4.2
+## 16         Poland     6.9  3.0    6.6
+## 23           USSR     9.3  3.0    2.9
 ```
 
 ```r
@@ -1047,7 +1029,7 @@ print_clusters(protein, groups, cols_to_print)                                  
 
 
 
-00382_example_9.12_of_section_9.1.4.R
+00381_example_9.12_of_section_9.1.4.R
 
 
 
@@ -1180,7 +1162,7 @@ summary(clustering_ch)                                              	# Note: 7
 
 
 
-00383_example_9.13_of_section_9.1.4.R
+00382_example_9.13_of_section_9.1.4.R
 
 
 
@@ -1414,7 +1396,7 @@ cboot$bootbrd
 
 
 
-00384_example_9.14_of_section_9.1.5.R
+00383_example_9.14_of_section_9.1.5.R
 
 
 
@@ -1444,7 +1426,7 @@ assign_cluster <- function(newpt, centers, xcenter=0, xscale=1) {
 
 
 
-00385_example_9.15_of_section_9.1.5.R
+00384_example_9.15_of_section_9.1.5.R
 
 
 
@@ -1516,7 +1498,7 @@ tclusters$size           	# Note: 6
 
 
 
-00386_example_9.16_of_section_9.1.5.R
+00385_example_9.16_of_section_9.1.5.R
 
 
 
@@ -1546,7 +1528,7 @@ rm_scales(scale(unscaled, center = -tcenter, scale=FALSE))
 
 
 
-00387_example_9.17_of_section_9.1.5.R
+00386_example_9.17_of_section_9.1.5.R
 
 
 
@@ -1610,7 +1592,7 @@ assign_cluster(mvrnorm(1, mean3, diag(sd3)),        	# Note: 3
 
 
 
-00389_example_9.18_of_section_9.2.3.R
+00388_example_9.18_of_section_9.2.3.R
 
 
 
@@ -1678,7 +1660,7 @@ bookbaskets <- read.transactions("../Bookdata/bookdata.tsv.gz",
 
 
 
-00390_example_9.19_of_section_9.2.3.R
+00389_example_9.19_of_section_9.2.3.R
 
 
 
@@ -1771,7 +1753,7 @@ rownames(bookbaskets)[1:5]        	# Note: 5
 
 
 
-00391_informalexample_9.10_of_section_9.2.3.R
+00390_informalexample_9.10_of_section_9.2.3.R
 
 
 
@@ -1796,7 +1778,7 @@ summary(basketSizes)
 
 
 
-00392_example_9.20_of_section_9.2.3.R
+00391_example_9.20_of_section_9.2.3.R
 
 
 
@@ -1822,7 +1804,7 @@ ggplot(data.frame(count=basketSizes)) +
   scale_x_log10()
 ```
 
-![plot of chunk 00392_example_9.20_of_section_9.2.3.R](figure/00392_example_9.20_of_section_9.2.3.R-1.png)
+![plot of chunk 00391_example_9.20_of_section_9.2.3.R](figure/00391_example_9.20_of_section_9.2.3.R-1.png)
 
 ```r
 # Note 1: 
@@ -1837,7 +1819,7 @@ ggplot(data.frame(count=basketSizes)) +
 
 
 
-00393_example_9.21_of_section_9.2.3.R
+00392_example_9.21_of_section_9.2.3.R
 
 
 
@@ -1863,7 +1845,7 @@ summary(bookCount)
 
 
 
-00394_example_9.22_of_section_9.2.3.R
+00393_example_9.22_of_section_9.2.3.R
 
 
 
@@ -1874,6 +1856,10 @@ summary(bookCount)
 
 orderedBooks <- sort(bookCount, decreasing=TRUE)   	# Note: 1 
 knitr::kable(orderedBooks[1:10])                   	# Note: 2 
+```
+
+
+
 |                                                |    x|
 |:-----------------------------------------------|----:|
 |Wild Animus                                     | 2502|
@@ -1887,7 +1873,29 @@ knitr::kable(orderedBooks[1:10])                   	# Note: 2
 |The Secret Life of Bees                         |  762|
 |Divine Secrets of the Ya-Ya Sisterhood: A Novel |  737|
 
+```r
+# |                                                |    x|
+# |:-----------------------------------------------|----:|
+# |Wild Animus                                     | 2502|
+# |The Lovely Bones: A Novel                       | 1295|
+# |She's Come Undone                               |  934|
+# |The Da Vinci Code                               |  905|
+# |Harry Potter and the Sorcerer's Stone           |  832|
+# |The Nanny Diaries: A Novel                      |  821|
+# |A Painted House                                 |  819|
+# |Bridget Jones's Diary                           |  772|
+# |The Secret Life of Bees                         |  762|
+# |Divine Secrets of the Ya-Ya Sisterhood: A Novel |  737|
+
 orderedBooks[1]/nrow(bookbaskets)               	# Note: 3 
+```
+
+```
+## Wild Animus 
+##  0.02716376
+```
+
+```r
 ## Wild Animus
 ##  0.02716376
 
@@ -1900,20 +1908,12 @@ orderedBooks[1]/nrow(bookbaskets)               	# Note: 3
 # Note 3: 
 #   The most popular book in the dataset 
 #   occurred in fewer than 3% of the baskets. 
-
-```
-
-```
-## Error: <text>:7:1: unexpected '|'
-## 6: knitr::kable(orderedBooks[1:10])                        # Note: 2 
-## 7: |
-##    ^
 ```
 
 
 
 
-00395_informalexample_9.11_of_section_9.2.3.R
+00394_informalexample_9.11_of_section_9.2.3.R
 
 
 
@@ -1936,7 +1936,7 @@ dim(bookbaskets_use)
 
 
 
-00396_example_9.23_of_section_9.2.3.R
+00395_example_9.23_of_section_9.2.3.R
 
 
 
@@ -1965,12 +1965,12 @@ rules <- apriori(bookbaskets_use,                                  	# Note: 1
 ## Absolute minimum support count: 81 
 ## 
 ## set item appearances ...[0 item(s)] done [0.00s].
-## set transactions ...[216031 item(s), 40822 transaction(s)] done [1.08s].
+## set transactions ...[216031 item(s), 40822 transaction(s)] done [0.95s].
 ## sorting and recoding items ... [1256 item(s)] done [0.03s].
-## creating transaction tree ... done [0.02s].
-## checking subsets of size 1 2 3 4 5 done [0.05s].
+## creating transaction tree ... done [0.01s].
+## checking subsets of size 1 2 3 4 5 done [0.04s].
 ## writing ... [191 rule(s)] done [0.00s].
-## creating S4 object  ... done [0.06s].
+## creating S4 object  ... done [0.05s].
 ```
 
 ```r
@@ -2050,7 +2050,7 @@ summary(rules)
 
 
 
-00397_example_9.24_of_section_9.2.3.R
+00396_example_9.24_of_section_9.2.3.R
 
 
 
@@ -2105,7 +2105,7 @@ summary(measures)
 
 
 
-00398_example_9.25_of_section_9.2.3.R
+00397_example_9.25_of_section_9.2.3.R
 
 
 
@@ -2162,7 +2162,7 @@ rules %>%
 
 
 
-00399_example_9.26_of_section_9.2.3.R
+00398_example_9.26_of_section_9.2.3.R
 
 
 
@@ -2194,12 +2194,12 @@ brules <- apriori(bookbaskets_use,
 ## Absolute minimum support count: 40 
 ## 
 ## set item appearances ...[1 item(s)] done [0.00s].
-## set transactions ...[216031 item(s), 40822 transaction(s)] done [1.14s].
-## sorting and recoding items ... [3172 item(s)] done [0.04s].
-## creating transaction tree ... done [0.03s].
-## checking subsets of size 1 2 3 4 5 6 7 8 done [0.29s].
-## writing ... [46 rule(s)] done [0.05s].
-## creating S4 object  ... done [0.07s].
+## set transactions ...[216031 item(s), 40822 transaction(s)] done [0.85s].
+## sorting and recoding items ... [3172 item(s)] done [0.03s].
+## creating transaction tree ... done [0.02s].
+## checking subsets of size 1 2 3 4 5 6 7 8 done [0.25s].
+## writing ... [46 rule(s)] done [0.04s].
+## creating S4 object  ... done [0.06s].
 ```
 
 ```r
@@ -2270,7 +2270,7 @@ summary(brules)
 
 
 
-00400_example_9.27_of_section_9.2.3.R
+00399_example_9.27_of_section_9.2.3.R
 
 
 
@@ -2320,7 +2320,7 @@ brules %>%
 
 
 
-00401_example_9.28_of_section_9.2.3.R
+00400_example_9.28_of_section_9.2.3.R
 
 
 

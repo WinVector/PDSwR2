@@ -1,11 +1,13 @@
 # informalexample 5.138 of section 5.5.1 
 # (informalexample 5.138 of section 5.5.1)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from wide to tall form 
 
-library("cdata")
+library("tidyr")
 
-seatbelts_long3 <- unpivot_to_blocks(
+seatbelts_long1 <- gather(
   Seatbelts, 
-  nameForNewKeyColumn = "victim_type", 
-  nameForNewValueColumn = "nvictims", 
-  columnsToTakeFrom = c("DriversKilled", "front", "rear"))
+  key = victim_type, 
+  value = nvictims, 
+  DriversKilled, front, rear)
+
+head(seatbelts_long1)
 

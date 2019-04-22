@@ -4,10 +4,10 @@ output: github_document
 
 
 
-00327_example_8.1_of_section_8.2.1.R
+00326_example_8.1_of_section_8.2.1.R
 
 
-```{r 00327_example_8.1_of_section_8.2.1.R }
+```{r 00326_example_8.1_of_section_8.2.1.R }
 # example 8.1 of section 8.2.1 
 # (example 8.1 of section 8.2.1)  : Advanced Data Preparation : KDD and KDD Cup 2009 : Getting started with KDD Cup 2009 data 
 # Title: Preparing the KDD data for analysis 
@@ -72,10 +72,10 @@ rm(list=c('d', 'churn', 'rgroup')) 	# Note: 7
 
 
 
-00328_informalexample_8.1_of_section_8.2.1.R
+00327_informalexample_8.1_of_section_8.2.1.R
 
 
-```{r 00328_informalexample_8.1_of_section_8.2.1.R }
+```{r 00327_informalexample_8.1_of_section_8.2.1.R }
 # informalexample 8.1 of section 8.2.1 
 # (informalexample 8.1 of section 8.2.1)  : Advanced Data Preparation : KDD and KDD Cup 2009 : Getting started with KDD Cup 2009 data 
 
@@ -98,10 +98,10 @@ knitr::kable(outcome_summary)
 
 
 
-00329_informalexample_8.2_of_section_8.2.1.R
+00328_informalexample_8.2_of_section_8.2.1.R
 
 
-```{r 00329_informalexample_8.2_of_section_8.2.1.R }
+```{r 00328_informalexample_8.2_of_section_8.2.1.R }
 # informalexample 8.2 of section 8.2.1 
 # (informalexample 8.2 of section 8.2.1)  : Advanced Data Preparation : KDD and KDD Cup 2009 : Getting started with KDD Cup 2009 data 
 
@@ -119,47 +119,10 @@ outcome_summary["1"]/sum(outcome_summary) 	# Note: 1
 
 
 
-00330_example_8.2_of_section_8.2.2.R
+00330_example_8.3_of_section_8.2.2.R
 
 
-```{r 00330_example_8.2_of_section_8.2.2.R , error = TRUE }
-# example 8.2 of section 8.2.2 
-# (example 8.2 of section 8.2.2)  : Advanced Data Preparation : KDD and KDD Cup 2009 : The Bull in The China Shop Approach 
-# Title: Attempting to model without preparation 
-
-library("wrapr")  	# Note: 1 
-                                        
-outcome <- 'churn'                                        
-vars <- setdiff(colnames(dTrainAll), outcome)
-
-formula1 <- mk_formula("churn", vars, outcome_target = 1) 	# Note: 2 
-model1 <- glm(formula1, data = dTrainAll, family = binomial) 	# Note: 3 
-                                        
-# Error in `contrasts ... 	# Note: 4
-
-# Note 1: 
-#   Attach the wrapr package for convenience functions, such as mk_formula(). 
-
-# Note 2: 
-#   Build a model formula specification asking churn==1 be predicted as a function of our explanatory variables. 
-
-# Note 3: 
-#   Ask the glm() function to build a logistic regression model. 
-
-# Note 4: 
-#   The attempt failed with an error. 
-
-
-
-```
-
-
-
-
-00331_example_8.3_of_section_8.2.2.R
-
-
-```{r 00331_example_8.3_of_section_8.2.2.R }
+```{r 00330_example_8.3_of_section_8.2.2.R }
 # example 8.3 of section 8.2.2 
 # (example 8.3 of section 8.2.2)  : Advanced Data Preparation : KDD and KDD Cup 2009 : The Bull in The China Shop Approach 
 # Title: Trying just one variable 
@@ -203,10 +166,10 @@ dim(dTrainAll)
 
 
 
-00332_informalexample_8.3_of_section_8.2.2.R
+00331_informalexample_8.3_of_section_8.2.2.R
 
 
-```{r 00332_informalexample_8.3_of_section_8.2.2.R }
+```{r 00331_informalexample_8.3_of_section_8.2.2.R }
 # informalexample 8.3 of section 8.2.2 
 # (informalexample 8.3 of section 8.2.2)  : Advanced Data Preparation : KDD and KDD Cup 2009 : The Bull in The China Shop Approach 
 
@@ -224,10 +187,10 @@ length(unique(dTrainAll$Var200))
 
 
 
-00333_example_8.4_of_section_8.3.R
+00332_example_8.4_of_section_8.3.R
 
 
-```{r 00333_example_8.4_of_section_8.3.R }
+```{r 00332_example_8.4_of_section_8.3.R }
 # example 8.4 of section 8.3 
 # (example 8.4 of section 8.3)  : Advanced Data Preparation : Basic data preparation for classification 
 # Title: Basic data preparation for classification 
@@ -260,10 +223,10 @@ treatment_plan <- vtreat::designTreatmentsC( 	# Note: 3
 
 
 
-00334_example_8.5_of_section_8.3.R
+00333_example_8.5_of_section_8.3.R
 
 
-```{r 00334_example_8.5_of_section_8.3.R }
+```{r 00333_example_8.5_of_section_8.3.R }
 # example 8.5 of section 8.3 
 # (example 8.5 of section 8.3)  : Advanced Data Preparation : Basic data preparation for classification 
 # Title: Preparing data with vtreat 
@@ -288,10 +251,10 @@ head(colnames(dTrain_treated))      	# Note: 1
 
 
 
-00335_informalexample_8.4_of_section_8.3.1.R
+00334_informalexample_8.4_of_section_8.3.1.R
 
 
-```{r 00335_informalexample_8.4_of_section_8.3.1.R }
+```{r 00334_informalexample_8.4_of_section_8.3.1.R }
 # informalexample 8.4 of section 8.3.1 
 # (informalexample 8.4 of section 8.3.1)  : Advanced Data Preparation : Basic data preparation for classification : The variable score frame 
 
@@ -340,10 +303,10 @@ t(subset(score_frame, origName %in% c("Var126", "Var189")))
 
 
 
-00336_informalexample_8.5_of_section_8.3.1.R
+00335_informalexample_8.5_of_section_8.3.1.R
 
 
-```{r 00336_informalexample_8.5_of_section_8.3.1.R }
+```{r 00335_informalexample_8.5_of_section_8.3.1.R }
 # informalexample 8.5 of section 8.3.1 
 # (informalexample 8.5 of section 8.3.1)  : Advanced Data Preparation : Basic data preparation for classification : The variable score frame 
 
@@ -366,10 +329,10 @@ t(subset(score_frame, origName == "Var218"))
 
 
 
-00337_informalexample_8.6_of_section_8.3.1.R
+00336_informalexample_8.6_of_section_8.3.1.R
 
 
-```{r 00337_informalexample_8.6_of_section_8.3.1.R }
+```{r 00336_informalexample_8.6_of_section_8.3.1.R }
 # informalexample 8.6 of section 8.3.1 
 # (informalexample 8.6 of section 8.3.1)  : Advanced Data Preparation : Basic data preparation for classification : The variable score frame 
 
@@ -392,10 +355,10 @@ head(comparison)
 
 
 
-00338_informalexample_8.7_of_section_8.3.1.R
+00337_informalexample_8.7_of_section_8.3.1.R
 
 
-```{r 00338_informalexample_8.7_of_section_8.3.1.R }
+```{r 00337_informalexample_8.7_of_section_8.3.1.R }
 # informalexample 8.7 of section 8.3.1 
 # (informalexample 8.7 of section 8.3.1)  : Advanced Data Preparation : Basic data preparation for classification : The variable score frame 
 
@@ -462,10 +425,10 @@ head(comparison)
 
 
 
-00339_informalexample_8.8_of_section_8.3.1.R
+00338_informalexample_8.8_of_section_8.3.1.R
 
 
-```{r 00339_informalexample_8.8_of_section_8.3.1.R }
+```{r 00338_informalexample_8.8_of_section_8.3.1.R }
 # informalexample 8.8 of section 8.3.1 
 # (informalexample 8.8 of section 8.3.1)  : Advanced Data Preparation : Basic data preparation for classification : The variable score frame 
 
@@ -483,10 +446,10 @@ score_frame[score_frame$origName=="Var200", , drop = FALSE]
 
 
 
-00340_informalexample_8.9_of_section_8.3.2.R
+00339_informalexample_8.9_of_section_8.3.2.R
 
 
-```{r 00340_informalexample_8.9_of_section_8.3.2.R }
+```{r 00339_informalexample_8.9_of_section_8.3.2.R }
 # informalexample 8.9 of section 8.3.2 
 # (informalexample 8.9 of section 8.3.2)  : Advanced Data Preparation : Basic data preparation for classification : Properly using the treatment plan 
 
@@ -501,10 +464,10 @@ dCal_treated <- prepare(treatment_plan,
 
 
 
-00341_informalexample_8.10_of_section_8.3.2.R
+00340_informalexample_8.10_of_section_8.3.2.R
 
 
-```{r 00341_informalexample_8.10_of_section_8.3.2.R }
+```{r 00340_informalexample_8.10_of_section_8.3.2.R }
 # informalexample 8.10 of section 8.3.2 
 # (informalexample 8.10 of section 8.3.2)  : Advanced Data Preparation : Basic data preparation for classification : Properly using the treatment plan 
 
@@ -525,10 +488,10 @@ calcAUC(dCal_treated$Var200_catB, dCal_treated$churn)
 
 
 
-00342_example_8.6_of_section_8.4.1.R
+00341_example_8.6_of_section_8.4.1.R
 
 
-```{r 00342_example_8.6_of_section_8.4.1.R }
+```{r 00341_example_8.6_of_section_8.4.1.R }
 # example 8.6 of section 8.4.1 
 # (example 8.6 of section 8.4.1)  : Advanced Data Preparation : Advanced data preparation for classification : Using mkCrossFrameCExperiment() 
 # Title: Advanced data preparation for classification 
@@ -566,10 +529,10 @@ dTest_treated <- prepare(treatment_plan, 	# Note: 2
 
 
 
-00343_informalexample_8.11_of_section_8.4.1.R
+00342_informalexample_8.11_of_section_8.4.1.R
 
 
-```{r 00343_informalexample_8.11_of_section_8.4.1.R }
+```{r 00342_informalexample_8.11_of_section_8.4.1.R }
 # informalexample 8.11 of section 8.4.1 
 # (informalexample 8.11 of section 8.4.1)  : Advanced Data Preparation : Advanced data preparation for classification : Using mkCrossFrameCExperiment() 
 
@@ -590,10 +553,10 @@ calcAUC(dTest_treated$Var200_catB, dTest_treated$churn)
 
 
 
-00344_informalexample_8.12_of_section_8.4.2.R
+00343_informalexample_8.12_of_section_8.4.2.R
 
 
-```{r 00344_informalexample_8.12_of_section_8.4.2.R }
+```{r 00343_informalexample_8.12_of_section_8.4.2.R }
 # informalexample 8.12 of section 8.4.2 
 # (informalexample 8.12 of section 8.4.2)  : Advanced Data Preparation : Advanced data preparation for classification : Building a model 
 
@@ -638,10 +601,10 @@ score_frame %>%
 
 
 
-00345_example_8.7_of_section_8.4.2.R
+00344_example_8.7_of_section_8.4.2.R
 
 
-```{r 00345_example_8.7_of_section_8.4.2.R }
+```{r 00344_example_8.7_of_section_8.4.2.R }
 # example 8.7 of section 8.4.2 
 # (example 8.7 of section 8.4.2)  : Advanced Data Preparation : Advanced data preparation for classification : Building a model 
 # Title: Basic variable re-coding and selection 
@@ -671,10 +634,10 @@ model <- glm(f, data = dTrainAll_treated, family = binomial) 	# Note: 3
 
 
 
-00346_informalexample_8.13_of_section_8.4.2.R
+00345_informalexample_8.13_of_section_8.4.2.R
 
 
-```{r 00346_informalexample_8.13_of_section_8.4.2.R }
+```{r 00345_informalexample_8.13_of_section_8.4.2.R }
 # informalexample 8.13 of section 8.4.2 
 # (informalexample 8.13 of section 8.4.2)  : Advanced Data Preparation : Advanced data preparation for classification : Building a model 
 
@@ -723,10 +686,10 @@ var_aucs <- vapply(newvars, 	# Note: 5
 
 
 
-00347_informalexample_8.14_of_section_8.4.2.R
+00346_informalexample_8.14_of_section_8.4.2.R
 
 
-```{r 00347_informalexample_8.14_of_section_8.4.2.R }
+```{r 00346_informalexample_8.14_of_section_8.4.2.R }
 # informalexample 8.14 of section 8.4.2 
 # (informalexample 8.14 of section 8.4.2)  : Advanced Data Preparation : Advanced data preparation for classification : Building a model 
 
@@ -744,10 +707,10 @@ table(prediction = dTest_treated$glm_pred>=0.5,
 
 
 
-00348_informalexample_8.15_of_section_8.4.2.R
+00347_informalexample_8.15_of_section_8.4.2.R
 
 
-```{r 00348_informalexample_8.15_of_section_8.4.2.R }
+```{r 00347_informalexample_8.15_of_section_8.4.2.R }
 # informalexample 8.15 of section 8.4.2 
 # (informalexample 8.15 of section 8.4.2)  : Advanced Data Preparation : Advanced data preparation for classification : Building a model 
 
@@ -765,10 +728,10 @@ table(prediction = dTest_treated$glm_pred>0.15,
 
 
 
-00349_informalexample_8.16_of_section_8.4.2.R
+00348_informalexample_8.16_of_section_8.4.2.R
 
 
-```{r 00349_informalexample_8.16_of_section_8.4.2.R }
+```{r 00348_informalexample_8.16_of_section_8.4.2.R }
 # informalexample 8.16 of section 8.4.2 
 # (informalexample 8.16 of section 8.4.2)  : Advanced Data Preparation : Advanced data preparation for classification : Building a model 
 
@@ -788,10 +751,10 @@ WVPlots::PRTPlot(dTest_treated, "glm_pred", "churn",
 
 
 
-00350_informalexample_8.17_of_section_8.5.R
+00349_informalexample_8.17_of_section_8.5.R
 
 
-```{r 00350_informalexample_8.17_of_section_8.5.R }
+```{r 00349_informalexample_8.17_of_section_8.5.R }
 # informalexample 8.17 of section 8.5 
 # (informalexample 8.17 of section 8.5)  : Advanced Data Preparation : Preparing data for regression modeling 
 
@@ -809,10 +772,10 @@ knitr::kable(head(auto_mpg)) 	# Note: 1
 
 
 
-00351_informalexample_8.18_of_section_8.5.R
+00350_informalexample_8.18_of_section_8.5.R
 
 
-```{r 00351_informalexample_8.18_of_section_8.5.R }
+```{r 00350_informalexample_8.18_of_section_8.5.R }
 # informalexample 8.18 of section 8.5 
 # (informalexample 8.18 of section 8.5)  : Advanced Data Preparation : Preparing data for regression modeling 
 
@@ -859,10 +822,10 @@ str(auto_mpg[!complete.cases(auto_mpg), , drop = FALSE])
 
 
 
-00352_informalexample_8.19_of_section_8.5.R
+00351_informalexample_8.19_of_section_8.5.R
 
 
-```{r 00352_informalexample_8.19_of_section_8.5.R }
+```{r 00351_informalexample_8.19_of_section_8.5.R }
 # informalexample 8.19 of section 8.5 
 # (informalexample 8.19 of section 8.5)  : Advanced Data Preparation : Preparing data for regression modeling 
 
@@ -907,10 +870,10 @@ str(auto_mpg[!complete.cases(auto_mpg), , drop = FALSE])
 
 
 
-00353_informalexample_8.20_of_section_8.6.2.R
+00352_informalexample_8.20_of_section_8.6.2.R
 
 
-```{r 00353_informalexample_8.20_of_section_8.6.2.R }
+```{r 00352_informalexample_8.20_of_section_8.6.2.R }
 # informalexample 8.20 of section 8.6.2 
 # (informalexample 8.20 of section 8.6.2)  : Advanced Data Preparation : Mastering the vtreat package : Missing values 
 
@@ -934,10 +897,10 @@ knitr::kable(d)
 
 
 
-00354_informalexample_8.21_of_section_8.6.2.R
+00353_informalexample_8.21_of_section_8.6.2.R
 
 
-```{r 00354_informalexample_8.21_of_section_8.6.2.R }
+```{r 00353_informalexample_8.21_of_section_8.6.2.R }
 # informalexample 8.21 of section 8.6.2 
 # (informalexample 8.21 of section 8.6.2)  : Advanced Data Preparation : Mastering the vtreat package : Missing values 
 
@@ -955,10 +918,10 @@ vtreat::prepare(plan1, d) %.>%  	# Note: 1
 
 
 
-00355_informalexample_8.22_of_section_8.6.3.R
+00354_informalexample_8.22_of_section_8.6.3.R
 
 
-```{r 00355_informalexample_8.22_of_section_8.6.3.R }
+```{r 00354_informalexample_8.22_of_section_8.6.3.R }
 # informalexample 8.22 of section 8.6.3 
 # (informalexample 8.22 of section 8.6.3)  : Advanced Data Preparation : Mastering the vtreat package : Indicator variables 
 
@@ -995,10 +958,10 @@ vtreat::prepare(plan2, d)
 
 
 
-00356_informalexample_8.23_of_section_8.6.4.R
+00355_informalexample_8.23_of_section_8.6.4.R
 
 
-```{r 00356_informalexample_8.23_of_section_8.6.4.R }
+```{r 00355_informalexample_8.23_of_section_8.6.4.R }
 # informalexample 8.23 of section 8.6.4 
 # (informalexample 8.23 of section 8.6.4)  : Advanced Data Preparation : Mastering the vtreat package : Impact coding 
 
@@ -1031,10 +994,10 @@ vtreat::prepare(plan3, d)
 
 
 
-00357_informalexample_8.24_of_section_8.6.4.R
+00356_informalexample_8.24_of_section_8.6.4.R
 
 
-```{r 00357_informalexample_8.24_of_section_8.6.4.R }
+```{r 00356_informalexample_8.24_of_section_8.6.4.R }
 # informalexample 8.24 of section 8.6.4 
 # (informalexample 8.24 of section 8.6.4)  : Advanced Data Preparation : Mastering the vtreat package : Impact coding 
 
@@ -1057,10 +1020,10 @@ vtreat::prepare(plan4, d)
 
 
 
-00358_informalexample_8.25_of_section_8.6.5.R
+00357_informalexample_8.25_of_section_8.6.5.R
 
 
-```{r 00358_informalexample_8.25_of_section_8.6.5.R }
+```{r 00357_informalexample_8.25_of_section_8.6.5.R }
 # informalexample 8.25 of section 8.6.5 
 # (informalexample 8.25 of section 8.6.5)  : Advanced Data Preparation : Mastering the vtreat package : The treatment plan 
 
@@ -1079,10 +1042,10 @@ names(plan4)
 
 
 
-00359_informalexample_8.26_of_section_8.6.5.R
+00358_informalexample_8.26_of_section_8.6.5.R
 
 
-```{r 00359_informalexample_8.26_of_section_8.6.5.R }
+```{r 00358_informalexample_8.26_of_section_8.6.5.R }
 # informalexample 8.26 of section 8.6.5 
 # (informalexample 8.26 of section 8.6.5)  : Advanced Data Preparation : Mastering the vtreat package : The treatment plan 
 
@@ -1098,10 +1061,10 @@ plan4$scoreFrame
 
 
 
-00360_example_8.8_of_section_8.6.6.R
+00359_example_8.8_of_section_8.6.6.R
 
 
-```{r 00360_example_8.8_of_section_8.6.6.R }
+```{r 00359_example_8.8_of_section_8.6.6.R }
 # example 8.8 of section 8.6.6 
 # (example 8.8 of section 8.6.6)  : Advanced Data Preparation : Mastering the vtreat package : The cross-frame 
 # Title: An information-free data set 
@@ -1145,10 +1108,10 @@ head(d) 	# Note: 4
 
 
 
-00361_example_8.9_of_section_8.6.6.R
+00360_example_8.9_of_section_8.6.6.R
 
 
-```{r 00361_example_8.9_of_section_8.6.6.R }
+```{r 00360_example_8.9_of_section_8.6.6.R }
 # example 8.9 of section 8.6.6 
 # (example 8.9 of section 8.6.6)  : Advanced Data Preparation : Mastering the vtreat package : The cross-frame 
 # Title: The dangers of re-using data 
@@ -1212,10 +1175,10 @@ sigr::wrapFTest(res1, "x_bad_catN", "y") 	# Note: 6
 
 
 
-00362_example_8.10_of_section_8.6.6.R
+00361_example_8.10_of_section_8.6.6.R
 
 
-```{r 00362_example_8.10_of_section_8.6.6.R }
+```{r 00361_example_8.10_of_section_8.6.6.R }
 # example 8.10 of section 8.6.6 
 # (example 8.10 of section 8.6.6)  : Advanced Data Preparation : Mastering the vtreat package : The cross-frame 
 # Title: Using mkCrossFrameNExperiment() 

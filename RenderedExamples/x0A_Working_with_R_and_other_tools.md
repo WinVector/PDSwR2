@@ -4,7 +4,7 @@ output: github_document
 
 
 
-00466_example_A.1_of_section_A.2.R
+00465_example_A.1_of_section_A.2.R
 
 
 
@@ -136,7 +136,7 @@ vec
 
 
 
-00467_informalexample_A.3_of_section_A.2.1.R
+00466_informalexample_A.3_of_section_A.2.1.R
 
 
 
@@ -168,7 +168,7 @@ print(x)
 
 
 
-00468_example_A.2_of_section_A.2.1.R
+00467_example_A.2_of_section_A.2.1.R
 
 
 
@@ -219,7 +219,7 @@ divide(denominator<-2,numerator<-1)  # yields 2, a wrong answer
 
 
 
-00469_example_A.3_of_section_A.2.1.R
+00468_example_A.3_of_section_A.2.1.R
 
 
 
@@ -256,7 +256,7 @@ print(x)
 
 
 
-00470_example_A.4_of_section_A.2.1.R
+00469_example_A.4_of_section_A.2.1.R
 
 
 
@@ -297,7 +297,7 @@ c(T,T,F,F) | c(T,F,T,F)
 
 
 
-00471_informalexample_A.4_of_section_A.2.1.R
+00470_informalexample_A.4_of_section_A.2.1.R
 
 
 
@@ -320,29 +320,7 @@ add(1,2)
 
 
 
-00472_informalexample_A.5_of_section_A.2.1.R
-
-
-
-```r
-# informalexample A.5 of section A.2.1 
-# (informalexample A.5 of section A.2.1)  : Working with R and other tools : Starting with R : Primary features of R 
-
-add(1,'fred')
-```
-
-```
-## Error in a + b: non-numeric argument to binary operator
-```
-
-```r
-## Error in a + b : non-numeric argument to binary operator
-```
-
-
-
-
-00473_example_A.5_of_section_A.2.1.R
+00472_example_A.5_of_section_A.2.1.R
 
 
 
@@ -376,7 +354,7 @@ print(vec)
 
 
 
-00474_informalexample_A.6_of_section_A.2.2.R
+00473_informalexample_A.6_of_section_A.2.2.R
 
 
 
@@ -400,7 +378,7 @@ print(vec)
 
 
 
-00475_example_A.6_of_section_A.2.2.R
+00474_example_A.6_of_section_A.2.2.R
 
 
 
@@ -482,7 +460,7 @@ x[c('a','a','b','b')]
 
 
 
-00476_example_A.7_of_section_A.2.2.R
+00475_example_A.7_of_section_A.2.2.R
 
 
 
@@ -518,7 +496,7 @@ factor('apple',levels=c('red','orange'))
 
 
 
-00477_example_A.8_of_section_A.2.2.R
+00476_example_A.8_of_section_A.2.2.R
 
 
 
@@ -569,7 +547,7 @@ print(predict(m,
 
 
 
-00478_example_A.9_of_section_A.2.3.R
+00477_example_A.9_of_section_A.2.3.R
 
 
 
@@ -622,7 +600,7 @@ cars <- read.table(mkCon('../UCICar/car.data.csv'), 	# Note: 4
 
 
 
-00479_informalexample_A.7_of_section_A.3.1.R
+00478_informalexample_A.7_of_section_A.3.1.R
 
 
 

@@ -4,7 +4,7 @@ output: github_document
 
 
 
-00443_informalexample_11.1_of_section_11.2.1.R
+00442_informalexample_11.1_of_section_11.2.1.R
 
 
 
@@ -47,7 +47,7 @@ rmarkdown::render("../Buzz/Buzz_score_example.Rmd", rmarkdown::html_document())
 ```
 
 ```
-## /usr/local/bin/pandoc +RTS -K512m -RTS Buzz_score_example.utf8.md --to html4 --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash --output Buzz_score_example.html --smart --email-obfuscation none --self-contained --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/3.5/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --variable 'theme:bootstrap' --include-in-header /var/folders/7q/h_jp2vj131g5799gfnpzhdp80000gn/T//RtmpExtKRL/rmarkdown-str15cf546aa59aa.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+## /usr/local/bin/pandoc +RTS -K512m -RTS Buzz_score_example.utf8.md --to html4 --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash --output Buzz_score_example.html --smart --email-obfuscation none --self-contained --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/3.5/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --variable 'theme:bootstrap' --include-in-header /var/folders/7q/h_jp2vj131g5799gfnpzhdp80000gn/T//RtmpkmUcPm/rmarkdown-str180a72f1f6c0.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
 ```
 
 ```
@@ -58,7 +58,7 @@ rmarkdown::render("../Buzz/Buzz_score_example.Rmd", rmarkdown::html_document())
 
 
 
-00448_example_11.6_of_section_11.3.1.R
+00447_example_11.6_of_section_11.3.1.R
 
 
 
@@ -84,7 +84,7 @@ pseudoLog10 <- function(x) { asinh(x/2)/log(10) }
 
 
 
-00449_example_11.7_of_section_11.3.1.R
+00448_example_11.7_of_section_11.3.1.R
 
 
 
@@ -108,7 +108,7 @@ addone <- function(x) { x + 1 }
 
 
 
-00450_example_11.8_of_section_11.3.1.R
+00449_example_11.8_of_section_11.3.1.R
 
 
 
@@ -124,7 +124,7 @@ addtwo <- function(x) { x + 2 }
 
 
 
-00463_example_11.17_of_section_11.4.2.R
+00462_example_11.17_of_section_11.4.2.R
 
 
 
