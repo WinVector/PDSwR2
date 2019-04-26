@@ -1,5 +1,5 @@
-# example 11.16 of section 11.4.1 
-# (example 11.16 of section 11.4.1)  : Documentation and deployment : Deploying models : Deploying models as R HTTP services 
+# example 11.15 of section 11.4.2 
+# (example 11.15 of section 11.4.2)  : Documentation and deployment : Deploying models : Deploying models as R HTTP services 
 # Title: Calling the Buzz HTTP service 
 
 library("RCurl")
@@ -27,5 +27,5 @@ tab <- table(pred = scores[, 2]>0.5, truth = data$buzz)
 knitr::kable(tab)
 
 # Note 1: 
-#   Wrap the sevices as a function. 
+#   Wrap the services as a function. 
 

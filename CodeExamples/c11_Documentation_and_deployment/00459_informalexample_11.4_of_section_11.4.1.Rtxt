@@ -1,7 +1,0 @@
-# informalexample 11.4 of section 11.4.1 
-# (informalexample 11.4 of section 11.4.1)  : Documentation and deployment : Deploying models : Deploying models as R HTTP services 
-
-library("plumber")
-r <- plumb("plumber.R")
-r$run(port=8000)
-

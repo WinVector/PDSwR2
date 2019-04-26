@@ -1,5 +1,5 @@
-# example 11.15 of section 11.4.1 
-# (example 11.15 of section 11.4.1)  : Documentation and deployment : Deploying models : Deploying models as R HTTP services 
+# example 11.14 of section 11.4.2 
+# (example 11.14 of section 11.4.2)  : Documentation and deployment : Deploying models : Deploying models as R HTTP services 
 # Title: Buzz model as an R-based HTTP service 
 
 library("randomForest") 	# Note: 1 

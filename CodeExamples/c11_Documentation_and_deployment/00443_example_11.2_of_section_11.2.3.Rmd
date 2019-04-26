@@ -1,0 +1,16 @@
+# example 11.2 of section 11.2.3 
+# (example 11.2 of section 11.2.3)  : Documentation and deployment : Using R markdown to produce milestone documentation : Using knitr to document the buzz data and produce the model 
+# Title: Using the system() command to compute a file hash 
+
+```{r dataprep}
+infile <- "TomsHardware-Relative-Sigma-500.data.txt"
+paste('checked at', date())
+system(paste('shasum', infile), intern=T)  	# Note: 1 
+buzzdata <- read.table(infile, header = FALSE, sep = ",")
+...
+
+# Note 1: 
+#   system() functionRun a system-installed cryptographic hash 
+#   program (this program is outside of R’s install 
+#   image). 
+

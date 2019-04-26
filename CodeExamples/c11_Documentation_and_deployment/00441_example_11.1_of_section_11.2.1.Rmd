@@ -51,7 +51,7 @@ WVPlots::ROCPlot(buzztest, "prediction",
 #   Free markdown text. 
 
 # Note 5: 
-#   Another R code block. In this case we are loading an already produced randomForest model and test data. 
+#   Another R code block. In this case we are loading an already produced random Forest model and test data. 
 
 # Note 6: 
 #   More free test. 
