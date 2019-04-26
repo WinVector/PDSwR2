@@ -2876,7 +2876,17 @@ ChickSummary <- cdata::unpivot_to_blocks( 	# Note: 1
   nameForNewKeyColumn = "measurement",
   nameForNewValueColumn = "value",
   columnsToTakeFrom = c("count", "weight"))
+```
 
+```
+## Warning in data.table::melt.data.table(data = data, id.vars =
+## columnsToCopy, : 'measure.vars' [count, weight] are not all of the same
+## type. By order of hierarchy, the molten data value column will be of type
+## 'double'. All measure variables not of type 'double' will be coerced too.
+## Check DETAILS in ?melt.data.table for more on coercion.
+```
+
+```r
 ChickSummary$q1_weight[ChickSummary$measurement=="count"] <- NA 	# Note: 2 
 ChickSummary$q2_weight[ChickSummary$measurement=="count"] <- NA
 CW <- ChickWeight

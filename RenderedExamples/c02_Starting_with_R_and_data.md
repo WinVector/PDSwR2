@@ -846,7 +846,13 @@ table(d$Purpose, d$Good_Loan)
 library("DBI")
 library("dplyr") 	# Note: 1 
 library("rquery")
+```
 
+```
+## Warning: package 'rquery' was built under R version 3.5.2
+```
+
+```r
 dlist <- readRDS("../PUMS/PUMSsample.RDS")  	# Note: 2 
 db <- dbConnect(RSQLite::SQLite(), ":memory:") 	# Note: 3 
 dbWriteTable(db, "dpus", as.data.frame(dlist$ss16pus)) 	# Note: 4 
