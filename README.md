@@ -2,7 +2,7 @@
 
 
 
-# New Example code and data for "Practical Data Science with R" by Nina Zumel and John Mount.
+# Example code and data for "Practical Data Science with R" 2nd Edition by Nina Zumel and John Mount.
 
 
 We are very proud to present early access to our book [*Practical Data Science with R 2nd Edition*](https://www.manning.com/books/practical-data-science-with-r-second-edition).
@@ -34,7 +34,7 @@ learning, data science and R books with the following features:
     in the context and order a practitioner worries about them. For
     example we emphasize construction of predictive models and model
     evaluation and prediction over the more standard topics of summary
-    statistics and packaged procedures (such as ANOVA).
+    statistics and packaged procedures.
 
 In support of [*Practical Data Science with R 2nd Edition*](https://www.manning.com/books/practical-data-science-with-r-second-edition)
 we are providing:
@@ -114,6 +114,8 @@ Includes works derived from others (data sets) remain controlled by them.  We ar
 ## Download
 
 You can download all of the examples and code by following the "git clone" or "download zip" instructions at our master repository: [github.com/WinVector/PDSwR2](https://github.com/WinVector/PDSwR2).
+
+We share some installation instruction [here](https://github.com/WinVector/PDSwR2/blob/master/Starting_with_R_and_Other_Tools.pdf).
 
 ## License for additional documentation, notes, code, and example data: 
 
