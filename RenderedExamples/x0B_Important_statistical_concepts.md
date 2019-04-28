@@ -4,7 +4,7 @@ output: github_document
 
 
 
-00477_example_B.1_of_section_B.1.1.R
+00476_example_B.1_of_section_B.1.1.R
 
 
 
@@ -26,12 +26,12 @@ f <- dnorm(x)                           # normal with mean 0 and sd 1
 ggplot(data.frame(x=x,y=f), aes(x=x,y=y)) + geom_line()
 ```
 
-![plot of chunk 00477_example_B.1_of_section_B.1.1.R](figure/00477_example_B.1_of_section_B.1.1.R-1.png)
+![plot of chunk 00476_example_B.1_of_section_B.1.1.R](figure/00476_example_B.1_of_section_B.1.1.R-1.png)
 
 
 
 
-00478_example_B.2_of_section_B.1.1.R
+00477_example_B.2_of_section_B.1.1.R
 
 
 
@@ -51,12 +51,12 @@ ggplot(data.frame(x=u), aes(x=x)) + geom_density() +
    geom_line(data=data.frame(x=x,y=f), aes(x=x,y=y), linetype=2)
 ```
 
-![plot of chunk 00478_example_B.2_of_section_B.1.1.R](figure/00478_example_B.2_of_section_B.1.1.R-1.png)
+![plot of chunk 00477_example_B.2_of_section_B.1.1.R](figure/00477_example_B.2_of_section_B.1.1.R-1.png)
 
 
 
 
-00479_example_B.3_of_section_B.1.1.R
+00478_example_B.3_of_section_B.1.1.R
 
 
 
@@ -106,7 +106,7 @@ pnorm(2) - pnorm(-2)
 
 
 
-00480_example_B.4_of_section_B.1.1.R
+00479_example_B.4_of_section_B.1.1.R
 
 
 
@@ -171,12 +171,12 @@ ggplot(nframe, aes(x=x,y=y)) + geom_line() +
   geom_text(x=line, y=0, label=xstr, vjust=1)
 ```
 
-![plot of chunk 00480_example_B.4_of_section_B.1.1.R](figure/00480_example_B.4_of_section_B.1.1.R-1.png)
+![plot of chunk 00479_example_B.4_of_section_B.1.1.R](figure/00479_example_B.4_of_section_B.1.1.R-1.png)
 
 
 
 
-00481_example_B.5_of_section_B.1.3.R
+00480_example_B.5_of_section_B.1.3.R
 
 
 
@@ -193,7 +193,7 @@ mean(u)
 ```
 
 ```
-## [1] 1.527135
+## [1] 1.515542
 ```
 
 ```r
@@ -202,7 +202,7 @@ median(u)
 ```
 
 ```
-## [1] 0.9610829
+## [1] 0.9583837
 ```
 
 ```r
@@ -213,7 +213,7 @@ mean(log(u))
 ```
 
 ```
-## [1] -0.05634575
+## [1] -0.05253136
 ```
 
 ```r
@@ -224,7 +224,7 @@ sd(log(u))
 ```
 
 ```
-## [1] 1.001825
+## [1] 0.9830518
 ```
 
 ```r
@@ -266,12 +266,12 @@ nplot <- function(plist) {
 nplot(list(p1, p2))
 ```
 
-![plot of chunk 00481_example_B.5_of_section_B.1.3.R](figure/00481_example_B.5_of_section_B.1.3.R-1.png)
+![plot of chunk 00480_example_B.5_of_section_B.1.3.R](figure/00480_example_B.5_of_section_B.1.3.R-1.png)
 
 
 
 
-00482_example_B.6_of_section_B.1.3.R
+00481_example_B.6_of_section_B.1.3.R
 
 
 
@@ -331,12 +331,12 @@ ggplot(lnormframe, aes(x=x,y=y)) + geom_line() +
   geom_text(x=line, y=0, label=xstr, hjust= 0, vjust=1)
 ```
 
-![plot of chunk 00482_example_B.6_of_section_B.1.3.R](figure/00482_example_B.6_of_section_B.1.3.R-1.png)
+![plot of chunk 00481_example_B.6_of_section_B.1.3.R](figure/00481_example_B.6_of_section_B.1.3.R-1.png)
 
 
 
 
-00483_example_B.7_of_section_B.1.4.R
+00482_example_B.7_of_section_B.1.4.R
 
 
 
@@ -380,12 +380,12 @@ ggplot(flips, aes(x=number.of.heads, y=probability)) +
   geom_line(aes(color=coin.type))
 ```
 
-![plot of chunk 00483_example_B.7_of_section_B.1.4.R](figure/00483_example_B.7_of_section_B.1.4.R-1.png)
+![plot of chunk 00482_example_B.7_of_section_B.1.4.R](figure/00482_example_B.7_of_section_B.1.4.R-1.png)
 
 
 
 
-00484_example_B.8_of_section_B.1.4.R
+00483_example_B.8_of_section_B.1.4.R
 
 
 
@@ -422,7 +422,7 @@ ggplot(data.frame(number.of.girls=numFemales, dummy=1),
   scale_y_continuous("number of classrooms")
 ```
 
-![plot of chunk 00484_example_B.8_of_section_B.1.4.R](figure/00484_example_B.8_of_section_B.1.4.R-1.png)
+![plot of chunk 00483_example_B.8_of_section_B.1.4.R](figure/00483_example_B.8_of_section_B.1.4.R-1.png)
 
 ```r
 # Note 1: 
@@ -439,7 +439,7 @@ ggplot(data.frame(number.of.girls=numFemales, dummy=1),
 
 
 
-00485_example_B.9_of_section_B.1.4.R
+00484_example_B.9_of_section_B.1.4.R
 
 
 
@@ -470,7 +470,7 @@ prettyprint_flips(flips_v1)
 ```
 ## outcome
 ## heads tails 
-##   754   246
+##   737   263
 ```
 
 ```r
@@ -483,7 +483,7 @@ prettyprint_flips(flips_v2)
 ```
 ## outcome
 ## heads tails 
-##   745   255
+##   768   232
 ```
 
 ```r
@@ -495,7 +495,7 @@ prettyprint_flips(flips_v2)
 
 
 
-00486_example_B.10_of_section_B.1.4.R
+00485_example_B.10_of_section_B.1.4.R
 
 
 
@@ -576,7 +576,7 @@ c(left.edge, right.edge)
 
 
 
-00487_example_B.11_of_section_B.1.4.R
+00486_example_B.11_of_section_B.1.4.R
 
 
 
@@ -632,7 +632,7 @@ pbinom(53, nflips, 0.5)
 
 
 
-00489_example_B.12_of_section_B.2.2.R
+00488_example_B.12_of_section_B.2.2.R
 
 
 
@@ -663,7 +663,7 @@ d <- rbind( 	# Note: 1
 
 
 
-00490_example_B.13_of_section_B.2.2.R
+00489_example_B.13_of_section_B.2.2.R
 
 
 
@@ -693,7 +693,7 @@ print(tab)
 
 
 
-00491_example_B.14_of_section_B.2.2.R
+00490_example_B.14_of_section_B.2.2.R
 
 
 
@@ -737,7 +737,7 @@ print(commonRate)
 
 
 
-00492_example_B.15_of_section_B.2.2.R
+00491_example_B.15_of_section_B.2.2.R
 
 
 
@@ -779,7 +779,7 @@ fisher.test(tab)
 
 
 
-00493_example_B.16_of_section_B.2.2.R
+00492_example_B.16_of_section_B.2.2.R
 
 
 
@@ -827,7 +827,7 @@ print(pbinom( 	# Note: 1
 
 
 
-00494_example_B.17_of_section_B.2.2.R
+00493_example_B.17_of_section_B.2.2.R
 
 
 
@@ -869,7 +869,7 @@ print(pbeta( 	# Note: 1
 
 
 
-00495_example_B.18_of_section_B.2.2.R
+00494_example_B.18_of_section_B.2.2.R
 
 
 
@@ -889,12 +889,12 @@ ggplot(dat=plt) +
    geom_vline(aes(xintercept=aConversionRate),linetype=2)
 ```
 
-![plot of chunk 00495_example_B.18_of_section_B.2.2.R](figure/00495_example_B.18_of_section_B.2.2.R-1.png)
+![plot of chunk 00494_example_B.18_of_section_B.2.2.R](figure/00494_example_B.18_of_section_B.2.2.R-1.png)
 
 
 
 
-00496_example_B.19_of_section_B.2.3.R
+00495_example_B.19_of_section_B.2.3.R
 
 
 
@@ -922,7 +922,7 @@ print(est)
 
 
 
-00497_example_B.20_of_section_B.2.3.R
+00496_example_B.20_of_section_B.2.3.R
 
 
 
@@ -1014,7 +1014,7 @@ print(errorProb(0.045,0.004,size))
 
 
 
-00498_example_B.21_of_section_B.2.4.R
+00497_example_B.21_of_section_B.2.4.R
 
 
 
@@ -1050,7 +1050,7 @@ print(with(d,cor(EarnedIncome,CapitalGains)))
 
 
 
-00499_example_B.22_of_section_B.2.4.R
+00498_example_B.22_of_section_B.2.4.R
 
 
 
@@ -1098,7 +1098,7 @@ with(d,cor.test(EarnedIncome,CapitalGains,method='spearman'))
 
 
 
-00500_example_B.23_of_section_B.3.1.R
+00499_example_B.23_of_section_B.3.1.R
 
 
 
@@ -1139,7 +1139,7 @@ print(with(veryHighIncome,cor.test(EarnedIncome,CapitalGains,
 
 
 
-00501_example_B.24_of_section_B.3.1.R
+00500_example_B.24_of_section_B.3.1.R
 
 
 
@@ -1154,7 +1154,7 @@ ggplot(data=d,aes(x=EarnedIncome,y=CapitalGains)) +
    coord_cartesian(xlim=c(0,max(d)),ylim=c(0,max(d))) 	# Note: 1 
 ```
 
-![plot of chunk 00501_example_B.24_of_section_B.3.1.R](figure/00501_example_B.24_of_section_B.3.1.R-1.png)
+![plot of chunk 00500_example_B.24_of_section_B.3.1.R](figure/00500_example_B.24_of_section_B.3.1.R-1.png)
 
 ```r
 ggplot(data=veryHighIncome,aes(x=EarnedIncome,y=CapitalGains)) +
@@ -1167,7 +1167,7 @@ ggplot(data=veryHighIncome,aes(x=EarnedIncome,y=CapitalGains)) +
    coord_cartesian(xlim=c(0,max(d)),ylim=c(0,max(d))) 	# Note: 2 
 ```
 
-![plot of chunk 00501_example_B.24_of_section_B.3.1.R](figure/00501_example_B.24_of_section_B.3.1.R-2.png)
+![plot of chunk 00500_example_B.24_of_section_B.3.1.R](figure/00500_example_B.24_of_section_B.3.1.R-2.png)
 
 ```r
 print(with(subset(d,EarnedIncome+CapitalGains<500000),
@@ -1213,7 +1213,7 @@ print(with(subset(d,EarnedIncome+CapitalGains<500000),
 
 
 
-00502_example_B.25_of_section_B.3.2.R
+00501_example_B.25_of_section_B.3.2.R
 
 
 
@@ -1276,7 +1276,7 @@ head(s)
 
 
 
-00503_example_B.26_of_section_B.3.2.R
+00502_example_B.26_of_section_B.3.2.R
 
 
 
@@ -1319,7 +1319,7 @@ write.table(s,'synth.csv',sep=',',
 
 
 
-00504_example_B.27_of_section_B.3.2.R
+00503_example_B.27_of_section_B.3.2.R
 
 
 
@@ -1395,7 +1395,7 @@ print(summary(glm(data=s,
 
 
 
-00505_example_B.28_of_section_B.3.2.R
+00504_example_B.28_of_section_B.3.2.R
 
 
 

@@ -1,5 +1,5 @@
 # example A.4 of section A.2.1 
-# (example A.4 of section A.2.1)  : Working with R and other tools : Starting with R : Primary features of R 
+# (example A.4 of section A.2.1)  : Starting with R and other tools : Starting with R : Primary features of R 
 # Title: R truth tables for Boolean operators 
 
 c(T,T,F,F) == c(T,F,T,F)

@@ -1,5 +1,5 @@
 # example A.8 of section A.2.2 
-# (example A.8 of section A.2.2)  : Working with R and other tools : Starting with R : Primary R data types 
+# (example A.8 of section A.2.2)  : Starting with R and other tools : Starting with R : Primary R data types 
 # Title: Confirm lm() encodes new strings correctly. 
 
 d <- data.frame(x=factor(c('a','b','c')),

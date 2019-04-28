@@ -1,5 +1,5 @@
 # example A.6 of section A.2.2 
-# (example A.6 of section A.2.2)  : Working with R and other tools : Starting with R : Primary R data types 
+# (example A.6 of section A.2.2)  : Starting with R and other tools : Starting with R : Primary R data types 
 # Title: Examples of R indexing operators 
 
 x <- list('a'=6,b='fred')
