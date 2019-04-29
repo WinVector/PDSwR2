@@ -10,6 +10,6 @@
 /usr/local/bin/R -e 'knitr::knit("c09_Unsupervised_methods.Rmd")'
 /usr/local/bin/R -e 'knitr::knit("c10_Exploring_advanced_methods.Rmd")'
 /usr/local/bin/R -e 'knitr::knit("c11_Documentation_and_deployment.Rmd")'
-/usr/local/bin/R -e 'knitr::knit("x0A_Working_with_R_and_other_tools.Rmd")'
+/usr/local/bin/R -e 'knitr::knit("x0A_Starting_with_R_and_other_tools.Rmd")'
 /usr/local/bin/R -e 'knitr::knit("x0B_Important_statistical_concepts.Rmd")'
 

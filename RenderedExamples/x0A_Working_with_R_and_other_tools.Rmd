@@ -1,4 +1,0 @@
----
-output: github_document
----
-

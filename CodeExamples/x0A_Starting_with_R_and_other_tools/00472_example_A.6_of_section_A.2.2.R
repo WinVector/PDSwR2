@@ -2,7 +2,7 @@
 # (example A.6 of section A.2.2)  : Starting with R and other tools : Starting with R : Primary R data types 
 # Title: Examples of R indexing operators 
 
-x <- list('a'=6,b='fred')
+x <- list('a' = 6, b = 'fred')
 names(x)
 ## [1] "a" "b"
 x$a
@@ -13,7 +13,7 @@ x[['a']]
 ## $a
 ## [1] 6
 
-x[c('a','a','b','b')]
+x[c('a', 'a', 'b', 'b')]
 ## $a
 ## [1] 6
 ##
