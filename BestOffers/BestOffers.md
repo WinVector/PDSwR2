@@ -242,10 +242,10 @@ ops %.>%
     ##     "predicted_offer_affinity"
     ##    FROM
     ##     "offers"
-    ##    ) tsql_40064475537614448402_0000000000
-    ##  ) tsql_40064475537614448402_0000000001
+    ##    ) tsql_57620133138790804789_0000000000
+    ##  ) tsql_57620133138790804789_0000000001
     ##  WHERE "simple_rank" <= 2
-    ## ) tsql_40064475537614448402_0000000002 ORDER BY "user_name", "simple_rank"
+    ## ) tsql_57620133138790804789_0000000002 ORDER BY "user_name", "simple_rank"
 
 The SQL is long, and sequencing or composition is expressed by inner nesting (so hard for humans to read or to create).
 
