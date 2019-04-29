@@ -1,7 +1,7 @@
 BestOffers
 ================
 
-We are going to show an example using a [relational](https://en.wikipedia.org/wiki/Relational_database) or [Codd-style](https://en.wikipedia.org/wiki/Relational_model) of data manipulation.
+[This note](https://github.com/WinVector/PDSwR2/blob/master/BestOffers/BestOffers.md) will work an example an example using a [relational](https://en.wikipedia.org/wiki/Relational_database) or [Codd-style](https://en.wikipedia.org/wiki/Relational_model) of data manipulation.
 
 Our example scenario is: find the best two product offers for each of our customers.
 
@@ -16,7 +16,11 @@ library("rquery")
     ## Warning: package 'rquery' was built under R version 3.5.2
 
 ``` r
+# Use DBI to connect to a database
+# In this case it creates a new in-memory MonetDBLite
 raw_connection <- DBI::dbConnect(MonetDBLite::MonetDBLite())
+
+# build an rquery wrapper of the connection
 dbopts <- rq_connection_tests(raw_connection)
 db <- rquery_db_info(
   connection = raw_connection,
@@ -27,6 +31,7 @@ db <- rquery_db_info(
 Now we set up our example data. In real applications the data is usually already in the database, which is why you go connect to the database.
 
 ``` r
+# copy example data into the database
 data_handle <- rq_copy_to(
   db, 
   'offers',
@@ -242,10 +247,10 @@ ops %.>%
     ##     "predicted_offer_affinity"
     ##    FROM
     ##     "offers"
-    ##    ) tsql_57620133138790804789_0000000000
-    ##  ) tsql_57620133138790804789_0000000001
+    ##    ) tsql_65637679513721707606_0000000000
+    ##  ) tsql_65637679513721707606_0000000001
     ##  WHERE "simple_rank" <= 2
-    ## ) tsql_57620133138790804789_0000000002 ORDER BY "user_name", "simple_rank"
+    ## ) tsql_65637679513721707606_0000000002 ORDER BY "user_name", "simple_rank"
 
 The SQL is long, and sequencing or composition is expressed by inner nesting (so hard for humans to read or to create).
 
