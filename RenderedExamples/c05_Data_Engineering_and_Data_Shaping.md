@@ -16,7 +16,11 @@ library("ggplot2") 	# Note: 1
 ```
 
 ```
-## Warning: package 'ggplot2' was built under R version 3.5.2
+## Registered S3 methods overwritten by 'ggplot2':
+##   method         from 
+##   [.quosures     rlang
+##   c.quosures     rlang
+##   print.quosures rlang
 ```
 
 ```r
@@ -172,13 +176,7 @@ head(iris_base)
 # (informalexample 5.9 of section 5.1.1)  : Data Engineering and Data Shaping : Data Selection : Subsetting Rows and Columns 
 
 library("data.table")
-```
 
-```
-## Warning: package 'data.table' was built under R version 3.5.2
-```
-
-```r
 iris_data.table <- as.data.table(iris) 	# Note: 1 
 
 columns_we_want <- c("Petal.Length", "Petal.Width", "Species")
@@ -288,10 +286,6 @@ dt[, ..x] 	# Note: 5
 # (informalexample 5.11 of section 5.1.1)  : Data Engineering and Data Shaping : Data Selection : Subsetting Rows and Columns 
 
 library("dplyr")
-```
-
-```
-## Warning: package 'dplyr' was built under R version 3.5.2
 ```
 
 ```
@@ -967,10 +961,6 @@ library("wrapr") 	# Note: 1
 ```
 
 ```
-## Warning: package 'wrapr' was built under R version 3.5.2
-```
-
-```
 ## 
 ## Attaching package: 'wrapr'
 ```
@@ -1113,10 +1103,6 @@ head(airquality_with_date2)
 # (informalexample 5.41 of section 5.2.1)  : Data Engineering and Data Shaping : Basic Data Transforms : Add new columns 
 
 library("zoo")
-```
-
-```
-## Warning: package 'zoo' was built under R version 3.5.2
 ```
 
 ```
@@ -2615,6 +2601,12 @@ library("xts")
 ```
 
 ```
+## Registered S3 method overwritten by 'xts':
+##   method     from
+##   as.zoo.xts zoo
+```
+
+```
 ## 
 ## Attaching package: 'xts'
 ```
@@ -2740,13 +2732,7 @@ seatbelts_long3 <- unpivot_to_blocks(
 # (informalexample 5.138 of section 5.5.1)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from wide to tall form 
 
 library("tidyr")
-```
 
-```
-## Warning: package 'tidyr' was built under R version 3.5.2
-```
-
-```r
 seatbelts_long1 <- gather(
   Seatbelts, 
   key = victim_type, 

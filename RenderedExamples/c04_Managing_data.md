@@ -17,10 +17,6 @@ library(dplyr)
 ```
 
 ```
-## Warning: package 'dplyr' was built under R version 3.5.2
-```
-
-```
 ## 
 ## Attaching package: 'dplyr'
 ```
@@ -158,13 +154,6 @@ varlist <- setdiff(colnames(customer_data), c("custid", "health_ins"))
 # Title: Creating and applying a treatment plan 
 
 library(vtreat)
-```
-
-```
-## Warning: package 'vtreat' was built under R version 3.5.2
-```
-
-```r
 treatment_plan <- design_missingness_treatment(customer_data, varlist = varlist)
 training_prepared <- prepare(treatment_plan, customer_data)
 ```

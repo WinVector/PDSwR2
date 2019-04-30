@@ -27,8 +27,8 @@ rgroup <- base::sample(c('train', 'calibrate', 'test'), 	# Note: 6
    nrow(d), 
    prob = c(0.8, 0.1, 0.1),
    replace = TRUE)
-dTrain <- d[rgroup=='train', , drop = FALSE]
-dCal <- d[rgroup=='calibrate', , drop = FALSE]
+dTrain <- d[rgroup == 'train', , drop = FALSE]
+dCal <- d[rgroup == 'calibrate', , drop = FALSE]
 dTrainAll <- d[rgroup %in% c('train', 'calibrate'), , drop = FALSE]
 dTest <- d[rgroup == 'test', , drop = FALSE]
                                                 
@@ -111,7 +111,7 @@ knitr::kable(outcome_summary)
 # informalexample 8.2 of section 8.2.1 
 # (informalexample 8.2 of section 8.2.1)  : Advanced Data Preparation : KDD and KDD Cup 2009 : Getting started with KDD Cup 2009 data 
 
-outcome_summary["1"]/sum(outcome_summary) 	# Note: 1 
+outcome_summary["1"] / sum(outcome_summary) 	# Note: 1 
 ```
 
 ```
@@ -124,7 +124,7 @@ outcome_summary["1"]/sum(outcome_summary) 	# Note: 1
 # 0.07347764
 
 # Note 1: 
-#   Estimate observed churn rate or prevelance. 
+#   Estimate observed churn rate or prevalence. 
 ```
 
 
@@ -255,13 +255,7 @@ length(unique(dTrainAll$Var200))
 # Title: Basic data preparation for classification 
 
 library("vtreat")  	# Note: 1 
-```
 
-```
-## Warning: package 'vtreat' was built under R version 3.5.2
-```
-
-```r
 (parallel_cluster <- parallel::makeCluster(parallel::detectCores())) 	# Note: 2 
 ```
 
@@ -420,9 +414,9 @@ t(subset(score_frame, origName == "Var218"))
 ##                   389            390            488                
 ## varName           "Var218_catP"  "Var218_catB"  "Var218_lev_x_cJvF"
 ## varMoves          "TRUE"         "TRUE"         "TRUE"             
-## rsq               "0.010868743"  "0.012237170"  "0.005295590"      
-## sig               "1.214124e-51" "6.445785e-58" "4.902238e-26"     
-## needsSplit        " TRUE"        " TRUE"        "FALSE"            
+## rsq               "0.010955895"  "0.012709736"  "0.005295590"      
+## sig               "4.836496e-52" "4.394981e-60" "4.902238e-26"     
+## needsSplit        "TRUE"         "TRUE"         "FALSE"            
 ## extraModelDegrees "2"            "2"            "0"                
 ## origName          "Var218"       "Var218"       "Var218"           
 ## code              "catP"         "catB"         "lev"              
@@ -497,7 +491,7 @@ head(comparison)
 # informalexample 8.7 of section 8.3.1 
 # (informalexample 8.7 of section 8.3.1)  : Advanced Data Preparation : Basic data preparation for classification : The variable score frame 
 
-treatmet_plan_2 <- design_missingness_treatment(dTrain, varlist=vars) 	# Note: 1 
+treatmet_plan_2 <- design_missingness_treatment(dTrain, varlist = vars) 	# Note: 1 
 dtrain_2 <- prepare(treatmet_plan_2, dTrain)                           	# Note: 2 
 head(dtrain_2$Var218)
 ```
@@ -509,13 +503,13 @@ head(dtrain_2$Var218)
 ```r
 ## [1] "cJvF"      "_invalid_" "UYBR"      "UYBR"      "UYBR"      "UYBR"
 
-model <- glm(churn==1 ~ Var218,         	# Note: 3 
-            data=dtrain_2, 
-            family="binomial")
+model <- glm(churn ==1  ~ Var218,         	# Note: 3 
+            data = dtrain_2, 
+            family = "binomial")
             
 pred <- predict(model,                 	# Note: 4 
                newdata = dtrain_2, 
-               type="response")  
+               type = "response")  
                
 (prevalence <- mean(dTrain$churn == 1) )  	# Note: 5 
 ```
@@ -590,13 +584,13 @@ head(comparison)
 # informalexample 8.8 of section 8.3.1 
 # (informalexample 8.8 of section 8.3.1)  : Advanced Data Preparation : Basic data preparation for classification : The variable score frame 
 
-score_frame[score_frame$origName=="Var200", , drop = FALSE]
+score_frame[score_frame$origName == "Var200", , drop = FALSE]
 ```
 
 ```
 ##           varName varMoves         rsq          sig needsSplit
-## 361   Var200_catP     TRUE 0.005726597 5.073734e-28       TRUE
-## 362   Var200_catB     TRUE 0.001255868 2.757494e-07       TRUE
+## 361   Var200_catP     TRUE 0.005729292 4.930851e-28       TRUE
+## 362   Var200_catB     TRUE 0.000945847 8.192687e-06       TRUE
 ## 428 Var200_lev_NA     TRUE 0.005729838 4.902365e-28      FALSE
 ##     extraModelDegrees origName code
 ## 361             13323   Var200 catP
@@ -639,13 +633,7 @@ dCal_treated <- prepare(treatment_plan,
 # (informalexample 8.10 of section 8.3.2)  : Advanced Data Preparation : Basic data preparation for classification : Properly using the treatment plan 
 
 library("sigr")
-```
 
-```
-## Warning: package 'sigr' was built under R version 3.5.2
-```
-
-```r
 calcAUC(dTrain_treated$Var200_catB, dTrain_treated$churn)
 ```
 
@@ -700,7 +688,7 @@ dTest_treated <- prepare(treatment_plan, 	# Note: 2
                          parallelCluster = parallel_cluster)
 
 # Note 1: 
-#   We will use the cross frame to train the logistic regression model. 
+#   We will use the cross-frame to train the logistic regression model. 
 
 # Note 2: 
 #   Prepare the test set so we can call the model on it. 
@@ -723,7 +711,7 @@ calcAUC(dTrainAll_treated$Var200_catB, dTrainAll_treated$churn)
 ```
 
 ```
-## [1] 0.5473529
+## [1] 0.5496616
 ```
 
 ```r
@@ -752,7 +740,7 @@ calcAUC(dTest_treated$Var200_catB, dTest_treated$churn)
 # (informalexample 8.12 of section 8.4.2)  : Advanced Data Preparation : Advanced data preparation for classification : Building a model 
 
 k <- 1       	# Note: 1 
-(significance_cutoff <- k/nrow(score_frame))
+(significance_cutoff <- k / nrow(score_frame))
 ```
 
 ```
@@ -765,13 +753,7 @@ score_frame$selected <- score_frame$sig < significance_cutoff
                                 
 
 suppressPackageStartupMessages(library("dplyr")) 	# Note: 2 
-```
 
-```
-## Warning: package 'dplyr' was built under R version 3.5.2
-```
-
-```r
 score_frame %>%
   group_by(., code, selected) %>%
   summarize(., 
@@ -806,7 +788,7 @@ score_frame %>%
 # 5 lev                 74              62
 
 # Note 1: 
-#   Use our filter significances at k/nrow(score_frame) heuristic with k = 1 
+#   Use our filter significances at k / nrow(score_frame) heuristic with k = 1 
 
 # Note 2: 
 #   Bring in the dplyr package to help summarize the selections. 
@@ -825,10 +807,6 @@ score_frame %>%
 # Title: Basic variable re-coding and selection 
 
 library("wrapr")
-```
-
-```
-## Warning: package 'wrapr' was built under R version 3.5.2
 ```
 
 ```
@@ -858,7 +836,7 @@ model <- glm(f, data = dTrainAll_treated, family = binomial) 	# Note: 3
 # glm.fit: fitted probabilities numerically 0 or 1 occurred
 
 # Note 1: 
-#   Build a formula specifying modeling churn==1 as a function of all variables. 
+#   Build a formula specifying modeling churn == 1 as a function of all variables. 
 
 # Note 2: 
 #   Use the modeling formula with R's glm() function. 
@@ -882,12 +860,12 @@ library("sigr")
 
 dTest_treated$glm_pred <- predict(model,   	# Note: 1 
                                   newdata = dTest_treated, 
-                                  type='response')
+                                  type = 'response')
 ```
 
 ```
-## Warning in predict.lm(object, newdata, se.fit, scale = 1, type =
-## ifelse(type == : prediction from a rank-deficient fit may be misleading
+## Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type
+## == : prediction from a rank-deficient fit may be misleading
 ```
 
 ```r
@@ -895,11 +873,11 @@ dTest_treated$glm_pred <- predict(model,   	# Note: 1
 # In predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
 #   prediction from a rank-deficient fit may be misleading
 
-calcAUC(dTest_treated$glm_pred, dTest_treated$churn==1) 	# Note: 3 
+calcAUC(dTest_treated$glm_pred, dTest_treated$churn == 1) 	# Note: 3 
 ```
 
 ```
-## [1] 0.722324
+## [1] 0.7231226
 ```
 
 ```r
@@ -909,7 +887,7 @@ permTestAUC(dTest_treated, "glm_pred", "churn", yTarget = 1) 	# Note: 4
 ```
 
 ```
-## [1] "AUC test alt. hyp. AUC>AUC(permuted): (AUC=0.7223, s.d.=0.01583, p<1e-05)."
+## [1] "AUC test alt. hyp. AUC>AUC(permuted): (AUC=0.7231, s.d.=0.01626, p<1e-05)."
 ```
 
 ```r
@@ -917,14 +895,14 @@ permTestAUC(dTest_treated, "glm_pred", "churn", yTarget = 1) 	# Note: 4
        
 var_aucs <- vapply(newvars, 	# Note: 5 
        function(vi) {
-         calcAUC(dTrainAll_treated[[vi]], dTrainAll_treated$churn==1)
+         calcAUC(dTrainAll_treated[[vi]], dTrainAll_treated$churn == 1)
        }, numeric(1))
 (best_train_aucs <- var_aucs[var_aucs >= max(var_aucs)])
 ```
 
 ```
 ## Var216_catB 
-##   0.5829769
+##   0.5892631
 ```
 
 ```r
@@ -958,7 +936,7 @@ var_aucs <- vapply(newvars, 	# Note: 5
 # informalexample 8.14 of section 8.4.2 
 # (informalexample 8.14 of section 8.4.2)  : Advanced Data Preparation : Advanced data preparation for classification : Building a model 
 
-table(prediction = dTest_treated$glm_pred>=0.5, 
+table(prediction = dTest_treated$glm_pred >= 0.5, 
       truth = dTest$churn)
 ```
 
@@ -994,8 +972,8 @@ table(prediction = dTest_treated$glm_pred>0.15,
 ```
 ##           truth
 ## prediction   -1    1
-##      FALSE 4244  266
-##      TRUE   355  110
+##      FALSE 4247  266
+##      TRUE   352  110
 ```
 
 ```r
@@ -1018,6 +996,14 @@ table(prediction = dTest_treated$glm_pred>0.15,
 
 WVPlots::DoubleDensityPlot(dTest_treated, "glm_pred", "churn", 
                            "glm prediction on test, double density plot")
+```
+
+```
+## Registered S3 methods overwritten by 'ggplot2':
+##   method         from 
+##   [.quosures     rlang
+##   c.quosures     rlang
+##   print.quosures rlang
 ```
 
 ![plot of chunk 00348_informalexample_8.16_of_section_8.4.2.R](figure/00348_informalexample_8.16_of_section_8.4.2.R-1.png)
@@ -1112,7 +1098,7 @@ str(auto_mpg[!complete.cases(auto_mpg), , drop = FALSE])
 #  $ acceleration: num  19 17 17.3 14.3 15.8 20.5
 #  $ model_year  : num  71 74 80 80 81 82
 #  $ origin      : Factor w/ 3 levels "1","2","3": 1 1 2 1 2 1
-#  $ car_name    : chr  "\"ford pinto\"" "\"ford maverick\"" "\"renault lecar deluxe\"" "\"ford mustang cobra\"" ...
+#  $ car_name    : chr  "\"ford pinto\"" "\"ford maverick\"" "\"renault lecar deluxe\"" ...
 #  $ prediction  : num  NA NA NA NA NA NA         	# Note: 4
 
 # Note 1: 
@@ -1176,7 +1162,7 @@ str(auto_mpg[!complete.cases(auto_mpg), , drop = FALSE])
 ##  $ model_year  : num  71 74 80 80 81 82
 ##  $ origin      : Factor w/ 3 levels "1","2","3": 1 1 2 1 2 1
 ##  $ car_name    : chr  "\"ford pinto\"" "\"ford maverick\"" "\"renault lecar deluxe\"" "\"ford mustang cobra\"" ...
-##  $ prediction  : num  24.2 22.3 35.4 25.9 33 ...
+##  $ prediction  : num  24.5 22.5 35 26 32.6 ...
 ```
 
 ```r
@@ -1189,7 +1175,7 @@ str(auto_mpg[!complete.cases(auto_mpg), , drop = FALSE])
 #  $ acceleration: num  19 17 17.3 14.3 15.8 20.5
 #  $ model_year  : num  71 74 80 80 81 82
 #  $ origin      : Factor w/ 3 levels "1","2","3": 1 1 2 1 2 1
-#  $ car_name    : chr  "\"ford pinto\"" "\"ford maverick\"" "\"renault lecar deluxe\"" "\"ford mustang cobra\"" ...
+#  $ car_name    : chr  "\"ford pinto\"" "\"ford maverick\"" "\"renault lecar deluxe\"" ...
 #  $ prediction  : num  24.6 22.4 34.2 26.1 33.3 ...  	# Note: 2
 
 # Note 1: 
@@ -1495,13 +1481,13 @@ head(d) 	# Note: 4
 ```
 
 ```
-##   x_bad           y  x_good
-## 1     u -0.05294738 non-neg
-## 2     s -0.23639840     neg
-## 3     h -0.33796351 non-neg
-## 4     q -0.75548467 non-neg
-## 5     b -0.86159347     neg
-## 6     b -0.52766549 non-neg
+##   x_bad          y  x_good
+## 1     y -0.7603575 non-neg
+## 2     j  0.4442418 non-neg
+## 3     e  1.7386856 non-neg
+## 4     m -0.7752029 non-neg
+## 5     q -1.1825636     neg
+## 6     x -0.3140285 non-neg
 ```
 
 ```r
@@ -1524,7 +1510,7 @@ head(d) 	# Note: 4
 
 # Note 4: 
 #   Take a look at our synthetic example data. The idea is: y is related to x_good in a noisy fashion, but unrelated to x_bad.  
-#   In this case we know what variables should be chosen, so we can tell if our acceptance procedure is working correctly. 
+#   In this case, we know what variables should be chosen, so we can tell if our acceptance procedure is working correctly. 
 ```
 
 
@@ -1560,9 +1546,9 @@ print(plan5) 	# Note: 2
 ```
 
 ```
-##   origName     varName code          rsq          sig extraModelDegrees
-## 1    x_bad  x_bad_catN catN 4.906903e-05 9.448548e-01                24
-## 2   x_good x_good_catN catN 2.602702e-01 5.895285e-08                 1
+##   origName     varName code         rsq          sig extraModelDegrees
+## 1    x_bad  x_bad_catN catN 9.93962e-05 9.215776e-01                25
+## 2   x_good x_good_catN catN 3.25805e-01 5.631959e-10                 1
 ```
 
 ```r
@@ -1577,13 +1563,13 @@ head(res1)
 ```
 
 ```
-##   x_bad  x_good x_bad_catN x_good_catN           y
-## 1     u non-neg  0.4070979   0.4305195 -0.05294738
-## 2     s     neg -0.1133011  -0.5706886 -0.23639840
-## 3     h non-neg -0.3202346   0.4305195 -0.33796351
-## 4     q non-neg -0.5447443   0.4305195 -0.75548467
-## 5     b     neg -0.3890076  -0.5706886 -0.86159347
-## 6     b non-neg -0.3890076   0.4305195 -0.52766549
+##   x_bad  x_good x_bad_catN x_good_catN          y
+## 1     y non-neg  0.2879701    0.523549 -0.7603575
+## 2     j non-neg -0.1957772    0.523549  0.4442418
+## 3     e non-neg  0.1720338    0.523549  1.7386856
+## 4     m non-neg -0.3295562    0.523549 -0.7752029
+## 5     q     neg -0.5767783   -0.590385 -1.1825636
+## 6     x non-neg -0.2259024    0.523549 -0.3140285
 ```
 
 ```r
@@ -1599,7 +1585,7 @@ sigr::wrapFTest(res1, "x_good_catN", "y") 	# Note: 5
 ```
 
 ```
-## [1] "F Test summary: (R2=0.2717, F(1,98)=36.56, p<1e-05)."
+## [1] "F Test summary: (R2=0.3241, F(1,98)=46.98, p<1e-05)."
 ```
 
 ```r
@@ -1609,14 +1595,14 @@ sigr::wrapFTest(res1, "x_bad_catN", "y") 	# Note: 6
 ```
 
 ```
-## [1] "F Test summary: (R2=0.2342, F(1,98)=29.97, p<1e-05)."
+## [1] "F Test summary: (R2=0.1943, F(1,98)=23.64, p<1e-05)."
 ```
 
 ```r
 # [1] "F Test summary: (R2=0.2342, F(1,98)=29.97, p<1e-05)."
 
 # Note 1: 
-#   Design a variable treatment plan using x_bad and x_good to try and predict y. 
+#   Design a variable treatment plan using x_bad and x_good to try predicting y. 
 
 # Note 2: 
 #   Notice the derived variable x_good_catN comes out as having a significant signal, and x_bad_catN does not.  
@@ -1662,13 +1648,13 @@ head(res2)
 ```
 
 ```
-##   x_bad  x_good x_bad_catN x_good_catN           y
-## 1     u non-neg  0.2834739   0.4193180 -0.05294738
-## 2     s     neg -0.1085887  -0.6212118 -0.23639840
-## 3     h non-neg  0.0000000   0.5095586 -0.33796351
-## 4     q non-neg -0.5142570   0.5095586 -0.75548467
-## 5     b     neg -0.3540889  -0.6212118 -0.86159347
-## 6     b non-neg -0.3540889   0.4193180 -0.52766549
+##   x_bad  x_good x_bad_catN x_good_catN          y
+## 1     y non-neg  0.7808611   0.4535235 -0.7603575
+## 2     j non-neg -1.4621185   0.4535235  0.4442418
+## 3     e non-neg -0.4041591   0.5424189  1.7386856
+## 4     m non-neg -0.2240972   0.5772362 -0.7752029
+## 5     q     neg -1.1043780  -0.7107558 -1.1825636
+## 6     x non-neg  0.0000000   0.5424189 -0.3140285
 ```
 
 ```r
@@ -1684,7 +1670,7 @@ sigr::wrapFTest(res2, "x_bad_catN", "y")
 ```
 
 ```
-## [1] "F Test summary: (R2=-0.1389, F(1,98)=-11.95, p=n.s.)."
+## [1] "F Test summary: (R2=-0.6653, F(1,98)=-39.15, p=n.s.)."
 ```
 
 ```r
@@ -1694,7 +1680,7 @@ sigr::wrapFTest(res2, "x_good_catN", "y")
 ```
 
 ```
-## [1] "F Test summary: (R2=0.2532, F(1,98)=33.22, p<1e-05)."
+## [1] "F Test summary: (R2=0.3039, F(1,98)=42.78, p<1e-05)."
 ```
 
 ```r
@@ -1704,12 +1690,12 @@ plan6$scoreFrame 	# Note: 1
 ```
 
 ```
-##       varName varMoves        rsq          sig needsSplit
-## 1  x_bad_catN     TRUE 0.01436145 2.349865e-01       TRUE
-## 2 x_good_catN     TRUE 0.26478467 4.332649e-08       TRUE
-##   extraModelDegrees origName code
-## 1                24    x_bad catN
-## 2                 1   x_good catN
+##       varName varMoves       rsq          sig needsSplit extraModelDegrees
+## 1  x_bad_catN     TRUE 0.0806097 4.201189e-03       TRUE                25
+## 2 x_good_catN     TRUE 0.3117822 1.576683e-09       TRUE                 1
+##   origName code
+## 1    x_bad catN
+## 2   x_good catN
 ```
 
 ```r

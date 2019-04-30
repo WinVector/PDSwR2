@@ -287,7 +287,11 @@ library(ggplot2)     	# Note: 1
 ```
 
 ```
-## Warning: package 'ggplot2' was built under R version 3.5.2
+## Registered S3 methods overwritten by 'ggplot2':
+##   method         from 
+##   [.quosures     rlang
+##   c.quosures     rlang
+##   print.quosures rlang
 ```
 
 ```r
@@ -443,13 +447,6 @@ ggplot(customer_data, aes(x=state_of_res)) +
 # Title: Producing a dot plot with sorted categories 
 
 library(WVPlots) 	# Note: 1 
-```
-
-```
-## Warning: package 'WVPlots' was built under R version 3.5.2
-```
-
-```r
 ClevelandDotPlot(customer_data, "state_of_res",                    	# Note: 2 
     sort = 1, title="Customers by state") +                   	# Note: 3 
 coord_flip()                                                  	# Note: 4

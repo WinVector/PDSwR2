@@ -54,7 +54,11 @@ library('ggplot2')
 ```
 
 ```
-## Warning: package 'ggplot2' was built under R version 3.5.2
+## Registered S3 methods overwritten by 'ggplot2':
+##   method         from 
+##   [.quosures     rlang
+##   c.quosures     rlang
+##   print.quosures rlang
 ```
 
 ```r
@@ -346,13 +350,6 @@ x <- c("PWGT",
       complications,
       riskfactors)
 library(wrapr)
-```
-
-```
-## Warning: package 'wrapr' was built under R version 3.5.2
-```
-
-```r
 fmla <- mk_formula(y, x)
 ```
 
@@ -483,13 +480,6 @@ sum(premature$pred)  	# Note: 4
 # Title: Plotting distribution of prediction score grouped by known outcome 
 
 library(WVPlots)
-```
-
-```
-## Warning: package 'WVPlots' was built under R version 3.5.2
-```
-
-```r
 DoubleDensityPlot(train, "pred", "atRisk", 
                   title = "Distribution of natality risk scores")
 ```
@@ -1264,13 +1254,7 @@ cars_test$pred_glm <- predict(model_glm,
                              type = "response")  	# Note: 1 
                              
 library(sigr)    	# Note: 2  
-```
 
-```
-## Warning: package 'sigr' was built under R version 3.5.2
-```
-
-```r
 confmat <- function(dframe, predvar) {     	# Note: 3 
   cmat <- table(truth = ifelse(dframe$fail, "unacceptable", "passed"),
                prediction = ifelse(dframe[[predvar]] > 0.5, 
@@ -1345,10 +1329,6 @@ library(glmnet)
 ```
 
 ```
-## Warning: package 'Matrix' was built under R version 3.5.2
-```
-
-```
 ## Loading required package: foreach
 ```
 
@@ -1358,10 +1338,6 @@ library(glmnet)
 
 ```r
 library(glmnetUtils) 
-```
-
-```
-## Warning: package 'glmnetUtils' was built under R version 3.5.2
 ```
 
 ```
@@ -1694,7 +1670,7 @@ minix <- which.min(enet_performance$cvm)           	# Note: 5
 ```
 
 ```
-## [1] 0.125
+## [1] 0.343
 ```
 
 ```r
@@ -1759,8 +1735,8 @@ ggplot(enet_performance, aes(x = alpha, y = cvm)) +          	# Note: 7
 ##     Sparse model matrix: FALSE
 ##     Use model.frame: FALSE
 ##     Number of crossvalidation folds: 10
-##     Alpha: 0.125
-##     Deviance-minimizing lambda: 0.0001817945  (+1 SE): 0.002042142
+##     Alpha: 0.343
+##     Deviance-minimizing lambda: 0.0002220492  (+1 SE): 0.002737527
 ```
 
 ```r
@@ -1788,14 +1764,14 @@ confmat(cars_test, "pred_enet")
 ## $confusion_matrix
 ##               prediction
 ## truth          passed unacceptable
-##   passed          149           10
+##   passed          150            9
 ##   unacceptable     17          323
 ## 
 ## $accuracy
-## [1] 0.9458918
+## [1] 0.9478958
 ## 
 ## $deviance
-## [1] 115.0135
+## [1] 118.6336
 ```
 
 ```r

@@ -17,7 +17,11 @@ library(ggplot2)
 ```
 
 ```
-## Warning: package 'ggplot2' was built under R version 3.5.2
+## Registered S3 methods overwritten by 'ggplot2':
+##   method         from 
+##   [.quosures     rlang
+##   c.quosures     rlang
+##   print.quosures rlang
 ```
 
 ```r
@@ -193,7 +197,7 @@ mean(u)
 ```
 
 ```
-## [1] 1.697752
+## [1] 1.643164
 ```
 
 ```r
@@ -202,7 +206,7 @@ median(u)
 ```
 
 ```
-## [1] 1.070633
+## [1] 0.9873979
 ```
 
 ```r
@@ -213,7 +217,7 @@ mean(log(u))
 ```
 
 ```
-## [1] 0.07307424
+## [1] -0.00676984
 ```
 
 ```r
@@ -224,7 +228,7 @@ sd(log(u))
 ```
 
 ```
-## [1] 0.959655
+## [1] 1.022443
 ```
 
 ```r
@@ -470,7 +474,7 @@ prettyprint_flips(flips_v1)
 ```
 ## outcome
 ## heads tails 
-##   772   228
+##   773   227
 ```
 
 ```r
@@ -483,7 +487,7 @@ prettyprint_flips(flips_v2)
 ```
 ## outcome
 ## heads tails 
-##   750   250
+##   751   249
 ```
 
 ```r
@@ -1076,7 +1080,7 @@ with(d,cor.test(EarnedIncome,CapitalGains,method='spearman'))
 ## 	Spearman's rank correlation rho
 ## 
 ## data:  EarnedIncome and CapitalGains
-## S = 161510, p-value = 0.7604
+## S = 161512, p-value = 0.7604
 ## alternative hypothesis: true rho is not equal to 0
 ## sample estimates:
 ##        rho 
@@ -1179,7 +1183,7 @@ print(with(subset(d,EarnedIncome+CapitalGains<500000),
 ## 	Spearman's rank correlation rho
 ## 
 ## data:  EarnedIncome and CapitalGains
-## S = 107660, p-value = 0.6357
+## S = 107664, p-value = 0.6357
 ## alternative hypothesis: true rho is not equal to 0
 ## sample estimates:
 ##         rho 
@@ -1345,23 +1349,23 @@ print(summary(glm(data=s,
 ##     data = s)
 ## 
 ## Deviance Residuals: 
-##     Min       1Q   Median       3Q      Max  
-## -0.6097  -0.2462  -0.1181   0.2022   0.5567  
+##      Min        1Q    Median        3Q       Max  
+## -0.74715  -0.31727  -0.08233   0.18796   0.55508  
 ## 
 ## Coefficients:
 ##                   Estimate Std. Error z value Pr(>|z|)    
-## (Intercept)        -9.9893     2.7494  -3.633 0.000280 ***
-## log(Caco2A2BPapp)  -0.9681     0.2568  -3.770 0.000163 ***
+## (Intercept)       -12.1943     3.7474  -3.254 0.001137 ** 
+## log(Caco2A2BPapp)  -1.2003     0.3584  -3.349 0.000811 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
-##     Null deviance: 43.7328  on 99  degrees of freedom
-## Residual deviance:  9.4679  on 98  degrees of freedom
-## AIC: 64.715
+##     Null deviance: 44.724  on 99  degrees of freedom
+## Residual deviance: 10.992  on 98  degrees of freedom
+## AIC: 63.696
 ## 
-## Number of Fisher Scoring iterations: 6
+## Number of Fisher Scoring iterations: 7
 ```
 
 ```r
@@ -1421,22 +1425,22 @@ print(summary(glm(data=s,
 ##     family = binomial(link = "logit"), data = s)
 ## 
 ## Deviance Residuals: 
-##      Min        1Q    Median        3Q       Max  
-## -0.34737  -0.05685  -0.00104   0.07092   0.30367  
+##       Min         1Q     Median         3Q        Max  
+## -0.301846  -0.045904   0.001117   0.068913   0.210135  
 ## 
 ## Coefficients:
 ##                   Estimate Std. Error z value Pr(>|z|)   
-## (Intercept)        3.15105    4.68158   0.673  0.50090   
-## week               0.10328    0.03857   2.678  0.00741 **
-## log(Caco2A2BPapp)  0.56961    0.54162   1.052  0.29295   
+## (Intercept)        2.09969    4.23979   0.495  0.62043   
+## week               0.09474    0.03172   2.987  0.00282 **
+## log(Caco2A2BPapp)  0.44930    0.48425   0.928  0.35350   
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
-##     Null deviance: 43.7328  on 99  degrees of freedom
-## Residual deviance:  1.2596  on 97  degrees of freedom
-## AIC: 47.829
+##     Null deviance: 44.7243  on 99  degrees of freedom
+## Residual deviance:  1.0652  on 97  degrees of freedom
+## AIC: 46.18
 ## 
 ## Number of Fisher Scoring iterations: 6
 ```

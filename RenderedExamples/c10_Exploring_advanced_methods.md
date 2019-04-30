@@ -20,13 +20,6 @@ spamTest <- subset(spamD,spamD$rgroup < 10)
 
 spamVars <- setdiff(colnames(spamD),list('rgroup','spam', 'isSpam'))
 library(wrapr)
-```
-
-```
-## Warning: package 'wrapr' was built under R version 3.5.2
-```
-
-```r
 spamFormula <- mk_formula("isSpam", spamVars)  	# Note: 2 
                    
 loglikelihood <- function(y, py) {      	# Note: 3 
@@ -50,23 +43,9 @@ accuracyMeasures <- function(pred, truth, name="model") {   	# Note: 4
 
 
 library(rpart)                                                      	# Note: 7 
-```
-
-```
-## Warning: package 'rpart' was built under R version 3.5.2
-```
-
-```r
 treemodel <- rpart(spamFormula, spamTrain, method="class")
 
 library(rpart.plot)  	# Note: 8 
-```
-
-```
-## Warning: package 'rpart.plot' was built under R version 3.5.2
-```
-
-```r
 rpart.plot(treemodel, type=5, extra=6)     
 ```
 
@@ -222,8 +201,8 @@ pandoc.table(perftable, justify=perf_justify)
 ## 
 ## model                 accuracy       f1   dev.norm
 ## ------------------- ---------- -------- ----------
-## bagging, training       0.9162   0.8901     0.5065
-## bagging, test           0.9127   0.8802     0.5673
+## bagging, training       0.9148   0.8892     0.5123
+## bagging, test           0.9061   0.8739     0.5814
 ```
 
 ```r
@@ -370,7 +349,7 @@ pandoc.table(trainf, justify=perf_justify)
 ## model                    accuracy       f1   dev.norm
 ## ---------------------- ---------- -------- ----------
 ## tree, training             0.8996   0.8691     0.6304
-## bagging, training          0.9162   0.8901     0.5065
+## bagging, training          0.9148   0.8892     0.5123
 ## random forest, train       0.9884   0.9852     0.1440
 ```
 
@@ -405,7 +384,7 @@ pandoc.table(testf, justify=perf_justify)
 ## model                   accuracy       f1   dev.norm
 ## --------------------- ---------- -------- ----------
 ## tree, test                0.8712   0.8280     0.7531
-## bagging, test             0.9127   0.8802     0.5673
+## bagging, test             0.9061   0.8739     0.5814
 ## random forest, test       0.9498   0.9341     0.3011
 ```
 
@@ -441,11 +420,11 @@ pandoc.table(difff, justify=perf_justify)
 ```
 ## 
 ## 
-## model             accuracy         f1   dev.norm
-## --------------- ---------- ---------- ----------
-## tree              0.028411   0.041112   -0.12275
-## bagging           0.003581   0.009846   -0.06084
-## random forest     0.038633   0.051097   -0.15711
+## model             accuracy        f1   dev.norm
+## --------------- ---------- --------- ----------
+## tree              0.028411   0.04111   -0.12275
+## bagging           0.008683   0.01534   -0.06904
+## random forest     0.038633   0.05110   -0.15711
 ```
 
 ```r
@@ -660,13 +639,7 @@ input <- as.matrix(train[, 1:4]) 	# Note: 3
 # Title: Cross-validate to determine model size 
 
 library(xgboost)
-```
 
-```
-## Warning: package 'xgboost' was built under R version 3.5.2
-```
-
-```r
 cv <- xgb.cv(input,  	# Note: 1  
             label = train$class, 	# Note: 2  
               params=list(
@@ -679,17 +652,17 @@ cv <- xgb.cv(input,  	# Note: 1
 ```
 
 ```
-## [1]	train-logloss:0.454780+0.000078	test-logloss:0.455058+0.001638 
-## [11]	train-logloss:0.032152+0.000071	test-logloss:0.032379+0.001328 
-## [21]	train-logloss:0.021108+0.000811	test-logloss:0.021593+0.001433 
-## [31]	train-logloss:0.021096+0.000814	test-logloss:0.021629+0.001647 
-## [41]	train-logloss:0.021096+0.000814	test-logloss:0.021634+0.001673 
-## [51]	train-logloss:0.021096+0.000814	test-logloss:0.021635+0.001675 
-## [61]	train-logloss:0.021096+0.000814	test-logloss:0.021635+0.001676 
-## [71]	train-logloss:0.021096+0.000814	test-logloss:0.021635+0.001676 
-## [81]	train-logloss:0.021096+0.000814	test-logloss:0.021635+0.001676 
-## [91]	train-logloss:0.021096+0.000814	test-logloss:0.021635+0.001676 
-## [100]	train-logloss:0.021096+0.000814	test-logloss:0.021635+0.001676
+## [1]	train-logloss:0.454781+0.000056	test-logloss:0.454951+0.001252 
+## [11]	train-logloss:0.032154+0.000045	test-logloss:0.032292+0.001016 
+## [21]	train-logloss:0.020894+0.000931	test-logloss:0.021263+0.001448 
+## [31]	train-logloss:0.020881+0.000932	test-logloss:0.021271+0.001580 
+## [41]	train-logloss:0.020881+0.000932	test-logloss:0.021274+0.001597 
+## [51]	train-logloss:0.020881+0.000932	test-logloss:0.021274+0.001599 
+## [61]	train-logloss:0.020881+0.000932	test-logloss:0.021274+0.001599 
+## [71]	train-logloss:0.020881+0.000932	test-logloss:0.021274+0.001599 
+## [81]	train-logloss:0.020881+0.000932	test-logloss:0.021274+0.001599 
+## [91]	train-logloss:0.020881+0.000932	test-logloss:0.021274+0.001599 
+## [100]	train-logloss:0.020881+0.000932	test-logloss:0.021274+0.001599
 ```
 
 ```r
@@ -699,19 +672,19 @@ head(evalframe) 	# Note: 9
 
 ```
 ##   iter train_logloss_mean train_logloss_std test_logloss_mean
-## 1    1          0.4547800      7.758350e-05         0.4550578
-## 2    2          0.3175798      9.268527e-05         0.3179284
-## 3    3          0.2294212      9.542411e-05         0.2297848
-## 4    4          0.1696242      9.452492e-05         0.1699816
-## 5    5          0.1277388      9.207258e-05         0.1280816
-## 6    6          0.0977648      8.913899e-05         0.0980894
+## 1    1          0.4547814      5.593782e-05         0.4549512
+## 2    2          0.3175814      7.121685e-05         0.3177942
+## 3    3          0.2294228      7.447523e-05         0.2296446
+## 4    4          0.1696256      7.299753e-05         0.1698442
+## 5    5          0.1277404      6.963505e-05         0.1279494
+## 6    6          0.0977664      6.520307e-05         0.0979644
 ##   test_logloss_std
-## 1      0.001638487
-## 2      0.002056267
-## 3      0.002142687
-## 4      0.002107535
-## 5      0.002020668
-## 6      0.001911152
+## 1      0.001252187
+## 2      0.001570859
+## 3      0.001636491
+## 4      0.001609531
+## 5      0.001543457
+## 6      0.001459891
 ```
 
 ```r
@@ -734,7 +707,7 @@ head(evalframe) 	# Note: 9
 ```
 
 ```
-## [1] 18
+## [1] 22
 ```
 
 ```r
@@ -744,7 +717,11 @@ library(ggplot2)
 ```
 
 ```
-## Warning: package 'ggplot2' was built under R version 3.5.2
+## Registered S3 methods overwritten by 'ggplot2':
+##   method         from 
+##   [.quosures     rlang
+##   c.quosures     rlang
+##   print.quosures rlang
 ```
 
 ```
@@ -834,7 +811,7 @@ accuracyMeasures(pred, test$class)
 
 ```
 ##   model accuracy f1   dev.norm
-## 1 model        1  1 0.03458392
+## 1 model        1  1 0.03439622
 ```
 
 ```r
@@ -875,8 +852,26 @@ c(texts, labels) %<-% readRDS("../IMDB/IMDBtrain.RDS")
 # (informalexample 10.6 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient boosted trees 
 
 source("../IMDB/lime_imdb_example.R")
+```
+
+```
+## Error in library(text2vec): there is no package called 'text2vec'
+```
+
+```r
 vocab <- create_pruned_vocabulary(texts)  
+```
+
+```
+## Error in create_pruned_vocabulary(texts): could not find function "create_pruned_vocabulary"
+```
+
+```r
 dtm_train <- make_matrix(texts, vocab)
+```
+
+```
+## Error in make_matrix(texts, vocab): could not find function "make_matrix"
 ```
 
 
@@ -903,45 +898,7 @@ cv <- xgb.cv(dtm_train,
 ```
 
 ```
-## [1]	train-logloss:0.631326+0.000586	test-logloss:0.636210+0.001965 
-## Multiple eval metrics are present. Will use test_logloss for early stopping.
-## Will train until test_logloss hasn't improved in 20 rounds.
-## 
-## [11]	train-logloss:0.450599+0.001876	test-logloss:0.485917+0.003800 
-## [21]	train-logloss:0.377698+0.002219	test-logloss:0.435129+0.005318 
-## [31]	train-logloss:0.330819+0.002308	test-logloss:0.405168+0.004492 
-## [41]	train-logloss:0.296347+0.002163	test-logloss:0.384776+0.005058 
-## [51]	train-logloss:0.269557+0.002559	test-logloss:0.370914+0.004371 
-## [61]	train-logloss:0.247242+0.002402	test-logloss:0.358257+0.004918 
-## [71]	train-logloss:0.228772+0.002114	test-logloss:0.348852+0.005282 
-## [81]	train-logloss:0.214198+0.002337	test-logloss:0.341846+0.005334 
-## [91]	train-logloss:0.200678+0.001875	test-logloss:0.336678+0.005276 
-## [101]	train-logloss:0.189236+0.001403	test-logloss:0.332022+0.005016 
-## [111]	train-logloss:0.178487+0.001259	test-logloss:0.327961+0.005115 
-## [121]	train-logloss:0.169040+0.001862	test-logloss:0.323659+0.005266 
-## [131]	train-logloss:0.160624+0.002218	test-logloss:0.320978+0.005156 
-## [141]	train-logloss:0.152549+0.001963	test-logloss:0.318762+0.005207 
-## [151]	train-logloss:0.145786+0.001837	test-logloss:0.316277+0.005795 
-## [161]	train-logloss:0.138937+0.001579	test-logloss:0.313884+0.005932 
-## [171]	train-logloss:0.132785+0.002038	test-logloss:0.312506+0.005681 
-## [181]	train-logloss:0.126356+0.002394	test-logloss:0.311193+0.006021 
-## [191]	train-logloss:0.121137+0.002513	test-logloss:0.310018+0.006317 
-## [201]	train-logloss:0.115964+0.002482	test-logloss:0.308708+0.006703 
-## [211]	train-logloss:0.111146+0.002186	test-logloss:0.307219+0.007290 
-## [221]	train-logloss:0.106703+0.002217	test-logloss:0.306992+0.007776 
-## [231]	train-logloss:0.102521+0.002224	test-logloss:0.305584+0.007972 
-## [241]	train-logloss:0.098996+0.002058	test-logloss:0.304844+0.007788 
-## [251]	train-logloss:0.095243+0.002461	test-logloss:0.304450+0.008003 
-## [261]	train-logloss:0.091535+0.002466	test-logloss:0.304218+0.008087 
-## [271]	train-logloss:0.088105+0.002529	test-logloss:0.303683+0.008506 
-## [281]	train-logloss:0.085159+0.002648	test-logloss:0.303588+0.008453 
-## [291]	train-logloss:0.082305+0.002461	test-logloss:0.303239+0.008887 
-## [301]	train-logloss:0.079310+0.002165	test-logloss:0.302818+0.008315 
-## [311]	train-logloss:0.076343+0.002237	test-logloss:0.302460+0.008521 
-## [321]	train-logloss:0.073681+0.002002	test-logloss:0.302175+0.008593 
-## [331]	train-logloss:0.071183+0.001730	test-logloss:0.302369+0.008552 
-## Stopping. Best iteration:
-## [319]	train-logloss:0.074326+0.002028	test-logloss:0.302116+0.008782
+## Error in xgb.cv(dtm_train, label = labels, params = list(objective = "binary:logistic"), : object 'dtm_train' not found
 ```
 
 ```r
@@ -950,7 +907,7 @@ evalframe <- as.data.frame(cv$evaluation_log)
 ```
 
 ```
-## [1] 319
+## [1] 22
 ```
 
 ```r
@@ -977,27 +934,90 @@ model <- xgboost(data=dtm_train, label=labels,
                   ),
                   nrounds=NROUNDS,
                   verbose=FALSE)
+```
 
+```
+## Error in xgb.get.DMatrix(data, label, missing, weight): object 'dtm_train' not found
+```
+
+```r
 pred = predict(model,  dtm_train)  
-trainperf_xgb =  accuracyMeasures(pred, labels, "training")  
+```
 
+```
+## Error in predict.xgb.Booster(model, dtm_train): object 'dtm_train' not found
+```
+
+```r
+trainperf_xgb =  accuracyMeasures(pred, labels, "training")  
+```
+
+```
+## Warning in y * log(pysmooth): longer object length is not a multiple of
+## shorter object length
+```
+
+```
+## Warning in (1 - y) * log(1 - pysmooth): longer object length is not a
+## multiple of shorter object length
+```
+
+```
+## Error in table(truth = truth, pred = (pred > 0.5)): all arguments must have the same length
+```
+
+```r
 c(test_texts, test_labels) %<-% readRDS("../IMDB/IMDBtest.RDS") 	# Note: 1 
 dtm_test = make_matrix(test_texts, vocab) 
+```
 
+```
+## Error in make_matrix(test_texts, vocab): could not find function "make_matrix"
+```
+
+```r
 pred = predict(model, dtm_test)
-testperf_xgb = accuracyMeasures(pred, test_labels, "test")
+```
 
+```
+## Error in predict.xgb.Booster(model, dtm_test): object 'dtm_test' not found
+```
+
+```r
+testperf_xgb = accuracyMeasures(pred, test_labels, "test")
+```
+
+```
+## Warning in y * log(pysmooth): longer object length is not a multiple of
+## shorter object length
+
+## Warning in y * log(pysmooth): longer object length is not a multiple of
+## shorter object length
+```
+
+```
+## Error in table(truth = truth, pred = (pred > 0.5)): all arguments must have the same length
+```
+
+```r
 perftable <- rbind(trainperf_xgb, testperf_xgb)
+```
+
+```
+## Error in rbind(trainperf_xgb, testperf_xgb): object 'trainperf_xgb' not found
+```
+
+```r
 pandoc.table(perftable, justify=perf_justify)   
 ```
 
 ```
 ## 
 ## 
-## model        accuracy       f1   dev.norm
-## ---------- ---------- -------- ----------
-## training       0.9891   0.9891     0.1723
-## test           0.8725   0.8735     0.5955
+## model                   accuracy       f1   dev.norm
+## --------------------- ---------- -------- ----------
+## random forest, test       0.9498   0.9341     0.3011
+## RF small, test            0.9520   0.9368     0.4000
 ```
 
 ```r
@@ -1084,13 +1104,7 @@ str(train[, input_vars])
 # Title: Use vtreat to prepare data for xgboost 
 
 library(vtreat)
-```
 
-```
-## Warning: package 'vtreat' was built under R version 3.5.2
-```
-
-```r
 treatplan <- designTreatmentsZ(train,  	# Note: 1 
                                input_vars,
                                codeRestriction = c("clean", "isBAD","lev" ), 	# Note: 2                               
@@ -1308,15 +1322,7 @@ library(mgcv)                             	# Note: 1
 ```
 
 ```
-## Warning: package 'mgcv' was built under R version 3.5.2
-```
-
-```
 ## Loading required package: nlme
-```
-
-```
-## Warning: package 'nlme' was built under R version 3.5.2
 ```
 
 ```
@@ -1489,13 +1495,6 @@ rmse(test$resid_gam)
 
 
 library(sigr)      	# Note: 4 
-```
-
-```
-## Warning: package 'sigr' was built under R version 3.5.2
-```
-
-```r
 wrapFTest(test, "pred_lin", "y")$R2
 ```
 
@@ -2061,13 +2060,6 @@ sTest <- subset(s,group <= 10) 		# Note: 1
 # mSVMV <- ksvm(class~x+y,data=sTrain,kernel='vanilladot') 
 # had been using ksvm, but it seems to keep bad state in some cases
 library('e1071')
-```
-
-```
-## Warning: package 'e1071' was built under R version 3.5.2
-```
-
-```r
 mSVMV <- svm(class~x+y,data=sTrain,kernel='linear',type='nu-classification') 		# Note: 2 
 sTest$predSVMV <- predict(mSVMV,newdata=sTest,type='response') 		# Note: 3 
 

@@ -14,13 +14,6 @@ output: github_document
 # Title: Calculating the confusion matrix 
 
 library("rpart") 	# Note: 1 
-```
-
-```
-## Warning: package 'rpart' was built under R version 3.5.2
-```
-
-```r
 load("../Statlog/loan_model_example.RData") 	# Note: 2 
 conf_mat <- table(actual = d$Loan_status, pred = predict(model, type = 'class'))  	# Note: 3 
 

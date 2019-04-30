@@ -571,21 +571,34 @@ print(predict(m,
 # (informalexample A.7 of section A.3.1)  : Starting with R and other tools : Using databases with R : Running database queries using a query generator 
 
 library("rquery")
+
+raw_connection <- DBI::dbConnect(MonetDBLite::MonetDBLite()) 	# Note: 1 
 ```
 
 ```
-## Warning: package 'rquery' was built under R version 3.5.2
+## Error in loadNamespace(name): there is no package called 'MonetDBLite'
 ```
 
 ```r
-raw_connection <- DBI::dbConnect(MonetDBLite::MonetDBLite()) 	# Note: 1 
-        
 dbopts <- rq_connection_tests(raw_connection) 	# Note: 2 
+```
+
+```
+## Error in rq_connection_tests(raw_connection): object 'raw_connection' not found
+```
+
+```r
 db <- rquery_db_info(
   connection = raw_connection,
   is_dbi = TRUE,
   connection_options = dbopts)
+```
 
+```
+## Error in "rquery_db_info" %in% class(connection): object 'raw_connection' not found
+```
+
+```r
 data_handle <- rq_copy_to( 	# Note: 3 
   db, 
   'offers',
@@ -601,7 +614,13 @@ data_handle <- rq_copy_to( 	# Note: 3
      "Nina"     , "Pelikan M200 Fountain Pen"     , 0.1       , 0.616                      ),
   temporary = TRUE, 
   overwrite = TRUE)
+```
 
+```
+## Error in rq_copy_to(db, "offers", wrapr::build_frame("user_name", "product", : object 'db' not found
+```
+
+```r
 # Note 1: 
 #   Use DBI to connect to a database. In this case it creates a new in-memory MonetDBLite. 
 
@@ -633,18 +652,9 @@ data_handle %.>% 	# Note: 1
   knitr::kable(.) 	# Note: 6 
 ```
 
-
-
-|user_name |product                        | discount| predicted_offer_affinity| simple_rank|
-|:---------|:------------------------------|--------:|------------------------:|-----------:|
-|Nina      |Pelikan M200 Fountain Pen      |     0.10|                  0.61600|           1|
-|Nina      |Dell XPS Laptop                |     0.05|                  0.31790|           2|
-|Nina      |Pandemic Board Game            |     0.20|                  0.13360|           3|
-|Nina      |Čapek's Tales from Two Pockets |     0.05|                  0.06909|           4|
-|John      |Pandemic Board Game            |     0.10|                  0.85960|           1|
-|John      |Pelikan M200 Fountain Pen      |     0.20|                  0.67060|           2|
-|John      |Čapek's Tales from Two Pockets |     0.05|                  0.24390|           3|
-|John      |Dell XPS Laptop                |     0.10|                  0.24020|           4|
+```
+## Error in eval(pipe_left_arg, envir = pipe_environment, enclos = pipe_environment): object 'data_handle' not found
+```
 
 ```r
 # |user_name |product                        | discount| predicted_offer_affinity| simple_rank|
@@ -697,21 +707,28 @@ ops <- data_handle %.>% 	# Note: 1
   select_rows(.,  	# Note: 3 
               simple_rank <= 2) %.>%
    orderby(., c("user_name", "simple_rank")) 	# Note: 4 
+```
 
+```
+## Error in eval(pipe_left_arg, envir = pipe_environment, enclos = pipe_environment): object 'data_handle' not found
+```
+
+```r
 result_table <- materialize(db, ops) 	# Note: 5 
+```
 
+```
+## Error in "relop" %in% class(optree): object 'ops' not found
+```
+
+```r
 DBI::dbReadTable(db$connection, result_table$table_name) %.>% 	# Note: 6 
   knitr::kable(.)
 ```
 
-
-
-|user_name |product                   | discount| predicted_offer_affinity| simple_rank|
-|:---------|:-------------------------|--------:|------------------------:|-----------:|
-|John      |Pandemic Board Game       |     0.10|                   0.8596|           1|
-|John      |Pelikan M200 Fountain Pen |     0.20|                   0.6706|           2|
-|Nina      |Pelikan M200 Fountain Pen |     0.10|                   0.6160|           1|
-|Nina      |Dell XPS Laptop           |     0.05|                   0.3179|           2|
+```
+## Error in DBI::dbReadTable(db$connection, result_table$table_name): object 'db' not found
+```
 
 ```r
 # |user_name |product                   | discount| predicted_offer_affinity| simple_rank|
@@ -757,26 +774,7 @@ ops %.>%
 ```
 
 ```
-## SELECT * FROM (
-##  SELECT * FROM (
-##   SELECT
-##    "user_name",
-##    "product",
-##    "discount",
-##    "predicted_offer_affinity",
-##    rank ( ) OVER (  PARTITION BY "user_name" ORDER BY "predicted_offer_affinity" DESC ) AS "simple_rank"
-##   FROM (
-##    SELECT
-##     "user_name",
-##     "product",
-##     "discount",
-##     "predicted_offer_affinity"
-##    FROM
-##     "offers"
-##    ) tsql_36700222279937978645_0000000000
-##  ) tsql_36700222279937978645_0000000001
-##  WHERE "simple_rank" <= 2
-## ) tsql_36700222279937978645_0000000002 ORDER BY "user_name", "simple_rank"
+## Error in eval(pipe_left_arg, envir = pipe_environment, enclos = pipe_environment): object 'ops' not found
 ```
 
 ```r

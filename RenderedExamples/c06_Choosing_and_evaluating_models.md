@@ -336,19 +336,19 @@ get_performance(sTest)
 
 ```
 ## $spam_proportion
-## [1] 0.3994413
+## [1] 0.4078212
 ## 
 ## $confmat_spam
 ##           prediction
 ## truth      non-spam spam
-##   non-spam      204   11
-##   spam           17  126
+##   non-spam      201   11
+##   spam           17  129
 ## 
 ## $precision
-## [1] 0.919708
+## [1] 0.9214286
 ## 
 ## $recall
-## [1] 0.8811189
+## [1] 0.8835616
 ```
 
 ```r
@@ -372,12 +372,12 @@ get_performance(rbind(sTest, subset(removed, spam=="spam")))  	# Note: 4
 
 ```
 ## $spam_proportion
-## [1] 0.4556962
+## [1] 0.4591837
 ## 
 ## $confmat_spam
 ##           prediction
 ## truth      non-spam spam
-##   non-spam      204   11
+##   non-spam      201   11
 ##   spam           22  158
 ## 
 ## $precision
@@ -408,19 +408,19 @@ get_performance(rbind(sTest, subset(removed, spam=="non-spam")))   	# Note: 5
 
 ```
 ## $spam_proportion
-## [1] 0.3396675
+## [1] 0.3443396
 ## 
 ## $confmat_spam
 ##           prediction
 ## truth      non-spam spam
 ##   non-spam      264   14
-##   spam           17  126
+##   spam           17  129
 ## 
 ## $precision
-## [1] 0.9
+## [1] 0.9020979
 ## 
 ## $recall
-## [1] 0.8811189
+## [1] 0.8835616
 ```
 
 ```r
@@ -579,7 +579,11 @@ library(WVPlots)
 ```
 
 ```
-## Warning: package 'WVPlots' was built under R version 3.5.2
+## Registered S3 methods overwritten by 'ggplot2':
+##   method         from 
+##   [.quosures     rlang
+##   c.quosures     rlang
+##   print.quosures rlang
 ```
 
 ```r
@@ -615,13 +619,6 @@ ROCPlot(spamTest,                      	# Note: 1
 
 ```r
 library(sigr)
-```
-
-```
-## Warning: package 'sigr' was built under R version 3.5.2
-```
-
-```r
 calcAUC(spamTest$pred, spamTest$spam=='spam')   	# Note: 2 
 ```
 
@@ -819,29 +816,23 @@ head(train)
 # Title: Fit a model to the iris training data 
 
 source("../LIME_iris/lime_iris_example.R") 	# Note: 1  
-```
-
-```
-## Warning: package 'xgboost' was built under R version 3.5.2
-```
-
-```r
+                                        
 input <- as.matrix(train[, 1:4])              	# Note: 2                  
 model <- fit_iris_example(input, train$class)
 ```
 
 ```
-## [1]	train-logloss:0.454780+0.000078	test-logloss:0.455058+0.001638 
-## [11]	train-logloss:0.032152+0.000071	test-logloss:0.032379+0.001328 
-## [21]	train-logloss:0.021108+0.000811	test-logloss:0.021593+0.001433 
-## [31]	train-logloss:0.021096+0.000814	test-logloss:0.021629+0.001647 
-## [41]	train-logloss:0.021096+0.000814	test-logloss:0.021634+0.001673 
-## [51]	train-logloss:0.021096+0.000814	test-logloss:0.021635+0.001675 
-## [61]	train-logloss:0.021096+0.000814	test-logloss:0.021635+0.001676 
-## [71]	train-logloss:0.021096+0.000814	test-logloss:0.021635+0.001676 
-## [81]	train-logloss:0.021096+0.000814	test-logloss:0.021635+0.001676 
-## [91]	train-logloss:0.021096+0.000814	test-logloss:0.021635+0.001676 
-## [100]	train-logloss:0.021096+0.000814	test-logloss:0.021635+0.001676
+## [1]	train-logloss:0.454781+0.000056	test-logloss:0.454951+0.001252 
+## [11]	train-logloss:0.032154+0.000045	test-logloss:0.032292+0.001016 
+## [21]	train-logloss:0.020894+0.000931	test-logloss:0.021263+0.001448 
+## [31]	train-logloss:0.020881+0.000932	test-logloss:0.021271+0.001580 
+## [41]	train-logloss:0.020881+0.000932	test-logloss:0.021274+0.001597 
+## [51]	train-logloss:0.020881+0.000932	test-logloss:0.021274+0.001599 
+## [61]	train-logloss:0.020881+0.000932	test-logloss:0.021274+0.001599 
+## [71]	train-logloss:0.020881+0.000932	test-logloss:0.021274+0.001599 
+## [81]	train-logloss:0.020881+0.000932	test-logloss:0.021274+0.001599 
+## [91]	train-logloss:0.020881+0.000932	test-logloss:0.021274+0.001599 
+## [100]	train-logloss:0.020881+0.000932	test-logloss:0.021274+0.001599
 ```
 
 ```r
@@ -1171,14 +1162,34 @@ source("../IMDB/lime_imdb_example.R")
 ```
 
 ```
-## Warning: package 'wrapr' was built under R version 3.5.2
+## Error in library(text2vec): there is no package called 'text2vec'
 ```
 
 ```r
 vocab <- create_pruned_vocabulary(texts) 	# Note: 1                                
-dtm_train <- make_matrix(texts, vocab)  	# Note: 2 
-model <- fit_imdb_model(dtm_train, labels) 	# Note: 3
+```
 
+```
+## Error in create_pruned_vocabulary(texts): could not find function "create_pruned_vocabulary"
+```
+
+```r
+dtm_train <- make_matrix(texts, vocab)  	# Note: 2 
+```
+
+```
+## Error in make_matrix(texts, vocab): could not find function "make_matrix"
+```
+
+```r
+model <- fit_imdb_model(dtm_train, labels) 	# Note: 3
+```
+
+```
+## Error in fit_imdb_model(dtm_train, labels): could not find function "fit_imdb_model"
+```
+
+```r
 # Note 1: 
 #   Create the vocabulary from the training data. 
 
@@ -1203,20 +1214,35 @@ model <- fit_imdb_model(dtm_train, labels) 	# Note: 3
 
 c(test_txt, test_labels) %<-%  readRDS("../IMDB/IMDBtest.RDS") 	# Note: 1 
 dtm_test <- make_matrix(test_txt, vocab) 	# Note: 2 
-                                
+```
+
+```
+## Error in make_matrix(test_txt, vocab): could not find function "make_matrix"
+```
+
+```r
 predicted <- predict(model, newdata=dtm_test)  	# Note: 3 
-                                
+```
+
+```
+## Error in predict.xgb.Booster(model, newdata = dtm_test): object 'dtm_test' not found
+```
+
+```r
 teframe <- data.frame(true_label = test_labels, 
                          pred = predicted)                                    	# Note: 4 
-                                
+```
+
+```
+## Error in data.frame(true_label = test_labels, pred = predicted): object 'predicted' not found
+```
+
+```r
 (cmat <- with(teframe, table(truth=true_label, pred=pred > 0.5))) 	# Note: 5 
 ```
 
 ```
-##      pred
-## truth FALSE  TRUE
-##     0 10836  1664
-##     1  1485 11015
+## Error in table(truth = true_label, pred = pred > 0.5): object 'true_label' not found
 ```
 
 ```r
@@ -1229,7 +1255,7 @@ sum(diag(cmat))/sum(cmat) 	# Note: 6
 ```
 
 ```
-## [1] 0.87404
+## Error in diag(cmat): object 'cmat' not found
 ```
 
 ```r
@@ -1240,7 +1266,9 @@ DoubleDensityPlot(teframe, "pred", "true_label",
                   "Distribution of test prediction scores") 	# Note: 7
 ```
 
-![plot of chunk 00253_example_6.23_of_section_6.3.4.R](figure/00253_example_6.23_of_section_6.3.4.R-1.png)
+```
+## Error in check_frame_args_list(..., frame = frame, name_var_list = list(xvar = xvar, : WVPlots::DoubleDensityPlot: truthVar argument (value: "true_label") must be the name of a column in data.frame frame
+```
 
 ```r
 # Note 1: 
@@ -1296,22 +1324,20 @@ explainer <- lime(texts, model = model,
 casename <- "test_19552"; 
 sample_case <- test_txt[casename]
 pred_prob <- predict(model, make_matrix(sample_case, vocab))
+```
+
+```
+## Error in make_matrix(sample_case, vocab): could not find function "make_matrix"
+```
+
+```r
 list(text = sample_case,
      label = test_labels[casename],  
      prediction = round(pred_prob) ) 
 ```
 
 ```
-## $text
-##                                                                                                                                      test_19552 
-## "Great story, great music. A heartwarming love story that's beautiful to watch and delightful to listen to. Too bad there is no soundtrack CD." 
-## 
-## $label
-## test_19552 
-##          1 
-## 
-## $prediction
-## [1] 1
+## Error in eval(expr, envir, enclos): object 'pred_prob' not found
 ```
 
 ```r
@@ -1344,7 +1370,13 @@ explanation <- lime::explain(sample_case,
                        explainer, 
                        n_labels = 1, 
                        n_features = 5)
+```
 
+```
+## Error in make_matrix(x, vocab): could not find function "make_matrix"
+```
+
+```r
 plot_features(explanation)
 ```
 
@@ -1364,7 +1396,9 @@ plot_features(explanation)
 plot_text_explanations(explanation)
 ```
 
-![plot of chunk 00257_informalexample_6.13_of_section_6.3.5.R](figure/00257_informalexample_6.13_of_section_6.3.5.R-1.png)
+```
+## Error: original_text is not a string (a length one character vector).
+```
 
 
 
@@ -1381,24 +1415,20 @@ plot_text_explanations(explanation)
 casenames <-  c("test_12034", "test_10294")
 sample_cases <- test_txt[casenames]
 pred_probs <- predict(model, newdata=make_matrix(sample_cases, vocab))
+```
+
+```
+## Error in make_matrix(sample_cases, vocab): could not find function "make_matrix"
+```
+
+```r
 list(texts = sample_cases,
      labels = test_labels[casenames],  
      predictions = round(pred_probs)) 
 ```
 
 ```
-## $texts
-##                                                                                                                                                                                                         test_12034 
-##                                           "I don't know why I even watched this film. I think it was because I liked the idea of the scenery and was hoping the film would be as good. Very boring and pointless." 
-##                                                                                                                                                                                                         test_10294 
-## "To anyone who likes the TV series: forget the movie. The jokes are bad and some topics are much too sensitive to laugh about it.<br /><br />We have seen much better acting by R. Dueringer in \"Hinterholz 8\"." 
-## 
-## $labels
-## test_12034 test_10294 
-##          0          0 
-## 
-## $predictions
-## [1] 0 1
+## Error in eval(expr, envir, enclos): object 'pred_probs' not found
 ```
 
 ```r
@@ -1423,7 +1453,13 @@ explanation <- lime::explain(sample_cases,
                                     explainer, 
                                     n_labels = 1, 
                                     n_features = 5)
-                                
+```
+
+```
+## Error in make_matrix(x, vocab): could not find function "make_matrix"
+```
+
+```r
 plot_features(explanation)
 ```
 
@@ -1433,7 +1469,9 @@ plot_features(explanation)
 plot_text_explanations(explanation)
 ```
 
-![plot of chunk 00258_example_6.27_of_section_6.3.5.R](figure/00258_example_6.27_of_section_6.3.5.R-2.png)
+```
+## Error: original_text is not a string (a length one character vector).
+```
 
 ```r
 # Note 1: 
@@ -1458,7 +1496,7 @@ predict(model, newdata=make_matrix(sample_cases[2], vocab))
 ```
 
 ```
-## [1] 0.6052929
+## Error in make_matrix(sample_cases[2], vocab): could not find function "make_matrix"
 ```
 
 ```r

@@ -26,8 +26,8 @@ rgroup <- base::sample(c('train', 'calibrate', 'test'), 	# Note: 6
    nrow(d), 
    prob = c(0.8, 0.1, 0.1),
    replace = TRUE)
-dTrain <- d[rgroup=='train', , drop = FALSE]
-dCal <- d[rgroup=='calibrate', , drop = FALSE]
+dTrain <- d[rgroup == 'train', , drop = FALSE]
+dCal <- d[rgroup == 'calibrate', , drop = FALSE]
 dTrainAll <- d[rgroup %in% c('train', 'calibrate'), , drop = FALSE]
 dTest <- d[rgroup == 'test', , drop = FALSE]
                                                 
@@ -105,12 +105,12 @@ knitr::kable(outcome_summary)
 # informalexample 8.2 of section 8.2.1 
 # (informalexample 8.2 of section 8.2.1)  : Advanced Data Preparation : KDD and KDD Cup 2009 : Getting started with KDD Cup 2009 data 
 
-outcome_summary["1"]/sum(outcome_summary) 	# Note: 1 
+outcome_summary["1"] / sum(outcome_summary) 	# Note: 1 
 #          1 
 # 0.07347764
 
 # Note 1: 
-#   Estimate observed churn rate or prevelance. 
+#   Estimate observed churn rate or prevalence. 
 
 
 
@@ -362,19 +362,19 @@ head(comparison)
 # informalexample 8.7 of section 8.3.1 
 # (informalexample 8.7 of section 8.3.1)  : Advanced Data Preparation : Basic data preparation for classification : The variable score frame 
 
-treatmet_plan_2 <- design_missingness_treatment(dTrain, varlist=vars) 	# Note: 1 
+treatmet_plan_2 <- design_missingness_treatment(dTrain, varlist = vars) 	# Note: 1 
 dtrain_2 <- prepare(treatmet_plan_2, dTrain)                           	# Note: 2 
 head(dtrain_2$Var218)
 
 ## [1] "cJvF"      "_invalid_" "UYBR"      "UYBR"      "UYBR"      "UYBR"
 
-model <- glm(churn==1 ~ Var218,         	# Note: 3 
-            data=dtrain_2, 
-            family="binomial")
+model <- glm(churn ==1  ~ Var218,         	# Note: 3 
+            data = dtrain_2, 
+            family = "binomial")
             
 pred <- predict(model,                 	# Note: 4 
                newdata = dtrain_2, 
-               type="response")  
+               type = "response")  
                
 (prevalence <- mean(dTrain$churn == 1) )  	# Note: 5 
 ## [1] 0.07347764
@@ -432,7 +432,7 @@ head(comparison)
 # informalexample 8.8 of section 8.3.1 
 # (informalexample 8.8 of section 8.3.1)  : Advanced Data Preparation : Basic data preparation for classification : The variable score frame 
 
-score_frame[score_frame$origName=="Var200", , drop = FALSE]
+score_frame[score_frame$origName == "Var200", , drop = FALSE]
 
 #           varName varMoves         rsq          sig needsSplit extraModelDegrees origName code
 # 361   Var200_catP     TRUE 0.005729835 4.902546e-28       TRUE             13323   Var200 catP
@@ -517,7 +517,7 @@ dTest_treated <- prepare(treatment_plan, 	# Note: 2
                          parallelCluster = parallel_cluster)
 
 # Note 1: 
-#   We will use the cross frame to train the logistic regression model. 
+#   We will use the cross-frame to train the logistic regression model. 
 
 # Note 2: 
 #   Prepare the test set so we can call the model on it. 
@@ -561,7 +561,7 @@ calcAUC(dTest_treated$Var200_catB, dTest_treated$churn)
 # (informalexample 8.12 of section 8.4.2)  : Advanced Data Preparation : Advanced data preparation for classification : Building a model 
 
 k <- 1       	# Note: 1 
-(significance_cutoff <- k/nrow(score_frame))
+(significance_cutoff <- k / nrow(score_frame))
 # [1] 0.001831502
 score_frame$selected <- score_frame$sig < significance_cutoff
                                 
@@ -589,7 +589,7 @@ score_frame %>%
 # 5 lev                 74              62
 
 # Note 1: 
-#   Use our filter significances at k/nrow(score_frame) heuristic with k = 1 
+#   Use our filter significances at k / nrow(score_frame) heuristic with k = 1 
 
 # Note 2: 
 #   Bring in the dplyr package to help summarize the selections. 
@@ -619,7 +619,7 @@ model <- glm(f, data = dTrainAll_treated, family = binomial) 	# Note: 3
 # glm.fit: fitted probabilities numerically 0 or 1 occurred
 
 # Note 1: 
-#   Build a formula specifying modeling churn==1 as a function of all variables. 
+#   Build a formula specifying modeling churn == 1 as a function of all variables. 
 
 # Note 2: 
 #   Use the modeling formula with R's glm() function. 
@@ -645,12 +645,12 @@ library("sigr")
 
 dTest_treated$glm_pred <- predict(model,   	# Note: 1 
                                   newdata = dTest_treated, 
-                                  type='response')
+                                  type = 'response')
 # Warning message:    	# Note: 2 
 # In predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
 #   prediction from a rank-deficient fit may be misleading
 
-calcAUC(dTest_treated$glm_pred, dTest_treated$churn==1) 	# Note: 3 
+calcAUC(dTest_treated$glm_pred, dTest_treated$churn == 1) 	# Note: 3 
 ## [1] 0.7232192
 
 permTestAUC(dTest_treated, "glm_pred", "churn", yTarget = 1) 	# Note: 4 
@@ -658,7 +658,7 @@ permTestAUC(dTest_treated, "glm_pred", "churn", yTarget = 1) 	# Note: 4
        
 var_aucs <- vapply(newvars, 	# Note: 5 
        function(vi) {
-         calcAUC(dTrainAll_treated[[vi]], dTrainAll_treated$churn==1)
+         calcAUC(dTrainAll_treated[[vi]], dTrainAll_treated$churn == 1)
        }, numeric(1))
 (best_train_aucs <- var_aucs[var_aucs >= max(var_aucs)])
 ## Var216_catB 
@@ -693,7 +693,7 @@ var_aucs <- vapply(newvars, 	# Note: 5
 # informalexample 8.14 of section 8.4.2 
 # (informalexample 8.14 of section 8.4.2)  : Advanced Data Preparation : Advanced data preparation for classification : Building a model 
 
-table(prediction = dTest_treated$glm_pred>=0.5, 
+table(prediction = dTest_treated$glm_pred >= 0.5, 
       truth = dTest$churn)
 #           truth
 # prediction   -1    1
@@ -800,7 +800,7 @@ str(auto_mpg[!complete.cases(auto_mpg), , drop = FALSE])
 #  $ acceleration: num  19 17 17.3 14.3 15.8 20.5
 #  $ model_year  : num  71 74 80 80 81 82
 #  $ origin      : Factor w/ 3 levels "1","2","3": 1 1 2 1 2 1
-#  $ car_name    : chr  "\"ford pinto\"" "\"ford maverick\"" "\"renault lecar deluxe\"" "\"ford mustang cobra\"" ...
+#  $ car_name    : chr  "\"ford pinto\"" "\"ford maverick\"" "\"renault lecar deluxe\"" ...
 #  $ prediction  : num  NA NA NA NA NA NA         	# Note: 4
 
 # Note 1: 
@@ -854,7 +854,7 @@ str(auto_mpg[!complete.cases(auto_mpg), , drop = FALSE])
 #  $ acceleration: num  19 17 17.3 14.3 15.8 20.5
 #  $ model_year  : num  71 74 80 80 81 82
 #  $ origin      : Factor w/ 3 levels "1","2","3": 1 1 2 1 2 1
-#  $ car_name    : chr  "\"ford pinto\"" "\"ford maverick\"" "\"renault lecar deluxe\"" "\"ford mustang cobra\"" ...
+#  $ car_name    : chr  "\"ford pinto\"" "\"ford maverick\"" "\"renault lecar deluxe\"" ...
 #  $ prediction  : num  24.6 22.4 34.2 26.1 33.3 ...  	# Note: 2
 
 # Note 1: 
@@ -1099,7 +1099,7 @@ head(d) 	# Note: 4
 
 # Note 4: 
 #   Take a look at our synthetic example data. The idea is: y is related to x_good in a noisy fashion, but unrelated to x_bad.  
-#   In this case we know what variables should be chosen, so we can tell if our acceptance procedure is working correctly. 
+#   In this case, we know what variables should be chosen, so we can tell if our acceptance procedure is working correctly. 
 
 
 
@@ -1150,7 +1150,7 @@ sigr::wrapFTest(res1, "x_bad_catN", "y") 	# Note: 6
 # [1] "F Test summary: (R2=0.2342, F(1,98)=29.97, p<1e-05)."
 
 # Note 1: 
-#   Design a variable treatment plan using x_bad and x_good to try and predict y. 
+#   Design a variable treatment plan using x_bad and x_good to try predicting y. 
 
 # Note 2: 
 #   Notice the derived variable x_good_catN comes out as having a significant signal, and x_bad_catN does not.  
