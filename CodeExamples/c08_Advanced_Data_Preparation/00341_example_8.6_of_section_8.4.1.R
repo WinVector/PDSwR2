@@ -23,7 +23,7 @@ dTest_treated <- prepare(treatment_plan, 	# Note: 2
                          parallelCluster = parallel_cluster)
 
 # Note 1: 
-#   We will use the cross frame to train the logistic regression model. 
+#   We will use the cross-frame to train the logistic regression model. 
 
 # Note 2: 
 #   Prepare the test set so we can call the model on it. 

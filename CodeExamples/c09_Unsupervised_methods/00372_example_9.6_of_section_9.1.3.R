@@ -3,11 +3,11 @@
 # Title: Running clusterboot() on the protein data 
 
 library(fpc)                                    	# Note: 1 
-kbest_p<-5                                                      	# Note: 2 
+kbest_p <- 5                                                      	# Note: 2 
 cboot_hclust <- clusterboot(pmatrix,
-                           clustermethod=hclustCBI,    	# Note: 3  
-                           method="ward.D",
-                           k=kbest_p)
+                           clustermethod = hclustCBI,    	# Note: 3  
+                           method = "ward.D",
+                           k = kbest_p)
                            
 summary(cboot_hclust$result)                               	# Note: 4 
 
@@ -20,7 +20,7 @@ summary(cboot_hclust$result)                               	# Note: 4
 ## clustermethod  1     -none- character
 ## nccl           1     -none- numeric
 
-groups<-cboot_hclust$result$partition                        	# Note: 5 
+groups <- cboot_hclust$result$partition                        	# Note: 5 
 print_clusters(protein, groups, cols_to_print)                               	# Note: 6 
 
 ## $`1`
@@ -78,9 +78,9 @@ cboot_hclust$bootbrd                                        	# Note: 8
 
 # Note 3: 
 #   Run clusterboot() with hclust 
-#   ('clustermethod=hclustCBI') using Ward’s method 
-#   ('method="ward.D"') and kbest_p clusters 
-#   ('k=kbest_p'). Return the results in an object 
+#   (clustermethod = hclustCBI) using Ward’s method 
+#   (method = "ward.D") and kbest_p clusters 
+#   (k = kbest_p). Return the results in an object 
 #   called cboot_hclust. 
 
 # Note 4: 

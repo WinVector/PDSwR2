@@ -12,7 +12,7 @@ model <- glm(f, data = dTrainAll_treated, family = binomial) 	# Note: 3
 # glm.fit: fitted probabilities numerically 0 or 1 occurred
 
 # Note 1: 
-#   Build a formula specifying modeling churn==1 as a function of all variables. 
+#   Build a formula specifying modeling churn == 1 as a function of all variables. 
 
 # Note 2: 
 #   Use the modeling formula with R's glm() function. 

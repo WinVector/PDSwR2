@@ -2,7 +2,7 @@
 # (informalexample 8.12 of section 8.4.2)  : Advanced Data Preparation : Advanced data preparation for classification : Building a model 
 
 k <- 1       	# Note: 1 
-(significance_cutoff <- k/nrow(score_frame))
+(significance_cutoff <- k / nrow(score_frame))
 # [1] 0.001831502
 score_frame$selected <- score_frame$sig < significance_cutoff
                                 
@@ -30,7 +30,7 @@ score_frame %>%
 # 5 lev                 74              62
 
 # Note 1: 
-#   Use our filter significances at k/nrow(score_frame) heuristic with k = 1 
+#   Use our filter significances at k / nrow(score_frame) heuristic with k = 1 
 
 # Note 2: 
 #   Bring in the dplyr package to help summarize the selections. 

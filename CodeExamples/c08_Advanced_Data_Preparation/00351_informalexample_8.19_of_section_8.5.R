@@ -26,7 +26,7 @@ str(auto_mpg[!complete.cases(auto_mpg), , drop = FALSE])
 #  $ acceleration: num  19 17 17.3 14.3 15.8 20.5
 #  $ model_year  : num  71 74 80 80 81 82
 #  $ origin      : Factor w/ 3 levels "1","2","3": 1 1 2 1 2 1
-#  $ car_name    : chr  "\"ford pinto\"" "\"ford maverick\"" "\"renault lecar deluxe\"" "\"ford mustang cobra\"" ...
+#  $ car_name    : chr  "\"ford pinto\"" "\"ford maverick\"" "\"renault lecar deluxe\"" ...
 #  $ prediction  : num  24.6 22.4 34.2 26.1 33.3 ...  	# Note: 2
 
 # Note 1: 

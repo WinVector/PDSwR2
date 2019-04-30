@@ -2,8 +2,8 @@
 # (example 9.16 of section 9.1.5)  : Unsupervised methods : Cluster analysis : Assigning new points to clusters 
 # Title: Unscale the centers 
 
-unscaled = scale(tclusters$centers, center=FALSE, scale=1/tscale) 
-rm_scales(scale(unscaled, center = -tcenter, scale=FALSE))          
+unscaled = scale(tclusters$centers, center = FALSE, scale = 1 / tscale) 
+rm_scales(scale(unscaled, center = -tcenter, scale = FALSE))          
 
 ##         [,1]      [,2]       [,3]
 ## 1  9.8234797 -3.005977  4.7662651

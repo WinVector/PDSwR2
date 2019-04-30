@@ -3,7 +3,7 @@
 # Title: Finding the association rules 
 
 rules <- apriori(bookbaskets_use,                                  	# Note: 1 
-                parameter =list(support = 0.002, confidence=0.75))
+                 parameter = list(support = 0.002, confidence = 0.75))
 
 summary(rules)
 ## set of 191 rules  	# Note: 2 

@@ -36,7 +36,7 @@ sigr::wrapFTest(res1, "x_bad_catN", "y") 	# Note: 6
 # [1] "F Test summary: (R2=0.2342, F(1,98)=29.97, p<1e-05)."
 
 # Note 1: 
-#   Design a variable treatment plan using x_bad and x_good to try and predict y. 
+#   Design a variable treatment plan using x_bad and x_good to try predicting y. 
 
 # Note 2: 
 #   Notice the derived variable x_good_catN comes out as having a significant signal, and x_bad_catN does not.  

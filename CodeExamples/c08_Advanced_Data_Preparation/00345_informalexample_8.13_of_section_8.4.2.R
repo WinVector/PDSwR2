@@ -5,12 +5,12 @@ library("sigr")
 
 dTest_treated$glm_pred <- predict(model,   	# Note: 1 
                                   newdata = dTest_treated, 
-                                  type='response')
+                                  type = 'response')
 # Warning message:    	# Note: 2 
 # In predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
 #   prediction from a rank-deficient fit may be misleading
 
-calcAUC(dTest_treated$glm_pred, dTest_treated$churn==1) 	# Note: 3 
+calcAUC(dTest_treated$glm_pred, dTest_treated$churn == 1) 	# Note: 3 
 ## [1] 0.7232192
 
 permTestAUC(dTest_treated, "glm_pred", "churn", yTarget = 1) 	# Note: 4 
@@ -18,7 +18,7 @@ permTestAUC(dTest_treated, "glm_pred", "churn", yTarget = 1) 	# Note: 4
        
 var_aucs <- vapply(newvars, 	# Note: 5 
        function(vi) {
-         calcAUC(dTrainAll_treated[[vi]], dTrainAll_treated$churn==1)
+         calcAUC(dTrainAll_treated[[vi]], dTrainAll_treated$churn == 1)
        }, numeric(1))
 (best_train_aucs <- var_aucs[var_aucs >= max(var_aucs)])
 ## Var216_catB 

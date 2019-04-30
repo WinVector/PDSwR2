@@ -4,11 +4,11 @@
 
 library(arules)  	# Note: 1 
 bookbaskets <- read.transactions("bookdata.tsv.gz", 
-                                     format="single",  	# Note: 2 
-                                     header=TRUE,      	# Note: 3            
-                                     sep="\t",                    	# Note: 4 
-                                     cols=c("userid", "title"),    	# Note: 5 
-                                     rm.duplicates=TRUE)       	# Note: 6
+                                     format = "single",  	# Note: 2 
+                                     header = TRUE,      	# Note: 3            
+                                     sep = "\t",                    	# Note: 4 
+                                     cols = c("userid", "title"),    	# Note: 5 
+                                     rm.duplicates = TRUE)       	# Note: 6
 
 # Note 1: 
 #   Load the arules package. 

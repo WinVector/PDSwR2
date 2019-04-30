@@ -1,10 +1,10 @@
 # example 9.11 of section 9.1.4 
 # (example 9.11 of section 9.1.4)  : Unsupervised methods : Cluster analysis : The k-means algorithm 
-# Title: Running k-means with k=5 
+# Title: Running k-means with k = 5 
 
 kbest_p <- 5
 
-pclusters <- kmeans(pmatrix, kbest_p, nstart=100, iter.max=100)     	# Note: 1 
+pclusters <- kmeans(pmatrix, kbest_p, nstart = 100, iter.max = 100)     	# Note: 1 
 summary(pclusters)                                                  	# Note: 2 
 ##              Length Class  Mode   
 ## cluster      25     -none- numeric
@@ -79,7 +79,7 @@ print_clusters(protein, groups, cols_to_print)                                  
 ## 24   W Germany    11.4  3.4    3.8
 
 # Note 1: 
-#   Run kmeans() with five clusters (kbest_p=5), 
+#   Run kmeans() with five clusters (kbest_p = 5), 
 #   100 random starts, and 100 maximum iterations per 
 #   run. 
 

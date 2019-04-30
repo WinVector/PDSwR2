@@ -16,8 +16,8 @@ rgroup <- base::sample(c('train', 'calibrate', 'test'), 	# Note: 6
    nrow(d), 
    prob = c(0.8, 0.1, 0.1),
    replace = TRUE)
-dTrain <- d[rgroup=='train', , drop = FALSE]
-dCal <- d[rgroup=='calibrate', , drop = FALSE]
+dTrain <- d[rgroup == 'train', , drop = FALSE]
+dCal <- d[rgroup == 'calibrate', , drop = FALSE]
 dTrainAll <- d[rgroup %in% c('train', 'calibrate'), , drop = FALSE]
 dTest <- d[rgroup == 'test', , drop = FALSE]
                                                 

@@ -4,11 +4,11 @@
 
 total_ss <- function(dmatrix) {                    	# Note: 1 
   grandmean <- colMeans(dmatrix)
-  sum(apply(dmatrix, 1, FUN=function(row){sqr_edist(row, grandmean)}))
+  sum(apply(dmatrix, 1, FUN = function(row) { sqr_edist(row, grandmean) }))
 }
 
 tss <- total_ss(pmatrix)
-cluster_meas$bss <- with(cluster_meas, tss-wss)
+cluster_meas$bss <- with(cluster_meas, tss - wss)
 
 library(cdata)                                      	# Note: 2 
 cmlong <- unpivot_to_blocks(cluster_meas,        	# Note: 3 
@@ -16,10 +16,10 @@ cmlong <- unpivot_to_blocks(cluster_meas,        	# Note: 3
                            nameForNewValueColumn = "value",
                            columnsToTakeFrom = c("wss", "bss"))
 
-ggplot(cmlong, aes(x=nclusters, y=value)) +  
+ggplot(cmlong, aes(x = nclusters, y = value)) +  
   geom_point() + geom_line() + 
-  facet_wrap(~measure, ncol=1, scale="free_y") +
-  scale_x_continuous(breaks=1:10)
+  facet_wrap(~measure, ncol = 1, scale = "free_y") +
+  scale_x_continuous(breaks = 1:10)
 
 # Note 1: 
 #   Calculate total sum of squares TSS. 

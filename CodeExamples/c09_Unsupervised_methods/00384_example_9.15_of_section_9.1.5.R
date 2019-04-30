@@ -12,9 +12,9 @@ mean3 <- c(-5, -5, -5)
 sd3 <- c(1.5, 2, 1)
 
 library(MASS)                                	# Note: 2 
-clust1 <- mvrnorm(100, mu=mean1, Sigma=diag(sd1))
-clust2 <- mvrnorm(100, mu=mean2, Sigma=diag(sd2))
-clust3 <- mvrnorm(100, mu=mean3, Sigma=diag(sd3))
+clust1 <- mvrnorm(100, mu = mean1, Sigma = diag(sd1))
+clust2 <- mvrnorm(100, mu = mean2, Sigma = diag(sd2))
+clust3 <- mvrnorm(100, mu = mean3, Sigma = diag(sd3))
 toydata <- rbind(clust3, rbind(clust1, clust2))
 
 tmatrix <- scale(toydata)                          	# Note: 3  
@@ -23,17 +23,17 @@ tscale <-attr(tmatrix, "scaled:scale")
 tmatrix <- rm_scales(tmatrix)
 
 kbest_t <- 3
-tclusters <- kmeans(tmatrix, kbest_t, nstart=100, iter.max=100)     	# Note: 5 
+tclusters <- kmeans(tmatrix, kbest_t, nstart = 100, iter.max = 100)     	# Note: 5 
 
 tclusters$size           	# Note: 6        
 ## [1] 101 100  99
 
 # Note 1: 
-#   Set the parameters for three 3-D gaussian clusters. 
+#   Set the parameters for three 3-D Gaussian clusters. 
 
 # Note 2: 
 #   Use the mvrnorm() function from MASS package to generate 
-#   three dimensional axis-aligned gaussian clusters. 
+#   three-dimensional axis-aligned Gaussian clusters. 
 
 # Note 3: 
 #   Scale the synthetic data. 

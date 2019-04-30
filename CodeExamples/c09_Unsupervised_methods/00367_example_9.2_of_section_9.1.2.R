@@ -3,7 +3,7 @@
 # Title: Rescaling the dataset 
 
 vars_to_use <- colnames(protein)[-1]       	# Note: 1 
-pmatrix <- scale(protein[,vars_to_use])    
+pmatrix <- scale(protein[, vars_to_use])    
 pcenter <- attr(pmatrix, "scaled:center")  	# Note: 2 
 pscale <- attr(pmatrix, "scaled:scale")
 

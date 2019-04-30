@@ -3,10 +3,10 @@
 # Title: Finding rules with restrictions 
 
 brules <- apriori(bookbaskets_use,
-                parameter =list(support = 0.001,    	# Note: 1 
-                                confidence=0.6),
-                appearance=list(rhs=c("The Lovely Bones: A Novel"),  	# Note: 2 
-                                default="lhs"))                      	# Note: 3 
+                parameter = list(support = 0.001,    	# Note: 1 
+                                 confidence = 0.6),
+                appearance = list(rhs = c("The Lovely Bones: A Novel"),  	# Note: 2 
+                                  default = "lhs"))                      	# Note: 3 
 summary(brules)
 ## set of 46 rules
 ##

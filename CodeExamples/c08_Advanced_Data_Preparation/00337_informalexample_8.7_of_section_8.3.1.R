@@ -1,19 +1,19 @@
 # informalexample 8.7 of section 8.3.1 
 # (informalexample 8.7 of section 8.3.1)  : Advanced Data Preparation : Basic data preparation for classification : The variable score frame 
 
-treatmet_plan_2 <- design_missingness_treatment(dTrain, varlist=vars) 	# Note: 1 
+treatmet_plan_2 <- design_missingness_treatment(dTrain, varlist = vars) 	# Note: 1 
 dtrain_2 <- prepare(treatmet_plan_2, dTrain)                           	# Note: 2 
 head(dtrain_2$Var218)
 
 ## [1] "cJvF"      "_invalid_" "UYBR"      "UYBR"      "UYBR"      "UYBR"
 
-model <- glm(churn==1 ~ Var218,         	# Note: 3 
-            data=dtrain_2, 
-            family="binomial")
+model <- glm(churn ==1  ~ Var218,         	# Note: 3 
+            data = dtrain_2, 
+            family = "binomial")
             
 pred <- predict(model,                 	# Note: 4 
                newdata = dtrain_2, 
-               type="response")  
+               type = "response")  
                
 (prevalence <- mean(dTrain$churn == 1) )  	# Note: 5 
 ## [1] 0.07347764

@@ -2,7 +2,7 @@
 # (example 9.4 of section 9.1.3)  : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
 # Title: Extracting the clusters found by hclust() 
 
-groups <- cutree(pfit, k=5)
+groups <- cutree(pfit, k = 5)
 
 print_clusters = function(data, groups, columns) { 	# Note: 1 
   groupedD = split(data, groups)

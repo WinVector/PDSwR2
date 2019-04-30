@@ -5,17 +5,17 @@
 library(ggplot2)
 princ <- prcomp(pmatrix)        	# Note: 1 
 nComp <- 2
-project <- predict(princ, pmatrix)[,1:nComp]            	# Note: 2 
+project <- predict(princ, pmatrix)[, 1:nComp]            	# Note: 2 
 project_plus <- cbind(as.data.frame(project),               	# Note: 3 
-                     cluster=as.factor(groups),
-                     country=protein$Country)
+                     cluster = as.factor(groups),
+                     country = protein$Country)
 
-ggplot(project_plus, aes(x=PC1, y=PC2)) +        	# Note: 4 
-  geom_point(data=as.data.frame(project), color="darkgrey") + 
+ggplot(project_plus, aes(x = PC1, y = PC2)) +        	# Note: 4 
+  geom_point(data = as.data.frame(project), color = "darkgrey") + 
   geom_point() +
-  geom_text(aes(label=country),
-            hjust=0, vjust=1) + 
-  facet_wrap(~cluster, ncol=3, labeller = label_both)
+  geom_text(aes(label = country),
+            hjust = 0, vjust = 1) + 
+  facet_wrap(~ cluster, ncol = 3, labeller = label_both)
 
 # Note 1: 
 #   Calculate the principal components of the 

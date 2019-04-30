@@ -3,19 +3,19 @@
 # Title: Calculating total within sum of squares 
 
 sqr_edist <- function(x, y) {             	# Note: 1 
-  sum((x-y)^2)
+  sum((x - y)^2)
 }
 
 wss_cluster <- function(clustermat) {     	# Note: 2 
   c0 <- colMeans(clustermat)     	# Note: 3 
-  sum(apply(clustermat, 1, FUN=function(row){sqr_edist(row,c0)}))     	# Note: 4 
+  sum(apply(clustermat, 1, FUN = function(row) { sqr_edist(row, c0) }))     	# Note: 4 
 }
 
 wss_total <- function(dmatrix, labels) {                               	# Note: 5 
   wsstot <- 0
   k <- length(unique(labels))
   for(i in 1:k)
-    wsstot <- wsstot + wss_cluster(subset(dmatrix, labels==i))         	# Note: 6 
+    wsstot <- wsstot + wss_cluster(subset(dmatrix, labels == i))         	# Note: 6 
   wsstot
 }
 

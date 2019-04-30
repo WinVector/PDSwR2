@@ -3,9 +3,9 @@
 # Title: Running clusterboot() with k-means 
 
 kbest_p <- 5
-cboot <- clusterboot(pmatrix, clustermethod=kmeansCBI,
-            runs=100,iter.max=100,
-            krange=kbest_p, seed=15555)                	# Note: 1 
+cboot <- clusterboot(pmatrix, clustermethod = kmeansCBI,
+            runs = 100,iter.max = 100,
+            krange = kbest_p, seed = 15555)                	# Note: 1 
             
 groups <- cboot$result$partition
 print_clusters(protein, groups, cols_to_print)

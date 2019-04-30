@@ -3,9 +3,9 @@
 # Title: Inspecting rules 
 
 brules %>% 
-  sort(., by="confidence") %>%   
+  sort(., by = "confidence") %>%   
   lhs(.) %>%               	# Note: 1  
-  head(., n=5) %>%         
+  head(., n = 5) %>%         
   inspect(.)                                               
 ##   items
 ## 1 {Divine Secrets of the Ya-Ya Sisterhood: A Novel,

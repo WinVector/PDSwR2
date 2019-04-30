@@ -4,7 +4,7 @@
 
 measures <- interestMeasure(rules,                            	# Note: 1 
                  measure=c("coverage", "fishersExactTest"),    	# Note: 2 
-                 transactions=bookbaskets_use)                	# Note: 3 
+                 transactions = bookbaskets_use)                	# Note: 3 
 summary(measures)
 ##     coverage        fishersExactTest
 ##  Min.   :0.002082   Min.   : 0.000e+00

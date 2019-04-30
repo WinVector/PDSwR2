@@ -1,7 +1,7 @@
 # informalexample 8.14 of section 8.4.2 
 # (informalexample 8.14 of section 8.4.2)  : Advanced Data Preparation : Advanced data preparation for classification : Building a model 
 
-table(prediction = dTest_treated$glm_pred>=0.5, 
+table(prediction = dTest_treated$glm_pred >= 0.5, 
       truth = dTest$churn)
 #           truth
 # prediction   -1    1

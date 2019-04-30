@@ -16,7 +16,7 @@ model1 <- glm(formula1, data = dTrainAll, family = binomial) 	# Note: 3
 #   Attach the wrapr package for convenience functions, such as mk_formula(). 
 
 # Note 2: 
-#   Build a model formula specification asking churn==1 be predicted as a function of our explanatory variables. 
+#   Build a model formula specification, asking churn == 1 be predicted as a function of our explanatory variables. 
 
 # Note 3: 
 #   Ask the glm() function to build a logistic regression model. 

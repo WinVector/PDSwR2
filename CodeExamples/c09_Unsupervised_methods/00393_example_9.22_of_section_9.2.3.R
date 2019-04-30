@@ -2,7 +2,7 @@
 # (example 9.22 of section 9.2.3)  : Unsupervised methods : Association rules : Mining association rules with the arules package 
 # Title: Finding the ten most frequent books 
 
-orderedBooks <- sort(bookCount, decreasing=TRUE)   	# Note: 1 
+orderedBooks <- sort(bookCount, decreasing = TRUE)   	# Note: 1 
 knitr::kable(orderedBooks[1:10])                   	# Note: 2 
 
 # |                                                |    x|
@@ -18,7 +18,8 @@ knitr::kable(orderedBooks[1:10])                   	# Note: 2
 # |The Secret Life of Bees                         |  762|
 # |Divine Secrets of the Ya-Ya Sisterhood: A Novel |  737|
 
-orderedBooks[1]/nrow(bookbaskets)               	# Note: 3 
+orderedBooks[1] / nrow(bookbaskets)               	# Note: 3 
+
 ## Wild Animus
 ##  0.02716376
 

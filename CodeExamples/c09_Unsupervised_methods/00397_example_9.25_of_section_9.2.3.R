@@ -5,8 +5,8 @@
 library(magrittr)                        	# Note: 1  
 
 rules %>% 
-  sort(., by="confidence") %>%           	# Note: 2  
-  head(., n=5) %>%                       	# Note: 3  
+  sort(., by = "confidence") %>%           	# Note: 2  
+  head(., n = 5) %>%                       	# Note: 3  
   inspect(.)                             	# Note: 4
 
 # Note 1: 

@@ -32,5 +32,5 @@ head(d) 	# Note: 4
 
 # Note 4: 
 #   Take a look at our synthetic example data. The idea is: y is related to x_good in a noisy fashion, but unrelated to x_bad.  
-#   In this case we know what variables should be chosen, so we can tell if our acceptance procedure is working correctly. 
+#   In this case, we know what variables should be chosen, so we can tell if our acceptance procedure is working correctly. 
 

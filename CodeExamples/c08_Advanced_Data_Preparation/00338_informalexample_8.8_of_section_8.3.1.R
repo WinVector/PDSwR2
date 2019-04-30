@@ -1,7 +1,7 @@
 # informalexample 8.8 of section 8.3.1 
 # (informalexample 8.8 of section 8.3.1)  : Advanced Data Preparation : Basic data preparation for classification : The variable score frame 
 
-score_frame[score_frame$origName=="Var200", , drop = FALSE]
+score_frame[score_frame$origName == "Var200", , drop = FALSE]
 
 #           varName varMoves         rsq          sig needsSplit extraModelDegrees origName code
 # 361   Var200_catP     TRUE 0.005729835 4.902546e-28       TRUE             13323   Var200 catP
