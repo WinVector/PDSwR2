@@ -6,11 +6,11 @@ set.seed(2335246L)
 s$group <- sample.int(100, size = dim(s)[[1]], replace = TRUE)
 sTrain <- subset(s, group > 10)
 sTest <- subset(s,group <= 10) 		# Note: 1  
-# mSVMV <- ksvm(class~x+y,data=sTrain,kernel='vanilladot') 
+# mSVMV <- ksvm(class ~ x + y, data = sTrain, kernel = 'vanilladot') 
 # had been using ksvm, but it seems to keep bad state in some cases
 library('e1071')
-mSVMV <- svm(class~x+y,data=sTrain,kernel='linear',type='nu-classification') 		# Note: 2 
-sTest$predSVMV <- predict(mSVMV,newdata=sTest,type='response') 		# Note: 3 
+mSVMV <- svm(class ~ x + y, data = sTrain, kernel='linear', type = 'nu-classification') 		# Note: 2 
+sTest$predSVMV <- predict(mSVMV, newdata = sTest, type = 'response') 		# Note: 3 
 
 shading <- expand.grid( 	# Note: 4 
   x = seq(-1.5, 1.5, by = 0.01),
@@ -23,12 +23,12 @@ ggplot(mapping = aes(x = x, y = y)) + 	# Note: 5
   scale_color_manual(values = c("#d95f02", "#1b9e77")) +
   scale_fill_manual(values = c("white", "#1b9e77")) +
   geom_text(data = sTest, aes(label = predSVMV), 
-            size=12) +
+            size = 12) +
   geom_text(data = s, aes(label = class, color = class),
-            alpha=0.7) +
+            alpha = 0.7) +
   coord_fixed() + 
   theme_bw() + 
-  theme(legend.position='none') +
+  theme(legend.position = 'none') +
   ggtitle("linear kernel")
 
 # Note 1: 

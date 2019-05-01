@@ -3,8 +3,8 @@
 # Title: An artificial kernel example 
 
 u <- c(1,2)
-v <- c(3,4)
-k <- function(u,v) { 	# Note: 1 
+v <- c(3, 4)
+k <- function(u, v) { 	# Note: 1 
      u[1] * v[1] + 
         u[2] * v[2] +
         u[1] * u[1] * v[1] * v[1] + 

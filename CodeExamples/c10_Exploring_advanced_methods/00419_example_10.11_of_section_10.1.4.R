@@ -4,11 +4,11 @@
 
 birthwt_model <- xgboost(as.matrix(train_treated), 
                          train$DBWT,
-                         params=list(
-                           objective="reg:linear"
+                         params = list(
+                           objective = "reg:linear"
                          ),
-                         nrounds=50,
-                         verbose=FALSE)
+                         nrounds = 50,
+                         verbose = FALSE)
 
 test_treated <- prepare(treatplan, test)
 pred <- predict(birthwt_model, as.matrix(test_treated))

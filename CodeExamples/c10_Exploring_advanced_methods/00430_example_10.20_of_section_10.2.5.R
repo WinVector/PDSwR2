@@ -3,5 +3,5 @@
 # Title: GLM logistic regression 
 
 form <- as.formula("DBWT < 2000 ~ PWGT + WTGAIN + MAGER + UPREVIS")
-logmod <- glm(form, data=train, family=binomial(link="logit"))
+logmod <- glm(form, data = train, family = binomial(link = "logit"))
 

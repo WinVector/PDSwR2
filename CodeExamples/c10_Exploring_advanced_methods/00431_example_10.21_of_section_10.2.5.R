@@ -2,9 +2,9 @@
 # (example 10.21 of section 10.2.5)  : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : Using GAM for logistic regression 
 # Title: GAM logistic regression 
 
-form2 <- as.formula("DBWT<2000 ~ s(PWGT)+s(WTGAIN)+
-                                              s(MAGER)+s(UPREVIS)")
-glogmod <- gam(form2, data=train, family=binomial(link="logit"))
+form2 <- as.formula("DBWT<2000 ~ s(PWGT) + s(WTGAIN) +
+                                              s(MAGER) + s(UPREVIS)")
+glogmod <- gam(form2, data = train, family = binomial(link = "logit"))
 
 glogmod$converged
 ## [1] TRUE
@@ -35,7 +35,8 @@ summary(glogmod)
 ## UBRE score = -0.76987  Scale est. = 1         n = 14386
 
 # Note 1: 
-#   Note that there’s no proof that the mother’s weight (PWGT) has a significant effect on 
+#   Note the large p-value associated with mother's weight (PGWT). That means that there’s  
+#   no statistical proof that the mother’s weight (PWGT) has a significant effect on 
 #   outcome. 
 
 # Note 2: 

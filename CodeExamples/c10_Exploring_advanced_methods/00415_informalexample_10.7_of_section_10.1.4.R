@@ -3,14 +3,14 @@
 
 cv <- xgb.cv(dtm_train, 
              label = labels,
-             params=list(
-               objective="binary:logistic"
+             params = list(
+               objective = "binary:logistic"
                ),
-             nfold=5,
-             nrounds=500,
+             nfold = 5,
+             nrounds = 500,
              early_stopping_rounds = 20, 	# Note: 1 
-             print_every_n=10,
-             metrics="logloss")    
+             print_every_n = 10,
+             metrics = "logloss")    
              
 evalframe <- as.data.frame(cv$evaluation_log)
 (NROUNDS <- which.min(evalframe$test_logloss_mean))             

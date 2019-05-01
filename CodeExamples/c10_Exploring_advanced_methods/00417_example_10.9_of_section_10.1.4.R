@@ -3,8 +3,8 @@
 # Title: Load the natality data 
 
 load("NatalBirthData.rData")
-train <- sdata[sdata$ORIGRANDGROUP<=5,]  	# Note: 1  
-test <- sdata[sdata$ORIGRANDGROUP>5,]
+train <- sdata[sdata$ORIGRANDGROUP <= 5, ]  	# Note: 1  
+test <- sdata[sdata$ORIGRANDGROUP >5 , ]
 
 input_vars <- setdiff(colnames(train), c("DBWT", "ORIGRANDGROUP"))  	# Note: 2 
                    

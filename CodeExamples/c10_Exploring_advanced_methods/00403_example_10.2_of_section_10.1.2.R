@@ -8,33 +8,33 @@ ntree <- 100
 
 samples <- sapply(1:ntree,          	# Note: 2  
                  FUN = function(iter)
-                   {sample(1:ntrain, size=n, replace=T)})
+                   { sample(1:ntrain, size = n, replace = TRUE) })
 
 treelist <-lapply(1:ntree,         	# Note: 3  
                   FUN=function(iter)
-                  {samp <- samples[,iter];
-                   rpart(spamFormula, spamTrain[samp,], method="class")})
+                  { samp <- samples[,iter];
+                   rpart(spamFormula, spamTrain[samp, ], method = "class") })
 
 predict.bag <- function(treelist, newdata) {   	# Note: 4  
   preds <- sapply(1:length(treelist),
                  FUN=function(iter) {
-                   predict(treelist[[iter]], newdata=newdata)[,2]})
+                   predict(treelist[[iter]], newdata = newdata)[, 2] })
   predsums <- rowSums(preds)
   predsums/length(treelist)
 }
 
 pred <- predict.bag(treelist, newdata=spamTrain)
 trainperf_bag <- accuracyMeasures(pred,     	# Note: 5  
-                 spamTrain$spam=="spam",
-                 name="bagging, training")
+                 spamTrain$spam == "spam",
+                 name = "bagging, training")
 
 pred <- predict.bag(treelist, newdata=spamTest)
 testperf_bag <- accuracyMeasures(pred,
-                 spamTest$spam=="spam",
-                 name="bagging, test")
+                 spamTest$spam == "spam",
+                 name = "bagging, test")
 
 perftable <- rbind(trainperf_bag, testperf_bag)
-pandoc.table(perftable, justify=perf_justify)
+pandoc.table(perftable, justify = perf_justify)
 ## 
 ## 
 ## model                 accuracy       f1   dev.norm
@@ -57,7 +57,7 @@ pandoc.table(perftable, justify=perf_justify)
 
 # Note 4: 
 #   predict.bag assumes the underlying classifier returns decision probabilities, not  
-#   decisions. 
+#   decisions. predict.bag takes the mean of the predictions of all the individual trees 
 
 # Note 5: 
 #   Evaluate the bagged decision trees against the  

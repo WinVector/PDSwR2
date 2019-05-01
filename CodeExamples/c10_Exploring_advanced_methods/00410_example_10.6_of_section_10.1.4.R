@@ -6,8 +6,8 @@ iris <- iris
 iris$class <- as.numeric(iris$Species == "setosa") 	# Note: 1  
 set.seed(2345)
 intrain <- runif(nrow(iris)) < 0.75   	# Note: 2 
-train <- iris[intrain,]
-test <- iris[!intrain,]
+train <- iris[intrain, ]
+test <- iris[!intrain, ]
 head(train)
 
 ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species class

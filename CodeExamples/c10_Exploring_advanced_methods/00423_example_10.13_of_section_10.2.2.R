@@ -2,7 +2,7 @@
 # (example 10.13 of section 10.2.2)  : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : A one-dimensional regression example 
 # Title: Linear regression applied to the artificial example 
 
-lin_model <- lm(y ~ x, data=train)
+lin_model <- lm(y ~ x, data = train)
 summary(lin_model)
 
 ## 
@@ -35,8 +35,8 @@ rmse(resid_lin)
 
 library(ggplot2)   	# Note: 3 
 
-ggplot(train, aes(x=pred_lin, y=y)) + 
-  geom_point(alpha=0.3) + 
+ggplot(train, aes(x = pred_lin, y = y)) + 
+  geom_point(alpha = 0.3) + 
   geom_abline()
 
 # Note 1: 

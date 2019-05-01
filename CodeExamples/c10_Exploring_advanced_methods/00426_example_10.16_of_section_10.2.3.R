@@ -2,7 +2,7 @@
 # (example 10.16 of section 10.2.3)  : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : Extracting the nonlinear relationships 
 # Title: Extracting a learned spline from a GAM 
 
-sx <- predict(gam_model, type="terms")
+sx <- predict(gam_model, type = "terms")
 summary(sx)
 ##       s(x)
 ##  Min.   :-17.527035
@@ -12,9 +12,9 @@ summary(sx)
 ##  3rd Qu.:  2.869166
 ##  Max.   :  4.084999
 
-xframe <- cbind(train, sx=sx[,1])
+xframe <- cbind(train, sx = sx[,1])
 
-ggplot(xframe, aes(x=x)) + 
-     geom_point(aes(y=y), alpha=0.4) +
-     geom_line(aes(y=sx))
+ggplot(xframe, aes(x = x)) + 
+     geom_point(aes(y = y), alpha = 0.4) +
+     geom_line(aes(y = sx))
 

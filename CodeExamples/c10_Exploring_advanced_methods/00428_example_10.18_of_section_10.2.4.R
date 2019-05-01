@@ -2,11 +2,11 @@
 # (example 10.18 of section 10.2.4)  : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : Using GAM on actual data 
 # Title: Plotting GAM results 
 
-terms <- predict(gammodel, type="terms")        	# Note: 1 
+terms <- predict(gammodel, type = "terms")        	# Note: 1 
 terms <- cbind(DBWT = train$DBWT, terms)        	# Note: 2 
 
 
-tframe <- as.data.frame(scale(terms, scale=FALSE))  	# Note: 3 
+tframe <- as.data.frame(scale(terms, scale = FALSE))  	# Note: 3 
 colnames(tframe) <- gsub('[()]', '', colnames(tframe))      	# Note: 4 
 
 vars = c("PWGT", "WTGAIN", "MAGER", "UPREVIS")
@@ -14,7 +14,7 @@ pframe <- cbind(tframe, train[, vars])         	# Note: 5
                     
 ggplot(pframe, aes(PWGT)) +   	# Note: 6 
   geom_point(aes(y = sPWGT)) + 
-  geom_smooth(aes(y = DBWT), se=FALSE)
+  geom_smooth(aes(y = DBWT), se = FALSE)
   
 # [...]  	# Note: 7
 

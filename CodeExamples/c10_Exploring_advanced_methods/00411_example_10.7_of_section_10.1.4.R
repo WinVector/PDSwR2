@@ -7,12 +7,12 @@ library(xgboost)
 cv <- xgb.cv(input,  	# Note: 1  
             label = train$class, 	# Note: 2  
               params=list(
-                objective="binary:logistic"    	# Note: 3 
+                objective = "binary:logistic"    	# Note: 3 
               ),
-              nfold=5,  	# Note: 4 
-              nrounds=100, 	# Note: 5 
-              print_every_n=10, 	# Note: 6 
-              metrics="logloss") 	# Note: 7  
+              nfold = 5,  	# Note: 4 
+              nrounds = 100, 	# Note: 5 
+              print_every_n = 10, 	# Note: 6 
+              metrics = "logloss") 	# Note: 7  
 
 evalframe <- as.data.frame(cv$evaluation_log) 	# Note: 8  
 head(evalframe) 	# Note: 9  
@@ -36,9 +36,9 @@ head(evalframe) 	# Note: 9
 ## [1] 18
 
 library(ggplot2)
-ggplot(evalframe, aes(x=iter, y=test_logloss_mean)) + 
+ggplot(evalframe, aes(x = iter, y = test_logloss_mean)) + 
   geom_line() + 
-  geom_vline(xintercept = NROUNDS, color="darkred", linetype=2) + 
+  geom_vline(xintercept = NROUNDS, color = "darkred", linetype = 2) + 
   ggtitle("Cross-validated log loss as a function of ensemble size")
 
 # Note 1: 

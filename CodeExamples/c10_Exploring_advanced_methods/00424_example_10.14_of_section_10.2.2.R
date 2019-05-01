@@ -36,8 +36,8 @@ rmse(resid_gam)
 
 ## [1] 1.448514
 
-ggplot(train, aes(x=pred, y=y)) +   	# Note: 9 
-  geom_point(alpha=0.3) + 
+ggplot(train, aes(x = pred, y = y)) +   	# Note: 9 
+  geom_point(alpha = 0.3) + 
   geom_abline()
 
 # Note 1: 

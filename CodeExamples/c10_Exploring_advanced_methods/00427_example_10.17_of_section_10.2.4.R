@@ -5,8 +5,8 @@
 library(mgcv)
 library(ggplot2)
 load("NatalBirthData.rData")
-train <- sdata[sdata$ORIGRANDGROUP<=5,]
-test <- sdata[sdata$ORIGRANDGROUP>5,]
+train <- sdata[sdata$ORIGRANDGROUP <= 5, ]
+test <- sdata[sdata$ORIGRANDGROUP > 5, ]
 
 form_lin <- as.formula("DBWT ~ PWGT + WTGAIN + MAGER + UPREVIS")
 linmodel <- lm(form_lin, data=train)    	# Note: 1  
@@ -35,7 +35,7 @@ summary(linmodel)
 
 form_gam <- as.formula("DBWT ~ s(PWGT) + s(WTGAIN) +
                         s(MAGER) + s(UPREVIS)")
-gammodel <- gam(form_gam, data=train)                       	# Note: 3 
+gammodel <- gam(form_gam, data = train)                       	# Note: 3 
 gammodel$converged                                             	# Note: 4 
 ## [1] TRUE
 

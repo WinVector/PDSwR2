@@ -1,5 +1,5 @@
 # informalexample 10.15 of section 10.3.3 
 # (informalexample 10.15 of section 10.3.3)  : Exploring advanced methods : Solving "Inseparable" Problems Using Support Vector Machines : Understanding kernel functions 
 
-w %*% phi(x) + b = sum(a1 * k(s1, x),..., am * k(sm, x)) + b
+w %*% phi(x) + b = sum(a1 * k(s1, x),... , am * k(sm, x)) + b
 

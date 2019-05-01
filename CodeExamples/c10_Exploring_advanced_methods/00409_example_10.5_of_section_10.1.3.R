@@ -6,22 +6,22 @@ sorted <- sort(varImp[, "MeanDecreaseAccuracy"],    	# Note: 1
                decreasing = TRUE)
 
 selVars <- names(sorted)[1:30]
-fsel <- randomForest(x=spamTrain[,selVars],    	# Note: 2 
-                        y=spamTrain$spam, 
-                        ntree=100,
-                        nodesize=7,
-                        importance=TRUE)
+fsel <- randomForest(x = spamTrain[, selVars],    	# Note: 2 
+                        y = spamTrain$spam, 
+                        ntree = 100,
+                        nodesize = 7,
+                        importance = TRUE)
                            
 trainperf_rf2 <- accuracyMeasures(predict(fsel,
-   newdata=spamTrain[,selVars],type='prob')[,'spam'],
-   spamTrain$spam=="spam",name="RF small, train")
+   newdata = spamTrain[, selVars], type = 'prob')[, 'spam'],
+   spamTrain$spam == "spam", name = "RF small, train")
 
 testperf_rf2 <- accuracyMeasures(predict(fsel,
-   newdata=spamTest[,selVars],type='prob')[,'spam'],
-   spamTest$spam=="spam",name="RF small, test")
+   newdata=spamTest[, selVars], type = 'prob')[, 'spam'],
+   spamTest$spam == "spam", name = "RF small, test")
 
 perftable <- rbind(testperf_rf, testperf_rf2)  	# Note: 3 
-pandoc.table(perftable, justify=perf_justify)
+pandoc.table(perftable, justify = perf_justify)
 ##
 ##
 ## model                   accuracy       f1   dev.norm

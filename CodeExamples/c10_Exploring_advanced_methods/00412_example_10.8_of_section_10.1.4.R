@@ -2,13 +2,13 @@
 # (example 10.8 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient boosted trees 
 # Title: Fit an xgboost model 
 
-model <- xgboost(data=input, 
-                 label=train$class,   
-                  params=list(
-                    objective="binary:logistic" 
+model <- xgboost(data = input, 
+                 label = train$class,   
+                  params = list(
+                    objective = "binary:logistic" 
                   ),
-                  nrounds=NROUNDS,
-                  verbose=FALSE)
+                  nrounds = NROUNDS,
+                  verbose = FALSE)
 
 test_input <- as.matrix(test[, 1:4])  	# Note: 1 
 pred <- predict(model,  test_input)   	# Note: 2 

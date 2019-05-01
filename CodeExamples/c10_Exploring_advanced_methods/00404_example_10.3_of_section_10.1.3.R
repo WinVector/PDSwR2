@@ -4,26 +4,26 @@
 
 library(randomForest)           	# Note: 1 
 set.seed(5123512) 	# Note: 2 
-fmodel <- randomForest(x=spamTrain[,spamVars], 	# Note: 3 
-        y=spamTrain$spam,
-        ntree=100, 	# Note: 4 
-        nodesize=7, 	# Note: 5 
-        importance=TRUE) 	# Note: 6 
+fmodel <- randomForest(x = spamTrain[,spamVars], 	# Note: 3 
+        y = spamTrain$spam,
+        ntree = 100, 	# Note: 4 
+        nodesize = 7, 	# Note: 5 
+        importance = TRUE) 	# Note: 6 
                     
 pred <- predict(fmodel, 
                 spamTrain[, spamVars], 
                 type='prob')[, 'spam']
                 
 trainperf_rf <-  accuracyMeasures(predict(fmodel, 	# Note: 7 
-   newdata=spamTrain[,spamVars],type='prob')[,'spam'],
-   spamTrain$spam=="spam",name="random forest, train")
+   newdata=spamTrain[, spamVars], type = 'prob')[, 'spam'],
+   spamTrain$spam == "spam", name = "random forest, train")
 
 testperf_rf <-  accuracyMeasures(predict(fmodel,
-   newdata=spamTest[,spamVars],type='prob')[,'spam'],
-   spamTest$spam=="spam",name="random forest, test")
+   newdata=spamTest[, spamVars], type = 'prob')[, 'spam'],
+   spamTest$spam == "spam", name = "random forest, test")
    
 perftable <- rbind(trainperf_rf, testperf_rf)
-pandoc.table(perftable, justify=perf_justify)
+pandoc.table(perftable, justify = perf_justify)
 
 ## 
 ## 

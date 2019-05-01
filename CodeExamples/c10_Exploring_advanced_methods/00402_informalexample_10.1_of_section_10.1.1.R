@@ -9,7 +9,8 @@ panderOptions("table.style", "simple")
 perf_justify <- "lrrr"
                             
 perftable <- rbind(trainperf_tree, testperf_tree)
-pandoc.table(perftable, justify=perf_justify)                           
+pandoc.table(perftable, justify = perf_justify)   
+
 ## 
 ## 
 ## model              accuracy       f1   dev.norm

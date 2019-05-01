@@ -2,12 +2,12 @@
 # (example 10.1 of section 10.1.1)  : Exploring advanced methods : Tree-based Methods : A basic decision tree 
 # Title: Preparing Spambase data and evaluating a decision tree model 
 
-spamD <- read.table('spamD.tsv',header=T,sep='\t')  		# Note: 1 
+spamD <- read.table('spamD.tsv', header = TRUE, sep = '\t')  		# Note: 1 
 spamD$isSpam <- spamD$spam == 'spam'
-spamTrain <- subset(spamD,spamD$rgroup >= 10)
-spamTest <- subset(spamD,spamD$rgroup < 10)
+spamTrain <- subset(spamD, spamD$rgroup >= 10)
+spamTest <- subset(spamD, spamD$rgroup < 10)
 
-spamVars <- setdiff(colnames(spamD),list('rgroup','spam', 'isSpam'))
+spamVars <- setdiff(colnames(spamD),list('rgroup', 'spam', 'isSpam'))
 library(wrapr)
 spamFormula <- mk_formula("isSpam", spamVars)  	# Note: 2 
                    
@@ -15,38 +15,38 @@ loglikelihood <- function(y, py) {      	# Note: 3
   pysmooth <- ifelse(py==0, 1e-12,
                   ifelse(py==1, 1-1e-12, py))
 
-  sum(y * log(pysmooth) + (1-y)*log(1 - pysmooth))
+  sum(y * log(pysmooth) + (1 - y) * log(1 - pysmooth))
 }
 
 
-accuracyMeasures <- function(pred, truth, name="model") {   	# Note: 4 
-  dev.norm <- -2*loglikelihood(as.numeric(truth), pred)/length(pred)    	# Note: 5 
-  ctable <- table(truth=truth,
-                 pred=(pred>0.5))                                       	# Note: 6 
-  accuracy <- sum(diag(ctable))/sum(ctable)
-  precision <- ctable[2,2]/sum(ctable[,2])
-  recall <- ctable[2,2]/sum(ctable[2,])
-  f1 <- 2*precision*recall/(precision+recall)
-  data.frame(model=name, accuracy=accuracy, f1=f1, dev.norm)
+accuracyMeasures <- function(pred, truth, name = "model") {   	# Note: 4 
+  dev.norm <- -2 * loglikelihood(as.numeric(truth), pred) / length(pred)    	# Note: 5 
+  ctable <- table(truth = truth,
+                 pred = (pred > 0.5))                                       	# Note: 6 
+  accuracy <- sum(diag(ctable)) / sum(ctable)
+  precision <- ctable[2,2] /s um(ctable[,2])
+  recall <- ctable[2,2] / sum(ctable[2,])
+  f1 <- 2 * precision * recall / (precision + recall)
+  data.frame(model = name, accuracy = accuracy, f1 = f1, dev.norm)
 }
 
 
 library(rpart)                                                      	# Note: 7 
-treemodel <- rpart(spamFormula, spamTrain, method="class")
+treemodel <- rpart(spamFormula, spamTrain, method = "class")
 
 library(rpart.plot)  	# Note: 8 
-rpart.plot(treemodel, type=5, extra=6)     
+rpart.plot(treemodel, type = 5, extra = 6)     
 
-predTrain <- predict(treemodel, newdata=spamTrain)[,2] 	# Note: 9 
+predTrain <- predict(treemodel, newdata = spamTrain)[, 2] 	# Note: 9 
 
 trainperf_tree <- accuracyMeasures(predTrain,  		# Note: 10  
-                 spamTrain$spam=="spam",
-                 name="tree, training")
+                 spamTrain$spam == "spam",
+                 name = "tree, training")
 
-predTest <- predict(treemodel, newdata=spamTest)[,2]
+predTest <- predict(treemodel, newdata = spamTest)[, 2]
 testperf_tree <- accuracyMeasures(predTest,
-                 spamTest$spam=="spam",
-                 name="tree, test")
+                 spamTest$spam == "spam",
+                 name = "tree, test")
 
 # Note 1: 
 #   Load the data and split into training (90% of data)  
