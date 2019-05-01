@@ -1,0 +1,239 @@
+<h1 id="buzz-model">Buzz model</h1>
+<h1 id="markdown-version-of-buzz-data-analysis">Markdown version of Buzz data analysis</h1>
+<p>by: Nina Zumel and John Mount Win-Vector LLC</p>
+<p>To run this example you need a system with R installed (see <a href="http://cran.r-project.org" class="uri">http://cran.r-project.org</a>), and data from <a href="https://github.com/WinVector/PDSwR2/tree/master/Buzz" class="uri">https://github.com/WinVector/PDSwR2/tree/master/Buzz</a>.</p>
+<p>We are not performing any new analysis here, just supplying a direct application of Random Forests on the data.</p>
+<p>Data from: <a href="http://ama.liglab.fr/datasets/buzz/" class="uri">http://ama.liglab.fr/datasets/buzz/</a> Using: <a href="http://ama.liglab.fr/datasets/buzz/classification/TomsHardware/Relative_labeling/sigma=500/TomsHardware-Relative-Sigma-500.data">TomsHardware-Relative-Sigma-500.data</a></p>
+<p>(described in <a href="http://ama.liglab.fr/datasets/buzz/classification/TomsHardware/Relative_labeling/sigma=500/TomsHardware-Relative-Sigma-500.names">TomsHardware-Relative-Sigma-500.names</a> )</p>
+<p>Crypto hashes: shasum TomsHardware-<em>.txt </em> 5a1cc7863a9da8d6e8380e1446f25eec2032bd91 TomsHardware-Absolute-Sigma-500.data.txt * 86f2c0f4fba4fb42fe4ee45b48078ab51dba227e TomsHardware-Absolute-Sigma-500.names.txt * c239182c786baf678b55f559b3d0223da91e869c TomsHardware-Relative-Sigma-500.data.txt * ec890723f91ae1dc87371e32943517bcfcd9e16a TomsHardware-Relative-Sigma-500.names.txt</p>
+<p>To run this example you need a system with R installed (see <a href="http://cran.r-project.org">cran</a>), Latex (see <a href="http://tug.org">tug</a>) and data from <a href="https://github.com/WinVector/PDSwR2/tree/master/Buzz">PDSwR2</a>.</p>
+<p>To run this example: * Download buzzm.Rmd and TomsHardware-Relative-Sigma-500.data.txt from the github URL. * Start a copy of R, use setwd() to move to the directory you have stored the files. * Make sure knitr is loaded into R ( install.packages('knitr') and library(knitr) ). * In R run: (produces <a href="https://github.com/WinVector/PDSwR2/blob/master/Buzz/buzzm.md">buzzm.md</a> from buzzm.Rmd).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">knit</span>(<span class="st">&#39;buzzm.Rmd&#39;</span>)</code></pre></div>
+<p>Now you can run the following data prep steps:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">infile &lt;-<span class="st"> &quot;TomsHardware-Relative-Sigma-500.data.txt&quot;</span>
+<span class="kw">paste</span>(<span class="st">&#39;checked at&#39;</span>, <span class="kw">date</span>())</code></pre></div>
+<pre><code>## [1] &quot;checked at Thu Apr 18 09:30:23 2019&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">system</span>(<span class="kw">paste</span>(<span class="st">&#39;shasum&#39;</span>, infile), <span class="dt">intern=</span>T)  <span class="co"># write down file hash</span></code></pre></div>
+<pre><code>## [1] &quot;c239182c786baf678b55f559b3d0223da91e869c  TomsHardware-Relative-Sigma-500.data.txt&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">buzzdata &lt;-<span class="st"> </span><span class="kw">read.table</span>(infile, <span class="dt">header =</span> <span class="ot">FALSE</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)
+
+makevars &lt;-<span class="st"> </span>function(colname, <span class="dt">ndays =</span> <span class="dv">7</span>) {
+  <span class="kw">sprintf</span>(<span class="st">&quot;%s_%02g&quot;</span>, colname, <span class="dv">0</span>:ndays)
+}
+
+varnames &lt;-<span class="st"> </span><span class="kw">c</span>(
+  <span class="st">&quot;num.new.disc&quot;</span>,
+  <span class="st">&quot;burstiness&quot;</span>,
+  <span class="st">&quot;number.total.disc&quot;</span>,
+  <span class="st">&quot;auth.increase&quot;</span>,
+  <span class="st">&quot;atomic.containers&quot;</span>, <span class="co"># not documented</span>
+  <span class="st">&quot;num.displays&quot;</span>, <span class="co"># number of times topic displayed to user (measure of interest)</span>
+  <span class="st">&quot;contribution.sparseness&quot;</span>, <span class="co"># not documented</span>
+  <span class="st">&quot;avg.auths.per.disc&quot;</span>,
+  <span class="st">&quot;num.authors.topic&quot;</span>, <span class="co"># total authors on the topic</span>
+  <span class="st">&quot;avg.disc.length&quot;</span>,
+  <span class="st">&quot;attention.level.author&quot;</span>,
+  <span class="st">&quot;attention.level.contrib&quot;</span>
+)
+
+colnames &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">lapply</span>(varnames, <span class="dt">FUN=</span>makevars))
+colnames &lt;-<span class="st">  </span><span class="kw">c</span>(colnames, <span class="st">&quot;buzz&quot;</span>)
+<span class="kw">colnames</span>(buzzdata) &lt;-<span class="st"> </span>colnames
+
+<span class="co"># Split into training and test</span>
+<span class="kw">set.seed</span>(2362690L)
+rgroup &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="kw">dim</span>(buzzdata)[<span class="dv">1</span>])
+buzztrain &lt;-<span class="st"> </span>buzzdata[rgroup &gt;<span class="st"> </span><span class="fl">0.1</span>,]
+buzztest &lt;-<span class="st"> </span>buzzdata[rgroup &lt;=<span class="fl">0.1</span>,]</code></pre></div>
+<p>This currently returns a training set with 7114 rows and a test set with 791 rows, which is the same as when this document was prepared.</p>
+<p>Notice we have exploded the basic column names into the following:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(colnames)</code></pre></div>
+<pre><code>##  [1] &quot;num.new.disc_00&quot;            &quot;num.new.disc_01&quot;           
+##  [3] &quot;num.new.disc_02&quot;            &quot;num.new.disc_03&quot;           
+##  [5] &quot;num.new.disc_04&quot;            &quot;num.new.disc_05&quot;           
+##  [7] &quot;num.new.disc_06&quot;            &quot;num.new.disc_07&quot;           
+##  [9] &quot;burstiness_00&quot;              &quot;burstiness_01&quot;             
+## [11] &quot;burstiness_02&quot;              &quot;burstiness_03&quot;             
+## [13] &quot;burstiness_04&quot;              &quot;burstiness_05&quot;             
+## [15] &quot;burstiness_06&quot;              &quot;burstiness_07&quot;             
+## [17] &quot;number.total.disc_00&quot;       &quot;number.total.disc_01&quot;      
+## [19] &quot;number.total.disc_02&quot;       &quot;number.total.disc_03&quot;      
+## [21] &quot;number.total.disc_04&quot;       &quot;number.total.disc_05&quot;      
+## [23] &quot;number.total.disc_06&quot;       &quot;number.total.disc_07&quot;      
+## [25] &quot;auth.increase_00&quot;           &quot;auth.increase_01&quot;          
+## [27] &quot;auth.increase_02&quot;           &quot;auth.increase_03&quot;          
+## [29] &quot;auth.increase_04&quot;           &quot;auth.increase_05&quot;          
+## [31] &quot;auth.increase_06&quot;           &quot;auth.increase_07&quot;          
+## [33] &quot;atomic.containers_00&quot;       &quot;atomic.containers_01&quot;      
+## [35] &quot;atomic.containers_02&quot;       &quot;atomic.containers_03&quot;      
+## [37] &quot;atomic.containers_04&quot;       &quot;atomic.containers_05&quot;      
+## [39] &quot;atomic.containers_06&quot;       &quot;atomic.containers_07&quot;      
+## [41] &quot;num.displays_00&quot;            &quot;num.displays_01&quot;           
+## [43] &quot;num.displays_02&quot;            &quot;num.displays_03&quot;           
+## [45] &quot;num.displays_04&quot;            &quot;num.displays_05&quot;           
+## [47] &quot;num.displays_06&quot;            &quot;num.displays_07&quot;           
+## [49] &quot;contribution.sparseness_00&quot; &quot;contribution.sparseness_01&quot;
+## [51] &quot;contribution.sparseness_02&quot; &quot;contribution.sparseness_03&quot;
+## [53] &quot;contribution.sparseness_04&quot; &quot;contribution.sparseness_05&quot;
+## [55] &quot;contribution.sparseness_06&quot; &quot;contribution.sparseness_07&quot;
+## [57] &quot;avg.auths.per.disc_00&quot;      &quot;avg.auths.per.disc_01&quot;     
+## [59] &quot;avg.auths.per.disc_02&quot;      &quot;avg.auths.per.disc_03&quot;     
+## [61] &quot;avg.auths.per.disc_04&quot;      &quot;avg.auths.per.disc_05&quot;     
+## [63] &quot;avg.auths.per.disc_06&quot;      &quot;avg.auths.per.disc_07&quot;     
+## [65] &quot;num.authors.topic_00&quot;       &quot;num.authors.topic_01&quot;      
+## [67] &quot;num.authors.topic_02&quot;       &quot;num.authors.topic_03&quot;      
+## [69] &quot;num.authors.topic_04&quot;       &quot;num.authors.topic_05&quot;      
+## [71] &quot;num.authors.topic_06&quot;       &quot;num.authors.topic_07&quot;      
+## [73] &quot;avg.disc.length_00&quot;         &quot;avg.disc.length_01&quot;        
+## [75] &quot;avg.disc.length_02&quot;         &quot;avg.disc.length_03&quot;        
+## [77] &quot;avg.disc.length_04&quot;         &quot;avg.disc.length_05&quot;        
+## [79] &quot;avg.disc.length_06&quot;         &quot;avg.disc.length_07&quot;        
+## [81] &quot;attention.level.author_00&quot;  &quot;attention.level.author_01&quot; 
+## [83] &quot;attention.level.author_02&quot;  &quot;attention.level.author_03&quot; 
+## [85] &quot;attention.level.author_04&quot;  &quot;attention.level.author_05&quot; 
+## [87] &quot;attention.level.author_06&quot;  &quot;attention.level.author_07&quot; 
+## [89] &quot;attention.level.contrib_00&quot; &quot;attention.level.contrib_01&quot;
+## [91] &quot;attention.level.contrib_02&quot; &quot;attention.level.contrib_03&quot;
+## [93] &quot;attention.level.contrib_04&quot; &quot;attention.level.contrib_05&quot;
+## [95] &quot;attention.level.contrib_06&quot; &quot;attention.level.contrib_07&quot;
+## [97] &quot;buzz&quot;</code></pre>
+<p>We are now ready to create a simple model predicting &quot;buzz&quot; as function of the other columns.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># build a model</span>
+<span class="co"># let&#39;s use all the input variables</span>
+nlist =<span class="st"> </span>varnames
+varslist =<span class="st"> </span><span class="kw">as.vector</span>(<span class="kw">sapply</span>(nlist, <span class="dt">FUN=</span>makevars))
+
+<span class="co"># these were defined previously in Practical Data Science with R</span>
+loglikelihood &lt;-<span class="st"> </span>function(y, py) {
+  pysmooth &lt;-<span class="st"> </span><span class="kw">ifelse</span>(py ==<span class="st"> </span><span class="dv">0</span>, <span class="fl">1e-12</span>,
+                     <span class="kw">ifelse</span>(py ==<span class="st"> </span><span class="dv">1</span>, <span class="dv">1</span><span class="fl">-1e-12</span>, py))
+  <span class="kw">sum</span>(y *<span class="st"> </span><span class="kw">log</span>(pysmooth) +<span class="st"> </span>(<span class="dv">1</span> -<span class="st"> </span>y) *<span class="st"> </span><span class="kw">log</span>(<span class="dv">1</span> -<span class="st"> </span>pysmooth))
+}
+
+accuracyMeasures &lt;-<span class="st"> </span>function(pred, truth, <span class="dt">threshold=</span><span class="fl">0.5</span>, <span class="dt">name=</span><span class="st">&quot;model&quot;</span>) {
+  dev.norm &lt;-<span class="st"> </span>-<span class="dv">2</span> *<span class="st"> </span><span class="kw">loglikelihood</span>(<span class="kw">as.numeric</span>(truth), pred) /<span class="st"> </span><span class="kw">length</span>(pred)
+  ctable =<span class="st"> </span><span class="kw">table</span>(<span class="dt">truth =</span> truth,
+                 <span class="dt">pred =</span> pred &gt;<span class="st"> </span>threshold)
+  accuracy &lt;-<span class="st"> </span><span class="kw">sum</span>(<span class="kw">diag</span>(ctable)) /<span class="st"> </span><span class="kw">sum</span>(ctable)
+  precision &lt;-<span class="st"> </span>ctable[<span class="dv">2</span>, <span class="dv">2</span>] /<span class="st"> </span><span class="kw">sum</span>(ctable[, <span class="dv">2</span>])
+  recall &lt;-<span class="st"> </span>ctable[<span class="dv">2</span>, <span class="dv">2</span>] /<span class="st"> </span><span class="kw">sum</span>(ctable[<span class="dv">2</span>, ])
+  f1 &lt;-<span class="st"> </span><span class="dv">2</span> *<span class="st"> </span>precision *<span class="st"> </span>recall /<span class="st"> </span>(precision +<span class="st"> </span>recall)
+  <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;precision=&quot;</span>, precision, <span class="st">&quot;; recall=&quot;</span> , recall))
+  <span class="kw">print</span>(ctable)
+  <span class="kw">data.frame</span>(<span class="dt">model =</span> name, 
+             <span class="dt">accuracy =</span> accuracy, 
+             <span class="dt">f1 =</span> f1, 
+             <span class="dt">dev.norm =</span> dev.norm,
+             <span class="dt">AUC =</span> sigr::<span class="kw">calcAUC</span>(pred, truth))
+}
+
+
+<span class="kw">library</span>(<span class="st">&quot;randomForest&quot;</span>)</code></pre></div>
+<pre><code>## randomForest 4.6-14
+
+## Type rfNews() to see new features/changes/bug fixes.</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bzFormula &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&#39;as.factor(buzz) ~ &#39;</span>, <span class="kw">paste</span>(varslist, <span class="dt">collapse =</span> <span class="st">&#39; + &#39;</span>))
+fmodel &lt;-<span class="st"> </span><span class="kw">randomForest</span>(<span class="kw">as.formula</span>(bzFormula),
+                      <span class="dt">data =</span> buzztrain,
+                      <span class="dt">importance =</span> <span class="ot">TRUE</span>)
+
+<span class="kw">print</span>(<span class="st">&#39;training&#39;</span>)</code></pre></div>
+<pre><code>## [1] &quot;training&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rtrain &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">truth =</span> buzztrain$buzz, 
+                     <span class="dt">pred =</span> <span class="kw">predict</span>(fmodel, <span class="dt">newdata =</span> buzztrain, <span class="dt">type=</span><span class="st">&quot;prob&quot;</span>)[, <span class="dv">2</span>, <span class="dt">drop =</span> <span class="ot">TRUE</span>])
+<span class="kw">print</span>(<span class="kw">accuracyMeasures</span>(rtrain$pred, rtrain$truth))</code></pre></div>
+<pre><code>## [1] &quot;precision= 1 ; recall= 0.999360613810742&quot;
+##      pred
+## truth FALSE TRUE
+##     0  5550    0
+##     1     1 1563
+##   model  accuracy        f1  dev.norm AUC
+## 1 model 0.9998594 0.9996802 0.1049166   1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">WVPlots::<span class="kw">ROCPlot</span>(rtrain, <span class="st">&quot;pred&quot;</span>, <span class="st">&quot;truth&quot;</span>, <span class="ot">TRUE</span>, <span class="st">&quot;RF train performance, large model&quot;</span>)</code></pre></div>
+<div class="figure">
+<img src="buzzm_files/figure-markdown_github/model-1.png" alt="" />
+
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="st">&#39;test&#39;</span>)</code></pre></div>
+<pre><code>## [1] &quot;test&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rtest &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">truth =</span> buzztest$buzz, 
+                    <span class="dt">pred =</span> <span class="kw">predict</span>(fmodel, <span class="dt">newdata=</span>buzztest, <span class="dt">type=</span><span class="st">&quot;prob&quot;</span>)[, <span class="dv">2</span>, <span class="dt">drop =</span> <span class="ot">TRUE</span>])
+<span class="kw">print</span>(<span class="kw">accuracyMeasures</span>(rtest$pred, rtest$truth))</code></pre></div>
+<pre><code>## [1] &quot;precision= 0.832402234636871 ; recall= 0.84180790960452&quot;
+##      pred
+## truth FALSE TRUE
+##     0   584   30
+##     1    28  149
+##   model  accuracy        f1 dev.norm       AUC
+## 1 model 0.9266751 0.8370787  0.42056 0.9702102</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">WVPlots::<span class="kw">ROCPlot</span>(rtest, <span class="st">&quot;pred&quot;</span>, <span class="st">&quot;truth&quot;</span>, <span class="ot">TRUE</span>, <span class="st">&quot;RF train performance, large model&quot;</span>)</code></pre></div>
+<div class="figure">
+<img src="buzzm_files/figure-markdown_github/model-2.png" alt="" />
+
+</div>
+<p>Notice the extreme fall-off from training to test performance, the random forest over fit on training. We see good accuracy on test (around 92%), but not the perfect fit seen on training.</p>
+<p>To try and control the over-fitting we build a new model with the tree complexity limited to 50 nodes and the node size to at least 100. This is not necessarily a better model (in fact it scores slightly poorer on test), but it is one where the training procedure didn't have enough freedom to memorize the training data (and therefore maybe had better visibility into some trade-offs.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fmodel &lt;-<span class="st"> </span><span class="kw">randomForest</span>(<span class="kw">as.formula</span>(bzFormula),
+                      <span class="dt">data =</span> buzztrain,
+                      <span class="dt">maxnodes =</span> <span class="dv">50</span>,
+                      <span class="dt">nodesize =</span> <span class="dv">100</span>,
+                      <span class="dt">importance =</span> <span class="ot">TRUE</span>)
+
+<span class="kw">print</span>(<span class="st">&#39;training&#39;</span>)</code></pre></div>
+<pre><code>## [1] &quot;training&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rtrain &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">truth =</span> buzztrain$buzz, 
+                     <span class="dt">pred =</span> <span class="kw">predict</span>(fmodel, <span class="dt">newdata=</span>buzztrain, <span class="dt">type=</span><span class="st">&quot;prob&quot;</span>)[, <span class="dv">2</span>, <span class="dt">drop =</span> <span class="ot">TRUE</span>])
+<span class="kw">print</span>(<span class="kw">accuracyMeasures</span>(rtrain$pred, rtrain$truth))</code></pre></div>
+<pre><code>## [1] &quot;precision= 0.809937888198758 ; recall= 0.833759590792839&quot;
+##      pred
+## truth FALSE TRUE
+##     0  5244  306
+##     1   260 1304
+##   model  accuracy        f1  dev.norm       AUC
+## 1 model 0.9204386 0.8216761 0.3412138 0.9763961</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="st">&#39;test&#39;</span>)</code></pre></div>
+<pre><code>## [1] &quot;test&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rtest &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">truth =</span> buzztest$buzz, 
+                    <span class="dt">pred =</span> <span class="kw">predict</span>(fmodel, <span class="dt">newdata=</span>buzztest, <span class="dt">type=</span><span class="st">&quot;prob&quot;</span>)[, <span class="dv">2</span>, <span class="dt">drop =</span> <span class="ot">TRUE</span>])
+<span class="kw">print</span>(<span class="kw">accuracyMeasures</span>(rtest$pred, rtest$truth))</code></pre></div>
+<pre><code>## [1] &quot;precision= 0.816666666666667 ; recall= 0.830508474576271&quot;
+##      pred
+## truth FALSE TRUE
+##     0   581   33
+##     1    30  147
+##   model accuracy        f1  dev.norm       AUC
+## 1 model 0.920354 0.8235294 0.5751291 0.9624625</code></pre>
+<p>And we can also make plots.</p>
+<p>Training performance:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">WVPlots::<span class="kw">ROCPlot</span>(rtrain, <span class="st">&quot;pred&quot;</span>, <span class="st">&quot;truth&quot;</span>, <span class="ot">TRUE</span>, <span class="st">&quot;RF train performance, simpler model&quot;</span>)</code></pre></div>
+<div class="figure">
+<img src="buzzm_files/figure-markdown_github/plottrain-1.png" alt="" />
+
+</div>
+<p>Test performance:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">WVPlots::<span class="kw">ROCPlot</span>(rtest, <span class="st">&quot;pred&quot;</span>, <span class="st">&quot;truth&quot;</span>, <span class="ot">TRUE</span>, <span class="st">&quot;RF test performance, simpler model&quot;</span>)</code></pre></div>
+<div class="figure">
+<img src="buzzm_files/figure-markdown_github/plottest-1.png" alt="" />
+
+</div>
+<p>Notice this has similar test performance as the first model. This is typical of random forests: the degree of over-fit in the training data is not a good predictor of good or bad performance on test data.</p>
+<p>So we are now left with a choice, unfortunately without clear guidance: which model do we use? In this case we are going to say: use the simpler model fit on all the data. The idea is the simpler model didn't test much worse and more data lets helps the model reduce over-fitting. We will return the simpler model fit only on training data, so we have some control and some disjoint test data to evaluate the model on.</p>
+<p>Save a sample of the test data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sample_test &lt;-<span class="st"> </span>buzztest[<span class="kw">sample.int</span>(<span class="kw">nrow</span>(buzztest), <span class="dv">100</span>), , drop =<span class="st"> </span><span class="ot">FALSE</span>]
+<span class="kw">write.csv</span>(sample_test, <span class="st">&quot;buzz_sample.csv&quot;</span>, 
+          <span class="dt">row.names =</span> <span class="ot">FALSE</span>,
+          <span class="dt">quote =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<p>Save variable names, model, and test data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fname &lt;-<span class="st"> &#39;thRS500.RDS&#39;</span>
+items &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;varslist&quot;</span>, <span class="st">&quot;fmodel&quot;</span>, <span class="st">&quot;buzztest&quot;</span>)
+<span class="kw">saveRDS</span>(<span class="dt">object =</span> <span class="kw">list</span>(<span class="dt">varslist =</span> varslist,
+                      <span class="dt">fmodel =</span> fmodel,
+                      <span class="dt">buzztest =</span> buzztest), 
+        <span class="dt">file =</span> fname)
+<span class="kw">message</span>(<span class="kw">paste</span>(<span class="st">&#39;saved&#39;</span>, fname))  <span class="co"># message to running R console</span>
+<span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&#39;saved&#39;</span>, fname))    <span class="co"># print to document</span></code></pre></div>
+<pre><code>## [1] &quot;saved thRS500.RDS&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(<span class="st">&#39;finished at&#39;</span>, <span class="kw">date</span>())</code></pre></div>
+<pre><code>## [1] &quot;finished at Thu Apr 18 09:33:05 2019&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">system</span>(<span class="kw">paste</span>(<span class="st">&#39;shasum&#39;</span>, fname), <span class="dt">intern =</span> <span class="ot">TRUE</span>)  <span class="co"># write down file hash</span></code></pre></div>
+<pre><code>## [1] &quot;f2b3b80bc6c5a72079b39308a5758a282bcdd5bf  thRS500.RDS&quot;</code></pre>
