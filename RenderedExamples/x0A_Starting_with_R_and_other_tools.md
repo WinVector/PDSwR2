@@ -4,7 +4,7 @@ output: github_document
 
 
 
-00463_example_A.1_of_section_A.2.R
+00460_example_A.1_of_section_A.2.R
 
 
 
@@ -94,7 +94,7 @@ c(1)
 
 ```r
 ## [1] 1
-c(1,2)
+c(1, 2)
 ```
 
 ```
@@ -103,7 +103,7 @@ c(1,2)
 
 ```r
 ## [1] 1 2
-c("Apple",'Orange')
+c("Apple", 'Orange')
 ```
 
 ```
@@ -112,7 +112,7 @@ c("Apple",'Orange')
 
 ```r
 ## [1] "Apple"  "Orange"
-length(c(1,2))
+length(c(1, 2))
 ```
 
 ```
@@ -121,7 +121,7 @@ length(c(1,2))
 
 ```r
 ## [1] 2
-vec <- c(1,2)
+vec <- c(1, 2)
 vec
 ```
 
@@ -136,7 +136,7 @@ vec
 
 
 
-00464_informalexample_A.3_of_section_A.2.1.R
+00461_informalexample_A.3_of_section_A.2.1.R
 
 
 
@@ -168,7 +168,7 @@ print(x)
 
 
 
-00465_example_A.2_of_section_A.2.1.R
+00462_example_A.2_of_section_A.2.1.R
 
 
 
@@ -178,7 +178,7 @@ print(x)
 # Title: Binding values to function arguments 
 
 divide <- function(numerator,denominator) { numerator/denominator }
-divide(1,2)
+divide(1, 2)
 ```
 
 ```
@@ -187,7 +187,8 @@ divide(1,2)
 
 ```r
 ## [1] 0.5
-divide(2,1)
+
+divide(2, 1)
 ```
 
 ```
@@ -196,7 +197,8 @@ divide(2,1)
 
 ```r
 ## [1] 2
-divide(denominator=2,numerator=1)
+
+divide(denominator = 2, numerator = 1)
 ```
 
 ```
@@ -205,7 +207,8 @@ divide(denominator=2,numerator=1)
 
 ```r
 ## [1] 0.5
-divide(denominator<-2,numerator<-1)  # yields 2, a wrong answer
+
+divide(denominator <- 2, numerator <- 1)  # wrong symbol <-, yields 2, a wrong answer!
 ```
 
 ```
@@ -219,7 +222,7 @@ divide(denominator<-2,numerator<-1)  # yields 2, a wrong answer
 
 
 
-00466_example_A.3_of_section_A.2.1.R
+00463_example_A.3_of_section_A.2.1.R
 
 
 
@@ -240,6 +243,7 @@ print(x)
 
 ```r
 ## [1] 1
+
 bad <- function() { x <<- 5}
 bad()
 print(x)
@@ -256,7 +260,7 @@ print(x)
 
 
 
-00467_example_A.4_of_section_A.2.1.R
+00464_example_A.4_of_section_A.2.1.R
 
 
 
@@ -265,7 +269,7 @@ print(x)
 # (example A.4 of section A.2.1)  : Starting with R and other tools : Starting with R : Primary features of R 
 # Title: R truth tables for Boolean operators 
 
-c(T,T,F,F) == c(T,F,T,F)
+c(TRUE, TRUE, FALSE, FALSE) == c(TRUE, FALSE, TRUE, FALSE)
 ```
 
 ```
@@ -274,7 +278,8 @@ c(T,T,F,F) == c(T,F,T,F)
 
 ```r
 ## [1]  TRUE FALSE FALSE  TRUE
-c(T,T,F,F) & c(T,F,T,F)
+
+c(TRUE, TRUE, FALSE, FALSE) & c(TRUE, FALSE, TRUE, FALSE)
 ```
 
 ```
@@ -283,7 +288,8 @@ c(T,T,F,F) & c(T,F,T,F)
 
 ```r
 ## [1]  TRUE FALSE FALSE FALSE
-c(T,T,F,F) | c(T,F,T,F)
+
+c(TRUE, TRUE, FALSE, FALSE) | c(TRUE, FALSE, TRUE, FALSE)
 ```
 
 ```
@@ -297,30 +303,7 @@ c(T,T,F,F) | c(T,F,T,F)
 
 
 
-00468_informalexample_A.4_of_section_A.2.1.R
-
-
-
-```r
-# informalexample A.4 of section A.2.1 
-# (informalexample A.4 of section A.2.1)  : Starting with R and other tools : Starting with R : Primary features of R 
-
-add <- function(a,b) { a + b}
-add(1,2)
-```
-
-```
-## [1] 3
-```
-
-```r
-## [1] 3
-```
-
-
-
-
-00470_example_A.5_of_section_A.2.1.R
+00465_example_A.5_of_section_A.2.1.R
 
 
 
@@ -369,13 +352,13 @@ print(b) 	# Note: 2
 
 
 
-00471_informalexample_A.6_of_section_A.2.2.R
+00466_informalexample_A.4_of_section_A.2.2.R
 
 
 
 ```r
-# informalexample A.6 of section A.2.2 
-# (informalexample A.6 of section A.2.2)  : Starting with R and other tools : Starting with R : Primary R data types 
+# informalexample A.4 of section A.2.2 
+# (informalexample A.4 of section A.2.2)  : Starting with R and other tools : Starting with R : Primary R data types 
 
 vec <- c(2, 3)
 vec[[2]] <- 5
@@ -393,7 +376,7 @@ print(vec)
 
 
 
-00472_example_A.6_of_section_A.2.2.R
+00467_example_A.6_of_section_A.2.2.R
 
 
 
@@ -475,7 +458,7 @@ x[c('a', 'a', 'b', 'b')]
 
 
 
-00473_example_A.7_of_section_A.2.2.R
+00468_example_A.7_of_section_A.2.2.R
 
 
 
@@ -484,7 +467,7 @@ x[c('a', 'a', 'b', 'b')]
 # (example A.7 of section A.2.2)  : Starting with R and other tools : Starting with R : Primary R data types 
 # Title: R’s treatment of unexpected factor levels 
 
-factor('red',levels=c('red','orange'))
+factor('red', levels = c('red', 'orange'))
 ```
 
 ```
@@ -495,7 +478,8 @@ factor('red',levels=c('red','orange'))
 ```r
 ## [1] red
 ## Levels: red orange
-factor('apple',levels=c('red','orange'))
+
+factor('apple', levels = c('red', 'orange'))
 ```
 
 ```
@@ -511,7 +495,7 @@ factor('apple',levels=c('red','orange'))
 
 
 
-00474_example_A.8_of_section_A.2.2.R
+00469_example_A.8_of_section_A.2.2.R
 
 
 
@@ -562,13 +546,13 @@ print(predict(m,
 
 
 
-00475_informalexample_A.7_of_section_A.3.1.R
+00470_informalexample_A.5_of_section_A.3.1.R
 
 
 
 ```r
-# informalexample A.7 of section A.3.1 
-# (informalexample A.7 of section A.3.1)  : Starting with R and other tools : Using databases with R : Running database queries using a query generator 
+# informalexample A.5 of section A.3.1 
+# (informalexample A.5 of section A.3.1)  : Starting with R and other tools : Using databases with R : Running database queries using a query generator 
 
 library("rquery")
 
@@ -608,8 +592,8 @@ data_handle <- rq_copy_to( 	# Note: 3
      "Nina"     , "Pandemic Board Game"           , 0.2       , 0.1336                     |
      "John"     , "Dell XPS Laptop"               , 0.1       , 0.2402                     |
      "Nina"     , "Dell XPS Laptop"               , 0.05      , 0.3179                     |
-     "John"     , "Čapek's Tales from Two Pockets", 0.05      , 0.2439                     |
-     "Nina"     , "Čapek's Tales from Two Pockets", 0.05      , 0.06909                    |
+     "John"     , "Capek's Tales from Two Pockets", 0.05      , 0.2439                     |
+     "Nina"     , "Capek's Tales from Two Pockets", 0.05      , 0.06909                    |
      "John"     , "Pelikan M200 Fountain Pen"     , 0.2       , 0.6706                     |
      "Nina"     , "Pelikan M200 Fountain Pen"     , 0.1       , 0.616                      ),
   temporary = TRUE, 
@@ -634,13 +618,13 @@ data_handle <- rq_copy_to( 	# Note: 3
 
 
 
-00476_informalexample_A.8_of_section_A.3.1.R
+00471_informalexample_A.6_of_section_A.3.1.R
 
 
 
 ```r
-# informalexample A.8 of section A.3.1 
-# (informalexample A.8 of section A.3.1)  : Starting with R and other tools : Using databases with R : Running database queries using a query generator 
+# informalexample A.6 of section A.3.1 
+# (informalexample A.6 of section A.3.1)  : Starting with R and other tools : Using databases with R : Running database queries using a query generator 
 
 data_handle %.>% 	# Note: 1 
   extend(.,
@@ -662,10 +646,10 @@ data_handle %.>% 	# Note: 1
 # |Nina      |Pelikan M200 Fountain Pen      |     0.10|                  0.61600|           1|
 # |Nina      |Dell XPS Laptop                |     0.05|                  0.31790|           2|
 # |Nina      |Pandemic Board Game            |     0.20|                  0.13360|           3|
-# |Nina      |Čapek's Tales from Two Pockets |     0.05|                  0.06909|           4|
+# |Nina      |Capek's Tales from Two Pockets |     0.05|                  0.06909|           4|
 # |John      |Pandemic Board Game            |     0.10|                  0.85960|           1|
 # |John      |Pelikan M200 Fountain Pen      |     0.20|                  0.67060|           2|
-# |John      |Čapek's Tales from Two Pockets |     0.05|                  0.24390|           3|
+# |John      |Capek's Tales from Two Pockets |     0.05|                  0.24390|           3|
 # |John      |Dell XPS Laptop                |     0.10|                  0.24020|           4|
 
 # Note 1: 
@@ -690,13 +674,13 @@ data_handle %.>% 	# Note: 1
 
 
 
-00477_informalexample_A.9_of_section_A.3.1.R
+00472_informalexample_A.7_of_section_A.3.1.R
 
 
 
 ```r
-# informalexample A.9 of section A.3.1 
-# (informalexample A.9 of section A.3.1)  : Starting with R and other tools : Using databases with R : Running database queries using a query generator 
+# informalexample A.7 of section A.3.1 
+# (informalexample A.7 of section A.3.1)  : Starting with R and other tools : Using databases with R : Running database queries using a query generator 
 
 ops <- data_handle %.>% 	# Note: 1 
   extend(.,  	# Note: 2 
@@ -760,13 +744,13 @@ DBI::dbReadTable(db$connection, result_table$table_name) %.>% 	# Note: 6
 
 
 
-00478_informalexample_A.10_of_section_A.3.1.R
+00473_informalexample_A.8_of_section_A.3.1.R
 
 
 
 ```r
-# informalexample A.10 of section A.3.1 
-# (informalexample A.10 of section A.3.1)  : Starting with R and other tools : Using databases with R : Running database queries using a query generator 
+# informalexample A.8 of section A.3.1 
+# (informalexample A.8 of section A.3.1)  : Starting with R and other tools : Using databases with R : Running database queries using a query generator 
 
 ops %.>% 
   to_sql(., db) %.>% 

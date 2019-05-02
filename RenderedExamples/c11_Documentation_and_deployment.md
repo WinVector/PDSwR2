@@ -47,7 +47,7 @@ rmarkdown::render("../Buzz/Buzz_score_example.Rmd", rmarkdown::html_document())
 ```
 
 ```
-## /usr/local/bin/pandoc +RTS -K512m -RTS Buzz_score_example.utf8.md --to html4 --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash --output Buzz_score_example.html --smart --email-obfuscation none --self-contained --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/3.6/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --variable 'theme:bootstrap' --include-in-header /var/folders/7q/h_jp2vj131g5799gfnpzhdp80000gn/T//RtmpUZXAqe/rmarkdown-str10b9932bf346f.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+## /usr/local/bin/pandoc +RTS -K512m -RTS Buzz_score_example.utf8.md --to html4 --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash --output Buzz_score_example.html --smart --email-obfuscation none --self-contained --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/3.6/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --variable 'theme:bootstrap' --include-in-header /var/folders/7q/h_jp2vj131g5799gfnpzhdp80000gn/T//RtmpJeKQdz/rmarkdown-str51934a9125e3.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
 ```
 
 ```
@@ -95,46 +95,6 @@ rmarkdown::render("../Buzz/Buzz_score_example.Rmd", rmarkdown::html_document())
 pseudoLog10 <- function(x) {
   asinh(x / 2) / log(10)
 }
-```
-
-
-
-
-00447_example_11.6_of_section_11.3.1.R
-
-
-
-```r
-# example 11.6 of section 11.3.1 
-# (example 11.6 of section 11.3.1)  : Documentation and deployment : Using comments and version control for running documentation : Writing effective comments 
-# Title: Useless comment 
-
-#######################################
-# Function: addone
-# Author: John Mount
-# Version: 1.3.11
-# Location: RSource/helperFns/addone.R
-# Date: 10/31/13
-# Arguments: x
-# Purpose: Adds one
-#######################################
-addone <- function(x) { x + 1 }
-```
-
-
-
-
-00448_example_11.7_of_section_11.3.1.R
-
-
-
-```r
-# example 11.7 of section 11.3.1 
-# (example 11.7 of section 11.3.1)  : Documentation and deployment : Using comments and version control for running documentation : Writing effective comments 
-# Title: Worse than useless comment 
-
-# adds one
-addtwo <- function(x) { x + 2 }
 ```
 
 

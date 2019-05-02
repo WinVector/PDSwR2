@@ -4,7 +4,7 @@ output: github_document
 
 
 
-00479_example_B.1_of_section_B.1.1.R
+00474_example_B.1_of_section_B.1.1.R
 
 
 
@@ -30,12 +30,12 @@ f <- dnorm(x)                           # normal with mean 0 and sd 1
 ggplot(data.frame(x=x,y=f), aes(x=x,y=y)) + geom_line()
 ```
 
-![plot of chunk 00479_example_B.1_of_section_B.1.1.R](figure/00479_example_B.1_of_section_B.1.1.R-1.png)
+![plot of chunk 00474_example_B.1_of_section_B.1.1.R](figure/00474_example_B.1_of_section_B.1.1.R-1.png)
 
 
 
 
-00480_example_B.2_of_section_B.1.1.R
+00475_example_B.2_of_section_B.1.1.R
 
 
 
@@ -55,12 +55,12 @@ ggplot(data.frame(x=u), aes(x=x)) + geom_density() +
    geom_line(data=data.frame(x=x,y=f), aes(x=x,y=y), linetype=2)
 ```
 
-![plot of chunk 00480_example_B.2_of_section_B.1.1.R](figure/00480_example_B.2_of_section_B.1.1.R-1.png)
+![plot of chunk 00475_example_B.2_of_section_B.1.1.R](figure/00475_example_B.2_of_section_B.1.1.R-1.png)
 
 
 
 
-00481_example_B.3_of_section_B.1.1.R
+00476_example_B.3_of_section_B.1.1.R
 
 
 
@@ -110,7 +110,7 @@ pnorm(2) - pnorm(-2)
 
 
 
-00482_example_B.4_of_section_B.1.1.R
+00477_example_B.4_of_section_B.1.1.R
 
 
 
@@ -175,12 +175,12 @@ ggplot(nframe, aes(x=x,y=y)) + geom_line() +
   geom_text(x=line, y=0, label=xstr, vjust=1)
 ```
 
-![plot of chunk 00482_example_B.4_of_section_B.1.1.R](figure/00482_example_B.4_of_section_B.1.1.R-1.png)
+![plot of chunk 00477_example_B.4_of_section_B.1.1.R](figure/00477_example_B.4_of_section_B.1.1.R-1.png)
 
 
 
 
-00483_example_B.5_of_section_B.1.3.R
+00478_example_B.5_of_section_B.1.3.R
 
 
 
@@ -197,7 +197,7 @@ mean(u)
 ```
 
 ```
-## [1] 1.605395
+## [1] 1.620817
 ```
 
 ```r
@@ -206,7 +206,7 @@ median(u)
 ```
 
 ```
-## [1] 1.030637
+## [1] 0.9805396
 ```
 
 ```r
@@ -217,7 +217,7 @@ mean(log(u))
 ```
 
 ```
-## [1] -0.02223125
+## [1] -0.03205708
 ```
 
 ```r
@@ -228,41 +228,41 @@ sd(log(u))
 ```
 
 ```
-## [1] 0.9991619
+## [1] 1.01873
 ```
 
 ```r
 # [1] 0.9820357
 
-# generate the lognormal with meanlog=0, sdlog=1
-x <- seq(from=0, to=25, length.out=500)
+# generate the lognormal with meanlog = 0, sdlog = 1
+x <- seq(from = 0, to = 25, length.out = 500)
 f <- dlnorm(x)
 
-# generate a normal with mean=0, sd=1
-x2 <- seq(from=-5,to=5, length.out=500)
+# generate a normal with mean = 0, sd = 1
+x2 <- seq(from = -5, to = 5, length.out = 500)
 f2 <- dnorm(x2)
 
 # make data frames
-lnormframe <- data.frame(x=x,y=f)
-normframe <- data.frame(x=x2, y=f2)
+lnormframe <- data.frame(x = x, y = f)
+normframe <- data.frame(x = x2, y = f2)
 dframe <- data.frame(u=u)
 
 # plot densityplots with theoretical curves superimposed
-p1 <- ggplot(dframe, aes(x=u)) + geom_density() +
-  geom_line(data=lnormframe, aes(x=x,y=y), linetype=2)
+p1 <- ggplot(dframe, aes(x = u)) + geom_density() +
+  geom_line(data = lnormframe, aes(x = x, y = y), linetype = 2)
 
-p2 <- ggplot(dframe, aes(x=log(u))) + geom_density() +
-  geom_line(data=normframe, aes(x=x,y=y), linetype=2)
+p2 <- ggplot(dframe, aes(x = log(u))) + geom_density() +
+  geom_line(data = normframe, aes(x = x,y = y), linetype = 2)
 
 # functions to plot multiple plots on one page
 library(grid)
 nplot <- function(plist) {
   n <- length(plist)
   grid.newpage()
-  pushViewport(viewport(layout=grid.layout(n,1)))
-  vplayout<-function(x,y) {viewport(layout.pos.row=x, layout.pos.col=y)}
+  pushViewport(viewport(layout=grid.layout(n, 1)))
+  vplayout<-function(x,y) { viewport(layout.pos.row = x, layout.pos.col = y) }
   for(i in 1:n) {
-    print(plist[[i]], vp=vplayout(i,1))
+    print(plist[[i]], vp = vplayout(i, 1))
   }
 }
 
@@ -270,12 +270,12 @@ nplot <- function(plist) {
 nplot(list(p1, p2))
 ```
 
-![plot of chunk 00483_example_B.5_of_section_B.1.3.R](figure/00483_example_B.5_of_section_B.1.3.R-1.png)
+![plot of chunk 00478_example_B.5_of_section_B.1.3.R](figure/00478_example_B.5_of_section_B.1.3.R-1.png)
 
 
 
 
-00484_example_B.6_of_section_B.1.3.R
+00479_example_B.6_of_section_B.1.3.R
 
 
 
@@ -329,18 +329,18 @@ lnormframe75 <- subset(lnormframe, lnormframe$x < line)
 
 # Plot it 
 # The shaded area is 75% of the area under the lognormal curve
-ggplot(lnormframe, aes(x=x,y=y)) + geom_line() +
-  geom_area(data=lnormframe75, aes(x=x,y=y), fill="gray") + 
-  geom_vline(aes(xintercept=line), linetype=2) +
-  geom_text(x=line, y=0, label=xstr, hjust= 0, vjust=1)
+ggplot(lnormframe, aes(x = x, y = y)) + geom_line() +
+  geom_area(data=lnormframe75, aes(x = x, y = y), fill = "gray") + 
+  geom_vline(aes(xintercept = line), linetype = 2) +
+  geom_text(x = line, y = 0, label = xstr, hjust = 0, vjust = 1)
 ```
 
-![plot of chunk 00484_example_B.6_of_section_B.1.3.R](figure/00484_example_B.6_of_section_B.1.3.R-1.png)
+![plot of chunk 00479_example_B.6_of_section_B.1.3.R](figure/00479_example_B.6_of_section_B.1.3.R-1.png)
 
 
 
 
-00485_example_B.7_of_section_B.1.4.R
+00480_example_B.7_of_section_B.1.4.R
 
 
 
@@ -370,7 +370,7 @@ flips <- NULL
 for(i in 1:length(p)) {
   coin <- p[i]
   label <- plabels[i]
-  tmp <- data.frame(number.of.heads=x,
+  tmp <- data.frame(number_of_heads=x,
                    probability = dbinom(x, numflips, coin),
                    coin.type = label)
   flips <- rbind(flips, tmp)
@@ -379,17 +379,21 @@ for(i in 1:length(p)) {
 
 # plot it
 # this is the plot that leads this section
-ggplot(flips, aes(x=number.of.heads, y=probability)) +
-  geom_point(aes(color=coin.type, shape=coin.type)) +
-  geom_line(aes(color=coin.type))
+ggplot(flips, aes(x=number_of_heads, y=probability)) +
+  geom_point(aes(color=coin_type, shape=coin_type)) +
+  geom_line(aes(color=coin_type))
 ```
 
-![plot of chunk 00485_example_B.7_of_section_B.1.4.R](figure/00485_example_B.7_of_section_B.1.4.R-1.png)
+```
+## Error in FUN(X[[i]], ...): object 'coin_type' not found
+```
+
+![plot of chunk 00480_example_B.7_of_section_B.1.4.R](figure/00480_example_B.7_of_section_B.1.4.R-1.png)
 
 
 
 
-00486_example_B.8_of_section_B.1.4.R
+00481_example_B.8_of_section_B.1.4.R
 
 
 
@@ -399,14 +403,14 @@ ggplot(flips, aes(x=number.of.heads, y=probability)) +
 # Title: Working with the theoretical binomial distribution 
 
 p = 0.5 # the percentage of females in this student population
-class.size <- 20 # size of a classroom
+class_size <- 20 # size of a classroom
 numclasses <- 100 # how many classrooms we observe
 
 # what might a typical outcome look like?
-numFemales <- rbinom(numclasses, class.size, p) 	# Note: 1 
+numFemales <- rbinom(numclasses, class_size, p) 	# Note: 1 
 
 # the theoretical counts (not necessarily integral)
-probs <- dbinom(0:class.size, class.size, p)
+probs <- dbinom(0:class_size, class_size, p)
 tcount <- numclasses*probs
 
 # the obvious way to plot this is with histogram or geom_bar
@@ -414,19 +418,19 @@ tcount <- numclasses*probs
 
 zero <- function(x) {0} # a dummy function that returns only 0
 
-ggplot(data.frame(number.of.girls=numFemales, dummy=1),
-  aes(x=number.of.girls, y=dummy)) + 
+ggplot(data.frame(number_of_girls = numFemales, dummy = 1),
+  aes(x = number_of_girls, y = dummy)) + 
   # count the number of times you see x heads
-  stat_summary(fun.y="sum", geom="point", size=2) + 	# Note: 2 
-  stat_summary(fun.ymax="sum", fun.ymin="zero", geom="linerange") + 
+  stat_summary(fun.y = "sum", geom = "point", size=2) + 	# Note: 2 
+  stat_summary(fun.ymax = "sum", fun.ymin = "zero", geom = "linerange") + 
   # superimpose the theoretical number of times you see x heads
-  geom_line(data=data.frame(x=0:class.size, y=probs),
-            aes(x=x, y=tcount), linetype=2) +
-  scale_x_continuous(breaks=0:class.size, labels=0:class.size) +
+  geom_line(data = data.frame(x = 0:class_size, y = tcount),
+            aes(x = x, y = y), linetype = 2) +
+  scale_x_continuous(breaks = 0:class_size, labels = 0:class_size) +
   scale_y_continuous("number of classrooms")
 ```
 
-![plot of chunk 00486_example_B.8_of_section_B.1.4.R](figure/00486_example_B.8_of_section_B.1.4.R-1.png)
+![plot of chunk 00481_example_B.8_of_section_B.1.4.R](figure/00481_example_B.8_of_section_B.1.4.R-1.png)
 
 ```r
 # Note 1: 
@@ -443,7 +447,7 @@ ggplot(data.frame(number.of.girls=numFemales, dummy=1),
 
 
 
-00487_example_B.9_of_section_B.1.4.R
+00482_example_B.9_of_section_B.1.4.R
 
 
 
@@ -474,7 +478,7 @@ prettyprint_flips(flips_v1)
 ```
 ## outcome
 ## heads tails 
-##   757   243
+##   743   257
 ```
 
 ```r
@@ -487,7 +491,7 @@ prettyprint_flips(flips_v2)
 ```
 ## outcome
 ## heads tails 
-##   752   248
+##   742   258
 ```
 
 ```r
@@ -499,7 +503,7 @@ prettyprint_flips(flips_v2)
 
 
 
-00488_example_B.10_of_section_B.1.4.R
+00483_example_B.10_of_section_B.1.4.R
 
 
 
@@ -528,7 +532,7 @@ sprintf("%2.2f", left.tail)
 
 # the probabilities of observing more than that
 # number of heads on a fair coin?
-right.tail <- pbinom(nheads, nflips, 0.5, lower.tail=F)
+right.tail <- pbinom(nheads, nflips, 0.5, lower.tail = FALSE)
 sprintf("%2.2f", right.tail)
 ```
 
@@ -563,7 +567,7 @@ nflips <- 100
 # would expect to observe on 100 flips of a fair coin?
 
 left.edge <- qbinom(0.025, nflips, 0.5)
-right.edge <- qbinom(0.025, nflips, 0.5, lower.tail=F)
+right.edge <- qbinom(0.025, nflips, 0.5, lower.tail = FALSE)
 c(left.edge, right.edge)
 ```
 
@@ -580,7 +584,7 @@ c(left.edge, right.edge)
 
 
 
-00489_example_B.11_of_section_B.1.4.R
+00484_example_B.11_of_section_B.1.4.R
 
 
 
@@ -636,7 +640,7 @@ pbinom(53, nflips, 0.5)
 
 
 
-00491_example_B.12_of_section_B.2.2.R
+00486_example_B.12_of_section_B.2.2.R
 
 
 
@@ -647,8 +651,8 @@ pbinom(53, nflips, 0.5)
 
 set.seed(123515)
 d <- rbind( 	# Note: 1 
-   data.frame(group='A',converted=rbinom(100000,size=1,p=0.05)), 	# Note: 2 
-   data.frame(group='B',converted=rbinom(10000,size=1,p=0.055)) 	# Note: 3 
+   data.frame(group = 'A', converted = rbinom(100000, size = 1, p = 0.05)), 	# Note: 2 
+   data.frame(group = 'B', converted = rbinom(10000, size = 1, p = 0.055)) 	# Note: 3 
 )
 
 # Note 1: 
@@ -667,7 +671,7 @@ d <- rbind( 	# Note: 1
 
 
 
-00492_example_B.13_of_section_B.2.2.R
+00487_example_B.13_of_section_B.2.2.R
 
 
 
@@ -697,7 +701,7 @@ print(tab)
 
 
 
-00493_example_B.14_of_section_B.2.2.R
+00488_example_B.14_of_section_B.2.2.R
 
 
 
@@ -716,7 +720,8 @@ print(aConversionRate)
 
 ```r
 ## [1] 0.05021
-bConversionRate <- tab['B','1']/sum(tab['B',])
+
+bConversionRate <- tab['B', '1'] / sum(tab['B', ])
 print(bConversionRate)
 ```
 
@@ -726,7 +731,8 @@ print(bConversionRate)
 
 ```r
 ## [1] 0.0602
-commonRate <- sum(tab[,'1'])/sum(tab)
+
+commonRate <- sum(tab[, '1']) / sum(tab)
 print(commonRate)
 ```
 
@@ -741,7 +747,7 @@ print(commonRate)
 
 
 
-00494_example_B.15_of_section_B.2.2.R
+00489_example_B.15_of_section_B.2.2.R
 
 
 
@@ -783,7 +789,7 @@ fisher.test(tab)
 
 
 
-00495_example_B.16_of_section_B.2.2.R
+00490_example_B.16_of_section_B.2.2.R
 
 
 
@@ -793,10 +799,10 @@ fisher.test(tab)
 # Title: Computing frequentist significance 
 
 print(pbinom( 	# Note: 1 
-   lower.tail=F, 	# Note: 2 
-   q=tab['B','1']-1, 	# Note: 3 
-   size=sum(tab['B',]), 	# Note: 4 
-   prob=commonRate 	# Note: 5 
+   lower.tail = FALSE, 	# Note: 2 
+   q = tab['B', '1'] - 1, 	# Note: 3 
+   size = sum(tab['B', ]), 	# Note: 4 
+   prob = commonRate 	# Note: 5 
    )) 
 ```
 
@@ -817,7 +823,7 @@ print(pbinom( 	# Note: 1
 
 # Note 3: 
 #   Ask for the probability of seeing at least as many conversions as our observed B groups 
-#   did. 
+#   did. We subtract one to make the comparison inclusive (greater or equal to tab['B', '1']). 
 
 # Note 4: 
 #   Specify the total number of trials as 
@@ -831,206 +837,58 @@ print(pbinom( 	# Note: 1
 
 
 
-00496_example_B.17_of_section_B.2.2.R
+00491_informalexample_B.2_of_section_B.2.3.R
 
 
 
 ```r
-# example B.17 of section B.2.2 
-# (example B.17 of section B.2.2)  : Important statistical concepts : Statistical theory : A/B tests 
-# Title: Bayesian estimate of the posterior tail mass 
+# informalexample B.2 of section B.2.3 
+# (informalexample B.2 of section B.2.3)  : Important statistical concepts : Statistical theory : Power of tests 
 
-print(pbeta( 	# Note: 1 
-   aConversionRate, 	# Note: 2 
-   shape1=commonRate+tab['B','1'], 	# Note: 3 
-   shape2=(1-commonRate)+tab['B','0'])) 	# Note: 4 
+library(pwr)
+pwr.p.test(h = ES.h(p1 = 0.045, p2 = 0.04), 
+           sig.level = 0.05, 
+           power = 0.8, 
+           alternative = "greater")
 ```
 
 ```
-## [1] 4.731817e-06
+## 
+##      proportion power calculation for binomial distribution (arcsine transformation) 
+## 
+##               h = 0.02479642
+##               n = 10055.18
+##       sig.level = 0.05
+##           power = 0.8
+##     alternative = greater
 ```
 
 ```r
-## [1] 4.731817e-06
-
-# Note 1: 
-#   pbeta() functionUse pbeta() to estimate how likely 
-#   different observed conversion rates are. 
-
-# Note 2: 
-#   Ask for the probability of seeing a 
-#   conversion rate no larger than aConversionRate. 
-
-# Note 3: 
-#   Estimate conversion count as prior 
-#   commonRate plus the B observations. 
-
-# Note 4: 
-#   Estimate nonconversion count as prior 
-#   1-commonRate plus the B observations. 
+#     proportion power calculation for binomial distribution (arcsine transformation) 
+#
+#              h = 0.02479642
+#              n = 10055.18
+#      sig.level = 0.05
+#          power = 0.8
+#    alternative = greater
 ```
 
 
 
 
-00497_example_B.18_of_section_B.2.2.R
+00492_example_B.17_of_section_B.2.4.R
 
 
 
 ```r
-# example B.18 of section B.2.2 
-# (example B.18 of section B.2.2)  : Important statistical concepts : Statistical theory : A/B tests 
-# Title: Plotting the posterior distribution of the B group 
-
-library('ggplot2')
-plt <- data.frame(x=seq(from=0.04,to=0.07,length.out=301))
-plt$density <- dbeta(plt$x,
-   shape1=commonRate+tab['B','1'],
-   shape2=(1-commonRate)+tab['B','0'])
-ggplot(dat=plt) + 
-   geom_line(aes(x=x,y=density)) + 
-   geom_vline(aes(xintercept=bConversionRate)) +
-   geom_vline(aes(xintercept=aConversionRate),linetype=2)
-```
-
-![plot of chunk 00497_example_B.18_of_section_B.2.2.R](figure/00497_example_B.18_of_section_B.2.2.R-1.png)
-
-
-
-
-00498_example_B.19_of_section_B.2.3.R
-
-
-
-```r
-# example B.19 of section B.2.3 
-# (example B.19 of section B.2.3)  : Important statistical concepts : Statistical theory : Power of tests 
-# Title: Sample size estimate 
-
-estimate <- function(targetRate,difference,errorProb) {
-    ceiling(-log(errorProb)*targetRate/(difference^2))
-}
-
-est <- estimate(0.045,0.004,0.05)
-print(est)
-```
-
-```
-## [1] 8426
-```
-
-```r
-## [1] 8426
-```
-
-
-
-
-00499_example_B.20_of_section_B.2.3.R
-
-
-
-```r
-# example B.20 of section B.2.3 
-# (example B.20 of section B.2.3)  : Important statistical concepts : Statistical theory : Power of tests 
-# Title: Exact binomial sample size calculation 
-
-errorProb <- function(targetRate,difference,size) { 	# Note: 1 
-   pbinom(ceiling((targetRate-difference)*size),
-      size=size,prob=targetRate) 
-}
-
-print(errorProb(0.045,0.004,est)) 	# Note: 2 
-```
-
-```
-## [1] 0.04153646
-```
-
-```r
-## [1] 0.04153646
-
-binSearchNonPositive <- function(fEventuallyNegative) { 	# Note: 3 
-  low <- 1
-  high <- low+1
-  while(fEventuallyNegative(high)>0) {
-    high <- 2*high
-  }
-  while(high>low+1) {
-    m <- low + (high-low) %/% 2
-    if(fEventuallyNegative(m)>0) {
-       low <- m
-    } else {
-       high <- m
-    }
-  }
-  high
-}
-
-actualSize <- function(targetRate,difference,errorProb) {
-   binSearchNonPositive(function(n) {
-       errorProb(targetRate,difference,n) - errorProb })
-}
-
-size <- actualSize(0.045,0.004,0.05) 	# Note: 4 
-print(size) 
-```
-
-```
-## [1] 7623
-```
-
-```r
-## [1] 7623
-print(errorProb(0.045,0.004,size))
-```
-
-```
-## [1] 0.04983659
-```
-
-```r
-## [1] 0.04983659
-
-# Note 1: 
-#   Define a function that calculates the 
-#   probability of seeing a low number of conversions, assuming the actual 
-#   conversion rate is targetRate and the size of the experiment is size. Low is 
-#   considered be a count that’s at least difference*size below the expected value 
-#   targetRate*size. 
-
-# Note 2: 
-#   Calculate probability of a bad experiment using 
-#   estimated experiment size. The failure odds are around 4% (under the 5% we’re 
-#   designing for), which means the estimate size was slightly high. 
-
-# Note 3: 
-#   Define a binary search that finds a non-positive 
-#   value of a function that’s guaranteed to be eventually negative. This search 
-#   works around the minor non-monotonicity in errorProb() (due to rounding 
-#   issues). 
-
-# Note 4: 
-#   Calculate the required sample size for our B 
-#   experiment. 
-```
-
-
-
-
-00500_example_B.21_of_section_B.2.4.R
-
-
-
-```r
-# example B.21 of section B.2.4 
-# (example B.21 of section B.2.4)  : Important statistical concepts : Statistical theory : Specialized statistical tests 
+# example B.17 of section B.2.4 
+# (example B.17 of section B.2.4)  : Important statistical concepts : Statistical theory : Specialized statistical tests 
 # Title: Building synthetic uncorrelated income example 
 
 set.seed(235236) 	# Note: 1 
-d <- data.frame(EarnedIncome=100000*rlnorm(100),
-                 CapitalGains=100000*rlnorm(100))  	# Note: 2 
-print(with(d,cor(EarnedIncome,CapitalGains)))
+d <- data.frame(EarnedIncome = 100000 * rlnorm(100),
+                 CapitalGains = 100000 * rlnorm(100))  	# Note: 2 
+print(with(d, cor(EarnedIncome, CapitalGains)))
 ```
 
 ```
@@ -1054,16 +912,16 @@ print(with(d,cor(EarnedIncome,CapitalGains)))
 
 
 
-00501_example_B.22_of_section_B.2.4.R
+00493_example_B.18_of_section_B.2.4.R
 
 
 
 ```r
-# example B.22 of section B.2.4 
-# (example B.22 of section B.2.4)  : Important statistical concepts : Statistical theory : Specialized statistical tests 
+# example B.18 of section B.2.4 
+# (example B.18 of section B.2.4)  : Important statistical concepts : Statistical theory : Specialized statistical tests 
 # Title: Calculating the (non)significance of the observed correlation 
 
-with(d,cor(EarnedIncome,CapitalGains,method='spearman'))
+with(d, cor(EarnedIncome, CapitalGains, method = 'spearman'))
 ```
 
 ```
@@ -1072,7 +930,8 @@ with(d,cor(EarnedIncome,CapitalGains,method='spearman'))
 
 ```r
 # [1] 0.03083108
-with(d,cor.test(EarnedIncome,CapitalGains,method='spearman'))
+
+(ctest <- with(d, cor.test(EarnedIncome, CapitalGains, method = 'spearman')))
 ```
 
 ```
@@ -1102,13 +961,35 @@ with(d,cor.test(EarnedIncome,CapitalGains,method='spearman'))
 
 
 
-00502_example_B.23_of_section_B.3.1.R
+00494_informalexample_B.3_of_section_B.2.4.R
 
 
 
 ```r
-# example B.23 of section B.3.1 
-# (example B.23 of section B.3.1)  : Important statistical concepts : Examples of the statistical view of data : Sampling bias 
+# informalexample B.3 of section B.2.4 
+# (informalexample B.3 of section B.2.4)  : Important statistical concepts : Statistical theory : Specialized statistical tests 
+
+sigr::wrapCorTest(ctest)
+```
+
+```
+## [1] "Spearman's rank correlation rho: (r=0.03083, p=n.s.)."
+```
+
+```r
+# [1] "Spearman's rank correlation rho: (r=0.03083, p=n.s.)."
+```
+
+
+
+
+00495_example_B.19_of_section_B.3.1.R
+
+
+
+```r
+# example B.19 of section B.3.1 
+# (example B.19 of section B.3.1)  : Important statistical concepts : Examples of the statistical view of data : Sampling bias 
 # Title: Misleading significance result from biased observations 
 
 veryHighIncome <- subset(d, EarnedIncome+CapitalGains>=500000)
@@ -1143,13 +1024,13 @@ print(with(veryHighIncome,cor.test(EarnedIncome,CapitalGains,
 
 
 
-00503_example_B.24_of_section_B.3.1.R
+00496_example_B.20_of_section_B.3.1.R
 
 
 
 ```r
-# example B.24 of section B.3.1 
-# (example B.24 of section B.3.1)  : Important statistical concepts : Examples of the statistical view of data : Sampling bias 
+# example B.20 of section B.3.1 
+# (example B.20 of section B.3.1)  : Important statistical concepts : Examples of the statistical view of data : Sampling bias 
 # Title: Plotting biased view of income and capital gains 
 
 library(ggplot2)
@@ -1158,7 +1039,7 @@ ggplot(data=d,aes(x=EarnedIncome,y=CapitalGains)) +
    coord_cartesian(xlim=c(0,max(d)),ylim=c(0,max(d))) 	# Note: 1 
 ```
 
-![plot of chunk 00503_example_B.24_of_section_B.3.1.R](figure/00503_example_B.24_of_section_B.3.1.R-1.png)
+![plot of chunk 00496_example_B.20_of_section_B.3.1.R](figure/00496_example_B.20_of_section_B.3.1.R-1.png)
 
 ```r
 ggplot(data=veryHighIncome,aes(x=EarnedIncome,y=CapitalGains)) +
@@ -1171,7 +1052,7 @@ ggplot(data=veryHighIncome,aes(x=EarnedIncome,y=CapitalGains)) +
    coord_cartesian(xlim=c(0,max(d)),ylim=c(0,max(d))) 	# Note: 2 
 ```
 
-![plot of chunk 00503_example_B.24_of_section_B.3.1.R](figure/00503_example_B.24_of_section_B.3.1.R-2.png)
+![plot of chunk 00496_example_B.20_of_section_B.3.1.R](figure/00496_example_B.20_of_section_B.3.1.R-2.png)
 
 ```r
 print(with(subset(d,EarnedIncome+CapitalGains<500000),
@@ -1217,13 +1098,13 @@ print(with(subset(d,EarnedIncome+CapitalGains<500000),
 
 
 
-00504_example_B.25_of_section_B.3.2.R
+00497_example_B.21_of_section_B.3.2.R
 
 
 
 ```r
-# example B.25 of section B.3.2 
-# (example B.25 of section B.3.2)  : Important statistical concepts : Examples of the statistical view of data : Omitted variable bias 
+# example B.21 of section B.3.2 
+# (example B.21 of section B.3.2)  : Important statistical concepts : Examples of the statistical view of data : Omitted variable bias 
 # Title: Summarizing our synthetic biological data 
 
 load('../bioavailability/synth.RData')
@@ -1280,28 +1161,28 @@ head(s)
 
 
 
-00505_example_B.26_of_section_B.3.2.R
+00498_example_B.22_of_section_B.3.2.R
 
 
 
 ```r
-# example B.26 of section B.3.2 
-# (example B.26 of section B.3.2)  : Important statistical concepts : Examples of the statistical view of data : Omitted variable bias 
+# example B.22 of section B.3.2 
+# (example B.22 of section B.3.2)  : Important statistical concepts : Examples of the statistical view of data : Omitted variable bias 
 # Title: Building data that improves over time 
 
 set.seed(2535251)
-s <- data.frame(week=1:100)
+s <- data.frame(week = 1:100)
 s$Caco2A2BPapp <- sort(sample(d$Caco2A2BPapp,100,replace=T),
    decreasing=T)
-sigmoid <- function(x) {1/(1+exp(-x))}
+sigmoid <- function(x) {1/(1 + exp(-x))}
 s$FractionHumanAbsorption <- 	# Note: 1 
  sigmoid(
-   7.5 + 0.5*log(s$Caco2A2BPapp) + 	# Note: 2 
-   s$week/10 - mean(s$week/10) + 	# Note: 3 
-   rnorm(100)/3 	# Note: 4 
+   7.5 + 0.5 * log(s$Caco2A2BPapp) + 	# Note: 2 
+   s$week / 10 - mean(s$week / 10) + 	# Note: 3 
+   rnorm(100) / 3 	# Note: 4 
    )
-write.table(s,'synth.csv',sep=',',
-   quote=F,row.names=F)
+write.table(s, 'synth.csv', sep=',',
+   quote = FALSE, row.names = FALSE)
 
 # Note 1: 
 #   Build synthetic examples. 
@@ -1323,52 +1204,18 @@ write.table(s,'synth.csv',sep=',',
 
 
 
-00506_example_B.27_of_section_B.3.2.R
+00499_example_B.23_of_section_B.3.2.R
 
 
 
 ```r
-# example B.27 of section B.3.2 
-# (example B.27 of section B.3.2)  : Important statistical concepts : Examples of the statistical view of data : Omitted variable bias 
+# example B.23 of section B.3.2 
+# (example B.23 of section B.3.2)  : Important statistical concepts : Examples of the statistical view of data : Omitted variable bias 
 # Title: A bad model (due to omitted variable bias) 
 
-print(summary(glm(data=s,
-   FractionHumanAbsorption~log(Caco2A2BPapp),
-   family=binomial(link='logit'))))
-```
-
-```
-## Warning in eval(family$initialize): non-integer #successes in a binomial
-## glm!
-```
-
-```
-## 
-## Call:
-## glm(formula = FractionHumanAbsorption ~ log(Caco2A2BPapp), family = binomial(link = "logit"), 
-##     data = s)
-## 
-## Deviance Residuals: 
-##      Min        1Q    Median        3Q       Max  
-## -0.74715  -0.31727  -0.08233   0.18796   0.55508  
-## 
-## Coefficients:
-##                   Estimate Std. Error z value Pr(>|z|)    
-## (Intercept)       -12.1943     3.7474  -3.254 0.001137 ** 
-## log(Caco2A2BPapp)  -1.2003     0.3584  -3.349 0.000811 ***
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
-## (Dispersion parameter for binomial family taken to be 1)
-## 
-##     Null deviance: 44.724  on 99  degrees of freedom
-## Residual deviance: 10.992  on 98  degrees of freedom
-## AIC: 63.696
-## 
-## Number of Fisher Scoring iterations: 7
-```
-
-```r
+print(summary(glm(data = s,
+   FractionHumanAbsorption ~l og(Caco2A2BPapp),
+   family = binomial(link = 'logit'))))
 ## Warning: non-integer #successes in a binomial glm!
 ## 
 ## Call:
@@ -1394,18 +1241,26 @@ print(summary(glm(data=s,
 ## AIC: 64.7
 ## 
 ## Number of Fisher Scoring iterations: 6
+
+```
+
+```
+## Error: <text>:6:31: unexpected symbol
+## 5: print(summary(glm(data = s,
+## 6:    FractionHumanAbsorption ~l og
+##                                  ^
 ```
 
 
 
 
-00507_example_B.28_of_section_B.3.2.R
+00500_example_B.24_of_section_B.3.2.R
 
 
 
 ```r
-# example B.28 of section B.3.2 
-# (example B.28 of section B.3.2)  : Important statistical concepts : Examples of the statistical view of data : Omitted variable bias 
+# example B.24 of section B.3.2 
+# (example B.24 of section B.3.2)  : Important statistical concepts : Examples of the statistical view of data : Omitted variable bias 
 # Title: A better model 
 
 print(summary(glm(data=s,

@@ -1,0 +1,7 @@
+# informalexample A.2 of section A.1.5 
+# (informalexample A.2 of section A.1.5)  : Starting with R and other tools : Installing the tools : R resources 
+
+install.packages('ctv', repos = 'https://cran.r-project.org')
+library('ctv')
+# install.views('TimeSeries') # can take a LONG time
+

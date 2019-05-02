@@ -1,0 +1,22 @@
+# example 11.11 of section 11.4.2 
+# (example 11.11 of section 11.4.2)  : Documentation and deployment : Deploying models : Deploying models as HTTP services 
+# Title: Buzz model as an R-based HTTP service 
+
+library("randomForest") 	# Note: 1 
+
+lst <- readRDS("thRS500.RDS")
+varslist <- lst$varslist
+fmodel <- lst$fmodel
+buzztest <- lst$buzztest
+rm(list = "lst")
+
+#* Score a data frame.
+#* @param d data frame to score
+#* @post /score_data
+function(d) { 	
+  predict(fmodel, newdata = d, type = "prob")
+}
+
+# Note 1: 
+#   Attach the randomForest package, so we can run our randomForest model. 
+
