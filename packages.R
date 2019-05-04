@@ -6,7 +6,7 @@ update.packages(ask = FALSE, checkBuilt = TRUE)
 
 pkgs <- c(
     "arules", "bitops", "caTools", "cdata", "data.table", "DBI",
-    "DiagrammeR", "dplyr", "e1071", "fpc", "gdata", "ggplot2",
+    "DiagrammeR", "dplyr", "e1071", "fpc", "ggplot2",
     "glmnet", "glmnetUtils", "gridExtra", "hexbin", "kernlab",
     "igraph", "knitr", "lime", "lubridate", "magrittr", "MASS",
     "MonetDBLite", "mgcv", "pander", "plotly", "pwr", "randomForest",
