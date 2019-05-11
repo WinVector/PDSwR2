@@ -556,7 +556,7 @@ cboot_hclust$bootmean                                       	# Note: 7
 ```
 
 ```
-## [1] 0.8425000 0.7760833 0.6847103 0.8431389 0.7575000
+## [1] 0.7990000 0.7716984 0.6592381 0.8521905 0.7745000
 ```
 
 ```r
@@ -566,7 +566,7 @@ cboot_hclust$bootbrd                                        	# Note: 8
 ```
 
 ```
-## [1] 11 12 35 19 32
+## [1] 23 21 43 17 32
 ```
 
 ```r
@@ -873,17 +873,17 @@ pclusters$centers                                                   	# Note: 3
 
 ```
 ##        RedMeat  WhiteMeat        Eggs       Milk       Fish    Cereals
-## 1 -0.807569986 -0.8719354 -1.55330561 -1.0783324 -1.0386379  1.7200335
-## 2 -0.508801956 -1.1088009 -0.41248496 -0.8320414  0.9819154  0.1300253
-## 3  0.006572897 -0.2290150  0.19147892  1.3458748  1.1582546 -0.8722721
-## 4  1.011180399  0.7421332  0.94084150  0.5700581 -0.2671539 -0.6877583
-## 5 -0.570049402  0.5803879 -0.08589708 -0.4604938 -0.4537795  0.3181839
+## 1 -0.570049402  0.5803879 -0.08589708 -0.4604938 -0.4537795  0.3181839
+## 2  0.006572897 -0.2290150  0.19147892  1.3458748  1.1582546 -0.8722721
+## 3  1.011180399  0.7421332  0.94084150  0.5700581 -0.2671539 -0.6877583
+## 4 -0.508801956 -1.1088009 -0.41248496 -0.8320414  0.9819154  0.1300253
+## 5 -0.807569986 -0.8719354 -1.55330561 -1.0783324 -1.0386379  1.7200335
 ##       Starch       Nuts      Fr.Veg
-## 1 -1.4234267  0.9961313 -0.64360439
-## 2 -0.1842010  1.3108846  1.62924487
-## 3  0.1676780 -0.9553392 -1.11480485
-## 4  0.2288743 -0.5083895  0.02161979
-## 5  0.7857609 -0.2679180  0.06873983
+## 1  0.7857609 -0.2679180  0.06873983
+## 2  0.1676780 -0.9553392 -1.11480485
+## 3  0.2288743 -0.5083895  0.02161979
+## 4 -0.1842010  1.3108846  1.62924487
+## 5 -1.4234267  0.9961313 -0.64360439
 ```
 
 ```r
@@ -904,7 +904,7 @@ pclusters$size                                                      	# Note: 4
 ```
 
 ```
-## [1] 4 4 4 8 5
+## [1] 5 4 8 4 4
 ```
 
 ```r
@@ -918,27 +918,21 @@ print_clusters(protein, groups, cols_to_print)                                  
 
 ```
 ## $`1`
-##       Country RedMeat Fish Fr.Veg
-## 1     Albania    10.1  0.2    1.7
-## 4    Bulgaria     7.8  1.2    4.2
-## 18    Romania     6.2  1.0    2.8
-## 25 Yugoslavia     4.4  0.6    3.2
+##           Country RedMeat Fish Fr.Veg
+## 5  Czechoslovakia     9.7  2.0    4.0
+## 7       E Germany     8.4  5.4    3.6
+## 11        Hungary     5.3  0.3    4.2
+## 16         Poland     6.9  3.0    6.6
+## 23           USSR     9.3  3.0    2.9
 ## 
 ## $`2`
-##     Country RedMeat Fish Fr.Veg
-## 10   Greece    10.2  5.9    6.5
-## 13    Italy     9.0  3.4    6.7
-## 17 Portugal     6.2 14.2    7.9
-## 19    Spain     7.1  7.0    7.2
-## 
-## $`3`
 ##    Country RedMeat Fish Fr.Veg
 ## 6  Denmark    10.6  9.9    2.4
 ## 8  Finland     9.5  5.8    1.4
 ## 15  Norway     9.4  9.7    2.7
 ## 20  Sweden     9.9  7.5    2.0
 ## 
-## $`4`
+## $`3`
 ##        Country RedMeat Fish Fr.Veg
 ## 2      Austria     8.9  2.1    4.3
 ## 3      Belgium    13.5  4.5    4.0
@@ -949,13 +943,19 @@ print_clusters(protein, groups, cols_to_print)                                  
 ## 22          UK    17.4  4.3    3.3
 ## 24   W Germany    11.4  3.4    3.8
 ## 
+## $`4`
+##     Country RedMeat Fish Fr.Veg
+## 10   Greece    10.2  5.9    6.5
+## 13    Italy     9.0  3.4    6.7
+## 17 Portugal     6.2 14.2    7.9
+## 19    Spain     7.1  7.0    7.2
+## 
 ## $`5`
-##           Country RedMeat Fish Fr.Veg
-## 5  Czechoslovakia     9.7  2.0    4.0
-## 7       E Germany     8.4  5.4    3.6
-## 11        Hungary     5.3  0.3    4.2
-## 16         Poland     6.9  3.0    6.6
-## 23           USSR     9.3  3.0    2.9
+##       Country RedMeat Fish Fr.Veg
+## 1     Albania    10.1  0.2    1.7
+## 4    Bulgaria     7.8  1.2    4.2
+## 18    Romania     6.2  1.0    2.8
+## 25 Yugoslavia     4.4  0.6    3.2
 ```
 
 ```r
@@ -1954,12 +1954,12 @@ rules <- apriori(bookbaskets_use,                                  	# Note: 1
 ## Absolute minimum support count: 81 
 ## 
 ## set item appearances ...[0 item(s)] done [0.00s].
-## set transactions ...[216031 item(s), 40822 transaction(s)] done [1.05s].
+## set transactions ...[216031 item(s), 40822 transaction(s)] done [0.91s].
 ## sorting and recoding items ... [1256 item(s)] done [0.03s].
-## creating transaction tree ... done [0.02s].
+## creating transaction tree ... done [0.01s].
 ## checking subsets of size 1 2 3 4 5 done [0.04s].
 ## writing ... [191 rule(s)] done [0.00s].
-## creating S4 object  ... done [0.06s].
+## creating S4 object  ... done [0.05s].
 ```
 
 ```r
@@ -2186,7 +2186,7 @@ brules <- apriori(bookbaskets_use,
 ## set transactions ...[216031 item(s), 40822 transaction(s)] done [0.85s].
 ## sorting and recoding items ... [3172 item(s)] done [0.03s].
 ## creating transaction tree ... done [0.02s].
-## checking subsets of size 1 2 3 4 5 6 7 8 done [0.22s].
+## checking subsets of size 1 2 3 4 5 6 7 8 done [0.21s].
 ## writing ... [46 rule(s)] done [0.04s].
 ## creating S4 object  ... done [0.06s].
 ```
