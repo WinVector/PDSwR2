@@ -3,7 +3,11 @@
 
 library("rquery")
 
-raw_connection <- DBI::dbConnect(MonetDBLite::MonetDBLite()) 	# Note: 1 
+raw_connection <- ﻿DBI::dbConnect(RPostgres::Postgres(),
+                                 host = 'localhost',
+                                 port = 5432,
+                                 user = 'johnmount',
+                                 password = '') 	# Note: 1 
         
 dbopts <- rq_connection_tests(raw_connection) 	# Note: 2 
 db <- rquery_db_info(
@@ -28,7 +32,7 @@ data_handle <- rq_copy_to( 	# Note: 3
   overwrite = TRUE)
 
 # Note 1: 
-#   Use DBI to connect to a database. In this case it creates a new in-memory MonetDBLite. 
+#   Use DBI to connect to a database. In this case it creates a new in-memory SQLite. 
 
 # Note 2: 
 #   Build an rquery wrapper of the connection. 

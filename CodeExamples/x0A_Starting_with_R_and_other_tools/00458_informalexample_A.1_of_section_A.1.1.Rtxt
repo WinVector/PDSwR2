@@ -11,9 +11,9 @@ pkgs <- c(
     "DiagrammeR", "dplyr", "e1071", "fpc", "ggplot2",
     "glmnet", "glmnetUtils", "gridExtra", "hexbin", "kernlab",
     "igraph", "knitr", "lime", "lubridate", "magrittr", "MASS",
-    "MonetDBLite", "mgcv", "pander", "plotly", "pwr", "randomForest",
+    "mgcv", "pander", "plotly", "pwr", "randomForest",
     "readr", "readxls", "rmarkdown", "rpart", "rpart.plot",
-    "rqdatatable", "rquery", "RSQLite", "scales", "sigr", "sqldf",
+    "RPostgres", "rqdatatable", "rquery", "RSQLite", "scales", "sigr", "sqldf",
     "tidypredict", "tidyr", "vtreat", "wrapr", "WVPlots", "xgboost",
     "xts", "zeallot", "zoo")
 

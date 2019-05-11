@@ -5,7 +5,7 @@ ops %.>%
   to_sql(., db) %.>% 
   cat(.)
   
-## SELECT * FROM (
+﻿## SELECT * FROM (
 ##  SELECT * FROM (
 ##   SELECT
 ##    "user_name",
@@ -21,8 +21,8 @@ ops %.>%
 ##     "predicted_offer_affinity"
 ##    FROM
 ##     "offers"
-##    ) tsql_64899813415293475989_0000000000
-##  ) tsql_64899813415293475989_0000000001
+##    ) tsql_17135820721167795865_0000000000
+##  ) tsql_17135820721167795865_0000000001
 ##  WHERE "simple_rank" <= 2
-## ) tsql_64899813415293475989_0000000002 ORDER BY "user_name", "simple_rank"
+## ) tsql_17135820721167795865_0000000002 ORDER BY "user_name", "simple_rank"
 
