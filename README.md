@@ -76,13 +76,13 @@ For more about the book please check out:
 
  * The support site (code and data): [GitHub WinVector/PDSwR2](https://github.com/WinVector/PDSwR2).
  * Manning's [book page](https://www.manning.com/books/practical-data-science-with-r-second-edition).
- * Book discussion board: [Forum: Practical Data Science with R 2nd edition](https://forums.manning.com/forums/practical-data-science-with-r-second-edition).
  * [A discount code!](https://freecontent.manning.com/slideshare-a-practice-oriented-approach-to-data-science/).
 
-## Zip file of code excerpts from the book:
+## All code excerpts from the book:
 
  * [CodeExamples.zip](CodeExamples.zip)
  * [CodeExamples directory](CodeExamples)
+ * [Rendered examples](RenderedExamples)
 
 
 ## More from the authors:
