@@ -3,7 +3,7 @@
 # Title: Setting up the spirals data as an example classification problem 
 
 library('kernlab')
-data('spirals')  		# Note: 1 
+data(spirals)  		# Note: 1 
 sc <- specc(spirals, centers = 2) 		# Note: 2 
 s <- data.frame(x = spirals[, 1], y = spirals[, 2],  	# Note: 3 
    class = as.factor(sc)) 	

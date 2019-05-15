@@ -17,7 +17,7 @@ varImp[1:10, ]                           	# Note: 2
 ## word.freq.order     3.167008  2.505777             3.065529
 ## word.freq.mail      3.820764  2.786041             4.869502
 
-varImpPlot(fmodel, type=1)                       	# Note: 3
+varImpPlot(fmodel, type = 1)                       	# Note: 3
 
 # Note 1: 
 #   Call importance() on the spam 

@@ -1,5 +1,5 @@
 # example 10.6 of section 10.1.4 
-# (example 10.6 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient boosted trees 
+# (example 10.6 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient-boosted trees 
 # Title: Load the iris data 
 
 iris <- iris
@@ -21,7 +21,7 @@ head(train)
 input <- as.matrix(train[, 1:4]) 	# Note: 3
 
 # Note 1: 
-#   Setosa is the positive class. 
+#   setosa is the positive class. 
 
 # Note 2: 
 #   Split the data into training and test (75%/25%). 

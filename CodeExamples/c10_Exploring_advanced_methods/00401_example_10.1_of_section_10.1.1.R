@@ -7,13 +7,13 @@ spamD$isSpam <- spamD$spam == 'spam'
 spamTrain <- subset(spamD, spamD$rgroup >= 10)
 spamTest <- subset(spamD, spamD$rgroup < 10)
 
-spamVars <- setdiff(colnames(spamD),list('rgroup', 'spam', 'isSpam'))
+spamVars <- setdiff(colnames(spamD), list('rgroup', 'spam', 'isSpam'))
 library(wrapr)
 spamFormula <- mk_formula("isSpam", spamVars)  	# Note: 2 
                    
 loglikelihood <- function(y, py) {      	# Note: 3 
-  pysmooth <- ifelse(py==0, 1e-12,
-                  ifelse(py==1, 1-1e-12, py))
+  pysmooth <- ifelse(py == 0, 1e-12,
+                  ifelse(py == 1, 1 - 1e-12, py))
 
   sum(y * log(pysmooth) + (1 - y) * log(1 - pysmooth))
 }
@@ -24,8 +24,8 @@ accuracyMeasures <- function(pred, truth, name = "model") {   	# Note: 4
   ctable <- table(truth = truth,
                  pred = (pred > 0.5))                                       	# Note: 6 
   accuracy <- sum(diag(ctable)) / sum(ctable)
-  precision <- ctable[2,2] /s um(ctable[,2])
-  recall <- ctable[2,2] / sum(ctable[2,])
+  precision <- ctable[2, 2] / sum(ctable[, 2])
+  recall <- ctable[2, 2] / sum(ctable[2, ])
   f1 <- 2 * precision * recall / (precision + recall)
   data.frame(model = name, accuracy = accuracy, f1 = f1, dev.norm)
 }

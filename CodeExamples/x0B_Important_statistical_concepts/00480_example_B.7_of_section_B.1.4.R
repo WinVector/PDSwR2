@@ -24,15 +24,15 @@ for(i in 1:length(p)) {
   coin <- p[i]
   label <- plabels[i]
   tmp <- data.frame(number_of_heads=x,
-                   probability = dbinom(x, numflips, coin),
-                   coin.type = label)
+                    probability = dbinom(x, numflips, coin),
+                    coin_type = label)
   flips <- rbind(flips, tmp)
 }
 
 
 # plot it
 # this is the plot that leads this section
-ggplot(flips, aes(x=number_of_heads, y=probability)) +
-  geom_point(aes(color=coin_type, shape=coin_type)) +
-  geom_line(aes(color=coin_type))
+ggplot(flips, aes(x = number_of_heads, y = probability)) +
+  geom_point(aes(color = coin_type, shape = coin_type)) +
+  geom_line(aes(color = coin_type))
 

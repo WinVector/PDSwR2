@@ -9,7 +9,7 @@ train <- sdata[sdata$ORIGRANDGROUP <= 5, ]
 test <- sdata[sdata$ORIGRANDGROUP > 5, ]
 
 form_lin <- as.formula("DBWT ~ PWGT + WTGAIN + MAGER + UPREVIS")
-linmodel <- lm(form_lin, data=train)    	# Note: 1  
+linmodel <- lm(form_lin, data = train)    	# Note: 1  
 summary(linmodel)
 
 ## Call:
@@ -84,6 +84,6 @@ summary(gammodel)
 
 # Note 5: 
 #   The model explains a little over 9% of the variance; 
-#   all variables have a nonlinear effect significantly different from 
+#   all variables have a non-linear effect significantly different from 
 #   0. 
 

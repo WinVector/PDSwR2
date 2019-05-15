@@ -7,8 +7,8 @@
 
 library(wrapr)
 library(xgboost)
-# if this fails, make sure word2vec is installed:
-# install.packages("word2vec")
+# if this fails, make sure text2vec is installed:
+# install.packages("text2vec")
 library(text2vec)
 
 

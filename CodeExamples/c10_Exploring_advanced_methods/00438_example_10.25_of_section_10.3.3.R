@@ -2,7 +2,7 @@
 # (example 10.25 of section 10.3.3)  : Exploring advanced methods : Solving "Inseparable" Problems Using Support Vector Machines : Understanding kernel functions 
 # Title: An artificial kernel example 
 
-u <- c(1,2)
+u <- c(1, 2)
 v <- c(3, 4)
 k <- function(u, v) { 	# Note: 1 
      u[1] * v[1] + 
@@ -13,7 +13,7 @@ k <- function(u, v) { 	# Note: 1
   }
 phi <- function(x) { 	# Note: 2 
      x <- as.numeric(x)
-     c(x,x*x,combn(x, 2, FUN=prod))
+     c(x, x*x, combn(x, 2, FUN = prod))
   }
 print(k(u, v)) 	# Note: 3 
 ## [1] 108

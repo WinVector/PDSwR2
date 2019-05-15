@@ -7,7 +7,7 @@ set.seed(602957)
 x <- rnorm(1000)
 noise <- rnorm(1000, sd = 1.5)
 
-y <- 3*sin(2 * x) + cos(0.75 * x) - 1.5 * (x^2) + noise
+y <- 3 * sin(2 * x) + cos(0.75 * x) - 1.5 * (x^2) + noise
 
 select <- runif(1000)
 frame <- data.frame(y = y, x = x)

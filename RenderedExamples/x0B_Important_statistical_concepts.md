@@ -197,7 +197,7 @@ mean(u)
 ```
 
 ```
-## [1] 1.643489
+## [1] 1.652672
 ```
 
 ```r
@@ -206,7 +206,7 @@ median(u)
 ```
 
 ```
-## [1] 1.008992
+## [1] 0.9555581
 ```
 
 ```r
@@ -217,7 +217,7 @@ mean(log(u))
 ```
 
 ```
-## [1] 0.01225522
+## [1] -0.03066976
 ```
 
 ```r
@@ -228,7 +228,7 @@ sd(log(u))
 ```
 
 ```
-## [1] 0.979331
+## [1] 1.028652
 ```
 
 ```r
@@ -371,21 +371,17 @@ for(i in 1:length(p)) {
   coin <- p[i]
   label <- plabels[i]
   tmp <- data.frame(number_of_heads=x,
-                   probability = dbinom(x, numflips, coin),
-                   coin.type = label)
+                    probability = dbinom(x, numflips, coin),
+                    coin_type = label)
   flips <- rbind(flips, tmp)
 }
 
 
 # plot it
 # this is the plot that leads this section
-ggplot(flips, aes(x=number_of_heads, y=probability)) +
-  geom_point(aes(color=coin_type, shape=coin_type)) +
-  geom_line(aes(color=coin_type))
-```
-
-```
-## Error in FUN(X[[i]], ...): object 'coin_type' not found
+ggplot(flips, aes(x = number_of_heads, y = probability)) +
+  geom_point(aes(color = coin_type, shape = coin_type)) +
+  geom_line(aes(color = coin_type))
 ```
 
 ![plot of chunk 00480_example_B.7_of_section_B.1.4.R](figure/00480_example_B.7_of_section_B.1.4.R-1.png)
@@ -478,7 +474,7 @@ prettyprint_flips(flips_v1)
 ```
 ## outcome
 ## heads tails 
-##   756   244
+##   764   236
 ```
 
 ```r
@@ -491,7 +487,7 @@ prettyprint_flips(flips_v2)
 ```
 ## outcome
 ## heads tails 
-##   757   243
+##   762   238
 ```
 
 ```r
@@ -1214,8 +1210,42 @@ write.table(s, 'synth.csv', sep=',',
 # Title: A bad model (due to omitted variable bias) 
 
 print(summary(glm(data = s,
-   FractionHumanAbsorption ~l og(Caco2A2BPapp),
+   FractionHumanAbsorption ~ log(Caco2A2BPapp),
    family = binomial(link = 'logit'))))
+```
+
+```
+## Warning in eval(family$initialize): non-integer #successes in a binomial
+## glm!
+```
+
+```
+## 
+## Call:
+## glm(formula = FractionHumanAbsorption ~ log(Caco2A2BPapp), family = binomial(link = "logit"), 
+##     data = s)
+## 
+## Deviance Residuals: 
+##      Min        1Q    Median        3Q       Max  
+## -0.74715  -0.31727  -0.08233   0.18796   0.55508  
+## 
+## Coefficients:
+##                   Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)       -12.1943     3.7474  -3.254 0.001137 ** 
+## log(Caco2A2BPapp)  -1.2003     0.3584  -3.349 0.000811 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 44.724  on 99  degrees of freedom
+## Residual deviance: 10.992  on 98  degrees of freedom
+## AIC: 63.696
+## 
+## Number of Fisher Scoring iterations: 7
+```
+
+```r
 ## Warning: non-integer #successes in a binomial glm!
 ## 
 ## Call:
@@ -1241,14 +1271,6 @@ print(summary(glm(data = s,
 ## AIC: 64.7
 ## 
 ## Number of Fisher Scoring iterations: 6
-
-```
-
-```
-## Error: <text>:6:31: unexpected symbol
-## 5: print(summary(glm(data = s,
-## 6:    FractionHumanAbsorption ~l og
-##                                  ^
 ```
 
 

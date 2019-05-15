@@ -1,5 +1,5 @@
 # example 10.16 of section 10.2.3 
-# (example 10.16 of section 10.2.3)  : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : Extracting the nonlinear relationships 
+# (example 10.16 of section 10.2.3)  : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : Extracting the non-linear relationships 
 # Title: Extracting a learned spline from a GAM 
 
 sx <- predict(gam_model, type = "terms")

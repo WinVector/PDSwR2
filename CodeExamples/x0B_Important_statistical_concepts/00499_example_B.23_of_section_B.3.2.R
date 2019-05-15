@@ -3,7 +3,7 @@
 # Title: A bad model (due to omitted variable bias) 
 
 print(summary(glm(data = s,
-   FractionHumanAbsorption ~l og(Caco2A2BPapp),
+   FractionHumanAbsorption ~ log(Caco2A2BPapp),
    family = binomial(link = 'logit'))))
 ## Warning: non-integer #successes in a binomial glm!
 ## 

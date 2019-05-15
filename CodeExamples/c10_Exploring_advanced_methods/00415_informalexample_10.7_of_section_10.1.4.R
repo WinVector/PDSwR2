@@ -1,5 +1,5 @@
 # informalexample 10.7 of section 10.1.4 
-# (informalexample 10.7 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient boosted trees 
+# (informalexample 10.7 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient-boosted trees 
 
 cv <- xgb.cv(dtm_train, 
              label = labels,

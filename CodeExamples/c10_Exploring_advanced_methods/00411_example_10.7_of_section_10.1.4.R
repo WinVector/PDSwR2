@@ -1,12 +1,12 @@
 # example 10.7 of section 10.1.4 
-# (example 10.7 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient boosted trees 
+# (example 10.7 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient-boosted trees 
 # Title: Cross-validate to determine model size 
 
 library(xgboost)
 
 cv <- xgb.cv(input,  	# Note: 1  
             label = train$class, 	# Note: 2  
-              params=list(
+              params = list(
                 objective = "binary:logistic"    	# Note: 3 
               ),
               nfold = 5,  	# Note: 4 
@@ -53,19 +53,19 @@ ggplot(evalframe, aes(x = iter, y = test_logloss_mean)) +
 #   classification, "reg:linear" for regression. 
 
 # Note 4: 
-#   Use 5-fold cross validation. 
+#   Use 5-fold cross-validation. 
 
 # Note 5: 
 #   Build an ensemble of 100 trees. 
 
 # Note 6: 
 #   Print a message every 10th iteration  
-#   (use verbose=FALSE for no messages). 
+#   (use verbose = FALSE for no messages). 
 
 # Note 7: 
 #   Use minimum cross-validated logloss (related to deviance)  
 #   to pick the optimum number of trees. for regression,  
-#   use metrics="rmse" 
+#   use metrics = "rmse" 
 
 # Note 8: 
 #   Get the performance log. 

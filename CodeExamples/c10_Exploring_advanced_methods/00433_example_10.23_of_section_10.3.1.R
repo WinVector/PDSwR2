@@ -6,10 +6,9 @@ set.seed(2335246L)
 s$group <- sample.int(100, size = dim(s)[[1]], replace = TRUE)
 sTrain <- subset(s, group > 10)
 sTest <- subset(s,group <= 10) 		# Note: 1  
-# mSVMV <- ksvm(class ~ x + y, data = sTrain, kernel = 'vanilladot') 
-# had been using ksvm, but it seems to keep bad state in some cases
+
 library('e1071')
-mSVMV <- svm(class ~ x + y, data = sTrain, kernel='linear', type = 'nu-classification') 		# Note: 2 
+mSVMV <- svm(class ~ x + y, data = sTrain, kernel = 'linear', type = 'nu-classification') 		# Note: 2 
 sTest$predSVMV <- predict(mSVMV, newdata = sTest, type = 'response') 		# Note: 3 
 
 shading <- expand.grid( 	# Note: 4 

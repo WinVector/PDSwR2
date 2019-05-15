@@ -11,24 +11,24 @@ samples <- sapply(1:ntree,          	# Note: 2
                    { sample(1:ntrain, size = n, replace = TRUE) })
 
 treelist <-lapply(1:ntree,         	# Note: 3  
-                  FUN=function(iter)
-                  { samp <- samples[,iter];
-                   rpart(spamFormula, spamTrain[samp, ], method = "class") })
+                  FUN = function(iter) {
+                    samp <- samples[, iter];
+                    rpart(spamFormula, spamTrain[samp, ], method = "class") })
 
 predict.bag <- function(treelist, newdata) {   	# Note: 4  
   preds <- sapply(1:length(treelist),
-                 FUN=function(iter) {
+                 FUN = function(iter) {
                    predict(treelist[[iter]], newdata = newdata)[, 2] })
   predsums <- rowSums(preds)
-  predsums/length(treelist)
+  predsums / length(treelist)
 }
 
-pred <- predict.bag(treelist, newdata=spamTrain)
+pred <- predict.bag(treelist, newdata = spamTrain)
 trainperf_bag <- accuracyMeasures(pred,     	# Note: 5  
                  spamTrain$spam == "spam",
                  name = "bagging, training")
 
-pred <- predict.bag(treelist, newdata=spamTest)
+pred <- predict.bag(treelist, newdata = spamTest)
 testperf_bag <- accuracyMeasures(pred,
                  spamTest$spam == "spam",
                  name = "bagging, test")

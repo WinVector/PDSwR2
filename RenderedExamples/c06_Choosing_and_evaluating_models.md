@@ -1159,37 +1159,11 @@ list(text = texts[12], label = labels[12])
 # Title: Convert the texts and fit the model 
 
 source("../IMDB/lime_imdb_example.R")
-```
-
-```
-## Error in library(text2vec): there is no package called 'text2vec'
-```
-
-```r
+                                
 vocab <- create_pruned_vocabulary(texts) 	# Note: 1                                
-```
-
-```
-## Error in create_pruned_vocabulary(texts): could not find function "create_pruned_vocabulary"
-```
-
-```r
 dtm_train <- make_matrix(texts, vocab)  	# Note: 2 
-```
-
-```
-## Error in make_matrix(texts, vocab): could not find function "make_matrix"
-```
-
-```r
 model <- fit_imdb_model(dtm_train, labels) 	# Note: 3
-```
 
-```
-## Error in fit_imdb_model(dtm_train, labels): could not find function "fit_imdb_model"
-```
-
-```r
 # Note 1: 
 #   Create the vocabulary from the training data. 
 
@@ -1214,35 +1188,20 @@ model <- fit_imdb_model(dtm_train, labels) 	# Note: 3
 
 c(test_txt, test_labels) %<-%  readRDS("../IMDB/IMDBtest.RDS") 	# Note: 1 
 dtm_test <- make_matrix(test_txt, vocab) 	# Note: 2 
-```
-
-```
-## Error in make_matrix(test_txt, vocab): could not find function "make_matrix"
-```
-
-```r
+                                
 predicted <- predict(model, newdata=dtm_test)  	# Note: 3 
-```
-
-```
-## Error in predict.xgb.Booster(model, newdata = dtm_test): object 'dtm_test' not found
-```
-
-```r
+                                
 teframe <- data.frame(true_label = test_labels, 
                          pred = predicted)                                    	# Note: 4 
-```
-
-```
-## Error in data.frame(true_label = test_labels, pred = predicted): object 'predicted' not found
-```
-
-```r
+                                
 (cmat <- with(teframe, table(truth=true_label, pred=pred > 0.5))) 	# Note: 5 
 ```
 
 ```
-## Error in table(truth = true_label, pred = pred > 0.5): object 'true_label' not found
+##      pred
+## truth FALSE  TRUE
+##     0 10836  1664
+##     1  1485 11015
 ```
 
 ```r
@@ -1255,7 +1214,7 @@ sum(diag(cmat))/sum(cmat) 	# Note: 6
 ```
 
 ```
-## Error in diag(cmat): object 'cmat' not found
+## [1] 0.87404
 ```
 
 ```r
@@ -1266,9 +1225,7 @@ DoubleDensityPlot(teframe, "pred", "true_label",
                   "Distribution of test prediction scores") 	# Note: 7
 ```
 
-```
-## Error in check_frame_args_list(..., frame = frame, name_var_list = list(xvar = xvar, : WVPlots::DoubleDensityPlot: truthVar argument (value: "true_label") must be the name of a column in data.frame frame
-```
+![plot of chunk 00253_example_6.23_of_section_6.3.4.R](figure/00253_example_6.23_of_section_6.3.4.R-1.png)
 
 ```r
 # Note 1: 
@@ -1324,20 +1281,22 @@ explainer <- lime(texts, model = model,
 casename <- "test_19552"; 
 sample_case <- test_txt[casename]
 pred_prob <- predict(model, make_matrix(sample_case, vocab))
-```
-
-```
-## Error in make_matrix(sample_case, vocab): could not find function "make_matrix"
-```
-
-```r
 list(text = sample_case,
      label = test_labels[casename],  
      prediction = round(pred_prob) ) 
 ```
 
 ```
-## Error in eval(expr, envir, enclos): object 'pred_prob' not found
+## $text
+##                                                                                                                                      test_19552 
+## "Great story, great music. A heartwarming love story that's beautiful to watch and delightful to listen to. Too bad there is no soundtrack CD." 
+## 
+## $label
+## test_19552 
+##          1 
+## 
+## $prediction
+## [1] 1
 ```
 
 ```r
@@ -1370,13 +1329,7 @@ explanation <- lime::explain(sample_case,
                        explainer, 
                        n_labels = 1, 
                        n_features = 5)
-```
 
-```
-## Error in make_matrix(x, vocab): could not find function "make_matrix"
-```
-
-```r
 plot_features(explanation)
 ```
 
@@ -1396,9 +1349,7 @@ plot_features(explanation)
 plot_text_explanations(explanation)
 ```
 
-```
-## Error: original_text is not a string (a length one character vector).
-```
+![plot of chunk 00257_informalexample_6.13_of_section_6.3.5.R](figure/00257_informalexample_6.13_of_section_6.3.5.R-1.png)
 
 
 
@@ -1415,20 +1366,24 @@ plot_text_explanations(explanation)
 casenames <-  c("test_12034", "test_10294")
 sample_cases <- test_txt[casenames]
 pred_probs <- predict(model, newdata=make_matrix(sample_cases, vocab))
-```
-
-```
-## Error in make_matrix(sample_cases, vocab): could not find function "make_matrix"
-```
-
-```r
 list(texts = sample_cases,
      labels = test_labels[casenames],  
      predictions = round(pred_probs)) 
 ```
 
 ```
-## Error in eval(expr, envir, enclos): object 'pred_probs' not found
+## $texts
+##                                                                                                                                                                                                         test_12034 
+##                                           "I don't know why I even watched this film. I think it was because I liked the idea of the scenery and was hoping the film would be as good. Very boring and pointless." 
+##                                                                                                                                                                                                         test_10294 
+## "To anyone who likes the TV series: forget the movie. The jokes are bad and some topics are much too sensitive to laugh about it.<br /><br />We have seen much better acting by R. Dueringer in \"Hinterholz 8\"." 
+## 
+## $labels
+## test_12034 test_10294 
+##          0          0 
+## 
+## $predictions
+## [1] 0 1
 ```
 
 ```r
@@ -1453,13 +1408,7 @@ explanation <- lime::explain(sample_cases,
                                     explainer, 
                                     n_labels = 1, 
                                     n_features = 5)
-```
-
-```
-## Error in make_matrix(x, vocab): could not find function "make_matrix"
-```
-
-```r
+                                
 plot_features(explanation)
 ```
 
@@ -1469,9 +1418,7 @@ plot_features(explanation)
 plot_text_explanations(explanation)
 ```
 
-```
-## Error: original_text is not a string (a length one character vector).
-```
+![plot of chunk 00258_example_6.27_of_section_6.3.5.R](figure/00258_example_6.27_of_section_6.3.5.R-2.png)
 
 ```r
 # Note 1: 
@@ -1496,7 +1443,7 @@ predict(model, newdata=make_matrix(sample_cases[2], vocab))
 ```
 
 ```
-## Error in make_matrix(sample_cases[2], vocab): could not find function "make_matrix"
+## [1] 0.6052929
 ```
 
 ```r

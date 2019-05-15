@@ -18,13 +18,13 @@ spamD$isSpam <- spamD$spam == 'spam'
 spamTrain <- subset(spamD, spamD$rgroup >= 10)
 spamTest <- subset(spamD, spamD$rgroup < 10)
 
-spamVars <- setdiff(colnames(spamD),list('rgroup', 'spam', 'isSpam'))
+spamVars <- setdiff(colnames(spamD), list('rgroup', 'spam', 'isSpam'))
 library(wrapr)
 spamFormula <- mk_formula("isSpam", spamVars)  	# Note: 2 
                    
 loglikelihood <- function(y, py) {      	# Note: 3 
-  pysmooth <- ifelse(py==0, 1e-12,
-                  ifelse(py==1, 1-1e-12, py))
+  pysmooth <- ifelse(py == 0, 1e-12,
+                  ifelse(py == 1, 1 - 1e-12, py))
 
   sum(y * log(pysmooth) + (1 - y) * log(1 - pysmooth))
 }
@@ -35,8 +35,8 @@ accuracyMeasures <- function(pred, truth, name = "model") {   	# Note: 4
   ctable <- table(truth = truth,
                  pred = (pred > 0.5))                                       	# Note: 6 
   accuracy <- sum(diag(ctable)) / sum(ctable)
-  precision <- ctable[2,2] /s um(ctable[,2])
-  recall <- ctable[2,2] / sum(ctable[2,])
+  precision <- ctable[2, 2] / sum(ctable[, 2])
+  recall <- ctable[2, 2] / sum(ctable[2, ])
   f1 <- 2 * precision * recall / (precision + recall)
   data.frame(model = name, accuracy = accuracy, f1 = f1, dev.norm)
 }
@@ -47,7 +47,11 @@ treemodel <- rpart(spamFormula, spamTrain, method = "class")
 
 library(rpart.plot)  	# Note: 8 
 rpart.plot(treemodel, type = 5, extra = 6)     
+```
 
+![plot of chunk 00401_example_10.1_of_section_10.1.1.R](figure/00401_example_10.1_of_section_10.1.1.R-1.png)
+
+```r
 predTrain <- predict(treemodel, newdata = spamTrain)[, 2] 	# Note: 9 
 
 trainperf_tree <- accuracyMeasures(predTrain,  		# Note: 10  
@@ -97,14 +101,6 @@ testperf_tree <- accuracyMeasures(predTest,
 # Note 10: 
 #   Evaluate the decision tree model against the  
 #   training and test sets. 
-
-```
-
-```
-## Error: <text>:27:31: unexpected symbol
-## 26:   accuracy <- sum(diag(ctable)) / sum(ctable)
-## 27:   precision <- ctable[2,2] /s um
-##                                   ^
 ```
 
 
@@ -126,18 +122,16 @@ panderOptions("table.style", "simple")
 perf_justify <- "lrrr"
                             
 perftable <- rbind(trainperf_tree, testperf_tree)
-```
-
-```
-## Error in rbind(trainperf_tree, testperf_tree): object 'trainperf_tree' not found
-```
-
-```r
 pandoc.table(perftable, justify = perf_justify)   
 ```
 
 ```
-## Error in pandoc.table.return(...): object 'perftable' not found
+## 
+## 
+## model              accuracy       f1   dev.norm
+## ---------------- ---------- -------- ----------
+## tree, training       0.8996   0.8691     0.6304
+## tree, test           0.8712   0.8280     0.7531
 ```
 
 ```r
@@ -168,101 +162,47 @@ pandoc.table(perftable, justify = perf_justify)
 # Title: Bagging decision trees 
 
 ntrain <- dim(spamTrain)[1]
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'spamTrain' not found
-```
-
-```r
 n <- ntrain                     	# Note: 1  
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'ntrain' not found
-```
-
-```r
 ntree <- 100
 
 samples <- sapply(1:ntree,          	# Note: 2  
                  FUN = function(iter)
                    { sample(1:ntrain, size = n, replace = TRUE) })
-```
 
-```
-## Error in sample(1:ntrain, size = n, replace = TRUE): object 'ntrain' not found
-```
-
-```r
 treelist <-lapply(1:ntree,         	# Note: 3  
-                  FUN=function(iter)
-                  { samp <- samples[,iter];
-                   rpart(spamFormula, spamTrain[samp, ], method = "class") })
-```
+                  FUN = function(iter) {
+                    samp <- samples[, iter];
+                    rpart(spamFormula, spamTrain[samp, ], method = "class") })
 
-```
-## Error in FUN(X[[i]], ...): object 'samples' not found
-```
-
-```r
 predict.bag <- function(treelist, newdata) {   	# Note: 4  
   preds <- sapply(1:length(treelist),
-                 FUN=function(iter) {
+                 FUN = function(iter) {
                    predict(treelist[[iter]], newdata = newdata)[, 2] })
   predsums <- rowSums(preds)
-  predsums/length(treelist)
+  predsums / length(treelist)
 }
 
-pred <- predict.bag(treelist, newdata=spamTrain)
-```
-
-```
-## Error in lapply(X = X, FUN = FUN, ...): object 'treelist' not found
-```
-
-```r
+pred <- predict.bag(treelist, newdata = spamTrain)
 trainperf_bag <- accuracyMeasures(pred,     	# Note: 5  
                  spamTrain$spam == "spam",
                  name = "bagging, training")
-```
 
-```
-## Error in accuracyMeasures(pred, spamTrain$spam == "spam", name = "bagging, training"): could not find function "accuracyMeasures"
-```
-
-```r
-pred <- predict.bag(treelist, newdata=spamTest)
-```
-
-```
-## Error in lapply(X = X, FUN = FUN, ...): object 'treelist' not found
-```
-
-```r
+pred <- predict.bag(treelist, newdata = spamTest)
 testperf_bag <- accuracyMeasures(pred,
                  spamTest$spam == "spam",
                  name = "bagging, test")
-```
 
-```
-## Error in accuracyMeasures(pred, spamTest$spam == "spam", name = "bagging, test"): could not find function "accuracyMeasures"
-```
-
-```r
 perftable <- rbind(trainperf_bag, testperf_bag)
-```
-
-```
-## Error in rbind(trainperf_bag, testperf_bag): object 'trainperf_bag' not found
-```
-
-```r
 pandoc.table(perftable, justify = perf_justify)
 ```
 
 ```
-## Error in pandoc.table.return(...): object 'perftable' not found
+## 
+## 
+## model                 accuracy       f1   dev.norm
+## ------------------- ---------- -------- ----------
+## bagging, training       0.9165   0.8909     0.5098
+## bagging, test           0.9148   0.8850     0.5805
 ```
 
 ```r
@@ -320,61 +260,35 @@ library(randomForest)           	# Note: 1
 
 ```r
 set.seed(5123512) 	# Note: 2 
-fmodel <- randomForest(x = spamTrain[,spamVars], 	# Note: 3 
+fmodel <- randomForest(x = spamTrain[, spamVars], 	# Note: 3 
         y = spamTrain$spam,
         ntree = 100, 	# Note: 4 
         nodesize = 7, 	# Note: 5 
         importance = TRUE) 	# Note: 6 
-```
-
-```
-## Error in randomForest(x = spamTrain[, spamVars], y = spamTrain$spam, ntree = 100, : object 'spamTrain' not found
-```
-
-```r
+                    
 pred <- predict(fmodel, 
                 spamTrain[, spamVars], 
-                type='prob')[, 'spam']
-```
-
-```
-## Error in predict(fmodel, spamTrain[, spamVars], type = "prob"): object 'fmodel' not found
-```
-
-```r
+                type = 'prob')[, 'spam']
+                
 trainperf_rf <-  accuracyMeasures(predict(fmodel, 	# Note: 7 
-   newdata=spamTrain[, spamVars], type = 'prob')[, 'spam'],
+   newdata = spamTrain[, spamVars], type = 'prob')[, 'spam'],
    spamTrain$spam == "spam", name = "random forest, train")
-```
 
-```
-## Error in accuracyMeasures(predict(fmodel, newdata = spamTrain[, spamVars], : could not find function "accuracyMeasures"
-```
-
-```r
 testperf_rf <-  accuracyMeasures(predict(fmodel,
-   newdata=spamTest[, spamVars], type = 'prob')[, 'spam'],
+   newdata = spamTest[, spamVars], type = 'prob')[, 'spam'],
    spamTest$spam == "spam", name = "random forest, test")
-```
-
-```
-## Error in accuracyMeasures(predict(fmodel, newdata = spamTest[, spamVars], : could not find function "accuracyMeasures"
-```
-
-```r
+   
 perftable <- rbind(trainperf_rf, testperf_rf)
-```
-
-```
-## Error in rbind(trainperf_rf, testperf_rf): object 'trainperf_rf' not found
-```
-
-```r
 pandoc.table(perftable, justify = perf_justify)
 ```
 
 ```
-## Error in pandoc.table.return(...): object 'perftable' not found
+## 
+## 
+## model                    accuracy       f1   dev.norm
+## ---------------------- ---------- -------- ----------
+## random forest, train       0.9884   0.9852     0.1440
+## random forest, test        0.9498   0.9341     0.3011
 ```
 
 ```r
@@ -426,18 +340,17 @@ pandoc.table(perftable, justify = perf_justify)
 # (informalexample 10.2 of section 10.1.3)  : Exploring advanced methods : Tree-based Methods : Using random forests to further improve prediction 
 
 trainf <- rbind(trainperf_tree, trainperf_bag, trainperf_rf)
+pandoc.table(trainf, justify = perf_justify)                    
 ```
 
 ```
-## Error in rbind(trainperf_tree, trainperf_bag, trainperf_rf): object 'trainperf_tree' not found
-```
-
-```r
-pandoc.table(trainf, justify=perf_justify)                    
-```
-
-```
-## Error in pandoc.table.return(...): object 'trainf' not found
+## 
+## 
+## model                    accuracy       f1   dev.norm
+## ---------------------- ---------- -------- ----------
+## tree, training             0.8996   0.8691     0.6304
+## bagging, training          0.9165   0.8909     0.5098
+## random forest, train       0.9884   0.9852     0.1440
 ```
 
 ```r
@@ -462,18 +375,17 @@ pandoc.table(trainf, justify=perf_justify)
 # (informalexample 10.3 of section 10.1.3)  : Exploring advanced methods : Tree-based Methods : Using random forests to further improve prediction 
 
 testf <- rbind(testperf_tree, testperf_bag, testperf_rf)
+pandoc.table(testf, justify = perf_justify)
 ```
 
 ```
-## Error in rbind(testperf_tree, testperf_bag, testperf_rf): object 'testperf_tree' not found
-```
-
-```r
-pandoc.table(testf, justify=perf_justify)
-```
-
-```
-## Error in pandoc.table.return(...): object 'testf' not found
+## 
+## 
+## model                   accuracy       f1   dev.norm
+## --------------------- ---------- -------- ----------
+## tree, test                0.8712   0.8280     0.7531
+## bagging, test             0.9148   0.8850     0.5805
+## random forest, test       0.9498   0.9341     0.3011
 ```
 
 ```r
@@ -501,18 +413,18 @@ difff <- data.frame(model = c("tree", "bagging", "random forest"),
                   accuracy = trainf$accuracy - testf$accuracy,
                   f1 = trainf$f1 - testf$f1,
                   dev.norm = trainf$dev.norm - testf$dev.norm)
-```
 
-```
-## Error in data.frame(model = c("tree", "bagging", "random forest"), accuracy = trainf$accuracy - : object 'trainf' not found
-```
-
-```r
 pandoc.table(difff, justify=perf_justify)
 ```
 
 ```
-## Error in pandoc.table.return(...): object 'difff' not found
+## 
+## 
+## model             accuracy         f1   dev.norm
+## --------------- ---------- ---------- ----------
+## tree              0.028411   0.041112   -0.12275
+## bagging           0.001638   0.005965   -0.07068
+## random forest     0.038633   0.051097   -0.15711
 ```
 
 ```r
@@ -538,18 +450,33 @@ pandoc.table(difff, justify=perf_justify)
 # Title: randomForest variable importances 
 
 varImp <- importance(fmodel)              	# Note: 1 
-```
 
-```
-## Error in importance(fmodel): object 'fmodel' not found
-```
-
-```r
 varImp[1:10, ]                           	# Note: 2 
 ```
 
 ```
-## Error in eval(expr, envir, enclos): object 'varImp' not found
+##                     non-spam      spam MeanDecreaseAccuracy
+## word.freq.make      1.656795  3.432962             3.067899
+## word.freq.address   2.631231  3.800668             3.632077
+## word.freq.all       3.279517  6.235651             6.137927
+## word.freq.3d        3.900232  1.286917             3.753238
+## word.freq.our       9.966034 10.160010            12.039651
+## word.freq.over      4.657285  4.183888             4.894526
+## word.freq.remove   19.172764 14.020182            20.229958
+## word.freq.internet  7.595305  5.246213             8.036892
+## word.freq.order     3.167008  2.505777             3.065529
+## word.freq.mail      3.820764  2.786041             4.869502
+##                    MeanDecreaseGini
+## word.freq.make             8.131240
+## word.freq.address          9.971055
+## word.freq.all             27.744061
+## word.freq.3d               1.453879
+## word.freq.our             59.215337
+## word.freq.over            13.362416
+## word.freq.remove         158.008043
+## word.freq.internet        22.025964
+## word.freq.order            8.062485
+## word.freq.mail            11.605088
 ```
 
 ```r
@@ -565,12 +492,10 @@ varImp[1:10, ]                           	# Note: 2
 ## word.freq.order     3.167008  2.505777             3.065529
 ## word.freq.mail      3.820764  2.786041             4.869502
 
-varImpPlot(fmodel, type=1)                       	# Note: 3
+varImpPlot(fmodel, type = 1)                       	# Note: 3
 ```
 
-```
-## Error in varImpPlot(fmodel, type = 1): object 'fmodel' not found
-```
+![plot of chunk 00408_example_10.4_of_section_10.1.3.R](figure/00408_example_10.4_of_section_10.1.3.R-1.png)
 
 ```r
 # Note 1: 
@@ -600,66 +525,33 @@ varImpPlot(fmodel, type=1)                       	# Note: 3
 
 sorted <- sort(varImp[, "MeanDecreaseAccuracy"],    	# Note: 1 
                decreasing = TRUE)
-```
 
-```
-## Error in sort(varImp[, "MeanDecreaseAccuracy"], decreasing = TRUE): object 'varImp' not found
-```
-
-```r
 selVars <- names(sorted)[1:30]
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'sorted' not found
-```
-
-```r
 fsel <- randomForest(x = spamTrain[, selVars],    	# Note: 2 
                         y = spamTrain$spam, 
                         ntree = 100,
                         nodesize = 7,
                         importance = TRUE)
-```
-
-```
-## Error in randomForest(x = spamTrain[, selVars], y = spamTrain$spam, ntree = 100, : object 'spamTrain' not found
-```
-
-```r
+                           
 trainperf_rf2 <- accuracyMeasures(predict(fsel,
    newdata = spamTrain[, selVars], type = 'prob')[, 'spam'],
    spamTrain$spam == "spam", name = "RF small, train")
-```
 
-```
-## Error in accuracyMeasures(predict(fsel, newdata = spamTrain[, selVars], : could not find function "accuracyMeasures"
-```
-
-```r
 testperf_rf2 <- accuracyMeasures(predict(fsel,
    newdata=spamTest[, selVars], type = 'prob')[, 'spam'],
    spamTest$spam == "spam", name = "RF small, test")
-```
 
-```
-## Error in accuracyMeasures(predict(fsel, newdata = spamTest[, selVars], : could not find function "accuracyMeasures"
-```
-
-```r
 perftable <- rbind(testperf_rf, testperf_rf2)  	# Note: 3 
-```
-
-```
-## Error in rbind(testperf_rf, testperf_rf2): object 'testperf_rf' not found
-```
-
-```r
 pandoc.table(perftable, justify = perf_justify)
 ```
 
 ```
-## Error in pandoc.table.return(...): object 'perftable' not found
+## 
+## 
+## model                   accuracy       f1   dev.norm
+## --------------------- ---------- -------- ----------
+## random forest, test       0.9498   0.9341     0.3011
+## RF small, test            0.9520   0.9368     0.4000
 ```
 
 ```r
@@ -691,7 +583,7 @@ pandoc.table(perftable, justify = perf_justify)
 
 ```r
 # example 10.6 of section 10.1.4 
-# (example 10.6 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient boosted trees 
+# (example 10.6 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient-boosted trees 
 # Title: Load the iris data 
 
 iris <- iris
@@ -725,7 +617,7 @@ head(train)
 input <- as.matrix(train[, 1:4]) 	# Note: 3
 
 # Note 1: 
-#   Setosa is the positive class. 
+#   setosa is the positive class. 
 
 # Note 2: 
 #   Split the data into training and test (75%/25%). 
@@ -743,14 +635,14 @@ input <- as.matrix(train[, 1:4]) 	# Note: 3
 
 ```r
 # example 10.7 of section 10.1.4 
-# (example 10.7 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient boosted trees 
+# (example 10.7 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient-boosted trees 
 # Title: Cross-validate to determine model size 
 
 library(xgboost)
 
 cv <- xgb.cv(input,  	# Note: 1  
             label = train$class, 	# Note: 2  
-              params=list(
+              params = list(
                 objective = "binary:logistic"    	# Note: 3 
               ),
               nfold = 5,  	# Note: 4 
@@ -865,19 +757,19 @@ ggplot(evalframe, aes(x = iter, y = test_logloss_mean)) +
 #   classification, "reg:linear" for regression. 
 
 # Note 4: 
-#   Use 5-fold cross validation. 
+#   Use 5-fold cross-validation. 
 
 # Note 5: 
 #   Build an ensemble of 100 trees. 
 
 # Note 6: 
 #   Print a message every 10th iteration  
-#   (use verbose=FALSE for no messages). 
+#   (use verbose = FALSE for no messages). 
 
 # Note 7: 
 #   Use minimum cross-validated logloss (related to deviance)  
 #   to pick the optimum number of trees. for regression,  
-#   use metrics="rmse" 
+#   use metrics = "rmse" 
 
 # Note 8: 
 #   Get the performance log. 
@@ -900,7 +792,7 @@ ggplot(evalframe, aes(x = iter, y = test_logloss_mean)) +
 
 ```r
 # example 10.8 of section 10.1.4 
-# (example 10.8 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient boosted trees 
+# (example 10.8 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient-boosted trees 
 # Title: Fit an xgboost model 
 
 model <- xgboost(data = input, 
@@ -918,7 +810,8 @@ accuracyMeasures(pred, test$class)
 ```
 
 ```
-## Error in accuracyMeasures(pred, test$class): could not find function "accuracyMeasures"
+##   model accuracy f1   dev.norm
+## 1 model        1  1 0.03439622
 ```
 
 ```r
@@ -941,7 +834,7 @@ accuracyMeasures(pred, test$class)
 
 ```r
 # informalexample 10.5 of section 10.1.4 
-# (informalexample 10.5 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient boosted trees 
+# (informalexample 10.5 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient-boosted trees 
 
 library(zeallot)
 c(texts, labels) %<-% readRDS("../IMDB/IMDBtrain.RDS")
@@ -956,29 +849,11 @@ c(texts, labels) %<-% readRDS("../IMDB/IMDBtrain.RDS")
 
 ```r
 # informalexample 10.6 of section 10.1.4 
-# (informalexample 10.6 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient boosted trees 
+# (informalexample 10.6 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient-boosted trees 
 
 source("../IMDB/lime_imdb_example.R")
-```
-
-```
-## Error in library(text2vec): there is no package called 'text2vec'
-```
-
-```r
 vocab <- create_pruned_vocabulary(texts)  
-```
-
-```
-## Error in create_pruned_vocabulary(texts): could not find function "create_pruned_vocabulary"
-```
-
-```r
 dtm_train <- make_matrix(texts, vocab)
-```
-
-```
-## Error in make_matrix(texts, vocab): could not find function "make_matrix"
 ```
 
 
@@ -990,7 +865,7 @@ dtm_train <- make_matrix(texts, vocab)
 
 ```r
 # informalexample 10.7 of section 10.1.4 
-# (informalexample 10.7 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient boosted trees 
+# (informalexample 10.7 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient-boosted trees 
 
 cv <- xgb.cv(dtm_train, 
              label = labels,
@@ -1005,7 +880,46 @@ cv <- xgb.cv(dtm_train,
 ```
 
 ```
-## Error in xgb.cv(dtm_train, label = labels, params = list(objective = "binary:logistic"), : object 'dtm_train' not found
+## [1]	train-logloss:0.631484+0.000294	test-logloss:0.635752+0.000776 
+## Multiple eval metrics are present. Will use test_logloss for early stopping.
+## Will train until test_logloss hasn't improved in 20 rounds.
+## 
+## [11]	train-logloss:0.449693+0.000868	test-logloss:0.484899+0.001512 
+## [21]	train-logloss:0.378245+0.001236	test-logloss:0.432993+0.003253 
+## [31]	train-logloss:0.330611+0.001087	test-logloss:0.403635+0.003665 
+## [41]	train-logloss:0.295581+0.002045	test-logloss:0.383396+0.003491 
+## [51]	train-logloss:0.269655+0.001062	test-logloss:0.369304+0.003669 
+## [61]	train-logloss:0.247676+0.001190	test-logloss:0.358703+0.004128 
+## [71]	train-logloss:0.229750+0.001362	test-logloss:0.350573+0.004364 
+## [81]	train-logloss:0.213305+0.001385	test-logloss:0.342877+0.004357 
+## [91]	train-logloss:0.200554+0.001893	test-logloss:0.337223+0.003626 
+## [101]	train-logloss:0.188024+0.001594	test-logloss:0.332674+0.004260 
+## [111]	train-logloss:0.177439+0.001107	test-logloss:0.329223+0.005175 
+## [121]	train-logloss:0.167949+0.000729	test-logloss:0.325840+0.005363 
+## [131]	train-logloss:0.160097+0.000613	test-logloss:0.322385+0.005363 
+## [141]	train-logloss:0.152575+0.000682	test-logloss:0.319382+0.004884 
+## [151]	train-logloss:0.144893+0.000471	test-logloss:0.317027+0.005172 
+## [161]	train-logloss:0.138151+0.000801	test-logloss:0.314901+0.005476 
+## [171]	train-logloss:0.131879+0.000807	test-logloss:0.313414+0.005700 
+## [181]	train-logloss:0.125111+0.000661	test-logloss:0.312003+0.005663 
+## [191]	train-logloss:0.119561+0.000388	test-logloss:0.310940+0.006121 
+## [201]	train-logloss:0.114350+0.001086	test-logloss:0.310027+0.006415 
+## [211]	train-logloss:0.109838+0.001480	test-logloss:0.308769+0.006758 
+## [221]	train-logloss:0.106098+0.001408	test-logloss:0.307781+0.006844 
+## [231]	train-logloss:0.101596+0.001014	test-logloss:0.307010+0.006740 
+## [241]	train-logloss:0.097954+0.001067	test-logloss:0.306343+0.007058 
+## [251]	train-logloss:0.094239+0.001193	test-logloss:0.305634+0.006707 
+## [261]	train-logloss:0.090725+0.001663	test-logloss:0.305335+0.006418 
+## [271]	train-logloss:0.087282+0.001566	test-logloss:0.304687+0.006289 
+## [281]	train-logloss:0.083918+0.001685	test-logloss:0.304315+0.006764 
+## [291]	train-logloss:0.080872+0.001765	test-logloss:0.304005+0.006394 
+## [301]	train-logloss:0.078182+0.001755	test-logloss:0.303311+0.006438 
+## [311]	train-logloss:0.075248+0.001549	test-logloss:0.303162+0.006822 
+## [321]	train-logloss:0.072722+0.001827	test-logloss:0.303009+0.006899 
+## [331]	train-logloss:0.070541+0.001707	test-logloss:0.302683+0.007221 
+## [341]	train-logloss:0.068438+0.001617	test-logloss:0.302694+0.007125 
+## Stopping. Best iteration:
+## [328]	train-logloss:0.071178+0.001755	test-logloss:0.302495+0.007249
 ```
 
 ```r
@@ -1014,7 +928,7 @@ evalframe <- as.data.frame(cv$evaluation_log)
 ```
 
 ```
-## [1] 22
+## [1] 328
 ```
 
 ```r
@@ -1033,7 +947,7 @@ evalframe <- as.data.frame(cv$evaluation_log)
 
 ```r
 # informalexample 10.8 of section 10.1.4 
-# (informalexample 10.8 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient boosted trees 
+# (informalexample 10.8 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient-boosted trees 
 
 model <- xgboost(data = dtm_train, label = labels,
                   params = list(
@@ -1041,67 +955,27 @@ model <- xgboost(data = dtm_train, label = labels,
                   ),
                   nrounds = NROUNDS,
                   verbose = FALSE)
-```
 
-```
-## Error in xgb.get.DMatrix(data, label, missing, weight): object 'dtm_train' not found
-```
-
-```r
 pred = predict(model, dtm_train)  
-```
-
-```
-## Error in predict.xgb.Booster(model, dtm_train): object 'dtm_train' not found
-```
-
-```r
 trainperf_xgb =  accuracyMeasures(pred, labels, "training")  
-```
 
-```
-## Error in accuracyMeasures(pred, labels, "training"): could not find function "accuracyMeasures"
-```
-
-```r
 c(test_texts, test_labels) %<-% readRDS("../IMDB/IMDBtest.RDS") 	# Note: 1 
 dtm_test = make_matrix(test_texts, vocab) 
-```
 
-```
-## Error in make_matrix(test_texts, vocab): could not find function "make_matrix"
-```
-
-```r
 pred = predict(model, dtm_test)
-```
-
-```
-## Error in predict.xgb.Booster(model, dtm_test): object 'dtm_test' not found
-```
-
-```r
 testperf_xgb = accuracyMeasures(pred, test_labels, "test")
-```
 
-```
-## Error in accuracyMeasures(pred, test_labels, "test"): could not find function "accuracyMeasures"
-```
-
-```r
 perftable <- rbind(trainperf_xgb, testperf_xgb)
-```
-
-```
-## Error in rbind(trainperf_xgb, testperf_xgb): object 'trainperf_xgb' not found
-```
-
-```r
 pandoc.table(perftable, justify = perf_justify)   
 ```
 
 ```
-## Error in pandoc.table.return(...): object 'perftable' not found
+## 
+## 
+## model        accuracy       f1   dev.norm
+## ---------- ---------- -------- ----------
+## training       0.9895   0.9895     0.1680
+## test           0.8724   0.8733     0.5949
 ```
 
 ```r
@@ -1125,7 +999,7 @@ pandoc.table(perftable, justify = perf_justify)
 
 ```r
 # example 10.9 of section 10.1.4 
-# (example 10.9 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient boosted trees 
+# (example 10.9 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient-boosted trees 
 # Title: Load the natality data 
 
 load("../CDC/NatalBirthData.rData")
@@ -1184,14 +1058,14 @@ str(train[, input_vars])
 
 ```r
 # example 10.10 of section 10.1.4 
-# (example 10.10 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient boosted trees 
+# (example 10.10 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient-boosted trees 
 # Title: Use vtreat to prepare data for xgboost 
 
 library(vtreat)
 
 treatplan <- designTreatmentsZ(train,  	# Note: 1 
                                input_vars,
-                               codeRestriction = c("clean", "isBAD","lev" ), 	# Note: 2                               
+                               codeRestriction = c("clean", "isBAD", "lev" ), 	# Note: 2                               
                                verbose = FALSE)
 
 train_treated <- prepare(treatplan, train) 	# Note: 3 
@@ -1255,7 +1129,7 @@ str(train_treated)
 
 ```r
 # example 10.11 of section 10.1.4 
-# (example 10.11 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient boosted trees 
+# (example 10.11 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient-boosted trees 
 # Title: Fit and apply an xgboost model for birth weight 
 
 birthwt_model <- xgboost(as.matrix(train_treated), 
@@ -1287,7 +1161,7 @@ set.seed(602957)
 x <- rnorm(1000)
 noise <- rnorm(1000, sd = 1.5)
 
-y <- 3*sin(2 * x) + cos(0.75 * x) - 1.5 * (x^2) + noise
+y <- 3 * sin(2 * x) + cos(0.75 * x) - 1.5 * (x^2) + noise
 
 select <- runif(1000)
 frame <- data.frame(y = y, x = x)
@@ -1499,14 +1373,14 @@ ggplot(train, aes(x = pred, y = y)) +   	# Note: 9
 
 # Note 2: 
 #   Build the model, specifying that x should be 
-#   treated as a nonlinear variable. 
+#   treated as a non-linear variable. 
 
 # Note 3: 
 #   The converged parameter tells you if the algorithm 
 #   converged. You should only trust the output if this is TRUE. 
 
 # Note 4: 
-#   Setting family=gaussian and link=identity tells you that  
+#   Setting family = gaussian and link = identity tells you that  
 #   the model was treated with the same 
 #   distributions assumptions as a standard linear regression. 
 
@@ -1517,9 +1391,9 @@ ggplot(train, aes(x = pred, y = y)) +   	# Note: 9
 #   significantly different from 0. 
 
 # Note 6: 
-#   The smooth terms are the nonlinear terms.  
+#   The smooth terms are the non-linear terms.  
 #   This section of the summary tells you which 
-#   nonlinear terms were significantly different from 0. It also tells you 
+#   non-linear terms were significantly different from 0. It also tells you 
 #   the effective degrees of freedom (edf) used up to build each smooth 
 #   term. An edf near 1 indicates that the variable has an approximately 
 #   linear relationship to the output. 
@@ -1623,7 +1497,7 @@ wrapFTest(test, "pred_gam", "y")$R2
 
 ```r
 # example 10.16 of section 10.2.3 
-# (example 10.16 of section 10.2.3)  : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : Extracting the nonlinear relationships 
+# (example 10.16 of section 10.2.3)  : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : Extracting the non-linear relationships 
 # Title: Extracting a learned spline from a GAM 
 
 sx <- predict(gam_model, type = "terms")
@@ -1677,7 +1551,7 @@ train <- sdata[sdata$ORIGRANDGROUP <= 5, ]
 test <- sdata[sdata$ORIGRANDGROUP > 5, ]
 
 form_lin <- as.formula("DBWT ~ PWGT + WTGAIN + MAGER + UPREVIS")
-linmodel <- lm(form_lin, data=train)    	# Note: 1  
+linmodel <- lm(form_lin, data = train)    	# Note: 1  
 summary(linmodel)
 ```
 
@@ -1814,7 +1688,7 @@ summary(gammodel)
 
 # Note 5: 
 #   The model explains a little over 9% of the variance; 
-#   all variables have a nonlinear effect significantly different from 
+#   all variables have a non-linear effect significantly different from 
 #   0. 
 ```
 
@@ -1984,7 +1858,7 @@ logmod <- glm(form, data = train, family = binomial(link = "logit"))
 # (example 10.21 of section 10.2.5)  : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : Using GAM for logistic regression 
 # Title: GAM logistic regression 
 
-form2 <- as.formula("DBWT<2000 ~ s(PWGT) + s(WTGAIN) +
+form2 <- as.formula("DBWT < 2000 ~ s(PWGT) + s(WTGAIN) +
                                               s(MAGER) + s(UPREVIS)")
 glogmod <- gam(form2, data = train, family = binomial(link = "logit"))
 
@@ -2090,7 +1964,7 @@ library('kernlab')
 ```
 
 ```r
-data('spirals')  		# Note: 1 
+data(spirals)  		# Note: 1 
 sc <- specc(spirals, centers = 2) 		# Note: 2 
 s <- data.frame(x = spirals[, 1], y = spirals[, 2],  	# Note: 3 
    class = as.factor(sc)) 	
@@ -2142,10 +2016,9 @@ set.seed(2335246L)
 s$group <- sample.int(100, size = dim(s)[[1]], replace = TRUE)
 sTrain <- subset(s, group > 10)
 sTest <- subset(s,group <= 10) 		# Note: 1  
-# mSVMV <- ksvm(class ~ x + y, data = sTrain, kernel = 'vanilladot') 
-# had been using ksvm, but it seems to keep bad state in some cases
+
 library('e1071')
-mSVMV <- svm(class ~ x + y, data = sTrain, kernel='linear', type = 'nu-classification') 		# Note: 2 
+mSVMV <- svm(class ~ x + y, data = sTrain, kernel = 'linear', type = 'nu-classification') 		# Note: 2 
 sTest$predSVMV <- predict(mSVMV, newdata = sTest, type = 'response') 		# Note: 3 
 
 shading <- expand.grid( 	# Note: 4 
@@ -2247,7 +2120,7 @@ ggplot(mapping = aes(x = x, y = y)) +
 # (example 10.25 of section 10.3.3)  : Exploring advanced methods : Solving "Inseparable" Problems Using Support Vector Machines : Understanding kernel functions 
 # Title: An artificial kernel example 
 
-u <- c(1,2)
+u <- c(1, 2)
 v <- c(3, 4)
 k <- function(u, v) { 	# Note: 1 
      u[1] * v[1] + 
@@ -2258,7 +2131,7 @@ k <- function(u, v) { 	# Note: 1
   }
 phi <- function(x) { 	# Note: 2 
      x <- as.numeric(x)
-     c(x,x*x,combn(x, 2, FUN=prod))
+     c(x, x*x, combn(x, 2, FUN = prod))
   }
 print(k(u, v)) 	# Note: 3 
 ```

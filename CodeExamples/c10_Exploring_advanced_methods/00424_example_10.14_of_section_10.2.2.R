@@ -45,14 +45,14 @@ ggplot(train, aes(x = pred, y = y)) +   	# Note: 9
 
 # Note 2: 
 #   Build the model, specifying that x should be 
-#   treated as a nonlinear variable. 
+#   treated as a non-linear variable. 
 
 # Note 3: 
 #   The converged parameter tells you if the algorithm 
 #   converged. You should only trust the output if this is TRUE. 
 
 # Note 4: 
-#   Setting family=gaussian and link=identity tells you that  
+#   Setting family = gaussian and link = identity tells you that  
 #   the model was treated with the same 
 #   distributions assumptions as a standard linear regression. 
 
@@ -63,9 +63,9 @@ ggplot(train, aes(x = pred, y = y)) +   	# Note: 9
 #   significantly different from 0. 
 
 # Note 6: 
-#   The smooth terms are the nonlinear terms.  
+#   The smooth terms are the non-linear terms.  
 #   This section of the summary tells you which 
-#   nonlinear terms were significantly different from 0. It also tells you 
+#   non-linear terms were significantly different from 0. It also tells you 
 #   the effective degrees of freedom (edf) used up to build each smooth 
 #   term. An edf near 1 indicates that the variable has an approximately 
 #   linear relationship to the output. 
