@@ -74,6 +74,7 @@ For more about the book please check out:
 
 ## Additional materials
 
+ * A excerpt showing how to install the required software and packages: [Starting_with_R_and_Other_Tools.pdf](Starting_with_R_and_Other_Tools.pdf).
  * The support site (code and data): [GitHub WinVector/PDSwR2](https://github.com/WinVector/PDSwR2).
  * Manning's [book page](https://www.manning.com/books/practical-data-science-with-r-second-edition).
  * [A discount code!](https://freecontent.manning.com/slideshare-a-practice-oriented-approach-to-data-science/).
