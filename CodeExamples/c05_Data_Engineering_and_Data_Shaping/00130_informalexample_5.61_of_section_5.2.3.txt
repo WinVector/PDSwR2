@@ -1,7 +1,0 @@
-# informalexample 5.61 of section 5.2.3 
-# (informalexample 5.61 of section 5.2.3)  : Data Engineering and Data Shaping : Basic Data Transforms : Parametric programming 
-
-##   x
-## 1 1
-## 2 2
-

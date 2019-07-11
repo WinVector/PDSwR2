@@ -1,0 +1,9 @@
+# informalexample 5.91 of section 5.4.2 
+# (informalexample 5.91 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+
+##   productID price unitsSold
+## 1        p1  9.99        10
+## 2        p3 19.99        55
+## 3        p4  5.49         8
+## 4        p5 24.49        NA
+

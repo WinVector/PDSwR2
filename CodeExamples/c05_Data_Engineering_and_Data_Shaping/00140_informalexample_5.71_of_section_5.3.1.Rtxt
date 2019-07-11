@@ -1,9 +1,0 @@
-# informalexample 5.71 of section 5.3.1 
-# (informalexample 5.71 of section 5.3.1)  : Data Engineering and Data Shaping : Aggregating Transforms : Scenario 
-
-packageVersion("dplyr")
-## [1] ‘0.8.0.1’
-dplyr::coalesce(data$sensor1, data$sensor2)
-
-## Error: Argument 2 must be type logical, not double
-

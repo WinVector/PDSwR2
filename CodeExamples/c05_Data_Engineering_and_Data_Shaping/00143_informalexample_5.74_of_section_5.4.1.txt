@@ -1,0 +1,15 @@
+# informalexample 5.74 of section 5.4.1 
+# (informalexample 5.74 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
+
+## # A tibble: 8 x 4
+##   productID price table         max_price
+##   <fct>     <dbl> <chr>             <dbl>
+## 1 p1         9.99 productTable       24.5
+## 2 p2        16.3  productTable       24.5
+## 3 p3        20.0  productTable       24.5
+## 4 p4         5.49 productTable       24.5
+## 5 p5        24.5  productTable       24.5
+## 6 n1        25.5  productTable2      34.0
+## 7 n2        34.0  productTable2      34.0
+## 8 n3        18.0  productTable2      34.0
+
