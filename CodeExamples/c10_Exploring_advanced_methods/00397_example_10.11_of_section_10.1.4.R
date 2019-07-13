@@ -5,7 +5,8 @@
 birthwt_model <- xgboost(as.matrix(train_treated), 
                          train$DBWT,
                          params = list(
-                           objective = "reg:linear"
+                           objective = "reg:linear",
+                           base_score = mean(train$DBWT)
                          ),
                          nrounds = 50,
                          verbose = FALSE)
