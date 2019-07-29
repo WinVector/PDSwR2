@@ -18,9 +18,8 @@ summary(customer_data$age)
 #   convert negative values to zero? 
 
 # Note 2: 
-#   Customers of age zero, or customers of an 
-#   age greater than about 110 are outliers. They fall out of the range of 
-#   expected customer values. Outliers could be data input errors. 
+#   Customers of age zero, or customers of an age greater than about 110, are outliers. They fall 
+#   out of the range of expected customer values. Outliers could be data input errors. 
 #   They could be special sentinel values: zero might mean “age unknown” or 
 #   “refuse to state.” And some of your customers might be especially 
 #   long-lived. 

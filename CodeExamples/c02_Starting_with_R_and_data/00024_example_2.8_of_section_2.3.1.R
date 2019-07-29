@@ -23,20 +23,25 @@ glimpse(dpus)
 View(rsummary(db, "dpus")) 	# Note: 9
 
 # Note 1: 
-#   Attach some packages we wish to use commands and functions from. 
+#   Attach some packages we wish to use commands 
+#   and functions from. 
 
 # Note 2: 
-#   Load the data from the compressed RDS disk format into R memory. 
-#   Note: you will need to change the path PUMSsample to where you have 
-#   saved the contents of PDSwR2/PUMS. 
+#   Load the data from the compressed RDS disk 
+#   format into R memory. Note: you will need to 
+#   change the path PUMSsample to where you have saved 
+#   the contents of PDSwR2/PUMS. 
 
 # Note 3: 
 #   Connect to a new RSQLite in-memory database. 
-#   We are going to use RSQLite for our examples, in practice you 
-#   would connect to a pre-existing database such as PostgreSQL or Spark with pre-existing tables. 
+#   We are going to use RSQLite for our examples. In 
+#   practice you would connect to a pre-existing 
+#   database such as PostgreSQL or Spark with 
+#   pre-existing tables. 
 
 # Note 4: 
-#   Copy the data from the in-memory structure dlist into the database. 
+#   Copy the data from the in-memory structure 
+#   dlist into the database. 
 
 # Note 5: 
 #   Remove our local copy of the data, as we are simulating having found the data in the database. 

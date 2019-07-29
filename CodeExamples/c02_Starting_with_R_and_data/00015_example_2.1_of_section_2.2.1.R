@@ -31,5 +31,6 @@ View(uciCar)	# Note: 6
 #   Tell R to convert string values to factors. This is the default behavior, so we are just using this argument to document intent. 
 
 # Note 6: 
-#   Examine the data with R's built-in table viewer. 
+#   Examine the data with R’s built-in 
+#   table viewer. 
 

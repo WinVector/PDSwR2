@@ -7,5 +7,5 @@ d <- read.table('german.data', sep=' ',
    stringsAsFactors = FALSE, header = FALSE)
 
 # Note 1: 
-#   Replace this path to include the actual path where you have saved PDSwR2. 
+#   Replace this path with the actual path where you have saved PDSwR2. 
 

@@ -16,12 +16,14 @@ dpus$COW <- strtrim(dpus$COW, 50) 	# Note: 4
 str(dpus) 	# Note: 5
 
 # Note 1: 
-#   Copy data from the database into R memory. This assumes will are continuing from the previous example, so  
-#   the packages we have attached are still available and the database handle db is still valid. 
+#   Copy data from the database into R memory. This assumes we are continuing from the previous 
+#   example, so the packages we have attached are 
+#   still available and the database handle 
+#   db is still valid. 
 
 # Note 2: 
 #   Select a subset of columns we want to work with. Restricting columns is not required, but 
-#   improve legibility of later printing. 
+#   improves legibility of later printing. 
 
 # Note 3: 
 #   All of the columns in this copy of PUMS data are stored as character type to preserve features such as leading zeros 
@@ -29,8 +31,11 @@ str(dpus) 	# Note: 5
 #   get coded with the symbol NA which stands for not available. 
 
 # Note 4: 
-#   The PUMS level names are very long (which is one of the reasons these columns are distributed as integers), so  
-#   for this data set that has level names instead of level codes we are shortening the employment codes to no more than 50 characters. 
+#   The PUMS level names are very long (which is one of the reasons these columns are distributed 
+#   as integers), so for this dataset that has level 
+#   names instead of level codes we are shortening the 
+#   employment codes to no more than 50 
+#   characters. 
 
 # Note 5: 
 #   Look at the first few rows of data in a column orientation. 

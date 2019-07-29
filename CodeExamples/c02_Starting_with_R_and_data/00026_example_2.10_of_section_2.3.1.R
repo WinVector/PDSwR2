@@ -47,36 +47,48 @@ saveRDS(dpus, "dpus_std_employee.RDS") 	# Note: 7
 summary(dpus) 	# Note: 8
 
 # Note 1: 
-#   Define a vector of employment definitions we consider "standard." 
+#   Define a vector of employment definitions we consider “standard.” 
 
 # Note 2: 
-#   Build a new logical vector indicating which rows have valid values in all of our columns of interest. 
-#   In real applications dealing with missing values is important and can not always be handled by skipping incomplete rows. We will return 
-#   to the issue of properly dealing with missing values when we discuss managing data. 
+#   Build a new logical vector indicating which rows have valid values in all of our columns of 
+#   interest. In real applications, dealing with 
+#   missing values is important and cannot always be 
+#   handled by skipping incomplete rows. We will 
+#   return to the issue of properly dealing with 
+#   missing values when we discuss managing 
+#   data. 
 
 # Note 3: 
-#   Build a new logical vector indicating which workers we consider typical full-time employees. Each of these 
-#   column names are the ones we discussed earlier. The results of any analysis will be heavily influenced by this definition, so in a real 
-#   task we would spend a lot of time researching the choices in this step. It literally controls who and what we are studying. Notice to keep things 
-#   simple and homogenous we 
-#   restricted this study to civilians- which would be an unacceptable limitation in a complete work. 
+#   Build a new logical vector indicating which workers we consider typical full-time employees. 
+#   Each of these column names are the ones we 
+#   discussed earlier. The results of any analysis 
+#   will be heavily influenced by this definition, so 
+#   in a real task we would spend a lot of time 
+#   researching the choices in this step. It literally 
+#   controls who and what we are studying. Notice to 
+#   keep things simple and homogeneous we restricted 
+#   this study to civilians, which would be an 
+#   unacceptable limitation in a complete work. 
 
 # Note 4: 
 #   Restrict only to rows or examples that meet or definition of typical worker. 
 
 # Note 5: 
-#   Re-code education, merging the less that bachelor's degree levels to the single level “No Advanced Degree". 
+#   Re-code education, merging the less-than-bachelor’s-degree levels to the single level “No 
+#   Advanced Degree”. 
 
 # Note 6: 
 #   Convert our string-valued columns to factors, picking the reference level with the re-level() 
 #   function. 
 
 # Note 7: 
-#   Save this data to a file so we can use it in later examples. This file 
-#   is also already available at the path PDSwR2/PUMS/dpus_std_employee.RDS 
+#   Save this data to a file so we can use it in later examples. This file is also already 
+#   available at the path 
+#   PDSwR2/PUMS/dpus_std_employee.RDS 
 
 # Note 8: 
-#   Take a look at our data. One of the advantages of factors is summary() 
-#   builds up useful counts for them. However, it was best to delay having string codes as factors until after we finished with re-mapping  
-#   level codes. 
+#   Take a look at our data. One of the advantages of factors is summary() builds up useful counts 
+#   for them. However, it was best to delay having 
+#   string codes as factors until after we finished 
+#   with re-mapping level codes. 
 

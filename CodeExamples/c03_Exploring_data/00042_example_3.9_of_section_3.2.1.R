@@ -7,8 +7,7 @@ ggplot(customer_data, aes(x=state_of_res)) +
   coord_flip() 	# Note: 2
 
 # Note 1: 
-#   Plot bar chart as before: state_of_res 
-#   is on x axis, count is on y-axis. 
+#   Plot bar chart as before: state_of_res is on x-axis, count is on y-axis. 
 
 # Note 2: 
 #   Flip the x and y axes: state_of_res is 

@@ -14,7 +14,7 @@ coord_flip()                                                  	# Note: 4
 #   Plot the state_of_res column of the customer_data data frame. 
 
 # Note 3: 
-#   "sort = 1" sorts the categories in increasing order (most frequent last). 
+#   “sort = 1” sorts the categories in increasing order (most frequent last). 
 
 # Note 4: 
 #   Flip the axes as before. 

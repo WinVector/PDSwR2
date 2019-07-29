@@ -32,8 +32,8 @@
 #   parents)? 
 
 # Note 2: 
-#   The variables housing_type, recent_move, 
-#   num_vehicles and gas_usage are missing relatively few values—about 2% of the data. It’s probably safe to just 
-#   drop the rows that are missing values, especially if the missing values are  
+#   The variables housing_type, recent_move, num_vehicles, and gas_usage are missing relatively 
+#   few values—about 2% of the data. It’s probably safe to just drop the 
+#   rows that are missing values, especially if the missing values are 
 #   all in the same 1720 rows. 
 

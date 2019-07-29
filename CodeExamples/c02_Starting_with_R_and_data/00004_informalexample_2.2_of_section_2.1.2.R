@@ -31,8 +31,12 @@ example_list[["b"]]
 ## [1] 20
 
 # Note 1: 
-#   Build an example vector. c() is R's concatenate operator- it builds longer vectors and lists from shorter without nesting. For example c(1) is 
-#   just the number 1, and c(1, c(2, 3)) is equivalent to c(1, 2, 3) which in turn is the integers 1 through 3 (though stored in a floating point format). 
+#   Build an example vector. c() is R’s concatenate operator—it builds longer vectors and lists 
+#   from shorter ones without nesting. For example 
+#   c(1) is just the number 1, and c(1, c(2, 3)) is 
+#   equivalent to c(1, 2, 3), which in turn is the 
+#   integers 1 through 3 (though stored in a floating 
+#   point format). 
 
 # Note 2: 
 #   Build an example list. 
@@ -47,5 +51,7 @@ example_list[["b"]]
 #   Vectors and lists be indexed by vectors of logicals, integers, and (if the vector or list has names) characters. 
 
 # Note 6: 
-#   For named example_list$b is essentially a short-hand for example_list[["b"]] (the same is true for named vectors). 
+#   For named examples, the syntax example_list$b is essentially a short-hand for 
+#   example_list[["b"]] (the same is true for named 
+#   vectors). 
 

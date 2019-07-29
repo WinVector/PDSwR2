@@ -26,18 +26,20 @@ md5 PUMSDataDict16.txt
 #   When we downloaded the data. 
 
 # Note 2: 
-#   Where we found the data documentation. This 
-#   is important to record as many data files don’t 
-#   contain links back to the documentation. 
+#   Where we found the data documentation. 
+#   This is important to record, as many data files 
+#   don’t contain links back to the 
+#   documentation. 
 
 # Note 3: 
 #   The exact steps we took. 
 
 # Note 4: 
-#   Cryptographic hashes of the file contents we 
-#   downloaded. These are very short summaries (called 
-#   hashes) that are very unlikely to have the same 
-#   value for different files. These summaries can 
-#   later help us determine if another researcher in 
-#   our organization is using the same data. 
+#   Cryptographic hashes of the file 
+#   contents we downloaded. These are very short 
+#   summaries (called hashes) that are highly unlikely 
+#   to have the same value for different files. These 
+#   summaries can later help us determine if another 
+#   researcher in our organization is using the same 
+#   data. 
 

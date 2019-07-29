@@ -16,6 +16,9 @@ for(ci in colnames(d)) {            	# Note: 2
 #   Prefer using column names to column indices. 
 
 # Note 3: 
-#   The [[]] notation is using the fact that data.frames are named lists of columns. So we are working 
-#   on each column in turn. Notice the mapping lookup is vectorized: i.e. it is applied to all elements in the column in one step. 
+#   The [[]] notation is using the fact 
+#   that data.frames are named lists of columns. So we 
+#   are working on each column in turn. Notice the 
+#   mapping lookup is vectorized: i.e. it is applied 
+#   to all elements in the column in one step. 
 

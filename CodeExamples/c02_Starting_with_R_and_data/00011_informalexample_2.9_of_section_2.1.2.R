@@ -28,13 +28,25 @@ print(result)
 #   Our notional, or example data. 
 
 # Note 2: 
-#   Assign our data to a temporary variable named ".". The original values will remain available in the "data" variable, making it easy to re-start the calculation from the beginning if necessary. 
+#   Assign our data to a temporary variable named “.”. The original values will remain available 
+#   in the “data” variable, making it easy to re-start 
+#   the calculation from the beginning if 
+#   necessary. 
 
 # Note 3: 
-#   Use the order command to sort the rows. The "drop = FALSE" is not strictly needed, but it is good to get in the habit of including it. For single column data.frames without the "drop = FALSE" argument 
-#   the "[,]" indexing operator will convert the result to a vector, which is almost never the R user's true intent. The "drop = FALSE" argument turns off this conversion, and it is a good idea to include it "just in case" and a  
-#   definite requirement when either the data.frame has a single column or when we don't know that the data.frame has more than one column (as the data.frame come from somewhere else). 
+#   Use the order command to sort the rows. The “drop = FALSE” is not strictly needed, but it is 
+#   good to get in the habit of including it. For 
+#   single column data.frames without the “drop = 
+#   FALSE” argument, the “[,]” indexing operator will 
+#   convert the result to a vector, which is almost 
+#   never the R user's true intent. The “drop = FALSE” 
+#   argument turns off this conversion, and it is a 
+#   good idea to include it “just in case” and a 
+#   definite requirement when either the data.frame 
+#   has a single column or when we don’t know if the 
+#   data.frame has more than one column (as the 
+#   data.frame comes from somewhere else). 
 
 # Note 4: 
-#   Assign the result away from "." to a more memorable variable name. 
+#   Assign the result away from “.” to a more memorable variable name. 
 
