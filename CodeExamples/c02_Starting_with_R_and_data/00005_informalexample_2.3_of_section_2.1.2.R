@@ -25,5 +25,5 @@ print(x)
 #   Notice in addition to supply a useful error message, R preserved the original value of x. 
 
 # Note 4: 
-#   Try the operation again, using the correct spelling of cumsum(). cumsum() is a useful function that computes running totals quickly. 
+#   Try the operation again, using the correct spelling of cumsum(). cumsum(), short for cumulative sum, is a useful function that computes running totals quickly. 
 
