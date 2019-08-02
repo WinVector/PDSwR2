@@ -1,5 +1,5 @@
 # informalexample 5.107 of section 5.4.2 
-# (informalexample 5.107 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+# (informalexample 5.107 of section 5.4.2)  : Data engineering and data shaping : Multi-table data transforms : Principled methods to combine data from multiple tables 
 
 ##    trade_id price quantity                when
 ## 1:    32525   5.5      100 2018-10-18 02:13:42

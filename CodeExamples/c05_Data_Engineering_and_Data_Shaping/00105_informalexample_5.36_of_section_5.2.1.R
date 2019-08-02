@@ -1,5 +1,5 @@
 # informalexample 5.36 of section 5.2.1 
-# (informalexample 5.36 of section 5.2.1)  : Data Engineering and Data Shaping : Basic Data Transforms : Add new columns 
+# (informalexample 5.36 of section 5.2.1)  : Data engineering and data shaping : Basic data transforms : Add new columns 
 
 airquality_with_date <- airquality 	# Note: 1 
 
@@ -30,7 +30,7 @@ ggplot(airquality_with_date, aes(x = date, y = Ozone)) + 	# Note: 5
 #   Build a copy of the data. 
 
 # Note 2: 
-#   Add the date column, with with() to refer to columns without needed the table name. 
+#   Add the date column, with “with()” to refer to columns without needing the table name. 
 
 # Note 3: 
 #   Limit down to columns of interest. 

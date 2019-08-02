@@ -38,8 +38,9 @@ summary(training_prepared$income_normalized)
 #   directory PDSwR2/Custdata. Here we assume that this is your working directory. 
 
 # Note 2: 
-#   Join median_income_table into the customer data, so you can normalize each person's income 
-#   by the median income of their state. 
+#   Join median_income_table into the customer data, so 
+#   you can normalize each person’s income by the median 
+#   income of their state. 
 
 # Note 3: 
 #   Compare the values of income and income_normalized. 

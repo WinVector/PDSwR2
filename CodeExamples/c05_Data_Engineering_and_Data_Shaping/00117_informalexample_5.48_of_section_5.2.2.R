@@ -1,5 +1,5 @@
 # informalexample 5.48 of section 5.2.2 
-# (informalexample 5.48 of section 5.2.2)  : Data Engineering and Data Shaping : Basic Data Transforms : Other simple operations 
+# (informalexample 5.48 of section 5.2.2)  : Data engineering and data shaping : Basic data transforms : Other simple operations 
 
 d <- data.frame(x = 1:2, y = 3:4)
 print(d)

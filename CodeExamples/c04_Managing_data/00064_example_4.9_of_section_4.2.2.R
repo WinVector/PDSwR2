@@ -46,7 +46,8 @@ training_prepared %>%
 #   Take the standard deviation. 
 
 # Note 3: 
-#   The "typical" age range for this population is from about 31 to 67. 
+#   The “typical” age range for this population is 
+#   from about 31 to 67. 
 
 # Note 4: 
 #   Use the mean value as the origin (or 

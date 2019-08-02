@@ -1,5 +1,5 @@
 # informalexample 5.29 of section 5.1.3 
-# (informalexample 5.29 of section 5.1.3)  : Data Engineering and Data Shaping : Data Selection : Ordering rows 
+# (informalexample 5.29 of section 5.1.3)  : Data engineering and data shaping : Data selection : Ordering rows 
 
 library("dplyr")
 

@@ -1,5 +1,5 @@
 # informalexample 5.37 of section 5.2.1 
-# (informalexample 5.37 of section 5.2.1)  : Data Engineering and Data Shaping : Basic Data Transforms : Add new columns 
+# (informalexample 5.37 of section 5.2.1)  : Data engineering and data shaping : Basic data transforms : Add new columns 
 
 library("wrapr") 	# Note: 1 
 
@@ -17,9 +17,11 @@ airquality %.>% 	# Note: 2
 ## 7    23 1973-05-07
 
 # Note 1: 
-#   Attach the wrapr package to define the wrapr dot arrow pipe: %.>%. The dot arrow pipe is another R pipe and is described in the R Journal here: https://journal.r-project.org/archive/2018/RJ-2018-042/index.html 
+#   Attach the wrapr package to define the wrapr dot arrow pipe: %.>%. The dot arrow pipe is 
+#   another R pipe and is described in the R Journal at 
+#   https://journal.r-project.org/archive/2018/RJ-2018-042/index.html 
 
 # Note 2: 
-#   Run all the steps as before using transform() and subset() adding an extra step of filtering down to rows that  
-#   do not have missing Ozone values. 
+#   Run all the steps as before using transform() and subset(), adding an extra step of filtering 
+#   down to rows that do not have missing Ozone values. 
 

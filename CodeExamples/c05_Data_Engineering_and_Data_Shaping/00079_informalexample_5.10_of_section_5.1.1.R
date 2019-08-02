@@ -1,5 +1,5 @@
 # informalexample 5.10 of section 5.1.1 
-# (informalexample 5.10 of section 5.1.1)  : Data Engineering and Data Shaping : Data Selection : Subsetting Rows and Columns 
+# (informalexample 5.10 of section 5.1.1)  : Data engineering and data shaping : Data selection : Sub-setting rows and columns 
 
 library("data.table")
 
@@ -23,7 +23,8 @@ dt[, ..x] 	# Note: 5
 #   Example data.frame. 
 
 # Note 2: 
-#   Notice writing df[, x] instead of df[, "x"] is an error (assuming x is not bound to a value in our environment). 
+#   Notice writing df[, x] instead of df[, "x"] is an error (assuming x is not bound to a value in 
+#   our environment). 
 
 # Note 3: 
 #   Set up data.table example. 
@@ -32,5 +33,6 @@ dt[, ..x] 	# Note: 5
 #   Notice this returns the column x much like d$x would. 
 
 # Note 5: 
-#   This uses data.table's "look up" idiom to get a data.table of columns referred to by the variable x. 
+#   This uses data.table’s “look up” idiom to get a data.table of columns referred to by the 
+#   variable x. 
 

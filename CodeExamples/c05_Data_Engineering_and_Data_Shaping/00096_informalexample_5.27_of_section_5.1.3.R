@@ -1,5 +1,5 @@
 # informalexample 5.27 of section 5.1.3 
-# (informalexample 5.27 of section 5.1.3)  : Data Engineering and Data Shaping : Data Selection : Ordering rows 
+# (informalexample 5.27 of section 5.1.3)  : Data engineering and data shaping : Data selection : Ordering rows 
 
 order_index <- with(purchases, order(day, hour)) 	# Note: 1 
   
@@ -17,7 +17,8 @@ purchases_ordered
 ## 5   2   13          3            18
 
 # Note 1: 
-#   with() executes the code in its second argument as if the columns of the first argument were variables. This lets us write "x" instead of "order$x". 
+#   with() executes the code in its second argument as if the columns of the first argument were 
+#   variables. This lets us write “x” instead of “order$x”. 
 
 # Note 2: 
 #   Compute the running sum. 

@@ -1,5 +1,5 @@
 # informalexample 5.17 of section 5.1.2 
-# (informalexample 5.17 of section 5.1.2)  : Data Engineering and Data Shaping : Data Selection : Removing records with incomplete data 
+# (informalexample 5.17 of section 5.1.2)  : Data engineering and data shaping : Data selection : Removing records with incomplete data 
 
 ##      name              genus               vore          
 ##  Length:20          Length:20          Length:20         

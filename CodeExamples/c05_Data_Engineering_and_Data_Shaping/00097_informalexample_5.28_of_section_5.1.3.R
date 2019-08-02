@@ -1,5 +1,5 @@
 # informalexample 5.28 of section 5.1.3 
-# (informalexample 5.28 of section 5.1.3)  : Data Engineering and Data Shaping : Data Selection : Ordering rows 
+# (informalexample 5.28 of section 5.1.3)  : Data engineering and data shaping : Data selection : Ordering rows 
 
 library("data.table")
 
@@ -13,5 +13,5 @@ DT_purchases[ , running_total := cumsum(n_purchase)]
 # print(DT_purchases)
 
 # Note 1: 
-#   re-order data 
+#   Re-order data 
 

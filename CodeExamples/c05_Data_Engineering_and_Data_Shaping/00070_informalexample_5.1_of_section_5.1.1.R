@@ -1,5 +1,5 @@
 # informalexample 5.1 of section 5.1.1 
-# (informalexample 5.1 of section 5.1.1)  : Data Engineering and Data Shaping : Data Selection : Subsetting Rows and Columns 
+# (informalexample 5.1 of section 5.1.1)  : Data engineering and data shaping : Data selection : Sub-setting rows and columns 
 
 library("ggplot2") 	# Note: 1 
 

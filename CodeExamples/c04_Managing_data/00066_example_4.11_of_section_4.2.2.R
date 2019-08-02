@@ -11,10 +11,10 @@ new_dataf <- newdata_treated[, c("age", "income", "num_vehicles", "gas_usage")] 
 dataf_scaled <- scale(new_dataf, center=means, scale=sds)
 
 # Note 1: 
-#   Simulate having a new customer data set. 
+#   Simulate having a new customer dataset. 
 
 # Note 2: 
-#   Clean it using the treatment plan from the original data set. 
+#   Clean it using the treatment plan from the original dataset. 
 
 # Note 3: 
 #   Scale age, income, num_vehicles, and gas_usage using the means 

@@ -1,5 +1,5 @@
 # informalexample 5.26 of section 5.1.3 
-# (informalexample 5.26 of section 5.1.3)  : Data Engineering and Data Shaping : Data Selection : Ordering rows 
+# (informalexample 5.26 of section 5.1.3)  : Data engineering and data shaping : Data selection : Ordering rows 
 
 purchases <- wrapr::build_frame( 	# Note: 1 
    "day", "hour", "n_purchase" |

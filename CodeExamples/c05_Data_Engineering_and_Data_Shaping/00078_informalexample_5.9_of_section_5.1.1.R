@@ -1,5 +1,5 @@
 # informalexample 5.9 of section 5.1.1 
-# (informalexample 5.9 of section 5.1.1)  : Data Engineering and Data Shaping : Data Selection : Subsetting Rows and Columns 
+# (informalexample 5.9 of section 5.1.1)  : Data engineering and data shaping : Data selection : Sub-setting rows and columns 
 
 library("data.table")
 
@@ -24,5 +24,6 @@ head(iris_data.table)
 #   Convert to data.table class to get data.table semantics. 
 
 # Note 2: 
-#   The ".." notation tells data.table that "columns_we_want" isn't itself the name of a column but a variable referring to names of columns. 
+#   The “..” notation tells data.table that “columns_we_want” isn’t itself the name of a column 
+#   but a variable referring to names of columns. 
 

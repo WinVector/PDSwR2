@@ -1,5 +1,5 @@
 # informalexample 5.31 of section 5.1.3 
-# (informalexample 5.31 of section 5.1.3)  : Data Engineering and Data Shaping : Data Selection : Ordering rows 
+# (informalexample 5.31 of section 5.1.3)  : Data engineering and data shaping : Data selection : Ordering rows 
 
 library("data.table")
 
@@ -28,14 +28,19 @@ DT_purchases[order(day, hour),
 # print(DT_purchases) 	# Note: 4
 
 # Note 1: 
-#   Adding the "by" keyword converts the calculation into a per-group calculation.. 
+#   Adding the “by” keyword converts the calculation into a per-group calculation.. 
 
 # Note 2: 
-#   First solution: result is a second copy of the data .(=) notation. Only columns used in the calculation (such as "day") and those explicitly assigned to are in the result. 
+#   First solution: result is a second copy of the data .(=) notation. Only columns used in the 
+#   calculation (such as “day”) and those explicitly assigned to are in the 
+#   result. 
 
 # Note 3: 
-#   Second solution: result is computed in-plance by ordering the table before the grouped caclulation. 
+#   Second solution: result is computed in-place by ordering the table before the grouped 
+#   calculation. 
 
 # Note 4: 
-#   Third solution: result is in same order as the original table, but the cumulative some is computed as if we sorted the table, computed the grouped running sum, and then returned the table to the orginal order. 
+#   Third solution: result is in same order as the original table, but the cumulative some is 
+#   computed as if we sorted the table, computed the grouped 
+#   running sum, and then returned the table to the original order. 
 

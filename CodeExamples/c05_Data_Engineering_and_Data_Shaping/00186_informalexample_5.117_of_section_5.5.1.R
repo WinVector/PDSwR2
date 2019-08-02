@@ -1,5 +1,5 @@
-# informalexample 5.118 of section 5.5.1 
-# (informalexample 5.118 of section 5.5.1)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from wide to tall form 
+# informalexample 5.117 of section 5.5.1 
+# (informalexample 5.117 of section 5.5.1)  : Data engineering and data shaping : Reshaping transforms : Moving data from wide to tall form 
 
 ggplot(seatbelts_long1, 
        aes(x = date, y = nvictims, color = law, shape = law)) + 

@@ -1,5 +1,5 @@
 # informalexample 5.78 of section 5.4.1 
-# (informalexample 5.78 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
+# (informalexample 5.78 of section 5.4.1)  : Data engineering and data shaping : Multi-table data transforms : Combining two or more ordered data frames quickly 
 
 ##    productID price sold_store sold_online
 ## 1:        p1  9.99          6          64

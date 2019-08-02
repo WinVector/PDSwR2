@@ -1,5 +1,5 @@
 # informalexample 5.34 of section 5.2.1 
-# (informalexample 5.34 of section 5.2.1)  : Data Engineering and Data Shaping : Basic Data Transforms : Add new columns 
+# (informalexample 5.34 of section 5.2.1)  : Data engineering and data shaping : Basic data transforms : Add new columns 
 
 ##      Ozone           Solar.R           Wind             Temp      
 ##  Min.   :  1.00   Min.   :  7.0   Min.   : 1.700   Min.   :56.00  

@@ -1,5 +1,5 @@
 # informalexample 5.30 of section 5.1.3 
-# (informalexample 5.30 of section 5.1.3)  : Data Engineering and Data Shaping : Data Selection : Ordering rows 
+# (informalexample 5.30 of section 5.1.3)  : Data engineering and data shaping : Data selection : Ordering rows 
 
 order_index <- with(purchases, order(day, hour))  	# Note: 1 
 purchases_ordered <- purchases[order_index, , drop = FALSE]
@@ -39,5 +39,7 @@ purchases_ordered
 #   Put the results back to together into a single data.frame. 
 
 # Note 5: 
-#   R often keeps annotations in the rownames(). In this case it is storing original row-numbers of the pieces we are assembling. This can confuse users in when printing, so it is good practice to remove these annotations as we do here. 
+#   R often keeps annotations in the rownames(). In this case it is storing the original row 
+#   numbers of the pieces we are assembling. This can confuse users when printing, so 
+#   it is good practice to remove these annotations as we do here. 
 

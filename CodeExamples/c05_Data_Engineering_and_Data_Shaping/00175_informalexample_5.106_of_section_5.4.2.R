@@ -1,5 +1,5 @@
 # informalexample 5.106 of section 5.4.2 
-# (informalexample 5.106 of section 5.4.2)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Principled methods to combine data from multiple tables 
+# (informalexample 5.106 of section 5.4.2)  : Data engineering and data shaping : Multi-table data transforms : Principled methods to combine data from multiple tables 
 
 trades <- data.table(
   trade_id = c(32525, 32526),

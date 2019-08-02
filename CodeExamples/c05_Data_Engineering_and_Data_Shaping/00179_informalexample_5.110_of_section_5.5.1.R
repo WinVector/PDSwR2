@@ -1,5 +1,5 @@
-# informalexample 5.111 of section 5.5.1 
-# (informalexample 5.111 of section 5.5.1)  : Data Engineering and Data Shaping : Reshaping Transforms : Moving data from wide to tall form 
+# informalexample 5.110 of section 5.5.1 
+# (informalexample 5.110 of section 5.5.1)  : Data engineering and data shaping : Reshaping transforms : Moving data from wide to tall form 
 
 library("datasets")
 library("xts")

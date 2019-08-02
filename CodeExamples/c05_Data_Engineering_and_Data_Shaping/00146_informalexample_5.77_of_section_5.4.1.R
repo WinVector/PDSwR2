@@ -1,5 +1,5 @@
 # informalexample 5.77 of section 5.4.1 
-# (informalexample 5.77 of section 5.4.1)  : Data Engineering and Data Shaping : Multi-Table Data Transforms : Combining two or more ordered data.frames quickly 
+# (informalexample 5.77 of section 5.4.1)  : Data engineering and data shaping : Multi-table data transforms : Combining two or more ordered data frames quickly 
 
 library("data.table")
 

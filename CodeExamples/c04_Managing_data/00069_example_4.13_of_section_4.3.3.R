@@ -19,11 +19,13 @@ household_data <- dplyr::left_join(household_data, 	# Note: 4
 #   directory PDSwR2/Custdata. Here we assume that this is your working directory. 
 
 # Note 2: 
-#   Get the unique household ids. 
+#   Get the unique household IDs. 
 
 # Note 3: 
-#   Generate a unique sampling group id per household, and put in a column named gp. 
+#   Generate a unique sampling group ID per 
+#   household, and put in a column named gp. 
 
 # Note 4: 
-#   Join the household ids back into the original data. 
+#   Join the household IDs back into the original 
+#   data. 
 

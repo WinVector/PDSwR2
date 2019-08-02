@@ -52,5 +52,7 @@ customer_data %>%
 #   Look at those rows and columns in the treated data (along with the isBADS) 
 
 # Note 4: 
-#   Verify the expected number of vehicles and the expected unemployment rate in the data set 
+#   Verify the expected number of 
+#   vehicles and the expected unemployment rate in the 
+#   dataset 
 

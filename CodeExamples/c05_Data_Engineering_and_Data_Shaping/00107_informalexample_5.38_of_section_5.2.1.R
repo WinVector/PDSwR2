@@ -1,5 +1,5 @@
 # informalexample 5.38 of section 5.2.1 
-# (informalexample 5.38 of section 5.2.1)  : Data Engineering and Data Shaping : Basic Data Transforms : Add new columns 
+# (informalexample 5.38 of section 5.2.1)  : Data engineering and data shaping : Basic data transforms : Add new columns 
 
 library("data.table")
 

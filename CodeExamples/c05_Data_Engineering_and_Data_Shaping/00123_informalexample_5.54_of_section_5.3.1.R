@@ -1,5 +1,5 @@
 # informalexample 5.54 of section 5.3.1 
-# (informalexample 5.54 of section 5.3.1)  : Data Engineering and Data Shaping : Aggregating Transforms : Combining many rows into summary rows 
+# (informalexample 5.54 of section 5.3.1)  : Data engineering and data shaping : Aggregating transforms : Combining many rows into summary rows 
 
 iris_copy <- iris
 iris_copy$mean_Petal.Length <- ave(iris$Petal.Length, iris$Species, FUN = mean)
