@@ -1,5 +1,5 @@
 # example 8.7 of section 8.4.2 
-# (example 8.7 of section 8.4.2)  : Advanced Data Preparation : Advanced data preparation for classification : Building a model 
+# (example 8.7 of section 8.4.2)  : Advanced data preparation : Advanced data preparation for classification : Building a model 
 # Title: Basic variable re-coding and selection 
 
 library("wrapr")
@@ -15,8 +15,9 @@ model <- glm(f, data = dTrainAll_treated, family = binomial) 	# Note: 3
 #   Build a formula specifying modeling churn == 1 as a function of all variables. 
 
 # Note 2: 
-#   Use the modeling formula with R's glm() function. 
+#   Use the modeling formula with R’s glm() function. 
 
 # Note 3: 
-#   Take heed of this warning, it is hinting we should move on to a regularized method such as glmnet. 
+#   Take heed of this warning: it is hinting we should move on to a regularized method such as 
+#   glmnet. 
 

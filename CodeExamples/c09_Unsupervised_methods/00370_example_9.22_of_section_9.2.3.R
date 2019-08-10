@@ -1,6 +1,6 @@
 # example 9.22 of section 9.2.3 
 # (example 9.22 of section 9.2.3)  : Unsupervised methods : Association rules : Mining association rules with the arules package 
-# Title: Finding the ten most frequent books 
+# Title: Finding the 10 most frequent books 
 
 orderedBooks <- sort(bookCount, decreasing = TRUE)   	# Note: 1 
 knitr::kable(orderedBooks[1:10])                   	# Note: 2 

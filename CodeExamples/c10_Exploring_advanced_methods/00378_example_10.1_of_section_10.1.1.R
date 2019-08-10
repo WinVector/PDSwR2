@@ -1,5 +1,5 @@
 # example 10.1 of section 10.1.1 
-# (example 10.1 of section 10.1.1)  : Exploring advanced methods : Tree-based Methods : A basic decision tree 
+# (example 10.1 of section 10.1.1)  : Exploring advanced methods : Tree-based methods : A basic decision tree 
 # Title: Preparing Spambase data and evaluating a decision tree model 
 
 spamD <- read.table('spamD.tsv', header = TRUE, sep = '\t')  		# Note: 1 
@@ -81,7 +81,8 @@ testperf_tree <- accuracyMeasures(predTest,
 #   For plotting the tree. 
 
 # Note 9: 
-#   Get the predicted probabilities of the class "spam". 
+#   Get the predicted probabilities of the class 
+#   "spam". 
 
 # Note 10: 
 #   Evaluate the decision tree model against the  

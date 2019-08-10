@@ -1,5 +1,5 @@
 # informalexample 8.1 of section 8.2.1 
-# (informalexample 8.1 of section 8.2.1)  : Advanced Data Preparation : KDD and KDD Cup 2009 : Getting started with KDD Cup 2009 data 
+# (informalexample 8.1 of section 8.2.1)  : Advanced data preparation : KDD and KDD Cup 2009 : Getting started with KDD Cup 2009 data 
 
 outcome_summary <- table(
    churn = dTrain[, outcome], 	# Note: 1 

@@ -1,6 +1,6 @@
 # example 7.26 of section 7.3.1 
-# (example 7.26 of section 7.3.1)  : Linear and logistic regression : Regularization : An Example of Quasi-separation 
-# Title: Looking at the logistic model's coefficients 
+# (example 7.26 of section 7.3.1)  : Linear and logistic regression : Regularization : An example of quasi-separation 
+# Title: Looking at the logistic model’s coefficients 
 
 coefs <- coef(model_glm)[-1]                  	# Note: 1 
 coef_frame <- data.frame(coef = names(coefs),

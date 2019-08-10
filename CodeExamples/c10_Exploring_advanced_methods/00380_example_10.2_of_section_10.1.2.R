@@ -1,5 +1,5 @@
 # example 10.2 of section 10.1.2 
-# (example 10.2 of section 10.1.2)  : Exploring advanced methods : Tree-based Methods : Using bagging to improve prediction 
+# (example 10.2 of section 10.1.2)  : Exploring advanced methods : Tree-based methods : Using bagging to improve prediction 
 # Title: Bagging decision trees 
 
 ntrain <- dim(spamTrain)[1]

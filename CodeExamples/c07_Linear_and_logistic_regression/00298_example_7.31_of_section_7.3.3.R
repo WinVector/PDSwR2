@@ -1,6 +1,6 @@
 # example 7.31 of section 7.3.3 
 # (example 7.31 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
-# Title: The lasso model's coefficients 
+# Title: The lasso model’s coefficients 
 
 ## 22 x 1 sparse Matrix of class "dgCMatrix"
 ##                             1

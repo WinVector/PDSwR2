@@ -37,8 +37,8 @@ ggplot(pframe, aes(PWGT)) +   	# Note: 6
 #   Bind in the input variables. 
 
 # Note 6: 
-#   Compare the spline s(PWGT) to the smoothed curve of  
-#   DBWT (baby's weight) as a function of mother's weight (PWGT). 
+#   Compare the spline s(PWGT) to the smoothed curve of DBWT (baby’s weight) 
+#   as a function of mother’s weight (PWGT). 
 
 # Note 7: 
 #   Repeat for remaining variables (omitted for 

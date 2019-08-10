@@ -11,8 +11,9 @@ plt <- PRTPlot(train, "pred", "atRisk", TRUE,    	# Note: 1
 plt + geom_vline(xintercept = 0.02, color="red", linetype = 2)   	# Note: 2
 
 # Note 1: 
-#   Call PRTPlot() where "pred" is the column of predictions, 
-#   "atRisk" is the true outcome column, and TRUE is the class of interest. 
+#   Call PRTPlot() where “pred” is the column 
+#   of predictions, “atRisk” is the true outcome 
+#   column, and TRUE is the class of interest. 
 
 # Note 2: 
 #   Add a line to mark threshold = 0.02. 

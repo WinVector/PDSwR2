@@ -1,5 +1,5 @@
 # informalexample 10.4 of section 10.1.3 
-# (informalexample 10.4 of section 10.1.3)  : Exploring advanced methods : Tree-based Methods : Using random forests to further improve prediction 
+# (informalexample 10.4 of section 10.1.3)  : Exploring advanced methods : Tree-based methods : Using random forests to further improve prediction 
 
 difff <- data.frame(model = c("tree", "bagging", "random forest"),
                   accuracy = trainf$accuracy - testf$accuracy,

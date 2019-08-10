@@ -1,5 +1,5 @@
 # example 8.10 of section 8.6.6 
-# (example 8.10 of section 8.6.6)  : Advanced Data Preparation : Mastering the vtreat package : The cross-frame 
+# (example 8.10 of section 8.6.6)  : Advanced data preparation : Mastering the vtreat package : The cross-frame 
 # Title: Using mkCrossFrameNExperiment() 
 
 cfe <- vtreat::mkCrossFrameNExperiment(d, 

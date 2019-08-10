@@ -1,6 +1,6 @@
 # example 6.25 of section 6.3.5 
-# (example 6.25 of section 6.3.5)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Explaining the classifier's predictions 
-# Title: Explaining the model's prediction on a review 
+# (example 6.25 of section 6.3.5)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Explaining the classifier’s predictions 
+# Title: Explaining the model’s prediction on a review 
 
 casename <- "test_19552"; 
 sample_case <- test_txt[casename]

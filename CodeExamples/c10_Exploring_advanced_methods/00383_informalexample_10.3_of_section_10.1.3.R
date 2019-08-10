@@ -1,5 +1,5 @@
 # informalexample 10.3 of section 10.1.3 
-# (informalexample 10.3 of section 10.1.3)  : Exploring advanced methods : Tree-based Methods : Using random forests to further improve prediction 
+# (informalexample 10.3 of section 10.1.3)  : Exploring advanced methods : Tree-based methods : Using random forests to further improve prediction 
 
 testf <- rbind(testperf_tree, testperf_bag, testperf_rf)
 pandoc.table(testf, justify = perf_justify)

@@ -1,5 +1,5 @@
 # example 10.7 of section 10.1.4 
-# (example 10.7 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient-boosted trees 
+# (example 10.7 of section 10.1.4)  : Exploring advanced methods : Tree-based methods : Gradient-boosted trees 
 # Title: Cross-validate to determine model size 
 
 library(xgboost)

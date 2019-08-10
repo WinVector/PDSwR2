@@ -13,7 +13,7 @@ round(predict(model, newdata = as.matrix(example)))
 ## [1] 1          	# Note: 3
 
 # Note 1: 
-#   A single row dataframe. 
+#   A single row data frame. 
 
 # Note 2: 
 #   This example is a setosa. 

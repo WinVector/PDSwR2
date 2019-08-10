@@ -25,7 +25,8 @@ ggplot(enet_performance, aes(x = alpha, y = cvm)) +          	# Note: 7
 #   A function to get the mean cross-validation error of a cv.glmnet lambda.1se model. 
 
 # Note 2: 
-#   Get the alphas that the algorithm tried 
+#   Get the alphas that the algorithm 
+#   tried. 
 
 # Note 3: 
 #   Get the model objects produced. 

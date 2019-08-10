@@ -1,5 +1,5 @@
 # informalexample 10.1 of section 10.1.1 
-# (informalexample 10.1 of section 10.1.1)  : Exploring advanced methods : Tree-based Methods : A basic decision tree 
+# (informalexample 10.1 of section 10.1.1)  : Exploring advanced methods : Tree-based methods : A basic decision tree 
 
 library(pander) 	# Note: 1 
                         

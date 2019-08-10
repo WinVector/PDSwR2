@@ -35,9 +35,9 @@ summary(glogmod)
 ## UBRE score = -0.76987  Scale est. = 1         n = 14386
 
 # Note 1: 
-#   Note the large p-value associated with mother's weight (PGWT). That means that there’s  
-#   no statistical proof that the mother’s weight (PWGT) has a significant effect on 
-#   outcome. 
+#   Note the large p-value associated with mother’s weight (PGWT). That means 
+#   that there’s no statistical proof that the mother’s weight (PWGT) has a 
+#   significant effect on outcome. 
 
 # Note 2: 
 #   “Deviance explained” is the pseudo R-squared: 1 - 

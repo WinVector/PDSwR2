@@ -1,5 +1,5 @@
 # informalexample 8.24 of section 8.6.4 
-# (informalexample 8.24 of section 8.6.4)  : Advanced Data Preparation : Mastering the vtreat package : Impact coding 
+# (informalexample 8.24 of section 8.6.4)  : Advanced data preparation : Mastering the vtreat package : Impact coding 
 
 plan4 <- vtreat::designTreatmentsC(d, 
                                    varlist = c("x1", "x2", "x3"),

@@ -11,6 +11,7 @@ model <- fit_iris_example(input, train$class)
 #   Load the convenience function. 
 
 # Note 2: 
-#   The input to the model is the first 4 columns of the training data,  
-#   converted to a matrix. 
+#   The input to the model is the first four 
+#   columns of the training data, converted to a 
+#   matrix. 
 

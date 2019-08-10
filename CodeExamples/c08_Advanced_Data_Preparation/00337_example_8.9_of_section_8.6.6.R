@@ -1,5 +1,5 @@
 # example 8.9 of section 8.6.6 
-# (example 8.9 of section 8.6.6)  : Advanced Data Preparation : Mastering the vtreat package : The cross-frame 
+# (example 8.9 of section 8.6.6)  : Advanced data preparation : Mastering the vtreat package : The cross-frame 
 # Title: The dangers of re-using data 
 
 plan5 <- vtreat::designTreatmentsN(d, 	# Note: 1 
@@ -43,7 +43,9 @@ sigr::wrapFTest(res1, "x_bad_catN", "y") 	# Note: 6
 #   This is due to proper cross-validation in estimating the variable qualities. 
 
 # Note 3: 
-#   Call prepare() on the same data used to design the treatment plan- this is not always safe, as we shall see. 
+#   Call prepare() on the same data used to design the treatment 
+#   plan—this is not always safe, as we shall 
+#   see. 
 
 # Note 4: 
 #   Combine the data frames d an training_data1, using training_data1 when there are columns with duplicate names. 
@@ -52,5 +54,6 @@ sigr::wrapFTest(res1, "x_bad_catN", "y") 	# Note: 6
 #   Use a statistical F-test to check the predictive power of x_good_catN. 
 
 # Note 6: 
-#   x_bad_catN's F-test is inflated and falsely looks significant. 
+#   x_bad_catN’s F-test is inflated and falsely looks 
+#   significant. 
 

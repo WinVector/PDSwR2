@@ -1,5 +1,5 @@
 # example 10.24 of section 10.3.1 
-# (example 10.24 of section 10.3.1)  : Exploring advanced methods : Solving "Inseparable" Problems Using Support Vector Machines : Using a SVM to solve a problem 
+# (example 10.24 of section 10.3.1)  : Exploring advanced methods : Solving “inseparable” problems using support vector machines : Using a SVM to solve a problem 
 # Title: SVM with a good choice of kernel 
 
 mSVMG <- svm(class ~ x + y, data = sTrain, kernel = 'radial', type = 'nu-classification') 		# Note: 1 
@@ -25,6 +25,5 @@ ggplot(mapping = aes(x = x, y = y)) +
   ggtitle("radial/Gaussian kernel")
 
 # Note 1: 
-#   This time use the "radial" or 
-#   Gaussian kernel, which is a nice geometric distance measure. 
+#   This time use the “radial” or Gaussian kernel, which is a nice geometric distance measure. 
 

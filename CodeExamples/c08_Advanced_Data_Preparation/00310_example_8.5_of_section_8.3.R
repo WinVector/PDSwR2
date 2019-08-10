@@ -1,5 +1,5 @@
 # example 8.5 of section 8.3 
-# (example 8.5 of section 8.3)  : Advanced Data Preparation : Basic data preparation for classification 
+# (example 8.5 of section 8.3)  : Advanced data preparation : Basic data preparation for classification 
 # Title: Preparing data with vtreat 
 
 dTrain_treated <- prepare(treatment_plan, 

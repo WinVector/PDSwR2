@@ -1,5 +1,5 @@
 # informalexample 8.22 of section 8.6.3 
-# (informalexample 8.22 of section 8.6.3)  : Advanced Data Preparation : Mastering the vtreat package : Indicator variables 
+# (informalexample 8.22 of section 8.6.3)  : Advanced data preparation : Mastering the vtreat package : Indicator variables 
 
 d <- build_frame(
    "x1"    , "x2"         , "x3", "y" |
@@ -22,7 +22,7 @@ vtreat::prepare(plan2, d)
 # 3  3        0  8         1          0          0
 
 # Note 1: 
-#   The second value of x2 is "b" 
+#   The second value of x2 is “b” 
 
 # Note 2: 
 #   In the second row of the treated data, x2_lev_x_b = 1 

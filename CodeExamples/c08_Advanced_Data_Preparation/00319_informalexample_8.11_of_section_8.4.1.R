@@ -1,5 +1,5 @@
 # informalexample 8.11 of section 8.4.1 
-# (informalexample 8.11 of section 8.4.1)  : Advanced Data Preparation : Advanced data preparation for classification : Using mkCrossFrameCExperiment() 
+# (informalexample 8.11 of section 8.4.1)  : Advanced data preparation : Advanced data preparation for classification : Using mkCrossFrameCExperiment() 
 
 library("sigr")
 

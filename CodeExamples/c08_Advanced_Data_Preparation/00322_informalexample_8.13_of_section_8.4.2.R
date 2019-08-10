@@ -1,5 +1,5 @@
 # informalexample 8.13 of section 8.4.2 
-# (informalexample 8.13 of section 8.4.2)  : Advanced Data Preparation : Advanced data preparation for classification : Building a model 
+# (informalexample 8.13 of section 8.4.2)  : Advanced data preparation : Advanced data preparation for classification : Building a model 
 
 library("sigr")
 
@@ -28,7 +28,9 @@ var_aucs <- vapply(newvars, 	# Note: 5
 #   Add the model prediction to the evaluation data as a new column. 
 
 # Note 2: 
-#   Again, take heed of this warning, it is hinting we should move on to a regularized method such as glmnet. 
+#   Again, take heed of this warning: it is hinting we should 
+#   move on to a regularized method such as 
+#   glmnet. 
 
 # Note 3: 
 #   Calculate the AUC of the model on hold-out data. 

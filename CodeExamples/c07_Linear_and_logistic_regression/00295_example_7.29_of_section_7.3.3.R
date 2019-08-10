@@ -1,6 +1,6 @@
 # example 7.29 of section 7.3.3 
 # (example 7.29 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
-# Title: Looking at the ridge model's coefficients 
+# Title: Looking at the ridge model’s coefficients 
 
 (coefs <- coef(model_ridge)) 
 
@@ -38,5 +38,7 @@ ggplot(coef_frame, aes(x = coef, y = value)) +
   coord_flip()
 
 # Note 1: 
-#   Note that all the levels of the categorical variable "persons" are present (no reference level). 
+#   Note that all the levels of the 
+#   categorical variable “persons” are present (no 
+#   reference level). 
 

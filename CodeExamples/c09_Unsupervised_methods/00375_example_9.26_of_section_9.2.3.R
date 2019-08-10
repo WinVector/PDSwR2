@@ -35,9 +35,8 @@ summary(brules)
 #   minimum confidence to 0.6. 
 
 # Note 2: 
-#   Only The Lovely Bones 
-#   is allowed to appear on the right side of the 
-#   rules. 
+#   Only “The Lovely Bones” is allowed to appear 
+#   on the right side of the rules. 
 
 # Note 3: 
 #   By default, all the books can go into the 

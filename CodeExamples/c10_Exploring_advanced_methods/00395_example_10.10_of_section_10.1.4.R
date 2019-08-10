@@ -1,5 +1,5 @@
 # example 10.10 of section 10.1.4 
-# (example 10.10 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient-boosted trees 
+# (example 10.10 of section 10.1.4)  : Exploring advanced methods : Tree-based methods : Gradient-boosted trees 
 # Title: Use vtreat to prepare data for xgboost 
 
 library(vtreat)

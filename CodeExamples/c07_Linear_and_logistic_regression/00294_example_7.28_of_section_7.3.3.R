@@ -22,6 +22,7 @@ library(glmnetUtils)
 ##     Deviance-minimizing lambda: 0.02272432  (+1 SE): 0.02493991
 
 # Note 1: 
-#   For logistic regression style models, use 'family = "binomial"'.  
-#   For linear regression style models, use 'family = "gaussian"'. 
+#   For logistic regression style models, 
+#   use family = "binomial". For linear regression 
+#   style models, use family = "gaussian". 
 

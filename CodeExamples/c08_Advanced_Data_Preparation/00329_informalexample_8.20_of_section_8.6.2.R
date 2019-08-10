@@ -1,5 +1,5 @@
 # informalexample 8.20 of section 8.6.2 
-# (informalexample 8.20 of section 8.6.2)  : Advanced Data Preparation : Mastering the vtreat package : Missing values 
+# (informalexample 8.20 of section 8.6.2)  : Advanced data preparation : Mastering the vtreat package : Missing values 
 
 library("wrapr") 	# Note: 1 
 
@@ -12,5 +12,6 @@ d <- build_frame(
 knitr::kable(d)
 
 # Note 1: 
-#   Bring in the wrapr package for build_frame and the wrapr "dot pipe". 
+#   Bring in the wrapr package for build_frame and the 
+#   wrapr “dot pipe”. 
 

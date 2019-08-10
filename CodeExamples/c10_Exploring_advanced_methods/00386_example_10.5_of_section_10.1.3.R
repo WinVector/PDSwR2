@@ -1,5 +1,5 @@
 # example 10.5 of section 10.1.3 
-# (example 10.5 of section 10.1.3)  : Exploring advanced methods : Tree-based Methods : Using random forests to further improve prediction 
+# (example 10.5 of section 10.1.3)  : Exploring advanced methods : Tree-based methods : Using random forests to further improve prediction 
 # Title: Fitting with fewer variables 
 
 sorted <- sort(varImp[, "MeanDecreaseAccuracy"],    	# Note: 1 

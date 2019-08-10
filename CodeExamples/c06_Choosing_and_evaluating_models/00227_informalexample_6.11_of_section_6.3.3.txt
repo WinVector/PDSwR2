@@ -1,10 +1,10 @@
 # informalexample 6.11 of section 6.3.3 
-# (informalexample 6.11 of section 6.3.3)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : LIME for Text Classification 
+# (informalexample 6.11 of section 6.3.3)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : LIME for text classification 
 
 list(text = texts[1], label = labels[1]) 
 ## $text
 ## train_21317 
-##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          train_21317 
+## train_21317 
 ## "Forget depth of meaning, leave your logic at the door, and have a great time with this 
 ## maniacally funny, totally absurdist, ultra-campy live-action \"cartoon\". 
 ## MYSTERY MEN is a send-up of every superhero flick you've ever seen, but its unlikely 

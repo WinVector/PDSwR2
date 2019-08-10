@@ -1,5 +1,5 @@
 # example 10.6 of section 10.1.4 
-# (example 10.6 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient-boosted trees 
+# (example 10.6 of section 10.1.4)  : Exploring advanced methods : Tree-based methods : Gradient-boosted trees 
 # Title: Load the iris data 
 
 iris <- iris

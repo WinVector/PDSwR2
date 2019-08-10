@@ -59,9 +59,10 @@ summary(clustering_ch)                                              	# Note: 7
 #   Look at the values of the CH criterion as a function of k. 
 
 # Note 6: 
-#   Compare the above to the CH values for the 
-#   hclust() clustering. They’re not quite the same, because the 
-#   two algorithms didn’t pick the same clusters. 
+#   Compare these to the CH values for the 
+#   hclust() clustering. They’re not quite the same, 
+#   because the two algorithms didn’t pick the same 
+#   clusters. 
 
 # Note 7: 
 #   kmeansruns() also returns the output of 

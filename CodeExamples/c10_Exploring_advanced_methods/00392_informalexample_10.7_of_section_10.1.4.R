@@ -1,5 +1,5 @@
 # informalexample 10.7 of section 10.1.4 
-# (informalexample 10.7 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient-boosted trees 
+# (informalexample 10.7 of section 10.1.4)  : Exploring advanced methods : Tree-based methods : Gradient-boosted trees 
 
 cv <- xgb.cv(dtm_train, 
              label = labels,
@@ -17,5 +17,6 @@ evalframe <- as.data.frame(cv$evaluation_log)
 ## [1] 319
 
 # Note 1: 
-#   Stop early if performance doesn't improve for 20 rounds. 
+#   Stop early if performance doesn’t improve for 
+#   20 rounds. 
 

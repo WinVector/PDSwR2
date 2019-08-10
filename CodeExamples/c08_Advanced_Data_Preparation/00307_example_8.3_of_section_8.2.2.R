@@ -1,5 +1,5 @@
 # example 8.3 of section 8.2.2 
-# (example 8.3 of section 8.2.2)  : Advanced Data Preparation : KDD and KDD Cup 2009 : The Bull in The China Shop Approach 
+# (example 8.3 of section 8.2.2)  : Advanced data preparation : KDD and KDD Cup 2009 : The bull in the china shop approach 
 # Title: Trying just one variable 
 
 model2 <- glm((churn == 1) ~ Var1, data = dTrainAll, family = binomial)

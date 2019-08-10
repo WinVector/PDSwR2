@@ -15,17 +15,17 @@ summary(measures)
 ##  Max.   :0.006982   Max.   :9.702e-136
 
 # Note 1: 
-#   The call to interestMeasure() takes as 
-#   arguments the discovered rules,... 
+#   The first argument to interestMeasure() is 
+#   the discovered rules 
 
 # Note 2: 
-#   ...a list of interest measures to 
-#   apply,... 
+#   Second argument is a list of interest 
+#   measures to apply 
 
 # Note 3: 
-#   ...and a dataset to evaluate the interest 
-#   measures over. This is usually the same set used 
-#   to mine the rules, but it needn’t be. For 
+#   Last argument is a dataset to evaluate the 
+#   interest measures over. This is usually the same 
+#   set used to mine the rules, but it needn’t be. For 
 #   instance, you can evaluate the rules over the full 
 #   dataset, bookbaskets, to get coverage estimates 
 #   that reflect all the customers, not just the ones 

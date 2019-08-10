@@ -20,5 +20,5 @@ sum(ylogpy(y, spamTest$pred) +            	# Note: 3
 #   Get the class labels of the test set as TRUE/FALSE, which R treats as 1/0 in arithmetic operations. 
 
 # Note 3: 
-#   Calculate the log likelihood of the model's predictions on the test set. 
+#   Calculate the log likelihood of the model’s predictions on the test set. 
 

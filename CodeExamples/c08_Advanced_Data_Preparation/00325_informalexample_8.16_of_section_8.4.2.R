@@ -1,5 +1,5 @@
 # informalexample 8.16 of section 8.4.2 
-# (informalexample 8.16 of section 8.4.2)  : Advanced Data Preparation : Advanced data preparation for classification : Building a model 
+# (informalexample 8.16 of section 8.4.2)  : Advanced data preparation : Advanced data preparation for classification : Building a model 
 
 WVPlots::DoubleDensityPlot(dTest_treated, "glm_pred", "churn", 
                            "glm prediction on test, double density plot")

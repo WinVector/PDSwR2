@@ -1,5 +1,5 @@
 # example 10.25 of section 10.3.3 
-# (example 10.25 of section 10.3.3)  : Exploring advanced methods : Solving "Inseparable" Problems Using Support Vector Machines : Understanding kernel functions 
+# (example 10.25 of section 10.3.3)  : Exploring advanced methods : Solving “inseparable” problems using support vector machines : Understanding kernel functions 
 # Title: An artificial kernel example 
 
 u <- c(1, 2)

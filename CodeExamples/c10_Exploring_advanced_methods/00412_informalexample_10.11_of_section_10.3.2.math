@@ -1,5 +1,5 @@
 # informalexample 10.11 of section 10.3.2 
-# (informalexample 10.11 of section 10.3.2)  : Exploring advanced methods : Solving "Inseparable" Problems Using Support Vector Machines : Understanding support vector machines 
+# (informalexample 10.11 of section 10.3.2)  : Exploring advanced methods : Solving “inseparable” problems using support vector machines : Understanding support vector machines 
 
 w %*% phi(x) + b >= 0
 

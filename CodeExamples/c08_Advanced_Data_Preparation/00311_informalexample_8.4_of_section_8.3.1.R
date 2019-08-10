@@ -1,5 +1,5 @@
 # informalexample 8.4 of section 8.3.1 
-# (informalexample 8.4 of section 8.3.1)  : Advanced Data Preparation : Basic data preparation for classification : The variable score frame 
+# (informalexample 8.4 of section 8.3.1)  : Advanced data preparation : Basic data preparation for classification : The variable score frame 
 
 score_frame <-  treatment_plan$scoreFrame
 t(subset(score_frame, origName %in% c("Var126", "Var189")))
@@ -21,10 +21,14 @@ t(subset(score_frame, origName %in% c("Var126", "Var189")))
 #   An indicator that this variable is not always the same value (not a constant, which would be useless for modeling). 
 
 # Note 3: 
-#   The r-squared or pseudo-r-squared of the variable, what fraction of the outcome variation this variable can explain on its own in a linear model. 
+#   The R-squared or pseudo R-squared of the 
+#   variable, what fraction of the outcome variation 
+#   this variable can explain on its own in a linear 
+#   model. 
 
 # Note 4: 
-#   The significance of the estimated r-squared. 
+#   The significance of the estimated 
+#   R-squared. 
 
 # Note 5: 
 #   An indicator that when TRUE is a warning to the user that the variable is  

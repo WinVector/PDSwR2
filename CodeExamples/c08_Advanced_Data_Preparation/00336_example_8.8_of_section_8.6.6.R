@@ -1,6 +1,6 @@
 # example 8.8 of section 8.6.6 
-# (example 8.8 of section 8.6.6)  : Advanced Data Preparation : Mastering the vtreat package : The cross-frame 
-# Title: An information-free data set 
+# (example 8.8 of section 8.6.6)  : Advanced data preparation : Mastering the vtreat package : The cross-frame 
+# Title: An information-free dataset 
 
 set.seed(2019) 	# Note: 1 
 

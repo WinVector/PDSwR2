@@ -36,10 +36,9 @@ testpred <- predict(model, newdata = test,
 
 # Note 1: 
 #   Function to calculate the log likelihood of 
-#   a dataset. Variable y is the outcome 
-#   in numeric form (1 for positive examples, 0 for 
-#   negative). Variable py is the 
-#   predicted probability that 
+#   a dataset. Variable y is the outcome in numeric 
+#   form (1 for positive examples, 0 for negative). 
+#   Variable py is the predicted probability that 
 #   y==1. 
 
 # Note 2: 

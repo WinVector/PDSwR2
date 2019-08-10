@@ -1,5 +1,5 @@
 # example 7.24 of section 7.3.1 
-# (example 7.24 of section 7.3.1)  : Linear and logistic regression : Regularization : An Example of Quasi-separation 
+# (example 7.24 of section 7.3.1)  : Linear and logistic regression : Regularization : An example of quasi-separation 
 # Title: Fitting a logistic regression model 
 
 library(wrapr)

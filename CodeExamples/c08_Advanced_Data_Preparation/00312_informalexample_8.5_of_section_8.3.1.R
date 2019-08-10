@@ -1,5 +1,5 @@
 # informalexample 8.5 of section 8.3.1 
-# (informalexample 8.5 of section 8.3.1)  : Advanced Data Preparation : Basic data preparation for classification : The variable score frame 
+# (informalexample 8.5 of section 8.3.1)  : Advanced data preparation : Basic data preparation for classification : The variable score frame 
 
 t(subset(score_frame, origName == "Var218"))
 

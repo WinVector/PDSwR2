@@ -1,5 +1,5 @@
 # example 10.3 of section 10.1.3 
-# (example 10.3 of section 10.1.3)  : Exploring advanced methods : Tree-based Methods : Using random forests to further improve prediction 
+# (example 10.3 of section 10.1.3)  : Exploring advanced methods : Tree-based methods : Using random forests to further improve prediction 
 # Title: Using random forests 
 
 library(randomForest)           	# Note: 1 
@@ -36,8 +36,8 @@ pandoc.table(perftable, justify = perf_justify)
 #   Load the randomForest package. 
 
 # Note 2: 
-#   Set the pseudo-random seed to a known value to try 
-#   and make the random forest run repeatable. 
+#   Set the pseudo-random seed to a known value to try to make the random forest run 
+#   repeatable. 
 
 # Note 3: 
 #   Call the randomForest() function to build the model 
@@ -49,9 +49,8 @@ pandoc.table(perftable, justify = perf_justify)
 #   example. The default is 500 trees. 
 
 # Note 5: 
-#   Specify that each node of a tree must have a minimum 
-#   of 7 elements, to be compatible with the default minimum node size that rpart() 
-#   uses on this training set. 
+#   Specify that each node of a tree must have a minimum of 7 elements to be compatible with the 
+#   default minimum node size that rpart() uses on this training set. 
 
 # Note 6: 
 #   Tell the algorithm to save information to be used for 

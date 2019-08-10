@@ -1,5 +1,5 @@
 # informalexample 8.6 of section 8.3.1 
-# (informalexample 8.6 of section 8.3.1)  : Advanced Data Preparation : Basic data preparation for classification : The variable score frame 
+# (informalexample 8.6 of section 8.3.1)  : Advanced data preparation : Basic data preparation for classification : The variable score frame 
 
 comparison <- data.frame(original218 = dTrain$Var218,
                          impact218 = dTrain_treated$Var218_catB) 

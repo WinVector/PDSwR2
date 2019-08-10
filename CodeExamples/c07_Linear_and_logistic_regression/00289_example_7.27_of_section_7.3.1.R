@@ -1,5 +1,5 @@
 # example 7.27 of section 7.3.1 
-# (example 7.27 of section 7.3.1)  : Linear and logistic regression : Regularization : An Example of Quasi-separation 
+# (example 7.27 of section 7.3.1)  : Linear and logistic regression : Regularization : An example of quasi-separation 
 # Title: The logistic model's test performance 
 
 cars_test$pred_glm <- predict(model_glm, 
@@ -35,7 +35,8 @@ confmat(cars_test, "pred_glm")
 ## [1] 97.14902
 
 # Note 1: 
-#   Get the model's predictions on the test set 
+#   Get the model’s predictions on the test 
+#   set 
 
 # Note 2: 
 #   Attach the sigr package for deviance calculation (sigr includes a number of goodness of fit summaries and tests) 

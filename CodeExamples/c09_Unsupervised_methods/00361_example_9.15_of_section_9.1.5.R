@@ -29,7 +29,8 @@ tclusters$size           	# Note: 6
 ## [1] 101 100  99
 
 # Note 1: 
-#   Set the parameters for three 3-D Gaussian clusters. 
+#   Set the parameters for three 3D 
+#   Gaussian clusters. 
 
 # Note 2: 
 #   Use the mvrnorm() function from MASS package to generate 

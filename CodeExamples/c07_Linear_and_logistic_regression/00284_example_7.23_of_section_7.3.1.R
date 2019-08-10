@@ -1,5 +1,5 @@
 # example 7.23 of section 7.3.1 
-# (example 7.23 of section 7.3.1)  : Linear and logistic regression : Regularization : An Example of Quasi-separation 
+# (example 7.23 of section 7.3.1)  : Linear and logistic regression : Regularization : An example of quasi-separation 
 # Title: Preparing the cars data 
 
 cars <- read.table(
@@ -30,13 +30,16 @@ nrow(cars_train)
 #   Get the input variables. 
 
 # Note 2: 
-#   You want to predict whether the car gets an "unacceptable" rating 
+#   You want to predict whether the car gets an 
+#   “unacceptable” rating 
 
 # Note 3: 
 #   Create the grouping variable for the test/train split (70% for training, 30% for test). 
 
 # Note 4: 
-#   The split() function returns a list of two groups with the group "gp < 0.7 == FALSE" first. 
-#   The zeallot packages's %<-% multi-assignment takes this list of values and unpacks them 
-#   into the variables named cars_test and cars_train. 
+#   The split() function returns a list of two groups with 
+#   the group “gp < 0.7 == FALSE” first. The 
+#   zeallot packages's %<-% multi-assignment takes 
+#   this list of values and unpacks them into the 
+#   variables named cars_test and cars_train. 
 

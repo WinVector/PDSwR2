@@ -1,5 +1,5 @@
 # informalexample 8.7 of section 8.3.1 
-# (informalexample 8.7 of section 8.3.1)  : Advanced Data Preparation : Basic data preparation for classification : The variable score frame 
+# (informalexample 8.7 of section 8.3.1)  : Advanced data preparation : Basic data preparation for classification : The variable score frame 
 
 treatmet_plan_2 <- design_missingness_treatment(dTrain, varlist = vars) 	# Note: 1 
 dtrain_2 <- prepare(treatmet_plan_2, dTrain)                           	# Note: 2 
@@ -55,5 +55,8 @@ head(comparison)
 #   Calculate the catB values by hand. 
 
 # Note 8: 
-#   Notice the impact codes from vtreat match the "delta logit" encoded predictions from the standard glm model. This helps illustrate how vtreat is implemented. 
+#   Notice the impact codes 
+#   from vtreat match the “delta logit” encoded 
+#   predictions from the standard glm model. This helps 
+#   illustrate how vtreat is implemented. 
 

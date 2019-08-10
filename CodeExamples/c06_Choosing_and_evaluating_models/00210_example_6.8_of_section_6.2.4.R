@@ -15,13 +15,13 @@ denominator = sum(delta_sq)                                                   	#
 #   Calculate the squared error terms. 
 
 # Note 2: 
-#   Sum them to get the model's sum squared error, or variance. 
+#   Sum them to get the model’s sum squared error, or variance. 
 
 # Note 3: 
 #   Calculate the squared error terms from the null model. 
 
 # Note 4: 
-#   Calculate the data's total variance. 
+#   Calculate the data’s total variance. 
 
 # Note 5: 
 #   Calculate R-squared. 

@@ -1,5 +1,5 @@
 # informalexample 8.12 of section 8.4.2 
-# (informalexample 8.12 of section 8.4.2)  : Advanced Data Preparation : Advanced data preparation for classification : Building a model 
+# (informalexample 8.12 of section 8.4.2)  : Advanced data preparation : Advanced data preparation for classification : Building a model 
 
 k <- 1       	# Note: 1 
 (significance_cutoff <- k / nrow(score_frame))

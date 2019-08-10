@@ -1,5 +1,5 @@
 # example 10.4 of section 10.1.3 
-# (example 10.4 of section 10.1.3)  : Exploring advanced methods : Tree-based Methods : Using random forests to further improve prediction 
+# (example 10.4 of section 10.1.3)  : Exploring advanced methods : Tree-based methods : Using random forests to further improve prediction 
 # Title: randomForest variable importances 
 
 varImp <- importance(fmodel)              	# Note: 1 

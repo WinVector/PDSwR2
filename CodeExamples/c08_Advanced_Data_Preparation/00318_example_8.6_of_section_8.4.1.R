@@ -1,5 +1,5 @@
 # example 8.6 of section 8.4.1 
-# (example 8.6 of section 8.4.1)  : Advanced Data Preparation : Advanced data preparation for classification : Using mkCrossFrameCExperiment() 
+# (example 8.6 of section 8.4.1)  : Advanced data preparation : Advanced data preparation for classification : Using mkCrossFrameCExperiment() 
 # Title: Advanced data preparation for classification 
 
 library("vtreat")

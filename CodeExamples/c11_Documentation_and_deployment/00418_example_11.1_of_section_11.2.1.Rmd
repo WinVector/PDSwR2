@@ -42,13 +42,15 @@ WVPlots::ROCPlot(buzztest, "prediction",
 #   YAML (yet another markup language) header specifying some meta-data: title and default output format. 
 
 # Note 2: 
-#   An R markdown "start code chunk" annotation. The "include = FALSE" directive says the block is not shown in the rendering. 
+#   An R markdown “start code chunk” 
+#   annotation. The “include = FALSE” directive says 
+#   the block is not shown in the rendering. 
 
 # Note 3: 
 #   End of the R markdown block, all content between the start and end marks is treated as R code and executed. 
 
 # Note 4: 
-#   Free markdown text. 
+#   Free Markdown text. 
 
 # Note 5: 
 #   Another R code block. In this case we are loading an already produced random Forest model and test data. 

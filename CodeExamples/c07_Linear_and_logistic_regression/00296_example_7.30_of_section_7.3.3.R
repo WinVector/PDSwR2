@@ -1,6 +1,6 @@
 # example 7.30 of section 7.3.3 
 # (example 7.30 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
-# Title: Looking at the ridge model's test performance 
+# Title: Looking at the ridge model’s test performance 
 
 prediction <- predict(model_ridge,
                      newdata = cars_test,

@@ -30,23 +30,22 @@ summary(rules)
 
 # Note 1: 
 #   Call apriori() with a minimum support of 
-#   0.002 and a minimum confidence of 0.75. 
+#   0.002 and a minimum confidence of 0.75 
 
 # Note 2: 
-#   The summary of the apriori() output reports 
-#   the number of rules found;... 
+#   The number of rules found 
 
 # Note 3: 
-#   ...the distribution of rule lengths (in this 
+#   The distribution of rule lengths (in this 
 #   example, most rules contain 3 items—2 on the left 
 #   side, X (lhs), and one on the right side, Y 
-#   (rhs));... 
+#   (rhs)) 
 
 # Note 4: 
-#   ...a summary of rule quality measures, 
-#   including support and confidence;... 
+#   A summary of rule quality measures, 
+#   including support and confidence 
 
 # Note 5: 
-#   ...and some information on how apriori() was 
-#   called. 
+#   Some information on how apriori() was 
+#   called 
 

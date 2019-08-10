@@ -1,5 +1,5 @@
 # informalexample 10.8 of section 10.1.4 
-# (informalexample 10.8 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient-boosted trees 
+# (informalexample 10.8 of section 10.1.4)  : Exploring advanced methods : Tree-based methods : Gradient-boosted trees 
 
 model <- xgboost(data = dtm_train, label = labels,
                   params = list(

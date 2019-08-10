@@ -1,5 +1,5 @@
 # example 10.22 of section 10.3.1 
-# (example 10.22 of section 10.3.1)  : Exploring advanced methods : Solving "Inseparable" Problems Using Support Vector Machines : Using a SVM to solve a problem 
+# (example 10.22 of section 10.3.1)  : Exploring advanced methods : Solving “inseparable” problems using support vector machines : Using a SVM to solve a problem 
 # Title: Setting up the spirals data as an example classification problem 
 
 library('kernlab')
@@ -19,9 +19,8 @@ ggplot(data = s) + 	# Note: 4
   ggtitle("example task: separate the 1s from the 2s")
 
 # Note 1: 
-#   Load the kernlab kernel and support vector 
-#   machine package and then ask that the included example "spirals" be made 
-#   available. 
+#   Load the kernlab kernel and support vector machine package and then ask that the included 
+#   example “spirals” be made available. 
 
 # Note 2: 
 #   Use kernlab’s spectral clustering routine 
