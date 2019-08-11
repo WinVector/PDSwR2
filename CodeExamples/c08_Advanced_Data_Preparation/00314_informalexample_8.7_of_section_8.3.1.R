@@ -1,8 +1,8 @@
 # informalexample 8.7 of section 8.3.1 
 # (informalexample 8.7 of section 8.3.1)  : Advanced data preparation : Basic data preparation for classification : The variable score frame 
 
-treatmet_plan_2 <- design_missingness_treatment(dTrain, varlist = vars) 	# Note: 1 
-dtrain_2 <- prepare(treatmet_plan_2, dTrain)                           	# Note: 2 
+treatment_plan_2 <- design_missingness_treatment(dTrain, varlist = vars) 	# Note: 1 
+dtrain_2 <- prepare(treatment_plan_2, dTrain)                           	# Note: 2 
 head(dtrain_2$Var218)
 
 ## [1] "cJvF"      "_invalid_" "UYBR"      "UYBR"      "UYBR"      "UYBR"

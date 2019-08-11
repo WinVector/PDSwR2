@@ -22,7 +22,9 @@ data_handle %.>% 	# Note: 1
 # |John      |Dell XPS Laptop                |     0.10|                  0.24020|           4|
 
 # Note 1: 
-#   Pipe our data into the execute() method. Notice we are using the "wrapr dot pipe." 
+#   Pipe our data into the 
+#   execute() method. Notice we are using the “wrapr dot 
+#   pipe.” 
 
 # Note 2: 
 #   We are going to calculate rank() or the order of the data rows. 

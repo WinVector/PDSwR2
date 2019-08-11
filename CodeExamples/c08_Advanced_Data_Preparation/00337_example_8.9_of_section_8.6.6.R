@@ -40,7 +40,7 @@ sigr::wrapFTest(res1, "x_bad_catN", "y") 	# Note: 6
 
 # Note 2: 
 #   Notice the derived variable x_good_catN comes out as having a significant signal, and x_bad_catN does not.  
-#   This is due to proper cross-validation in estimating the variable qualities. 
+#   This is due to the proper use of cross-validation in the vtreat quality estimates. 
 
 # Note 3: 
 #   Call prepare() on the same data used to design the treatment 
@@ -55,5 +55,5 @@ sigr::wrapFTest(res1, "x_bad_catN", "y") 	# Note: 6
 
 # Note 6: 
 #   x_bad_catN’s F-test is inflated and falsely looks 
-#   significant. 
+#   significant, this is due to failure to use cross validated methods. 
 

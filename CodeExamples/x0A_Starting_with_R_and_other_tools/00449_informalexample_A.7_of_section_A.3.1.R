@@ -24,20 +24,22 @@ DBI::dbReadTable(db$connection, result_table$table_name) %.>% 	# Note: 6
 # |Nina      |Dell XPS Laptop           |     0.05|                   0.3179|           2|
 
 # Note 1: 
-#   define our sequence of operations 
+#   Define our sequence of operations 
 
 # Note 2: 
-#   mark each row with its simple per-user rank 
+#   Mark each row with its simple per-user rank 
 
 # Note 3: 
-#   select the two rows with highest rank for each user 
+#   Select the two rows with highest rank for each 
+#   user 
 
 # Note 4: 
-#   order the rows by user and product rank 
+#   Order the rows by user and product rank 
 
 # Note 5: 
-#   run the result in the database, instantiating a new result table 
+#   Run the result in the database, instantiating a new 
+#   result table 
 
 # Note 6: 
-#   copy the result back to R and pretty print it. 
+#   Copy the result back to R and pretty print it. 
 
