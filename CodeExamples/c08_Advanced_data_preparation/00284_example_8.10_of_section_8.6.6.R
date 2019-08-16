@@ -28,7 +28,7 @@ sigr::wrapFTest(res2, "x_bad_catN", "y")
 sigr::wrapFTest(res2, "x_good_catN", "y")
 # [1] "F Test summary: (R2=0.2532, F(1,98)=33.22, p<1e-05)."
 
-plan6$scoreFrame 	# Note: 1 
+plan6$scoreFrame                                               	# Note: 1 
 #       varName varMoves        rsq          sig needsSplit
 # 1  x_bad_catN     TRUE 0.01436145 2.349865e-01       TRUE
 # 2 x_good_catN     TRUE 0.26478467 4.332649e-08       TRUE

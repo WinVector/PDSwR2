@@ -5,18 +5,18 @@
 set.seed(2335246L)
 s$group <- sample.int(100, size = dim(s)[[1]], replace = TRUE)
 sTrain <- subset(s, group > 10)
-sTest <- subset(s,group <= 10) 		# Note: 1  
+sTest <- subset(s,group <= 10)                           		# Note: 1  
 
 library('e1071')
 mSVMV <- svm(class ~ x + y, data = sTrain, kernel = 'linear', type = 'nu-classification') 		# Note: 2 
-sTest$predSVMV <- predict(mSVMV, newdata = sTest, type = 'response') 		# Note: 3 
+sTest$predSVMV <- predict(mSVMV, newdata = sTest, type = 'response')     		# Note: 3 
 
 shading <- expand.grid( 	# Note: 4 
   x = seq(-1.5, 1.5, by = 0.01),
   y = seq(-1.5, 1.5, by = 0.01))
 shading$predSVMV <- predict(mSVMV, newdata = shading, type = 'response')
 
-ggplot(mapping = aes(x = x, y = y)) + 	# Note: 5 
+ggplot(mapping = aes(x = x, y = y)) +                         	# Note: 5 
   geom_tile(data = shading, aes(fill = predSVMV),
             show.legend = FALSE, alpha = 0.5) +
   scale_color_manual(values = c("#d95f02", "#1b9e77")) +

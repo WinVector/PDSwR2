@@ -2,19 +2,19 @@
 # (example 10.3 of section 10.1.3)  : Exploring advanced methods : Tree-based methods : Using random forests to further improve prediction 
 # Title: Using random forests 
 
-library(randomForest)           	# Note: 1 
-set.seed(5123512) 	# Note: 2 
-fmodel <- randomForest(x = spamTrain[, spamVars], 	# Note: 3 
+library(randomForest)                                   	# Note: 1 
+set.seed(5123512)                                     	# Note: 2 
+fmodel <- randomForest(x = spamTrain[, spamVars],       	# Note: 3 
         y = spamTrain$spam,
-        ntree = 100, 	# Note: 4 
-        nodesize = 7, 	# Note: 5 
-        importance = TRUE) 	# Note: 6 
+        ntree = 100,                                   	# Note: 4 
+        nodesize = 7,                                  	# Note: 5 
+        importance = TRUE)                             	# Note: 6 
                     
 pred <- predict(fmodel, 
                 spamTrain[, spamVars], 
                 type = 'prob')[, 'spam']
                 
-trainperf_rf <-  accuracyMeasures(predict(fmodel, 	# Note: 7 
+trainperf_rf <-  accuracyMeasures(predict(fmodel,      	# Note: 7 
    newdata = spamTrain[, spamVars], type = 'prob')[, 'spam'],
    spamTrain$spam == "spam", name = "random forest, train")
 

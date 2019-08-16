@@ -8,7 +8,7 @@ cv <- xgb.cv(dtm_train,
                ),
              nfold = 5,
              nrounds = 500,
-             early_stopping_rounds = 20, 	# Note: 1 
+             early_stopping_rounds = 20,             	# Note: 1 
              print_every_n = 10,
              metrics = "logloss")    
              

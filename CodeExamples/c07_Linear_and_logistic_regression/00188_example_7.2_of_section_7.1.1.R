@@ -5,13 +5,13 @@
 psub <- readRDS("psub.RDS")
                                                 
 set.seed(3454351)     
-gp <- runif(nrow(psub))    	# Note: 1 
+gp <- runif(nrow(psub))                                            	# Note: 1 
                                                 
-dtrain <- subset(psub, gp >= 0.5)   	# Note: 2 
+dtrain <- subset(psub, gp >= 0.5)                                	# Note: 2 
 dtest <- subset(psub, gp < 0.5)
                                                 
 model <- lm(log10(PINCP) ~ AGEP + SEX + COW + SCHL, data = dtrain)  	# Note: 3 
-dtest$predLogPINCP <- predict(model, newdata = dtest) 	# Note: 4 
+dtest$predLogPINCP <- predict(model, newdata = dtest)              	# Note: 4 
 dtrain$predLogPINCP <- predict(model, newdata = dtrain)
 
 # Note 1: 

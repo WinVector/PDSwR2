@@ -4,11 +4,11 @@
 
 cars_test$pred_glm <- predict(model_glm, 
                              newdata=cars_test,
-                             type = "response")  	# Note: 1 
+                             type = "response")                 	# Note: 1 
                              
-library(sigr)    	# Note: 2  
+library(sigr)                                                       	# Note: 2  
 
-confmat <- function(dframe, predvar) {     	# Note: 3 
+confmat <- function(dframe, predvar) {                               	# Note: 3 
   cmat <- table(truth = ifelse(dframe$fail, "unacceptable", "passed"),
                prediction = ifelse(dframe[[predvar]] > 0.5, 
                                    "unacceptable", "passed"))

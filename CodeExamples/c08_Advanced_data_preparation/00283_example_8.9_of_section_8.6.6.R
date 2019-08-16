@@ -2,7 +2,7 @@
 # (example 8.9 of section 8.6.6)  : Advanced data preparation : Mastering the vtreat package : The cross-frame 
 # Title: The dangers of re-using data 
 
-plan5 <- vtreat::designTreatmentsN(d, 	# Note: 1 
+plan5 <- vtreat::designTreatmentsN(d,                      	# Note: 1 
                                    varlist = c("x_bad", "x_good"),
                                    outcomename = "y",
                                    codeRestriction = "catN",
@@ -12,14 +12,14 @@ plan5 <- vtreat::designTreatmentsN(d, 	# Note: 1
 class(plan5)
 # [1] "treatmentplan"
 
-print(plan5) 	# Note: 2 
+print(plan5)                                                	# Note: 2 
 #   origName     varName code          rsq          sig extraModelDegrees
 # 1    x_bad  x_bad_catN catN 4.906903e-05 9.448548e-01                24
 # 2   x_good x_good_catN catN 2.602702e-01 5.895285e-08                 1
 
-training_data1 <- vtreat::prepare(plan5, d) 	# Note: 3 
+training_data1 <- vtreat::prepare(plan5, d)                  	# Note: 3 
                                 
-res1 <- vtreat::patch_columns_into_frame(d, training_data1)  	# Note: 4 
+res1 <- vtreat::patch_columns_into_frame(d, training_data1)    	# Note: 4 
 head(res1)
 #   x_bad  x_good x_bad_catN x_good_catN           y
 # 1     u non-neg  0.4070979   0.4305195 -0.05294738
@@ -29,10 +29,10 @@ head(res1)
 # 5     b     neg -0.3890076  -0.5706886 -0.86159347
 # 6     b non-neg -0.3890076   0.4305195 -0.52766549
 
-sigr::wrapFTest(res1, "x_good_catN", "y") 	# Note: 5 
+sigr::wrapFTest(res1, "x_good_catN", "y")              	# Note: 5 
 # [1] "F Test summary: (R2=0.2717, F(1,98)=36.56, p<1e-05)."
 
-sigr::wrapFTest(res1, "x_bad_catN", "y") 	# Note: 6 
+sigr::wrapFTest(res1, "x_bad_catN", "y")               	# Note: 6 
 # [1] "F Test summary: (R2=0.2342, F(1,98)=29.97, p<1e-05)."
 
 # Note 1: 

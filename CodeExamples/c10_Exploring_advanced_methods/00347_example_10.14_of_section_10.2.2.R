@@ -2,9 +2,9 @@
 # (example 10.14 of section 10.2.2)  : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : A one-dimensional regression example 
 # Title: GAM applied to the artificial example 
 
-library(mgcv)                             	# Note: 1 
-gam_model <- gam(y ~ s(x), data = train)   	# Note: 2 
-gam_model$converged                      	# Note: 3 
+library(mgcv)                                   	# Note: 1 
+gam_model <- gam(y ~ s(x), data = train)        	# Note: 2 
+gam_model$converged                             	# Note: 3 
 ## [1] TRUE
 
 summary(gam_model)
@@ -21,7 +21,7 @@ summary(gam_model)
 ## ---
 ## Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 ##
-## Approximate significance of smooth terms:       	# Note: 6 
+## Approximate significance of smooth terms:            	# Note: 6 
 ##        edf Ref.df     F p-value
 ## s(x) 8.685  8.972 497.8  <2e-16 ***
 ## ---
@@ -30,13 +30,13 @@ summary(gam_model)
 ## R-sq.(adj) =  0.832   Deviance explained = 83.4%          	# Note: 7 
 ## GCV score =  2.144  Scale est. = 2.121     n = 901
 
-train$pred <- predict(gam_model, train)  	# Note: 8 
+train$pred <- predict(gam_model, train)                	# Note: 8 
 resid_gam <- with(train, y - pred)
 rmse(resid_gam)
 
 ## [1] 1.448514
 
-ggplot(train, aes(x = pred, y = y)) +   	# Note: 9 
+ggplot(train, aes(x = pred, y = y)) +                   	# Note: 9 
   geom_point(alpha = 0.3) + 
   geom_abline()
 

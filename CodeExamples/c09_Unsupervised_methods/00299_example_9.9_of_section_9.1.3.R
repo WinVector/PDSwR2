@@ -2,7 +2,7 @@
 # (example 9.9 of section 9.1.3)  : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
 # Title: Plot BSS and WSS as a function of k 
 
-total_ss <- function(dmatrix) {                    	# Note: 1 
+total_ss <- function(dmatrix) {                              	# Note: 1 
   grandmean <- colMeans(dmatrix)
   sum(apply(dmatrix, 1, FUN = function(row) { sqr_edist(row, grandmean) }))
 }
@@ -10,8 +10,8 @@ total_ss <- function(dmatrix) {                    	# Note: 1
 tss <- total_ss(pmatrix)
 cluster_meas$bss <- with(cluster_meas, tss - wss)
 
-library(cdata)                                      	# Note: 2 
-cmlong <- unpivot_to_blocks(cluster_meas,        	# Note: 3 
+library(cdata)                                                 	# Note: 2 
+cmlong <- unpivot_to_blocks(cluster_meas,                       	# Note: 3 
                            nameForNewKeyColumn = "measure",
                            nameForNewValueColumn = "value",
                            columnsToTakeFrom = c("wss", "bss"))

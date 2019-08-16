@@ -8,7 +8,7 @@ library(glmnetUtils)
 (model_ridge <- cv.glmnet(fmla,
                          cars_train,
                          alpha = 0,
-                         family = "binomial"))  	# Note: 1 
+                         family = "binomial"))    	# Note: 1 
 
 ## Call:
 ## cv.glmnet.formula(formula = fmla, data = cars_train, alpha = 0, 

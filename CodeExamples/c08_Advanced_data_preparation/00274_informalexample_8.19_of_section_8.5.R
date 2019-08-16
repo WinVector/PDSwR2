@@ -3,7 +3,7 @@
 
 library("vtreat")
 
-cfe <- mkCrossFrameNExperiment(auto_mpg, vars, "mpg", 	# Note: 1 
+cfe <- mkCrossFrameNExperiment(auto_mpg, vars, "mpg",           	# Note: 1 
                                verbose = FALSE)
 treatment_plan <- cfe$treatments
 auto_mpg_treated <- cfe$crossFrame
@@ -27,7 +27,7 @@ str(auto_mpg[!complete.cases(auto_mpg), , drop = FALSE])
 #  $ model_year  : num  71 74 80 80 81 82
 #  $ origin      : Factor w/ 3 levels "1","2","3": 1 1 2 1 2 1
 #  $ car_name    : chr  "\"ford pinto\"" "\"ford maverick\"" "\"renault lecar deluxe\"" ...
-#  $ prediction  : num  24.6 22.4 34.2 26.1 33.3 ...  	# Note: 2
+#  $ prediction  : num  24.6 22.4 34.2 26.1 33.3 ...               	# Note: 2
 
 # Note 1: 
 #   Try it again with vtreat data preparation. 

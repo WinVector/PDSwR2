@@ -2,11 +2,11 @@
 # (example 8.4 of section 8.3)  : Advanced data preparation : Basic data preparation for classification 
 # Title: Basic data preparation for classification 
 
-library("vtreat")  	# Note: 1 
+library("vtreat")                                               	# Note: 1 
 
-(parallel_cluster <- parallel::makeCluster(parallel::detectCores())) 	# Note: 2 
+(parallel_cluster <- parallel::makeCluster(parallel::detectCores()))  	# Note: 2 
 
-treatment_plan <- vtreat::designTreatmentsC( 	# Note: 3 
+treatment_plan <- vtreat::designTreatmentsC(                        	# Note: 3 
   dTrain, 
   varlist = vars, 
   outcomename = "churn", 

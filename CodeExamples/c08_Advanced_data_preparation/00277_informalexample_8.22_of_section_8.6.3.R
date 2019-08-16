@@ -10,7 +10,7 @@ d <- build_frame(
 print(d)
 #   x1   x2 x3  y
 # 1  1    a  6 10
-# 2 NA    b  7 20       	# Note: 1 
+# 2 NA    b  7 20                                                 	# Note: 1 
 # 3  3 <NA>  8 30
 plan2 <- vtreat::designTreatmentsZ(d, 
                                    varlist = c("x1", "x2", "x3"),
@@ -18,7 +18,7 @@ plan2 <- vtreat::designTreatmentsZ(d,
 vtreat::prepare(plan2, d)
 #   x1 x1_isBAD x3 x2_lev_NA x2_lev_x_a x2_lev_x_b
 # 1  1        0  6         0          1          0
-# 2  2        1  7         0          0          1 	# Note: 2 
+# 2  2        1  7         0          0          1                  	# Note: 2 
 # 3  3        0  8         1          0          0
 
 # Note 1: 

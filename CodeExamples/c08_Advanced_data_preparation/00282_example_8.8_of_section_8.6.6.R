@@ -2,9 +2,9 @@
 # (example 8.8 of section 8.6.6)  : Advanced data preparation : Mastering the vtreat package : The cross-frame 
 # Title: An information-free dataset 
 
-set.seed(2019) 	# Note: 1 
+set.seed(2019)                                               	# Note: 1 
 
-d <- data.frame( 	# Note: 2 
+d <- data.frame(                                             	# Note: 2 
   x_bad = sample(letters, 100, replace = TRUE),
   y = rnorm(100),
   stringsAsFactors = FALSE

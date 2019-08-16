@@ -10,8 +10,8 @@ model <- xgboost(data = input,
                   nrounds = NROUNDS,
                   verbose = FALSE)
 
-test_input <- as.matrix(test[, 1:4])  	# Note: 1 
-pred <- predict(model,  test_input)   	# Note: 2 
+test_input <- as.matrix(test[, 1:4])               	# Note: 1 
+pred <- predict(model,  test_input)                	# Note: 2 
 
 accuracyMeasures(pred, test$class) 
 

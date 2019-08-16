@@ -11,7 +11,7 @@ model <- xgboost(data = dtm_train, label = labels,
 pred = predict(model, dtm_train)  
 trainperf_xgb =  accuracyMeasures(pred, labels, "training")  
 
-c(test_texts, test_labels) %<-% readRDS("IMDBtest.RDS") 	# Note: 1 
+c(test_texts, test_labels) %<-% readRDS("IMDBtest.RDS")    	# Note: 1 
 dtm_test = make_matrix(test_texts, vocab) 
 
 pred = predict(model, dtm_test)

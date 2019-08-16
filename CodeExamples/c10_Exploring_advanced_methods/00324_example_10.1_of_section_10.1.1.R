@@ -2,16 +2,16 @@
 # (example 10.1 of section 10.1.1)  : Exploring advanced methods : Tree-based methods : A basic decision tree 
 # Title: Preparing Spambase data and evaluating a decision tree model 
 
-spamD <- read.table('spamD.tsv', header = TRUE, sep = '\t')  		# Note: 1 
+spamD <- read.table('spamD.tsv', header = TRUE, sep = '\t')    		# Note: 1 
 spamD$isSpam <- spamD$spam == 'spam'
 spamTrain <- subset(spamD, spamD$rgroup >= 10)
 spamTest <- subset(spamD, spamD$rgroup < 10)
 
 spamVars <- setdiff(colnames(spamD), list('rgroup', 'spam', 'isSpam'))
 library(wrapr)
-spamFormula <- mk_formula("isSpam", spamVars)  	# Note: 2 
+spamFormula <- mk_formula("isSpam", spamVars)                        	# Note: 2 
                    
-loglikelihood <- function(y, py) {      	# Note: 3 
+loglikelihood <- function(y, py) {                                     	# Note: 3 
   pysmooth <- ifelse(py == 0, 1e-12,
                   ifelse(py == 1, 1 - 1e-12, py))
 
@@ -19,7 +19,7 @@ loglikelihood <- function(y, py) {      	# Note: 3
 }
 
 
-accuracyMeasures <- function(pred, truth, name = "model") {   	# Note: 4 
+accuracyMeasures <- function(pred, truth, name = "model") {            	# Note: 4 
   dev.norm <- -2 * loglikelihood(as.numeric(truth), pred) / length(pred)    	# Note: 5 
   ctable <- table(truth = truth,
                  pred = (pred > 0.5))                                       	# Note: 6 
@@ -31,15 +31,15 @@ accuracyMeasures <- function(pred, truth, name = "model") {   	# Note: 4
 }
 
 
-library(rpart)                                                      	# Note: 7 
+library(rpart)                                                              	# Note: 7 
 treemodel <- rpart(spamFormula, spamTrain, method = "class")
 
-library(rpart.plot)  	# Note: 8 
+library(rpart.plot)                                                     	# Note: 8 
 rpart.plot(treemodel, type = 5, extra = 6)     
 
-predTrain <- predict(treemodel, newdata = spamTrain)[, 2] 	# Note: 9 
+predTrain <- predict(treemodel, newdata = spamTrain)[, 2]                	# Note: 9 
 
-trainperf_tree <- accuracyMeasures(predTrain,  		# Note: 10  
+trainperf_tree <- accuracyMeasures(predTrain,                      		# Note: 10  
                  spamTrain$spam == "spam",
                  name = "tree, training")
 

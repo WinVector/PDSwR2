@@ -2,12 +2,12 @@
 # (example 9.7 of section 9.1.3)  : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
 # Title: Calculating total within sum of squares 
 
-sqr_edist <- function(x, y) {             	# Note: 1 
+sqr_edist <- function(x, y) {                              	# Note: 1 
   sum((x - y)^2)
 }
 
-wss_cluster <- function(clustermat) {     	# Note: 2 
-  c0 <- colMeans(clustermat)     	# Note: 3 
+wss_cluster <- function(clustermat) {                     	# Note: 2 
+  c0 <- colMeans(clustermat)                              	# Note: 3 
   sum(apply(clustermat, 1, FUN = function(row) { sqr_edist(row, c0) }))     	# Note: 4 
 }
 
@@ -19,7 +19,7 @@ wss_total <- function(dmatrix, labels) {                               	# Note: 
   wsstot
 }
 
-wss_total(pmatrix, groups)  	# Note: 7  
+wss_total(pmatrix, groups)                                 	# Note: 7  
 ## [1] 71.94342
 
 # Note 1: 

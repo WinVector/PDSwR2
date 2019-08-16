@@ -4,18 +4,18 @@
 
 library(xgboost)
 
-cv <- xgb.cv(input,  	# Note: 1  
-            label = train$class, 	# Note: 2  
+cv <- xgb.cv(input,                                        	# Note: 1  
+            label = train$class,                           	# Note: 2  
               params = list(
-                objective = "binary:logistic"    	# Note: 3 
+                objective = "binary:logistic"             	# Note: 3 
               ),
-              nfold = 5,  	# Note: 4 
-              nrounds = 100, 	# Note: 5 
-              print_every_n = 10, 	# Note: 6 
-              metrics = "logloss") 	# Note: 7  
+              nfold = 5,                                    	# Note: 4 
+              nrounds = 100,                                	# Note: 5 
+              print_every_n = 10,                           	# Note: 6 
+              metrics = "logloss")                      	# Note: 7  
 
-evalframe <- as.data.frame(cv$evaluation_log) 	# Note: 8  
-head(evalframe) 	# Note: 9  
+evalframe <- as.data.frame(cv$evaluation_log)               	# Note: 8  
+head(evalframe)                                              	# Note: 9  
 
 ##   iter train_logloss_mean train_logloss_std test_logloss_mean
 ## 1    1          0.4547800      7.758350e-05         0.4550578
@@ -32,7 +32,7 @@ head(evalframe) 	# Note: 9
 ## 5      0.002020668
 ## 6      0.001911152
 
-(NROUNDS <- which.min(evalframe$test_logloss_mean)) 	# Note: 10 
+(NROUNDS <- which.min(evalframe$test_logloss_mean))        	# Note: 10 
 ## [1] 18
 
 library(ggplot2)

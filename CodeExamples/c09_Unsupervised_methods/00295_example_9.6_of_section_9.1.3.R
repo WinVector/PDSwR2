@@ -2,7 +2,7 @@
 # (example 9.6 of section 9.1.3)  : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
 # Title: Running clusterboot() on the protein data 
 
-library(fpc)                                    	# Note: 1 
+library(fpc)                                                	# Note: 1 
 kbest_p <- 5                                                      	# Note: 2 
 cboot_hclust <- clusterboot(pmatrix,
                            clustermethod = hclustCBI,    	# Note: 3  

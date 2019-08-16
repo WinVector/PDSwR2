@@ -4,10 +4,10 @@
 
 rsq <- function(y, f) { 1 - sum((y - f)^2)/sum((y - mean(y))^2) }
 
-rsq(log10(dtrain$PINCP), dtrain$predLogPINCP) 	# Note: 1 
+rsq(log10(dtrain$PINCP), dtrain$predLogPINCP)           	# Note: 1 
 ## [1] 0.2976165
 
-rsq(log10(dtest$PINCP), dtest$predLogPINCP)   	# Note: 2 
+rsq(log10(dtest$PINCP), dtest$predLogPINCP)              	# Note: 2 
 ## [1] 0.2911965
 
 # Note 1: 

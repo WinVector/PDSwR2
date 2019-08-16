@@ -4,7 +4,7 @@
 
 groups <- cutree(pfit, k = 5)
 
-print_clusters = function(data, groups, columns) { 	# Note: 1 
+print_clusters = function(data, groups, columns) {               	# Note: 1 
   groupedD = split(data, groups)
   lapply(groupedD,
          function(df) df[, columns])

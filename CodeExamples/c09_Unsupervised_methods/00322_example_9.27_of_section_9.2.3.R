@@ -4,7 +4,7 @@
 
 brules %>% 
   sort(., by = "confidence") %>%   
-  lhs(.) %>%               	# Note: 1  
+  lhs(.) %>%                                     	# Note: 1  
   head(., n = 5) %>%         
   inspect(.)                                               
 ##   items

@@ -2,16 +2,16 @@
 # (example 8.1 of section 8.2.1)  : Advanced data preparation : KDD and KDD Cup 2009 : Getting started with KDD Cup 2009 data 
 # Title: Preparing the KDD data for analysis 
 
-d <- read.table('orange_small_train.data.gz',  	# Note: 1 
+d <- read.table('orange_small_train.data.gz',             	# Note: 1 
    header = TRUE,
    sep = '\t',
-   na.strings = c('NA', '')) 	# Note: 2 
+   na.strings = c('NA', ''))                                  	# Note: 2 
                                                 
 churn <- read.table('orange_small_train_churn.labels.txt',
-   header = FALSE, sep = '\t') 	# Note: 3 
-d$churn <- churn$V1 	# Note: 4 
+   header = FALSE, sep = '\t')                             	# Note: 3 
+d$churn <- churn$V1                                     	# Note: 4 
 
-set.seed(729375) 	# Note: 5 
+set.seed(729375)                                         	# Note: 5 
 rgroup <- base::sample(c('train', 'calibrate', 'test'), 	# Note: 6 
    nrow(d), 
    prob = c(0.8, 0.1, 0.1),
@@ -24,7 +24,7 @@ dTest <- d[rgroup == 'test', , drop = FALSE]
 outcome <- 'churn' 
 vars <- setdiff(colnames(dTrainAll), outcome)
 
-rm(list=c('d', 'churn', 'rgroup')) 	# Note: 7
+rm(list=c('d', 'churn', 'rgroup'))                         	# Note: 7
 
 # Note 1: 
 #   Read the file of independent variables. All 

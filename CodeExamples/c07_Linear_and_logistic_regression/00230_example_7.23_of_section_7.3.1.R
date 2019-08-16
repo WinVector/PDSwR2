@@ -10,13 +10,13 @@ cars <- read.table(
 )
 
 
-vars <- setdiff(colnames(cars), "rating") 	# Note: 1 
+vars <- setdiff(colnames(cars), "rating")        	# Note: 1 
 
 cars$fail <- cars$rating == "unacc"
-outcome <- "fail"                     	# Note: 2 
+outcome <- "fail"                                	# Note: 2 
 
 set.seed(24351)
-gp <- runif(nrow(cars))  	# Note: 3 
+gp <- runif(nrow(cars))                              	# Note: 3 
                                 
 library("zeallot")
 c(cars_test, cars_train) %<-% split(cars, gp < 0.7)  	# Note: 4 

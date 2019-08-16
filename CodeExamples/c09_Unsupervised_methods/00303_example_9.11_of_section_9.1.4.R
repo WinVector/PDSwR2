@@ -5,7 +5,7 @@
 kbest_p <- 5
 
 pclusters <- kmeans(pmatrix, kbest_p, nstart = 100, iter.max = 100)     	# Note: 1 
-summary(pclusters)                                                  	# Note: 2 
+summary(pclusters)                                                      	# Note: 2 
 ##              Length Class  Mode   
 ## cluster      25     -none- numeric
 ## centers      45     -none- numeric

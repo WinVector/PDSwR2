@@ -24,16 +24,16 @@ summary(lin_model)
 ## Multiple R-squared:  0.04075,    Adjusted R-squared:  0.03968 
 ## F-statistic: 38.19 on 1 and 899 DF,  p-value: 9.737e-10
 
-rmse <- function(residuals) {     	# Note: 1 
+rmse <- function(residuals) {                    	# Note: 1 
   sqrt(mean(residuals^2))
 }
 
-train$pred_lin <- predict(lin_model, train)  	# Note: 2 
+train$pred_lin <- predict(lin_model, train)              	# Note: 2 
 resid_lin <- with(train, y - pred_lin)
 rmse(resid_lin)
 ## [1] 3.481091
 
-library(ggplot2)   	# Note: 3 
+library(ggplot2)                                  	# Note: 3 
 
 ggplot(train, aes(x = pred_lin, y = y)) + 
   geom_point(alpha = 0.3) + 

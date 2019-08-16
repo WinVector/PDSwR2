@@ -2,9 +2,9 @@
 # (example 10.4 of section 10.1.3)  : Exploring advanced methods : Tree-based methods : Using random forests to further improve prediction 
 # Title: randomForest variable importances 
 
-varImp <- importance(fmodel)              	# Note: 1 
+varImp <- importance(fmodel)                         	# Note: 1 
 
-varImp[1:10, ]                           	# Note: 2 
+varImp[1:10, ]                                       	# Note: 2 
 ##                     non-spam      spam MeanDecreaseAccuracy
 ## word.freq.make      1.656795  3.432962             3.067899
 ## word.freq.address   2.631231  3.800668             3.632077

@@ -2,7 +2,7 @@
 # (informalexample 8.21 of section 8.6.2)  : Advanced data preparation : Mastering the vtreat package : Missing values 
 
 plan1 <- vtreat::design_missingness_treatment(d)
-vtreat::prepare(plan1, d) %.>%  	# Note: 1 
+vtreat::prepare(plan1, d) %.>%            	# Note: 1 
    knitr::kable(.)
 
 # Note 1: 

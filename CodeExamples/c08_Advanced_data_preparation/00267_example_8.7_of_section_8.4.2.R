@@ -4,10 +4,10 @@
 
 library("wrapr")
 
-newvars <- score_frame$varName[score_frame$selected] 	# Note: 1 
+newvars <- score_frame$varName[score_frame$selected]             	# Note: 1 
 
-f <- mk_formula("churn", newvars, outcome_target = 1) 	# Note: 2 
-model <- glm(f, data = dTrainAll_treated, family = binomial) 	# Note: 3 
+f <- mk_formula("churn", newvars, outcome_target = 1)       	# Note: 2 
+model <- glm(f, data = dTrainAll_treated, family = binomial)    	# Note: 3 
 # Warning message:
 # glm.fit: fitted probabilities numerically 0 or 1 occurred
 

@@ -2,11 +2,11 @@
 # (example 10.5 of section 10.1.3)  : Exploring advanced methods : Tree-based methods : Using random forests to further improve prediction 
 # Title: Fitting with fewer variables 
 
-sorted <- sort(varImp[, "MeanDecreaseAccuracy"],    	# Note: 1 
+sorted <- sort(varImp[, "MeanDecreaseAccuracy"],       	# Note: 1 
                decreasing = TRUE)
 
 selVars <- names(sorted)[1:30]
-fsel <- randomForest(x = spamTrain[, selVars],    	# Note: 2 
+fsel <- randomForest(x = spamTrain[, selVars],             	# Note: 2 
                         y = spamTrain$spam, 
                         ntree = 100,
                         nodesize = 7,
@@ -20,7 +20,7 @@ testperf_rf2 <- accuracyMeasures(predict(fsel,
    newdata=spamTest[, selVars], type = 'prob')[, 'spam'],
    spamTest$spam == "spam", name = "RF small, test")
 
-perftable <- rbind(testperf_rf, testperf_rf2)  	# Note: 3 
+perftable <- rbind(testperf_rf, testperf_rf2)              	# Note: 3 
 pandoc.table(perftable, justify = perf_justify)
 ##
 ##

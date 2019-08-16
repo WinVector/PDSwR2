@@ -6,7 +6,7 @@ prediction <- predict(model_ridge,
                      newdata = cars_test,
                      type = "response")
 
-cars_test$pred_ridge <- as.numeric(prediction)  	# Note: 1 
+cars_test$pred_ridge <- as.numeric(prediction)       	# Note: 1 
 
 confmat(cars_test, "pred_ridge")
 ## $confusion_matrix

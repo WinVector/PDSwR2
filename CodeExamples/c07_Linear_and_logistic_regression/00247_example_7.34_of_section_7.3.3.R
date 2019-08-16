@@ -2,17 +2,17 @@
 # (example 7.34 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
 # Title: Finding the minimum error alpha 
 
-get_cvm <- function(model) {                        	# Note: 1 
+get_cvm <- function(model) {                                  	# Note: 1 
   index <- match(model$lambda.1se, model$lambda)
   model$cvm[index]
 }
 
-enet_performance <- data.frame(alpha = elastic_net$alpha)  	# Note: 2 
-models <- elastic_net$modlist                  	# Note: 3 
+enet_performance <- data.frame(alpha = elastic_net$alpha)     	# Note: 2 
+models <- elastic_net$modlist                                 	# Note: 3 
 enet_performance$cvm <- vapply(models, get_cvm, numeric(1))  	# Note: 4 
                        
-minix <- which.min(enet_performance$cvm)           	# Note: 5 
-(best_alpha <- elastic_net$alpha[minix])           	# Note: 6 
+minix <- which.min(enet_performance$cvm)                     	# Note: 5 
+(best_alpha <- elastic_net$alpha[minix])                     	# Note: 6 
 ## [1] 0.729
 
 ggplot(enet_performance, aes(x = alpha, y = cvm)) +          	# Note: 7 

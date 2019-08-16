@@ -9,7 +9,7 @@ train <- sdata[sdata$ORIGRANDGROUP <= 5, ]
 test <- sdata[sdata$ORIGRANDGROUP > 5, ]
 
 form_lin <- as.formula("DBWT ~ PWGT + WTGAIN + MAGER + UPREVIS")
-linmodel <- lm(form_lin, data = train)    	# Note: 1  
+linmodel <- lm(form_lin, data = train)                                	# Note: 1  
 summary(linmodel)
 
 ## Call:
@@ -30,13 +30,13 @@ summary(linmodel)
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
 ## Residual standard error: 562.7 on 14381 degrees of freedom
-## Multiple R-squared:  0.06596,    Adjusted R-squared:  0.0657   	# Note: 2 
+## Multiple R-squared:  0.06596,    Adjusted R-squared:  0.0657       	# Note: 2 
 ## F-statistic: 253.9 on 4 and 14381 DF,  p-value: < 2.2e-16
 
 form_gam <- as.formula("DBWT ~ s(PWGT) + s(WTGAIN) +
                         s(MAGER) + s(UPREVIS)")
-gammodel <- gam(form_gam, data = train)                       	# Note: 3 
-gammodel$converged                                             	# Note: 4 
+gammodel <- gam(form_gam, data = train)                            	# Note: 3 
+gammodel$converged                                                	# Note: 4 
 ## [1] TRUE
 
 summary(gammodel)
@@ -63,7 +63,7 @@ summary(gammodel)
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## R-sq.(adj) =  0.0927   Deviance explained = 9.42%  	# Note: 5 
+## R-sq.(adj) =  0.0927   Deviance explained = 9.42%                  	# Note: 5 
 ## GCV = 3.0804e+05  Scale est. = 3.0752e+05  n = 14386
 
 # Note 1: 

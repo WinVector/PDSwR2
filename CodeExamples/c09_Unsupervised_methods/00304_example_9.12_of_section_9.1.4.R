@@ -3,7 +3,7 @@
 # Title: Plotting cluster criteria 
 
 clustering_ch <- kmeansruns(pmatrix, krange = 1:10, criterion = "ch")       	# Note: 1                                                 
-clustering_ch$bestk                                                 	# Note: 2 
+clustering_ch$bestk                                                             	# Note: 2 
 ## [1] 2
 
 clustering_asw <- kmeansruns(pmatrix, krange = 1:10, criterion = "asw")     	# Note: 3 

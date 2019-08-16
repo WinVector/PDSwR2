@@ -4,9 +4,9 @@
 
 library(vtreat)
 
-treatplan <- designTreatmentsZ(train,  	# Note: 1 
+treatplan <- designTreatmentsZ(train,                                 	# Note: 1 
                                input_vars,
-                               codeRestriction = c("clean", "isBAD", "lev" ), 	# Note: 2                               
+                               codeRestriction = c("clean", "isBAD", "lev" ),   	# Note: 2 
                                verbose = FALSE)
 
 train_treated <- prepare(treatplan, train) 	# Note: 3 

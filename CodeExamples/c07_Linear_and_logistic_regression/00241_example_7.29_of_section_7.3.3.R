@@ -19,7 +19,7 @@
 ## doors3            0.01067978
 ## doors4           -0.21546650
 ## doors5more       -0.17649206
-## persons2          2.61102897   	# Note: 1 
+## persons2          2.61102897                     	# Note: 1 
 ## persons4         -1.35476871
 ## personsmore      -1.26074907
 ## lug_bootbig      -0.52193562

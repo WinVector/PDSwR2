@@ -24,14 +24,14 @@ summary(glogmod)
 ##
 ## Approximate significance of smooth terms: 
 ##              edf Ref.df  Chi.sq  p-value    
-## s(PWGT)    1.905  2.420   2.463  0.36412    	# Note: 1 
+## s(PWGT)    1.905  2.420   2.463  0.36412                 	# Note: 1 
 ## s(WTGAIN)  3.674  4.543  64.426 1.72e-12 ***
 ## s(MAGER)   1.003  1.005   8.335  0.00394 ** 
 ## s(UPREVIS) 6.802  7.216 217.631  < 2e-16 ***
 ## ---
 ## Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 ##
-## R-sq.(adj) =  0.0331   Deviance explained = 9.14% 	# Note: 2 
+## R-sq.(adj) =  0.0331   Deviance explained = 9.14%        	# Note: 2 
 ## UBRE score = -0.76987  Scale est. = 1         n = 14386
 
 # Note 1: 

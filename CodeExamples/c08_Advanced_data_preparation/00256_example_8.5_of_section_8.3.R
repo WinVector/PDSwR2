@@ -8,7 +8,7 @@ dTrain_treated <- prepare(treatment_plan,
                         
 head(colnames(dTrain))
 ## [1] "Var1" "Var2" "Var3" "Var4" "Var5" "Var6"
-head(colnames(dTrain_treated))      	# Note: 1      
+head(colnames(dTrain_treated))                          	# Note: 1 
 ## [1] "Var1"       "Var1_isBAD" "Var2"       "Var2_isBAD" "Var3"      
 ## [6] "Var3_isBAD"
 

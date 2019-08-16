@@ -23,7 +23,7 @@ summary(model2)
 # 
 #     Null deviance: 302.09  on 620  degrees of freedom
 # Residual deviance: 302.08  on 619  degrees of freedom
-#   (44407 observations deleted due to missingness) 	# Note: 1 
+#   (44407 observations deleted due to missingness)                  	# Note: 1 
 # AIC: 306.08
 # 
 # Number of Fisher Scoring iterations: 5

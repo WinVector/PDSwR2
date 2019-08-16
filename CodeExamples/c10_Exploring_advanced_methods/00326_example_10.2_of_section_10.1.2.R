@@ -2,20 +2,20 @@
 # (example 10.2 of section 10.1.2)  : Exploring advanced methods : Tree-based methods : Using bagging to improve prediction 
 # Title: Bagging decision trees 
 
-ntrain <- dim(spamTrain)[1]
-n <- ntrain                     	# Note: 1  
+ntrain <- dim(spamTrain)[1] 
+n <- ntrain                                                	# Note: 1  
 ntree <- 100
 
-samples <- sapply(1:ntree,          	# Note: 2  
+samples <- sapply(1:ntree,                                	# Note: 2  
                  FUN = function(iter)
                    { sample(1:ntrain, size = n, replace = TRUE) })
 
-treelist <-lapply(1:ntree,         	# Note: 3  
+treelist <-lapply(1:ntree,                                 	# Note: 3  
                   FUN = function(iter) {
                     samp <- samples[, iter];
                     rpart(spamFormula, spamTrain[samp, ], method = "class") })
 
-predict.bag <- function(treelist, newdata) {   	# Note: 4  
+predict.bag <- function(treelist, newdata) {               	# Note: 4  
   preds <- sapply(1:length(treelist),
                  FUN = function(iter) {
                    predict(treelist[[iter]], newdata = newdata)[, 2] })
@@ -24,7 +24,7 @@ predict.bag <- function(treelist, newdata) {   	# Note: 4
 }
 
 pred <- predict.bag(treelist, newdata = spamTrain)
-trainperf_bag <- accuracyMeasures(pred,     	# Note: 5  
+trainperf_bag <- accuracyMeasures(pred,                    	# Note: 5  
                  spamTrain$spam == "spam",
                  name = "bagging, training")
 

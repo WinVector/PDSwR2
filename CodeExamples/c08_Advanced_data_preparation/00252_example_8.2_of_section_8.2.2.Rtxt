@@ -2,15 +2,15 @@
 # (example 8.2 of section 8.2.2)  : Advanced data preparation : KDD and KDD Cup 2009 : The bull in the china shop approach 
 # Title: Attempting to model without preparation 
 
-library("wrapr")  	# Note: 1 
+library("wrapr")                                          	# Note: 1 
                                         
 outcome <- 'churn'                                        
 vars <- setdiff(colnames(dTrainAll), outcome)
 
-formula1 <- mk_formula("churn", vars, outcome_target = 1) 	# Note: 2 
-model1 <- glm(formula1, data = dTrainAll, family = binomial) 	# Note: 3 
+formula1 <- mk_formula("churn", vars, outcome_target = 1)  	# Note: 2 
+model1 <- glm(formula1, data = dTrainAll, family = binomial)   	# Note: 3 
                                         
-# Error in `contrasts ... 	# Note: 4
+# Error in `contrasts ...                                      	# Note: 4
 
 # Note 1: 
 #   Attach the wrapr package for convenience functions, such as mk_formula(). 

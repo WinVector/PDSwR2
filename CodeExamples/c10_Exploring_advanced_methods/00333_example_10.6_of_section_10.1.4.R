@@ -3,9 +3,9 @@
 # Title: Load the iris data 
 
 iris <- iris
-iris$class <- as.numeric(iris$Species == "setosa") 	# Note: 1  
+iris$class <- as.numeric(iris$Species == "setosa")     	# Note: 1  
 set.seed(2345)
-intrain <- runif(nrow(iris)) < 0.75   	# Note: 2 
+intrain <- runif(nrow(iris)) < 0.75                        	# Note: 2 
 train <- iris[intrain, ]
 test <- iris[!intrain, ]
 head(train)
@@ -18,7 +18,7 @@ head(train)
 ## 5          5.0         3.6          1.4         0.2  setosa     1
 ## 6          5.4         3.9          1.7         0.4  setosa     1
 
-input <- as.matrix(train[, 1:4]) 	# Note: 3
+input <- as.matrix(train[, 1:4])                         	# Note: 3
 
 # Note 1: 
 #   setosa is the positive class. 
