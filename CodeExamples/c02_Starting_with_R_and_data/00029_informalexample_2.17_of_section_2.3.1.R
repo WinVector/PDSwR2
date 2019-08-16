@@ -1,7 +1,7 @@
 # informalexample 2.17 of section 2.3.1 
 # (informalexample 2.17 of section 2.3.1)  : Starting with R and data : Working with relational databases : A production-size example 
 
-table(schooling = dpus$SCHL, sex = dpus$SEX) 	# Note: 1 
+table(schooling = dpus$SCHL, sex = dpus$SEX)                 	# Note: 1 
                                                 
 ##                                                 sex
 ## schooling                                         Male Female
@@ -12,10 +12,10 @@ table(schooling = dpus$SCHL, sex = dpus$SEX) 	# Note: 1
 ##   Master's degree                                 1792   2225
 ##   Professional degree beyond a bachelor's degree   421    379
 
-tapply(    	# Note: 2 
-   dpus$PINCP,  	# Note: 3 
-   list(dpus$SCHL, dpus$SEX), 	# Note: 4 
-   FUN = mean 	# Note: 5 
+tapply(                                                   	# Note: 2 
+   dpus$PINCP,                                       	# Note: 3 
+   list(dpus$SCHL, dpus$SEX),                        	# Note: 4 
+   FUN = mean                                        	# Note: 5 
    )
 
 ##                                                     Male   Female

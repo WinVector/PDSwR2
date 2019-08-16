@@ -2,13 +2,13 @@
 # (example 4.9 of section 4.2.2)  : Managing data : Data transformations : Centering and scaling 
 # Title: Centering and scaling age 
 
-(mean_age <- mean(training_prepared$age)) 	# Note: 1 
+(mean_age <- mean(training_prepared$age))                 	# Note: 1 
 ## [1] 49.21647
 
-(sd_age <- sd(training_prepared$age))  	# Note: 2 
+(sd_age <- sd(training_prepared$age))                     	# Note: 2 
 ## [1] 18.0124
 
-print(mean_age + c(-sd_age, sd_age))  	# Note: 3 
+print(mean_age + c(-sd_age, sd_age))                      	# Note: 3 
 ## [1] 31.20407 67.22886
 
 training_prepared$scaled_age <- (training_prepared$age - mean_age) / sd_age 	# Note: 4 
@@ -18,7 +18,7 @@ training_prepared %>%
   select(age, scaled_age) %>%
   head()
 
-##   age scaled_age      	# Note: 5 
+##   age scaled_age                                      	# Note: 5 
 ## 1  67  0.9872942
 ## 2  54  0.2655690
 ## 3  61  0.6541903
@@ -31,7 +31,7 @@ training_prepared %>%
   select(age, scaled_age) %>%
   head()
 
-##   age scaled_age      	# Note: 6 
+##   age scaled_age                                       	# Note: 6 
 ## 1  24  -1.399951
 ## 2  82   1.820054
 ## 3  31  -1.011329

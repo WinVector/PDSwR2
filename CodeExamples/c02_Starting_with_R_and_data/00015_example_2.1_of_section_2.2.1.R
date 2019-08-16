@@ -2,14 +2,14 @@
 # (example 2.1 of section 2.2.1)  : Starting with R and data : Working with data from files : Working with well-structured data from files or URLs 
 # Title: Reading the UCI car data 
 
-uciCar <- read.table(  	# Note: 1 
-   'car.data.csv', 	# Note: 2 
-   sep = ',', 	# Note: 3 
-   header = TRUE, 	# Note: 4 
-   stringsAsFactor = TRUE 	# Note: 5 
+uciCar <- read.table(               	# Note: 1 
+   'car.data.csv',                  	# Note: 2 
+   sep = ',',                       	# Note: 3 
+   header = TRUE,                   	# Note: 4 
+   stringsAsFactor = TRUE           	# Note: 5 
    )
                                         
-View(uciCar)	# Note: 6
+View(uciCar)                        	# Note: 6
 
 # Note 1: 
 #   Command to read from a file or URL and store the result in a new data frame object 

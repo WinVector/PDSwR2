@@ -2,18 +2,18 @@
 # (example 2.9 of section 2.3.1)  : Starting with R and data : Working with relational databases : A production-size example 
 # Title: Loading data from a database 
 
-dpus <- dbReadTable(db, "dpus") 	# Note: 1 
+dpus <- dbReadTable(db, "dpus")                                  	# Note: 1 
 
 dpus <- dpus[, c("AGEP", "COW", "ESR",  "PERNP", 
-                 "PINCP","SCHL", "SEX", "WKHP")] 	# Note: 2 
+                 "PINCP","SCHL", "SEX", "WKHP")]   	# Note: 2 
                  
-for(ci in c("AGEP", "PERNP", "PINCP", "WKHP")) { 	# Note: 3 
+for(ci in c("AGEP", "PERNP", "PINCP", "WKHP")) {   	# Note: 3 
   dpus[[ci]] <- as.numeric(dpus[[ci]])
 }
 
-dpus$COW <- strtrim(dpus$COW, 50) 	# Note: 4 
+dpus$COW <- strtrim(dpus$COW, 50)                                  	# Note: 4 
 
-str(dpus) 	# Note: 5
+str(dpus)                                                       	# Note: 5
 
 # Note 1: 
 #   Copy data from the database into R memory. This assumes we are continuing from the previous 

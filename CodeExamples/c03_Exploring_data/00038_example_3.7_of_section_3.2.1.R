@@ -2,10 +2,10 @@
 # (example 3.7 of section 3.2.1)  : Exploring data : Spotting problems using graphics and visualization : Visually checking distributions for a single variable 
 # Title: Producing a density plot 
 
-library(scales) 	# Note: 1 
+library(scales)                                      	# Note: 1 
                        
 ggplot(customer_data, aes(x=income)) + geom_density() + 
-  scale_x_continuous(labels=dollar) 	# Note: 2
+  scale_x_continuous(labels=dollar)                   	# Note: 2
 
 # Note 1: 
 #   The scales package brings in the dollar 

@@ -3,11 +3,11 @@
 # Title: Treating the age and income variables 
 
 library(dplyr)
-customer_data = readRDS("custdata.RDS") 	# Note: 1 
+customer_data = readRDS("custdata.RDS")                      	# Note: 1 
 
 customer_data <- customer_data %>%
-   mutate(age = na_if(age, 0),                 	# Note: 2 
-          income = ifelse(income < 0, NA, income)) 	# Note: 3
+   mutate(age = na_if(age, 0),                               	# Note: 2 
+          income = ifelse(income < 0, NA, income))           	# Note: 3
 
 # Note 1: 
 #   Load the data. 

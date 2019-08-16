@@ -4,7 +4,7 @@
 
 ShadowHist(customer_data3, "age", "marital_status", 
 "Age distribution for never married vs. widowed populations",
-           binwidth=5) 	# Note: 1
+           binwidth=5)                                    	# Note: 1
 
 # Note 1: 
 #   Set the bin widths of the histogram to 5. 

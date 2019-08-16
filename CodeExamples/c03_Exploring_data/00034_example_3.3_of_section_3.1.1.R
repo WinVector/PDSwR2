@@ -4,11 +4,11 @@
 
 summary(customer_data$income)
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   -6900   11200   27300   42522   52000 1257000  	# Note: 1 
+##   -6900   11200   27300   42522   52000 1257000    	# Note: 1 
                         
 summary(customer_data$age)
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##    0.00   34.00   48.00   49.17   62.00  120.00 	# Note: 2
+##    0.00   34.00   48.00   49.17   62.00  120.00    	# Note: 2
 
 # Note 1: 
 #   Negative values for income could indicate 

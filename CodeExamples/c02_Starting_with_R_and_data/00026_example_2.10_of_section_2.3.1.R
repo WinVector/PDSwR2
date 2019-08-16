@@ -2,7 +2,7 @@
 # (example 2.10 of section 2.3.1)  : Starting with R and data : Working with relational databases : A production-size example 
 # Title: Re-mapping values and selecting rows from data 
 
-target_emp_levs <- c(  	# Note: 1 
+target_emp_levs <- c(                                          	# Note: 1 
   "Employee of a private for-profit company or busine",
   "Employee of a private not-for-profit, tax-exempt, ",
   "Federal government employee",                    
@@ -12,9 +12,9 @@ target_emp_levs <- c(  	# Note: 1
   "State government employee")
 
 
-complete <- complete.cases(dpus) 	# Note: 2 
+complete <- complete.cases(dpus)                              	# Note: 2 
 
-stdworker <- with(dpus,  	# Note: 3 
+stdworker <- with(dpus,                                        	# Note: 3 
                   (PINCP>1000) & 
                     (ESR=="Civilian employed, at work") & 
                     (PINCP<=250000) & 
@@ -23,9 +23,9 @@ stdworker <- with(dpus,  	# Note: 3
                     (AGEP>=18) & (AGEP<=65) & 
                     (COW %in% target_emp_levs))
                     
-dpus <- dpus[complete & stdworker, , drop = FALSE] 	# Note: 4 
+dpus <- dpus[complete & stdworker, , drop = FALSE]              	# Note: 4 
 
-no_advanced_degree <- is.na(dpus$SCHL) |  	# Note: 5 
+no_advanced_degree <- is.na(dpus$SCHL) |                     	# Note: 5 
   (!(dpus$SCHL %in% c("Associate's degree",
                       "Bachelor's degree",
                       "Doctorate degree",
@@ -33,7 +33,7 @@ no_advanced_degree <- is.na(dpus$SCHL) |  	# Note: 5
                       "Professional degree beyond a bachelor's degree")))
 dpus$SCHL[no_advanced_degree] <- "No Advanced Degree"
 
-dpus$SCHL <- relevel(factor(dpus$SCHL), 	# Note: 6 
+dpus$SCHL <- relevel(factor(dpus$SCHL),                     	# Note: 6 
                      "No Advanced Degree")                
 dpus$COW <- relevel(factor(dpus$COW), 
                     target_emp_levs[[1]])
@@ -42,9 +42,9 @@ dpus$ESR <- relevel(factor(dpus$ESR),
 dpus$SEX <- relevel(factor(dpus$SEX), 
                     "Male")
                     
-saveRDS(dpus, "dpus_std_employee.RDS") 	# Note: 7 
+saveRDS(dpus, "dpus_std_employee.RDS")                           	# Note: 7 
                     
-summary(dpus) 	# Note: 8
+summary(dpus)                                                  	# Note: 8
 
 # Note 1: 
 #   Define a vector of employment definitions we consider “standard.” 

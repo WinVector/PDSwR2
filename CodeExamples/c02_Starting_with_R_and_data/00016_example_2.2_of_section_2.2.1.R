@@ -3,7 +3,7 @@
 # Title: Exploring the car data 
 
 class(uciCar)
-## [1] "data.frame" 	# Note: 1 
+## [1] "data.frame"                     	# Note: 1 
 summary(uciCar)
 ##    buying      maint       doors
 ##  high :432   high :432   2    :432
@@ -23,7 +23,7 @@ summary(uciCar)
 ##  vgood:  65
 
 dim(uciCar)
-## [1] 1728    7   	# Note: 2
+## [1] 1728    7                       	# Note: 2
 
 # Note 1: 
 #   The loaded object uciCar is of type data.frame. 

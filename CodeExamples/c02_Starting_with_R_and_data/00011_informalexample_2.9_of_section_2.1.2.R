@@ -1,7 +1,7 @@
 # informalexample 2.9 of section 2.1.2 
 # (informalexample 2.9 of section 2.1.2)  : Starting with R and data : Starting with R : R programming 
 
-data <- data.frame(revenue = c(2, 1, 2), 	# Note: 1 
+data <- data.frame(revenue = c(2, 1, 2),    	# Note: 1 
                    sort_key = c("b", "c", "a"), 
                    stringsAsFactors = FALSE)
 print(data)
@@ -11,11 +11,11 @@ print(data)
 # 2       1        c
 # 3       2        a
 
-. <- data 	# Note: 2 
-. <- .[order(.$sort_key), , drop = FALSE] 	# Note: 3 
+. <- data                                     	# Note: 2 
+. <- .[order(.$sort_key), , drop = FALSE]     	# Note: 3 
 .$ordered_sum_revenue <- cumsum(.$revenue)
 .$fraction_revenue_seen <- .$ordered_sum_revenue/sum(.$revenue)
-result <- . 	# Note: 4 
+result <- .                                   	# Note: 4 
 
 print(result)
 

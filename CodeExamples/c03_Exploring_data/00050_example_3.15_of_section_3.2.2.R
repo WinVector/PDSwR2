@@ -3,16 +3,16 @@
 # Title: Specifying different styles of bar chart 
 
 ggplot(customer_data, aes(x=marital_status, fill=health_ins)) + 
-                        geom_bar() 	# Note: 1 
+                        geom_bar()                                             	# Note: 1 
                         
 ggplot(customer_data, aes(x=marital_status, fill=health_ins)) + 
-                     geom_bar(position = "dodge")  	# Note: 2 
+                     geom_bar(position = "dodge")                               	# Note: 2 
                       
 ShadowPlot(customer_data, "marital_status", "health_ins",
-                         title = "Health insurance status by marital status")   	# Note: 3                     
-                       
+                         title = "Health insurance status by marital status")   	# Note: 3 
+
 ggplot(customer_data, aes(x=marital_status, fill=health_ins)) + 
-                     geom_bar(position = "fill")  	# Note: 4
+                     geom_bar(position = "fill")                                	# Note: 4
 
 # Note 1: 
 #   Stacked bar chart, the 

@@ -1,8 +1,8 @@
 # informalexample 2.12 of section 2.2.1 
 # (informalexample 2.12 of section 2.2.1)  : Starting with R and data : Working with data from files : Working with well-structured data from files or URLs 
 
-buying,maint,doors,persons,lug_boot,safety,rating 	# Note: 1 
-vhigh,vhigh,2,2,small,low,unacc 	# Note: 2 
+buying,maint,doors,persons,lug_boot,safety,rating     	# Note: 1 
+vhigh,vhigh,2,2,small,low,unacc                       	# Note: 2 
 vhigh,vhigh,2,2,small,med,unacc
 vhigh,vhigh,2,2,small,high,unacc
 vhigh,vhigh,2,2,med,low,unacc

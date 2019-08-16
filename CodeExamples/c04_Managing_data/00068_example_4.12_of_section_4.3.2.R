@@ -2,7 +2,7 @@
 # (example 4.12 of section 4.3.2)  : Managing data : Sampling for modeling and validation : Creating a sample group column 
 # Title: Splitting into test and training using a random group mark 
 
-set.seed(25643) 	# Note: 1 
+set.seed(25643)                                                     	# Note: 1 
 customer_data$gp <- runif(nrow(customer_data))                        	# Note: 2 
 customer_test <- subset(customer_data, gp <= 0.1)                  	# Note: 3 
 customer_train <- subset(customer_data, gp > 0.1)                  	# Note: 4 

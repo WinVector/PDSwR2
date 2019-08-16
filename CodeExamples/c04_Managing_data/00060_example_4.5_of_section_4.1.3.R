@@ -9,7 +9,7 @@ colnames(customer_data)
 ## [10] "age"                  "state_of_res"         "gas_usage"           
 ## [13] "gas_with_rent"        "gas_with_electricity" "no_gas_bill"    
                                         
-colnames(training_prepared) 	# Note: 1 
+colnames(training_prepared)                                               	# Note: 1 
 ##  [1] "custid"                     "sex"                       
 ##  [3] "is_employed"                "income"                    
 ##  [5] "marital_status"             "health_ins"                
@@ -23,7 +23,7 @@ colnames(training_prepared) 	# Note: 1
 ## [21] "gas_usage_isBAD"            "gas_with_rent_isBAD"       
 ## [23] "gas_with_electricity_isBAD" "no_gas_bill_isBAD"                                    
                                         
-nacounts <- sapply(training_prepared, FUN=function(col) sum(is.na(col)) ) 	# Note: 2 
+nacounts <- sapply(training_prepared, FUN=function(col) sum(is.na(col)) )  	# Note: 2 
 sum(nacounts)
 ## [1] 0
 

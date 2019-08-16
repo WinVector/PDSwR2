@@ -2,7 +2,7 @@
 # (example 3.1 of section 3.1)  : Exploring data : Using summary statistics to spot problems 
 # Title: The summary() command 
 
-setwd("PDSwR2/Custdata") 	# Note: 1 
+setwd("PDSwR2/Custdata")                                               	# Note: 1 
 customer_data = readRDS("custdata.RDS")
 summary(customer_data)
 ##     custid              sex        is_employed       income       	# Note: 2 
@@ -13,7 +13,7 @@ summary(customer_data)
 ##                                                  3rd Qu.:  51700  
 ##                                                  Max.   :1257000  
 ##                                                                   
-##             marital_status  health_ins     	# Note: 3 
+##             marital_status  health_ins                                  	# Note: 3 
 ##  Divorced/Separated:10693   Mode :logical  
 ##  Married           :38400   FALSE:7307     
 ##  Never married     :19407   TRUE :65955    
@@ -21,7 +21,7 @@ summary(customer_data)
 ##                                            
 ##                                            
 ##                                            
-##                        housing_type   recent_move      num_vehicles   	# Note: 4 
+##                        housing_type   recent_move      num_vehicles         	# Note: 4 
 ##  Homeowner free and clear    :16763   Mode :logical   Min.   :0.000  
 ##  Homeowner with mortgage/loan:31387   FALSE:62418     1st Qu.:1.000  
 ##  Occupied with no rent       : 1138   TRUE :9123      Median :2.000  
@@ -29,7 +29,7 @@ summary(customer_data)
 ##  NA's                        : 1720                   3rd Qu.:3.000  
 ##                                                       Max.   :6.000  
 ##                                                       NA's   :1720   
-##       age               state_of_res     gas_usage       	# Note: 5 
+##       age               state_of_res     gas_usage                     	# Note: 5 
 ##  Min.   :  0.00   California  : 8962   Min.   :  1.00  
 ##  1st Qu.: 34.00   Texas       : 6026   1st Qu.:  3.00  
 ##  Median : 48.00   Florida     : 4979   Median : 10.00  

@@ -2,16 +2,16 @@
 # (informalexample 2.3 of section 2.1.2)  : Starting with R and data : Starting with R : R programming 
 
 x <- 1:5
-print(x)  	# Note: 1 
+print(x)                                  	# Note: 1 
 # [1] 1 2 3 4 5
 
-x <- cumsumMISSPELLED(x)  	# Note: 2 
+x <- cumsumMISSPELLED(x)                  	# Note: 2 
 # Error in cumsumMISSPELLED(x) : could not find function "cumsumMISSPELLED"
 
-print(x) 	# Note: 3 
+print(x)                                  	# Note: 3 
 # [1] 1 2 3 4 5
 
-x <- cumsum(x) 	# Note: 4 
+x <- cumsum(x)                            	# Note: 4 
 print(x)
 # [1]  1  3  6 10 15
 

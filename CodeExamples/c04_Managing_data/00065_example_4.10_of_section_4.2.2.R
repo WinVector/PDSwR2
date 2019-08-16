@@ -13,7 +13,7 @@ summary(dataf)
 ##  3rd Qu.: 62.00   3rd Qu.:  51700   3rd Qu.:3.000   3rd Qu.: 76.01  
 ##  Max.   :120.00   Max.   :1257000   Max.   :6.000   Max.   :570.00
 
-dataf_scaled <- scale(dataf, center=TRUE, scale=TRUE)   	# Note: 1 
+dataf_scaled <- scale(dataf, center=TRUE, scale=TRUE)               	# Note: 1 
                                         
 summary(dataf_scaled)
 ##       age               income         num_vehicles        gas_usage      
@@ -24,7 +24,7 @@ summary(dataf_scaled)
 ##  3rd Qu.: 0.70971   3rd Qu.: 0.1705   3rd Qu.: 0.80819   3rd Qu.: 0.0000  
 ##  Max.   : 3.92971   Max.   :20.9149   Max.   : 3.40268   Max.   : 9.7400
 
-(means <- attr(dataf_scaled, 'scaled:center'))  	# Note: 2 
+(means <- attr(dataf_scaled, 'scaled:center'))                  	# Note: 2 
 ##          age       income num_vehicles    gas_usage 
 ##     49.21647  41792.51062      2.06550     76.00745
 

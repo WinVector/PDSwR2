@@ -2,12 +2,12 @@
 # (example 4.11 of section 4.2.2)  : Managing data : Data transformations : Centering and scaling 
 # Title: Treating new data before feeding it to a model 
 
-newdata <- customer_data 	# Note: 1 
+newdata <- customer_data                                       	# Note: 1 
                                                 
-library(vtreat) 	# Note: 2 
+library(vtreat)                                                	# Note: 2 
 newdata_treated <- prepare(treatment_plan, newdata)
                                                 
-new_dataf <- newdata_treated[, c("age", "income", "num_vehicles", "gas_usage")] 	# Note: 3  
+new_dataf <- newdata_treated[, c("age", "income", "num_vehicles", "gas_usage")]       	# Note: 3  
 dataf_scaled <- scale(new_dataf, center=means, scale=sds)
 
 # Note 1: 

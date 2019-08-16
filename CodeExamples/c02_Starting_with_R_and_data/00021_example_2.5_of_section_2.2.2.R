@@ -2,8 +2,8 @@
 # (example 2.5 of section 2.2.2)  : Starting with R and data : Working with data from files : Using R with less-structured data 
 # Title: Transforming the car data 
 
-source("mapping.R") 	# Note: 1 
-for(ci in colnames(d)) {            	# Note: 2 
+source("mapping.R")                      	# Note: 1 
+for(ci in colnames(d)) {                     	# Note: 2 
    if(is.character(d[[ci]])) {
       d[[ci]] <- as.factor(mapping[d[[ci]]])  	# Note: 3 
    }

@@ -4,8 +4,8 @@
 
 ggplot(customer_data, aes(x=income)) + 
   geom_density() + 
-  scale_x_log10(breaks = c(10, 100, 1000, 10000, 100000, 1000000), labels=dollar) + 	# Note: 1 
-  annotation_logticks(sides="bt", color="gray") 	# Note: 2
+  scale_x_log10(breaks = c(10, 100, 1000, 10000, 100000, 1000000), labels=dollar) +    	# Note: 1 
+  annotation_logticks(sides="bt", color="gray")                                        	# Note: 2
 
 # Note 1: 
 #   Set the x-axis to be in log10 scale, with 

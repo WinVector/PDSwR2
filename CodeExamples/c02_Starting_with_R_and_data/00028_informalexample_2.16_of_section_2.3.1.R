@@ -1,13 +1,13 @@
 # informalexample 2.16 of section 2.3.1 
 # (informalexample 2.16 of section 2.3.1)  : Starting with R and data : Working with relational databases : A production-size example 
 
-d <- cbind( 	# Note: 1 
-  data.frame(SCHL = as.character(dpus$SCHL), 	# Note: 2 
+d <- cbind(                                                        	# Note: 1 
+  data.frame(SCHL = as.character(dpus$SCHL),                       	# Note: 2 
              stringsAsFactors = FALSE),
-  model.matrix(~SCHL, dpus) 	# Note: 3 
+  model.matrix(~SCHL, dpus)                                        	# Note: 3 
 )
-d$'(Intercept)' <- NULL 	# Note: 4 
-str(d) 	# Note: 5 
+d$'(Intercept)' <- NULL                                        	# Note: 4 
+str(d)                                                             	# Note: 5 
 
 ## 'data.frame':    41305 obs. of  6 variables:
 ##  $ SCHL                                              : chr  "Associate's degree" "Associate's degree" "Associate's degree" "No Advanced Degree" ...

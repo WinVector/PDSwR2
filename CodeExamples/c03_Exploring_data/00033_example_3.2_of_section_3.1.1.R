@@ -2,7 +2,7 @@
 # (example 3.2 of section 3.1.1)  : Exploring data : Using summary statistics to spot problems : Typical problems revealed by data summaries 
 # Title: Will the variable is.employed be useful for modeling? 
 
-## is_employed         	# Note: 1                 
+## is_employed                                         	# Note: 1 
 ## FALSE: 2321   
 ## TRUE :44887  
 ## NA's :24333  

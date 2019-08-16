@@ -1,14 +1,14 @@
 # informalexample 2.7 of section 2.1.2 
 # (informalexample 2.7 of section 2.1.2)  : Starting with R and data : Starting with R : R programming 
 
-d <- data.frame(x = c(1, NA, 3)) 	# Note: 1 
+d <- data.frame(x = c(1, NA, 3))       	# Note: 1 
 print(d)
 #    x
 # 1  1
 # 2 NA
-# 3  3 	# Note: 2 
+# 3  3                                 	# Note: 2 
 
-d$x[is.na(d$x)] <- 0 	# Note: 3 
+d$x[is.na(d$x)] <- 0                   	# Note: 3 
 print(d)
 #   x
 # 1 1

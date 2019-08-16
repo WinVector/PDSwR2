@@ -4,10 +4,10 @@
 
 customer_data2 <- subset(customer_data,
                    0 < age & age < 100 & 
-                    0 < income & income < 200000) 	# Note: 1 
+                    0 < income & income < 200000)      	# Note: 1 
                     
-cor(customer_data2$age, customer_data2$income) 	# Note: 2 
-## [1] 0.005766697                   	# Note: 3
+cor(customer_data2$age, customer_data2$income)          	# Note: 2 
+## [1] 0.005766697                                     	# Note: 3
 
 # Note 1: 
 #   Only consider a subset of data with 

@@ -2,8 +2,8 @@
 # (example 3.10 of section 3.2.1)  : Exploring data : Spotting problems using graphics and visualization : Visually checking distributions for a single variable 
 # Title: Producing a dot plot with sorted categories 
 
-library(WVPlots) 	# Note: 1 
-ClevelandDotPlot(customer_data, "state_of_res",                    	# Note: 2 
+library(WVPlots)                                              	# Note: 1 
+ClevelandDotPlot(customer_data, "state_of_res",               	# Note: 2 
     sort = 1, title="Customers by state") +                   	# Note: 3 
 coord_flip()                                                  	# Note: 4
 

@@ -3,8 +3,8 @@
 # Title: Producing a horizontal bar chart 
 
 ggplot(customer_data, aes(x=state_of_res)) + 
-  geom_bar(fill="gray") + 	# Note: 1 
-  coord_flip() 	# Note: 2
+  geom_bar(fill="gray") +                       	# Note: 1 
+  coord_flip()                                  	# Note: 2
 
 # Note 1: 
 #   Plot bar chart as before: state_of_res is on x-axis, count is on y-axis. 

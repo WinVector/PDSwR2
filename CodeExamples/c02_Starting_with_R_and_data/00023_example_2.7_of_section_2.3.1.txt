@@ -2,9 +2,9 @@
 # (example 2.7 of section 2.3.1)  : Starting with R and data : Working with relational databases : A production-size example 
 # Title: PUMS data provenance documentation (PDSwR2/PUMS/download/LoadPUMS.Rmd) 
 
-Data dowloaded 4/21/2018 from: 	# Note: 1 
+Data dowloaded 4/21/2018 from:                                                         	# Note: 1 
 
-  https://www.census.gov/data/developers/data-sets/acs-1year.2016.html            	# Note: 2 
+  https://www.census.gov/data/developers/data-sets/acs-1year.2016.html                 	# Note: 2 
   https://www.census.gov/programs-surveys/acs/technical-documentation/pums.html
   http://www2.census.gov/programs-surveys/acs/tech_docs/pums/data_dict/PUMSDataDict16.txt
   https://www2.census.gov/programs-surveys/acs/data/pums/2016/1-Year/
@@ -12,9 +12,9 @@ Data dowloaded 4/21/2018 from: 	# Note: 1
 
 First in a `bash` shell perform the following steps:
 
-wget https://www2.census.gov/programs-surveys/acs/data/pums/2016/1-Year/csv_hus.zip  	# Note: 3 
+wget https://www2.census.gov/programs-surveys/acs/data/pums/2016/1-Year/csv_hus.zip    	# Note: 3 
 md5 csv_hus.zip
-# MD5 (csv_hus.zip) = c81d4b96a95d573c1b10fc7f230d5f7a      	# Note: 4 
+# MD5 (csv_hus.zip) = c81d4b96a95d573c1b10fc7f230d5f7a                                 	# Note: 4 
 wget https://www2.census.gov/programs-surveys/acs/data/pums/2016/1-Year/csv_pus.zip
 md5 csv_pus.zip
 # MD5 (csv_pus.zip) = 06142320c3865620b0630d74d74181db

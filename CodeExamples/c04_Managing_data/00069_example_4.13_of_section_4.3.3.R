@@ -2,15 +2,15 @@
 # (example 4.13 of section 4.3.3)  : Managing data : Sampling for modeling and validation : Record grouping 
 # Title: Ensuring test/train split doesn’t split inside a household 
 
-household_data <- readRDS("hhdata.RDS") 	# Note: 1 
-hh <- unique(household_data$household_id) 	# Note: 2 
+household_data <- readRDS("hhdata.RDS")            	# Note: 1 
+hh <- unique(household_data$household_id)              	# Note: 2 
 
 set.seed(243674)
-households <- data.frame(household_id = hh, 	# Note: 3 
+households <- data.frame(household_id = hh,            	# Note: 3 
                          gp = runif(length(hh)),
                          stringsAsFactors=FALSE)
 
-household_data <- dplyr::left_join(household_data, 	# Note: 4 
+household_data <- dplyr::left_join(household_data,     	# Note: 4 
                             households,
                             by = "household_id")
 

@@ -3,24 +3,24 @@
 # Title: Loading data into R from a relational database 
 
 library("DBI")
-library("dplyr") 	# Note: 1 
+library("dplyr")                                    	# Note: 1 
 library("rquery")
 
-dlist <- readRDS("PUMSsample.RDS")  	# Note: 2 
-db <- dbConnect(RSQLite::SQLite(), ":memory:") 	# Note: 3 
+dlist <- readRDS("PUMSsample.RDS")                   	# Note: 2 
+db <- dbConnect(RSQLite::SQLite(), ":memory:")      	# Note: 3 
 dbWriteTable(db, "dpus", as.data.frame(dlist$ss16pus)) 	# Note: 4 
 dbWriteTable(db, "dhus", as.data.frame(dlist$ss16hus))
-rm(list = "dlist") 	# Note: 5 
+rm(list = "dlist")                                  	# Note: 5 
 
-dbGetQuery(db, "SELECT * FROM dpus LIMIT 5") 	# Note: 6 
+dbGetQuery(db, "SELECT * FROM dpus LIMIT 5")            	# Note: 6 
 
-dpus <- tbl(db, "dpus") 	# Note: 7 
+dpus <- tbl(db, "dpus")                         	# Note: 7 
 dhus <- tbl(db, "dhus")
 
-print(dpus)  	# Note: 8 
+print(dpus)                                              	# Note: 8 
 glimpse(dpus)
 
-View(rsummary(db, "dpus")) 	# Note: 9
+View(rsummary(db, "dpus"))                     	# Note: 9
 
 # Note 1: 
 #   Attach some packages we wish to use commands 
