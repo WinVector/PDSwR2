@@ -1,19 +1,19 @@
 # informalexample A.7 of section A.3.1 
 # (informalexample A.7 of section A.3.1)  : Starting with R and other tools : Using databases with R : Running database queries using a query generator 
 
-ops <- data_handle %.>% 	# Note: 1 
-  extend(.,  	# Note: 2 
+ops <- data_handle %.>%                      	# Note: 1 
+  extend(.,                                    	# Note: 2 
          simple_rank = rank(),
          partitionby = "user_name",
          orderby = "predicted_offer_affinity",
          reverse = "predicted_offer_affinity") %.>%
-  select_rows(.,  	# Note: 3 
+  select_rows(.,                               	# Note: 3 
               simple_rank <= 2) %.>%
-   orderby(., c("user_name", "simple_rank")) 	# Note: 4 
+   orderby(., c("user_name", "simple_rank"))      	# Note: 4 
 
-result_table <- materialize(db, ops) 	# Note: 5 
+result_table <- materialize(db, ops)                      	# Note: 5 
 
-DBI::dbReadTable(db$connection, result_table$table_name) %.>% 	# Note: 6 
+DBI::dbReadTable(db$connection, result_table$table_name) %.>%     	# Note: 6 
   knitr::kable(.)
 
 # |user_name |product                   | discount| predicted_offer_affinity| simple_rank|

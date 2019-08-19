@@ -6,7 +6,7 @@ library("RCurl")
 library("jsonlite")
 
 
-post_query <- function(method, args) { 	# Note: 1 
+post_query <- function(method, args) {              	# Note: 1 
   hdr <- c("Content-Type" = "application/x-www-form-urlencoded")
   resp <- postForm(
     paste0("http://localhost:8000/", method),

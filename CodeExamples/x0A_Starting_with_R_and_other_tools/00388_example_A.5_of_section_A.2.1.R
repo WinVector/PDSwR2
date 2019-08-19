@@ -7,11 +7,11 @@ b <- a
 
 print(b)
 
-a[[1]] <- 5 	# Note: 1 
+a[[1]] <- 5            	# Note: 1 
 
 print(a)
 
-print(b) 	# Note: 2
+print(b)               	# Note: 2
 
 # Note 1: 
 #   “Alter a”. Actually this is 

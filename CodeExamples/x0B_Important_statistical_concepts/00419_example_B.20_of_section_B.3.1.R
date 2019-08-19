@@ -5,7 +5,7 @@
 library(ggplot2)
 ggplot(data=d,aes(x=EarnedIncome,y=CapitalGains)) +
    geom_point() + geom_smooth(method='lm') +
-   coord_cartesian(xlim=c(0,max(d)),ylim=c(0,max(d))) 	# Note: 1 
+   coord_cartesian(xlim=c(0,max(d)),ylim=c(0,max(d)))                   	# Note: 1 
 ggplot(data=veryHighIncome,aes(x=EarnedIncome,y=CapitalGains)) +
    geom_point() + geom_smooth(method='lm') +
    geom_point(data=subset(d,EarnedIncome+CapitalGains<500000),
@@ -13,9 +13,9 @@ ggplot(data=veryHighIncome,aes(x=EarnedIncome,y=CapitalGains)) +
       shape=4,alpha=0.5,color='red') +
    geom_segment(x=0,xend=500000,y=500000,yend=0,
       linetype=2,alpha=0.5,color='red') +
-   coord_cartesian(xlim=c(0,max(d)),ylim=c(0,max(d))) 	# Note: 2 
+   coord_cartesian(xlim=c(0,max(d)),ylim=c(0,max(d)))                   	# Note: 2 
 print(with(subset(d,EarnedIncome+CapitalGains<500000),
-    cor.test(EarnedIncome,CapitalGains,method='spearman'))) 	# Note: 3 
+    cor.test(EarnedIncome,CapitalGains,method='spearman')))              	# Note: 3 
 #
 #        Spearman's rank correlation rho
 #

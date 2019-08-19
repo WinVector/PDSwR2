@@ -7,11 +7,11 @@ s <- data.frame(week = 1:100)
 s$Caco2A2BPapp <- sort(sample(d$Caco2A2BPapp,100,replace=T),
    decreasing=T)
 sigmoid <- function(x) {1/(1 + exp(-x))}
-s$FractionHumanAbsorption <- 	# Note: 1 
+s$FractionHumanAbsorption <-                      	# Note: 1 
  sigmoid(
-   7.5 + 0.5 * log(s$Caco2A2BPapp) + 	# Note: 2 
-   s$week / 10 - mean(s$week / 10) + 	# Note: 3 
-   rnorm(100) / 3 	# Note: 4 
+   7.5 + 0.5 * log(s$Caco2A2BPapp) +              	# Note: 2 
+   s$week / 10 - mean(s$week / 10) +              	# Note: 3 
+   rnorm(100) / 3                                 	# Note: 4 
    )
 write.table(s, 'synth.csv', sep=',',
    quote = FALSE, row.names = FALSE)

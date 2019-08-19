@@ -5,7 +5,7 @@
 ```{r dataprep}
 infile <- "TomsHardware-Relative-Sigma-500.data.txt"
 paste('checked at', date())
-system(paste('shasum', infile), intern = TRUE)  	# Note: 1 
+system(paste('shasum', infile), intern = TRUE)          	# Note: 1 
 buzzdata <- read.table(infile, header = FALSE, sep = ",")
 ...
 

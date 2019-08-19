@@ -7,15 +7,15 @@ raw_connection <- ﻿DBI::dbConnect(RPostgres::Postgres(),
                                  host = 'localhost',
                                  port = 5432,
                                  user = 'johnmount',
-                                 password = '') 	# Note: 1 
+                                 password = '')            	# Note: 1 
         
-dbopts <- rq_connection_tests(raw_connection) 	# Note: 2 
+dbopts <- rq_connection_tests(raw_connection)                  	# Note: 2 
 db <- rquery_db_info(
   connection = raw_connection,
   is_dbi = TRUE,
   connection_options = dbopts)
 
-data_handle <- rq_copy_to( 	# Note: 3 
+data_handle <- rq_copy_to(                                      	# Note: 3 
   db, 
   'offers',
   wrapr::build_frame(

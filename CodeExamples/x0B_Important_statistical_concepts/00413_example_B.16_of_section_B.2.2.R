@@ -2,11 +2,11 @@
 # (example B.16 of section B.2.2)  : Important statistical concepts : Statistical theory : A/B tests 
 # Title: Computing frequentist significance 
 
-print(pbinom( 	# Note: 1 
-   lower.tail = FALSE, 	# Note: 2 
-   q = tab['B', '1'] - 1, 	# Note: 3 
-   size = sum(tab['B', ]), 	# Note: 4 
-   prob = commonRate 	# Note: 5 
+print(pbinom(                       	# Note: 1 
+   lower.tail = FALSE,              	# Note: 2 
+   q = tab['B', '1'] - 1,           	# Note: 3 
+   size = sum(tab['B', ]),          	# Note: 4 
+   prob = commonRate                	# Note: 5 
    )) 
 ## [1] 3.153319e-05
 

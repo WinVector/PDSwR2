@@ -1,14 +1,14 @@
 # informalexample A.6 of section A.3.1 
 # (informalexample A.6 of section A.3.1)  : Starting with R and other tools : Using databases with R : Running database queries using a query generator 
 
-data_handle %.>% 	# Note: 1 
+data_handle %.>%                                        	# Note: 1 
   extend(.,
-         simple_rank = rank(), 	# Note: 2 
-         partitionby = "user_name",  	# Note: 3 
-         orderby = "predicted_offer_affinity", 	# Note: 4 
+         simple_rank = rank(),                            	# Note: 2 
+         partitionby = "user_name",                   	# Note: 3 
+         orderby = "predicted_offer_affinity",        	# Note: 4 
          reverse = "predicted_offer_affinity") %.>%
-  execute(db, .) %.>% 	# Note: 5 
-  knitr::kable(.) 	# Note: 6 
+  execute(db, .) %.>%                                   	# Note: 5 
+  knitr::kable(.)                                         	# Note: 6 
 
 # |user_name |product                        | discount| predicted_offer_affinity| simple_rank|
 # |:---------|:------------------------------|--------:|------------------------:|-----------:|

@@ -2,23 +2,23 @@
 # (example 11.1 of section 11.2.1)  : Documentation and deployment : Using R markdown to produce milestone documentation : What is R markdown? 
 # Title: R-annotated Markdown 
 
----  	# Note: 1 
+---                                         	# Note: 1 
 title: "Buzz scoring example"
 output: github_document
 ---
 
-```{r, include = FALSE} 	# Note: 2 
+```{r, include = FALSE}                     	# Note: 2 
 # process document with knitr or rmarkdown.
 # knitr::knit("Buzz_score_example.Rmd") # creates Buzz_score_example.md
 # rmarkdown::render("Buzz_score_example.Rmd", 
 #                   rmarkdown::html_document()) # creates Buzz_score_example.html
-``` 	# Note: 3 
+```                                          	# Note: 3 
 
-Example scoring (making predictions with) the Buzz data set. 	# Note: 4 
+Example scoring (making predictions with) the Buzz data set.      	# Note: 4 
 
 First attach the `randomForest` package and load the model and test data.
 
-```{r} 	# Note: 5 
+```{r}                                       	# Note: 5 
 suppressPackageStartupMessages(library("randomForest"))
 
 lst <- readRDS("thRS500.RDS")
@@ -28,9 +28,9 @@ buzztest <- lst$buzztest
 rm(list = "lst")
 ```
 
-Now show the quality of our model on held-out test data. 	# Note: 6 
+Now show the quality of our model on held-out test data.            	# Note: 6 
 
-```{r} 	# Note: 7 
+```{r}                                         	# Note: 7 
 buzztest$prediction <- predict(fmodel, newdata = buzztest, type = "prob")[, 2, drop = TRUE]
 
 WVPlots::ROCPlot(buzztest, "prediction", 

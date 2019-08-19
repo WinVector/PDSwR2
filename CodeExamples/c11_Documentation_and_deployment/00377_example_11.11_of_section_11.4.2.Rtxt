@@ -2,7 +2,7 @@
 # (example 11.11 of section 11.4.2)  : Documentation and deployment : Deploying models : Deploying models as HTTP services 
 # Title: Buzz model as an R-based HTTP service 
 
-library("randomForest") 	# Note: 1 
+library("randomForest")             	# Note: 1 
 
 lst <- readRDS("thRS500.RDS")
 varslist <- lst$varslist
