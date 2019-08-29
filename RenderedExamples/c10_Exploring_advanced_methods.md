@@ -4,25 +4,25 @@ output: github_document
 
 
 
-00401_example_10.1_of_section_10.1.1.R
+00324_example_10.1_of_section_10.1.1.R
 
 
 
 ```r
 # example 10.1 of section 10.1.1 
-# (example 10.1 of section 10.1.1)  : Exploring advanced methods : Tree-based Methods : A basic decision tree 
+# (example 10.1 of section 10.1.1)  : Exploring advanced methods : Tree-based methods : A basic decision tree 
 # Title: Preparing Spambase data and evaluating a decision tree model 
 
-spamD <- read.table('../Spambase/spamD.tsv', header = TRUE, sep = '\t')  		# Note: 1 
+spamD <- read.table('../Spambase/spamD.tsv', header = TRUE, sep = '\t')    		# Note: 1 
 spamD$isSpam <- spamD$spam == 'spam'
 spamTrain <- subset(spamD, spamD$rgroup >= 10)
 spamTest <- subset(spamD, spamD$rgroup < 10)
 
 spamVars <- setdiff(colnames(spamD), list('rgroup', 'spam', 'isSpam'))
 library(wrapr)
-spamFormula <- mk_formula("isSpam", spamVars)  	# Note: 2 
+spamFormula <- mk_formula("isSpam", spamVars)                        	# Note: 2 
                    
-loglikelihood <- function(y, py) {      	# Note: 3 
+loglikelihood <- function(y, py) {                                     	# Note: 3 
   pysmooth <- ifelse(py == 0, 1e-12,
                   ifelse(py == 1, 1 - 1e-12, py))
 
@@ -30,7 +30,7 @@ loglikelihood <- function(y, py) {      	# Note: 3
 }
 
 
-accuracyMeasures <- function(pred, truth, name = "model") {   	# Note: 4 
+accuracyMeasures <- function(pred, truth, name = "model") {            	# Note: 4 
   dev.norm <- -2 * loglikelihood(as.numeric(truth), pred) / length(pred)    	# Note: 5 
   ctable <- table(truth = truth,
                  pred = (pred > 0.5))                                       	# Note: 6 
@@ -42,19 +42,19 @@ accuracyMeasures <- function(pred, truth, name = "model") {   	# Note: 4
 }
 
 
-library(rpart)                                                      	# Note: 7 
+library(rpart)                                                              	# Note: 7 
 treemodel <- rpart(spamFormula, spamTrain, method = "class")
 
-library(rpart.plot)  	# Note: 8 
+library(rpart.plot)                                                     	# Note: 8 
 rpart.plot(treemodel, type = 5, extra = 6)     
 ```
 
-![plot of chunk 00401_example_10.1_of_section_10.1.1.R](figure/00401_example_10.1_of_section_10.1.1.R-1.png)
+![plot of chunk 00324_example_10.1_of_section_10.1.1.R](figure/00324_example_10.1_of_section_10.1.1.R-1.png)
 
 ```r
-predTrain <- predict(treemodel, newdata = spamTrain)[, 2] 	# Note: 9 
+predTrain <- predict(treemodel, newdata = spamTrain)[, 2]                	# Note: 9 
 
-trainperf_tree <- accuracyMeasures(predTrain,  		# Note: 10  
+trainperf_tree <- accuracyMeasures(predTrain,                      		# Note: 10  
                  spamTrain$spam == "spam",
                  name = "tree, training")
 
@@ -96,7 +96,8 @@ testperf_tree <- accuracyMeasures(predTest,
 #   For plotting the tree. 
 
 # Note 9: 
-#   Get the predicted probabilities of the class "spam". 
+#   Get the predicted probabilities of the class 
+#   "spam". 
 
 # Note 10: 
 #   Evaluate the decision tree model against the  
@@ -106,17 +107,17 @@ testperf_tree <- accuracyMeasures(predTest,
 
 
 
-00402_informalexample_10.1_of_section_10.1.1.R
+00325_informalexample_10.1_of_section_10.1.1.R
 
 
 
 ```r
 # informalexample 10.1 of section 10.1.1 
-# (informalexample 10.1 of section 10.1.1)  : Exploring advanced methods : Tree-based Methods : A basic decision tree 
+# (informalexample 10.1 of section 10.1.1)  : Exploring advanced methods : Tree-based methods : A basic decision tree 
 
-library(pander) 	# Note: 1 
+library(pander)                                                 	# Note: 1 
                         
-panderOptions("plain.ascii", TRUE) 	# Note: 2 
+panderOptions("plain.ascii", TRUE)                    	# Note: 2 
 panderOptions("keep.trailing.zeros", TRUE)
 panderOptions("table.style", "simple")
 perf_justify <- "lrrr"
@@ -152,29 +153,29 @@ pandoc.table(perftable, justify = perf_justify)
 
 
 
-00403_example_10.2_of_section_10.1.2.R
+00326_example_10.2_of_section_10.1.2.R
 
 
 
 ```r
 # example 10.2 of section 10.1.2 
-# (example 10.2 of section 10.1.2)  : Exploring advanced methods : Tree-based Methods : Using bagging to improve prediction 
+# (example 10.2 of section 10.1.2)  : Exploring advanced methods : Tree-based methods : Using bagging to improve prediction 
 # Title: Bagging decision trees 
 
-ntrain <- dim(spamTrain)[1]
-n <- ntrain                     	# Note: 1  
+ntrain <- dim(spamTrain)[1] 
+n <- ntrain                                                	# Note: 1  
 ntree <- 100
 
-samples <- sapply(1:ntree,          	# Note: 2  
+samples <- sapply(1:ntree,                                	# Note: 2  
                  FUN = function(iter)
                    { sample(1:ntrain, size = n, replace = TRUE) })
 
-treelist <-lapply(1:ntree,         	# Note: 3  
+treelist <-lapply(1:ntree,                                 	# Note: 3  
                   FUN = function(iter) {
                     samp <- samples[, iter];
                     rpart(spamFormula, spamTrain[samp, ], method = "class") })
 
-predict.bag <- function(treelist, newdata) {   	# Note: 4  
+predict.bag <- function(treelist, newdata) {               	# Note: 4  
   preds <- sapply(1:length(treelist),
                  FUN = function(iter) {
                    predict(treelist[[iter]], newdata = newdata)[, 2] })
@@ -183,7 +184,7 @@ predict.bag <- function(treelist, newdata) {   	# Note: 4
 }
 
 pred <- predict.bag(treelist, newdata = spamTrain)
-trainperf_bag <- accuracyMeasures(pred,     	# Note: 5  
+trainperf_bag <- accuracyMeasures(pred,                    	# Note: 5  
                  spamTrain$spam == "spam",
                  name = "bagging, training")
 
@@ -201,8 +202,8 @@ pandoc.table(perftable, justify = perf_justify)
 ## 
 ## model                 accuracy       f1   dev.norm
 ## ------------------- ---------- -------- ----------
-## bagging, training       0.9165   0.8909     0.5098
-## bagging, test           0.9148   0.8850     0.5805
+## bagging, training       0.9155   0.8899     0.5107
+## bagging, test           0.9127   0.8824     0.5811
 ```
 
 ```r
@@ -238,16 +239,16 @@ pandoc.table(perftable, justify = perf_justify)
 
 
 
-00404_example_10.3_of_section_10.1.3.R
+00327_example_10.3_of_section_10.1.3.R
 
 
 
 ```r
 # example 10.3 of section 10.1.3 
-# (example 10.3 of section 10.1.3)  : Exploring advanced methods : Tree-based Methods : Using random forests to further improve prediction 
+# (example 10.3 of section 10.1.3)  : Exploring advanced methods : Tree-based methods : Using random forests to further improve prediction 
 # Title: Using random forests 
 
-library(randomForest)           	# Note: 1 
+library(randomForest)                                   	# Note: 1 
 ```
 
 ```
@@ -259,18 +260,18 @@ library(randomForest)           	# Note: 1
 ```
 
 ```r
-set.seed(5123512) 	# Note: 2 
-fmodel <- randomForest(x = spamTrain[, spamVars], 	# Note: 3 
+set.seed(5123512)                                     	# Note: 2 
+fmodel <- randomForest(x = spamTrain[, spamVars],       	# Note: 3 
         y = spamTrain$spam,
-        ntree = 100, 	# Note: 4 
-        nodesize = 7, 	# Note: 5 
-        importance = TRUE) 	# Note: 6 
+        ntree = 100,                                   	# Note: 4 
+        nodesize = 7,                                  	# Note: 5 
+        importance = TRUE)                             	# Note: 6 
                     
 pred <- predict(fmodel, 
                 spamTrain[, spamVars], 
                 type = 'prob')[, 'spam']
                 
-trainperf_rf <-  accuracyMeasures(predict(fmodel, 	# Note: 7 
+trainperf_rf <-  accuracyMeasures(predict(fmodel,      	# Note: 7 
    newdata = spamTrain[, spamVars], type = 'prob')[, 'spam'],
    spamTrain$spam == "spam", name = "random forest, train")
 
@@ -303,8 +304,8 @@ pandoc.table(perftable, justify = perf_justify)
 #   Load the randomForest package. 
 
 # Note 2: 
-#   Set the pseudo-random seed to a known value to try 
-#   and make the random forest run repeatable. 
+#   Set the pseudo-random seed to a known value to try to make the random forest run 
+#   repeatable. 
 
 # Note 3: 
 #   Call the randomForest() function to build the model 
@@ -316,9 +317,8 @@ pandoc.table(perftable, justify = perf_justify)
 #   example. The default is 500 trees. 
 
 # Note 5: 
-#   Specify that each node of a tree must have a minimum 
-#   of 7 elements, to be compatible with the default minimum node size that rpart() 
-#   uses on this training set. 
+#   Specify that each node of a tree must have a minimum of 7 elements to be compatible with the 
+#   default minimum node size that rpart() uses on this training set. 
 
 # Note 6: 
 #   Tell the algorithm to save information to be used for 
@@ -331,13 +331,13 @@ pandoc.table(perftable, justify = perf_justify)
 
 
 
-00405_informalexample_10.2_of_section_10.1.3.R
+00328_informalexample_10.2_of_section_10.1.3.R
 
 
 
 ```r
 # informalexample 10.2 of section 10.1.3 
-# (informalexample 10.2 of section 10.1.3)  : Exploring advanced methods : Tree-based Methods : Using random forests to further improve prediction 
+# (informalexample 10.2 of section 10.1.3)  : Exploring advanced methods : Tree-based methods : Using random forests to further improve prediction 
 
 trainf <- rbind(trainperf_tree, trainperf_bag, trainperf_rf)
 pandoc.table(trainf, justify = perf_justify)                    
@@ -349,7 +349,7 @@ pandoc.table(trainf, justify = perf_justify)
 ## model                    accuracy       f1   dev.norm
 ## ---------------------- ---------- -------- ----------
 ## tree, training             0.8996   0.8691     0.6304
-## bagging, training          0.9165   0.8909     0.5098
+## bagging, training          0.9155   0.8899     0.5107
 ## random forest, train       0.9884   0.9852     0.1440
 ```
 
@@ -366,13 +366,13 @@ pandoc.table(trainf, justify = perf_justify)
 
 
 
-00406_informalexample_10.3_of_section_10.1.3.R
+00329_informalexample_10.3_of_section_10.1.3.R
 
 
 
 ```r
 # informalexample 10.3 of section 10.1.3 
-# (informalexample 10.3 of section 10.1.3)  : Exploring advanced methods : Tree-based Methods : Using random forests to further improve prediction 
+# (informalexample 10.3 of section 10.1.3)  : Exploring advanced methods : Tree-based methods : Using random forests to further improve prediction 
 
 testf <- rbind(testperf_tree, testperf_bag, testperf_rf)
 pandoc.table(testf, justify = perf_justify)
@@ -384,7 +384,7 @@ pandoc.table(testf, justify = perf_justify)
 ## model                   accuracy       f1   dev.norm
 ## --------------------- ---------- -------- ----------
 ## tree, test                0.8712   0.8280     0.7531
-## bagging, test             0.9148   0.8850     0.5805
+## bagging, test             0.9127   0.8824     0.5811
 ## random forest, test       0.9498   0.9341     0.3011
 ```
 
@@ -401,13 +401,13 @@ pandoc.table(testf, justify = perf_justify)
 
 
 
-00407_informalexample_10.4_of_section_10.1.3.R
+00330_informalexample_10.4_of_section_10.1.3.R
 
 
 
 ```r
 # informalexample 10.4 of section 10.1.3 
-# (informalexample 10.4 of section 10.1.3)  : Exploring advanced methods : Tree-based Methods : Using random forests to further improve prediction 
+# (informalexample 10.4 of section 10.1.3)  : Exploring advanced methods : Tree-based methods : Using random forests to further improve prediction 
 
 difff <- data.frame(model = c("tree", "bagging", "random forest"),
                   accuracy = trainf$accuracy - testf$accuracy,
@@ -422,9 +422,9 @@ pandoc.table(difff, justify=perf_justify)
 ## 
 ## model             accuracy         f1   dev.norm
 ## --------------- ---------- ---------- ----------
-## tree              0.028411   0.041112   -0.12275
-## bagging           0.001638   0.005965   -0.07068
-## random forest     0.038633   0.051097   -0.15711
+## tree              0.028411   0.041112    -0.1227
+## bagging           0.002856   0.007584    -0.0704
+## random forest     0.038633   0.051097    -0.1571
 ```
 
 ```r
@@ -440,18 +440,18 @@ pandoc.table(difff, justify=perf_justify)
 
 
 
-00408_example_10.4_of_section_10.1.3.R
+00331_example_10.4_of_section_10.1.3.R
 
 
 
 ```r
 # example 10.4 of section 10.1.3 
-# (example 10.4 of section 10.1.3)  : Exploring advanced methods : Tree-based Methods : Using random forests to further improve prediction 
+# (example 10.4 of section 10.1.3)  : Exploring advanced methods : Tree-based methods : Using random forests to further improve prediction 
 # Title: randomForest variable importances 
 
-varImp <- importance(fmodel)              	# Note: 1 
+varImp <- importance(fmodel)                         	# Note: 1 
 
-varImp[1:10, ]                           	# Note: 2 
+varImp[1:10, ]                                       	# Note: 2 
 ```
 
 ```
@@ -495,7 +495,7 @@ varImp[1:10, ]                           	# Note: 2
 varImpPlot(fmodel, type = 1)                       	# Note: 3
 ```
 
-![plot of chunk 00408_example_10.4_of_section_10.1.3.R](figure/00408_example_10.4_of_section_10.1.3.R-1.png)
+![plot of chunk 00331_example_10.4_of_section_10.1.3.R](figure/00331_example_10.4_of_section_10.1.3.R-1.png)
 
 ```r
 # Note 1: 
@@ -514,20 +514,20 @@ varImpPlot(fmodel, type = 1)                       	# Note: 3
 
 
 
-00409_example_10.5_of_section_10.1.3.R
+00332_example_10.5_of_section_10.1.3.R
 
 
 
 ```r
 # example 10.5 of section 10.1.3 
-# (example 10.5 of section 10.1.3)  : Exploring advanced methods : Tree-based Methods : Using random forests to further improve prediction 
+# (example 10.5 of section 10.1.3)  : Exploring advanced methods : Tree-based methods : Using random forests to further improve prediction 
 # Title: Fitting with fewer variables 
 
-sorted <- sort(varImp[, "MeanDecreaseAccuracy"],    	# Note: 1 
+sorted <- sort(varImp[, "MeanDecreaseAccuracy"],       	# Note: 1 
                decreasing = TRUE)
 
 selVars <- names(sorted)[1:30]
-fsel <- randomForest(x = spamTrain[, selVars],    	# Note: 2 
+fsel <- randomForest(x = spamTrain[, selVars],             	# Note: 2 
                         y = spamTrain$spam, 
                         ntree = 100,
                         nodesize = 7,
@@ -541,7 +541,7 @@ testperf_rf2 <- accuracyMeasures(predict(fsel,
    newdata=spamTest[, selVars], type = 'prob')[, 'spam'],
    spamTest$spam == "spam", name = "RF small, test")
 
-perftable <- rbind(testperf_rf, testperf_rf2)  	# Note: 3 
+perftable <- rbind(testperf_rf, testperf_rf2)              	# Note: 3 
 pandoc.table(perftable, justify = perf_justify)
 ```
 
@@ -577,19 +577,19 @@ pandoc.table(perftable, justify = perf_justify)
 
 
 
-00410_example_10.6_of_section_10.1.4.R
+00333_example_10.6_of_section_10.1.4.R
 
 
 
 ```r
 # example 10.6 of section 10.1.4 
-# (example 10.6 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient-boosted trees 
+# (example 10.6 of section 10.1.4)  : Exploring advanced methods : Tree-based methods : Gradient-boosted trees 
 # Title: Load the iris data 
 
 iris <- iris
-iris$class <- as.numeric(iris$Species == "setosa") 	# Note: 1  
+iris$class <- as.numeric(iris$Species == "setosa")     	# Note: 1  
 set.seed(2345)
-intrain <- runif(nrow(iris)) < 0.75   	# Note: 2 
+intrain <- runif(nrow(iris)) < 0.75                        	# Note: 2 
 train <- iris[intrain, ]
 test <- iris[!intrain, ]
 head(train)
@@ -614,7 +614,7 @@ head(train)
 ## 5          5.0         3.6          1.4         0.2  setosa     1
 ## 6          5.4         3.9          1.7         0.4  setosa     1
 
-input <- as.matrix(train[, 1:4]) 	# Note: 3
+input <- as.matrix(train[, 1:4])                         	# Note: 3
 
 # Note 1: 
 #   setosa is the positive class. 
@@ -629,26 +629,26 @@ input <- as.matrix(train[, 1:4]) 	# Note: 3
 
 
 
-00411_example_10.7_of_section_10.1.4.R
+00334_example_10.7_of_section_10.1.4.R
 
 
 
 ```r
 # example 10.7 of section 10.1.4 
-# (example 10.7 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient-boosted trees 
+# (example 10.7 of section 10.1.4)  : Exploring advanced methods : Tree-based methods : Gradient-boosted trees 
 # Title: Cross-validate to determine model size 
 
 library(xgboost)
 
-cv <- xgb.cv(input,  	# Note: 1  
-            label = train$class, 	# Note: 2  
+cv <- xgb.cv(input,                                        	# Note: 1  
+            label = train$class,                           	# Note: 2  
               params = list(
-                objective = "binary:logistic"    	# Note: 3 
+                objective = "binary:logistic"             	# Note: 3 
               ),
-              nfold = 5,  	# Note: 4 
-              nrounds = 100, 	# Note: 5 
-              print_every_n = 10, 	# Note: 6 
-              metrics = "logloss") 	# Note: 7  
+              nfold = 5,                                    	# Note: 4 
+              nrounds = 100,                                	# Note: 5 
+              print_every_n = 10,                           	# Note: 6 
+              metrics = "logloss")                      	# Note: 7  
 ```
 
 ```
@@ -666,8 +666,8 @@ cv <- xgb.cv(input,  	# Note: 1
 ```
 
 ```r
-evalframe <- as.data.frame(cv$evaluation_log) 	# Note: 8  
-head(evalframe) 	# Note: 9  
+evalframe <- as.data.frame(cv$evaluation_log)               	# Note: 8  
+head(evalframe)                                              	# Note: 9  
 ```
 
 ```
@@ -703,7 +703,7 @@ head(evalframe) 	# Note: 9
 ## 5      0.002020668
 ## 6      0.001911152
 
-(NROUNDS <- which.min(evalframe$test_logloss_mean)) 	# Note: 10 
+(NROUNDS <- which.min(evalframe$test_logloss_mean))        	# Note: 10 
 ```
 
 ```
@@ -714,14 +714,6 @@ head(evalframe) 	# Note: 9
 ## [1] 18
 
 library(ggplot2)
-```
-
-```
-## Registered S3 methods overwritten by 'ggplot2':
-##   method         from 
-##   [.quosures     rlang
-##   c.quosures     rlang
-##   print.quosures rlang
 ```
 
 ```
@@ -742,7 +734,7 @@ ggplot(evalframe, aes(x = iter, y = test_logloss_mean)) +
   ggtitle("Cross-validated log loss as a function of ensemble size")
 ```
 
-![plot of chunk 00411_example_10.7_of_section_10.1.4.R](figure/00411_example_10.7_of_section_10.1.4.R-1.png)
+![plot of chunk 00334_example_10.7_of_section_10.1.4.R](figure/00334_example_10.7_of_section_10.1.4.R-1.png)
 
 ```r
 # Note 1: 
@@ -786,13 +778,13 @@ ggplot(evalframe, aes(x = iter, y = test_logloss_mean)) +
 
 
 
-00412_example_10.8_of_section_10.1.4.R
+00335_example_10.8_of_section_10.1.4.R
 
 
 
 ```r
 # example 10.8 of section 10.1.4 
-# (example 10.8 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient-boosted trees 
+# (example 10.8 of section 10.1.4)  : Exploring advanced methods : Tree-based methods : Gradient-boosted trees 
 # Title: Fit an xgboost model 
 
 model <- xgboost(data = input, 
@@ -803,8 +795,8 @@ model <- xgboost(data = input,
                   nrounds = NROUNDS,
                   verbose = FALSE)
 
-test_input <- as.matrix(test[, 1:4])  	# Note: 1 
-pred <- predict(model,  test_input)   	# Note: 2 
+test_input <- as.matrix(test[, 1:4])               	# Note: 1 
+pred <- predict(model,  test_input)                	# Note: 2 
 
 accuracyMeasures(pred, test$class) 
 ```
@@ -828,13 +820,13 @@ accuracyMeasures(pred, test$class)
 
 
 
-00413_informalexample_10.5_of_section_10.1.4.R
+00336_informalexample_10.5_of_section_10.1.4.R
 
 
 
 ```r
 # informalexample 10.5 of section 10.1.4 
-# (informalexample 10.5 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient-boosted trees 
+# (informalexample 10.5 of section 10.1.4)  : Exploring advanced methods : Tree-based methods : Gradient-boosted trees 
 
 library(zeallot)
 c(texts, labels) %<-% readRDS("../IMDB/IMDBtrain.RDS")
@@ -843,13 +835,13 @@ c(texts, labels) %<-% readRDS("../IMDB/IMDBtrain.RDS")
 
 
 
-00414_informalexample_10.6_of_section_10.1.4.R
+00337_informalexample_10.6_of_section_10.1.4.R
 
 
 
 ```r
 # informalexample 10.6 of section 10.1.4 
-# (informalexample 10.6 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient-boosted trees 
+# (informalexample 10.6 of section 10.1.4)  : Exploring advanced methods : Tree-based methods : Gradient-boosted trees 
 
 source("../IMDB/lime_imdb_example.R")
 vocab <- create_pruned_vocabulary(texts)  
@@ -859,13 +851,13 @@ dtm_train <- make_matrix(texts, vocab)
 
 
 
-00415_informalexample_10.7_of_section_10.1.4.R
+00338_informalexample_10.7_of_section_10.1.4.R
 
 
 
 ```r
 # informalexample 10.7 of section 10.1.4 
-# (informalexample 10.7 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient-boosted trees 
+# (informalexample 10.7 of section 10.1.4)  : Exploring advanced methods : Tree-based methods : Gradient-boosted trees 
 
 cv <- xgb.cv(dtm_train, 
              label = labels,
@@ -874,52 +866,55 @@ cv <- xgb.cv(dtm_train,
                ),
              nfold = 5,
              nrounds = 500,
-             early_stopping_rounds = 20, 	# Note: 1 
+             early_stopping_rounds = 20,             	# Note: 1 
              print_every_n = 10,
              metrics = "logloss")    
 ```
 
 ```
-## [1]	train-logloss:0.631484+0.000294	test-logloss:0.635752+0.000776 
+## [1]	train-logloss:0.631250+0.000443	test-logloss:0.636453+0.000733 
 ## Multiple eval metrics are present. Will use test_logloss for early stopping.
 ## Will train until test_logloss hasn't improved in 20 rounds.
 ## 
-## [11]	train-logloss:0.449693+0.000868	test-logloss:0.484899+0.001512 
-## [21]	train-logloss:0.378245+0.001236	test-logloss:0.432993+0.003253 
-## [31]	train-logloss:0.330611+0.001087	test-logloss:0.403635+0.003665 
-## [41]	train-logloss:0.295581+0.002045	test-logloss:0.383396+0.003491 
-## [51]	train-logloss:0.269655+0.001062	test-logloss:0.369304+0.003669 
-## [61]	train-logloss:0.247676+0.001190	test-logloss:0.358703+0.004128 
-## [71]	train-logloss:0.229750+0.001362	test-logloss:0.350573+0.004364 
-## [81]	train-logloss:0.213305+0.001385	test-logloss:0.342877+0.004357 
-## [91]	train-logloss:0.200554+0.001893	test-logloss:0.337223+0.003626 
-## [101]	train-logloss:0.188024+0.001594	test-logloss:0.332674+0.004260 
-## [111]	train-logloss:0.177439+0.001107	test-logloss:0.329223+0.005175 
-## [121]	train-logloss:0.167949+0.000729	test-logloss:0.325840+0.005363 
-## [131]	train-logloss:0.160097+0.000613	test-logloss:0.322385+0.005363 
-## [141]	train-logloss:0.152575+0.000682	test-logloss:0.319382+0.004884 
-## [151]	train-logloss:0.144893+0.000471	test-logloss:0.317027+0.005172 
-## [161]	train-logloss:0.138151+0.000801	test-logloss:0.314901+0.005476 
-## [171]	train-logloss:0.131879+0.000807	test-logloss:0.313414+0.005700 
-## [181]	train-logloss:0.125111+0.000661	test-logloss:0.312003+0.005663 
-## [191]	train-logloss:0.119561+0.000388	test-logloss:0.310940+0.006121 
-## [201]	train-logloss:0.114350+0.001086	test-logloss:0.310027+0.006415 
-## [211]	train-logloss:0.109838+0.001480	test-logloss:0.308769+0.006758 
-## [221]	train-logloss:0.106098+0.001408	test-logloss:0.307781+0.006844 
-## [231]	train-logloss:0.101596+0.001014	test-logloss:0.307010+0.006740 
-## [241]	train-logloss:0.097954+0.001067	test-logloss:0.306343+0.007058 
-## [251]	train-logloss:0.094239+0.001193	test-logloss:0.305634+0.006707 
-## [261]	train-logloss:0.090725+0.001663	test-logloss:0.305335+0.006418 
-## [271]	train-logloss:0.087282+0.001566	test-logloss:0.304687+0.006289 
-## [281]	train-logloss:0.083918+0.001685	test-logloss:0.304315+0.006764 
-## [291]	train-logloss:0.080872+0.001765	test-logloss:0.304005+0.006394 
-## [301]	train-logloss:0.078182+0.001755	test-logloss:0.303311+0.006438 
-## [311]	train-logloss:0.075248+0.001549	test-logloss:0.303162+0.006822 
-## [321]	train-logloss:0.072722+0.001827	test-logloss:0.303009+0.006899 
-## [331]	train-logloss:0.070541+0.001707	test-logloss:0.302683+0.007221 
-## [341]	train-logloss:0.068438+0.001617	test-logloss:0.302694+0.007125 
+## [11]	train-logloss:0.449784+0.000786	test-logloss:0.486051+0.002957 
+## [21]	train-logloss:0.376966+0.000947	test-logloss:0.435103+0.002819 
+## [31]	train-logloss:0.328215+0.000420	test-logloss:0.403382+0.004930 
+## [41]	train-logloss:0.293795+0.000890	test-logloss:0.382221+0.004650 
+## [51]	train-logloss:0.267975+0.001346	test-logloss:0.368658+0.003987 
+## [61]	train-logloss:0.246493+0.000557	test-logloss:0.358546+0.004636 
+## [71]	train-logloss:0.228934+0.000576	test-logloss:0.349346+0.004171 
+## [81]	train-logloss:0.213974+0.001132	test-logloss:0.342234+0.004249 
+## [91]	train-logloss:0.200892+0.000981	test-logloss:0.336647+0.004005 
+## [101]	train-logloss:0.188946+0.000474	test-logloss:0.332055+0.004003 
+## [111]	train-logloss:0.178643+0.001170	test-logloss:0.327705+0.004737 
+## [121]	train-logloss:0.169406+0.001105	test-logloss:0.324074+0.004915 
+## [131]	train-logloss:0.161194+0.001291	test-logloss:0.321490+0.004933 
+## [141]	train-logloss:0.153589+0.000865	test-logloss:0.319325+0.005278 
+## [151]	train-logloss:0.146575+0.000535	test-logloss:0.316899+0.005087 
+## [161]	train-logloss:0.140012+0.000421	test-logloss:0.314983+0.005053 
+## [171]	train-logloss:0.134023+0.000523	test-logloss:0.313549+0.004718 
+## [181]	train-logloss:0.127586+0.000728	test-logloss:0.311965+0.004534 
+## [191]	train-logloss:0.122542+0.000505	test-logloss:0.310759+0.004493 
+## [201]	train-logloss:0.117717+0.000799	test-logloss:0.309625+0.005186 
+## [211]	train-logloss:0.113208+0.000836	test-logloss:0.308143+0.005235 
+## [221]	train-logloss:0.108600+0.001178	test-logloss:0.306745+0.004626 
+## [231]	train-logloss:0.104509+0.001440	test-logloss:0.306251+0.004893 
+## [241]	train-logloss:0.100300+0.001238	test-logloss:0.305592+0.005267 
+## [251]	train-logloss:0.096470+0.001406	test-logloss:0.304485+0.005634 
+## [261]	train-logloss:0.092778+0.001332	test-logloss:0.304231+0.005759 
+## [271]	train-logloss:0.088868+0.001611	test-logloss:0.303794+0.006308 
+## [281]	train-logloss:0.086019+0.001661	test-logloss:0.303376+0.006233 
+## [291]	train-logloss:0.082998+0.001077	test-logloss:0.302710+0.005701 
+## [301]	train-logloss:0.080217+0.001242	test-logloss:0.302079+0.005886 
+## [311]	train-logloss:0.077203+0.001095	test-logloss:0.302018+0.006373 
+## [321]	train-logloss:0.074611+0.001112	test-logloss:0.301975+0.006427 
+## [331]	train-logloss:0.072316+0.000978	test-logloss:0.302029+0.006482 
+## [341]	train-logloss:0.070011+0.000922	test-logloss:0.301722+0.006897 
+## [351]	train-logloss:0.067635+0.001054	test-logloss:0.301452+0.006784 
+## [361]	train-logloss:0.065395+0.001261	test-logloss:0.301633+0.006793 
+## [371]	train-logloss:0.063413+0.001349	test-logloss:0.301503+0.007015 
 ## Stopping. Best iteration:
-## [328]	train-logloss:0.071178+0.001755	test-logloss:0.302495+0.007249
+## [352]	train-logloss:0.067377+0.001152	test-logloss:0.301444+0.006783
 ```
 
 ```r
@@ -928,26 +923,27 @@ evalframe <- as.data.frame(cv$evaluation_log)
 ```
 
 ```
-## [1] 328
+## [1] 352
 ```
 
 ```r
 ## [1] 319
 
 # Note 1: 
-#   Stop early if performance doesn't improve for 20 rounds. 
+#   Stop early if performance doesn’t improve for 
+#   20 rounds. 
 ```
 
 
 
 
-00416_informalexample_10.8_of_section_10.1.4.R
+00339_informalexample_10.8_of_section_10.1.4.R
 
 
 
 ```r
 # informalexample 10.8 of section 10.1.4 
-# (informalexample 10.8 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient-boosted trees 
+# (informalexample 10.8 of section 10.1.4)  : Exploring advanced methods : Tree-based methods : Gradient-boosted trees 
 
 model <- xgboost(data = dtm_train, label = labels,
                   params = list(
@@ -959,7 +955,7 @@ model <- xgboost(data = dtm_train, label = labels,
 pred = predict(model, dtm_train)  
 trainperf_xgb =  accuracyMeasures(pred, labels, "training")  
 
-c(test_texts, test_labels) %<-% readRDS("../IMDB/IMDBtest.RDS") 	# Note: 1 
+c(test_texts, test_labels) %<-% readRDS("../IMDB/IMDBtest.RDS")    	# Note: 1 
 dtm_test = make_matrix(test_texts, vocab) 
 
 pred = predict(model, dtm_test)
@@ -974,8 +970,8 @@ pandoc.table(perftable, justify = perf_justify)
 ## 
 ## model        accuracy       f1   dev.norm
 ## ---------- ---------- -------- ----------
-## training       0.9895   0.9895     0.1680
-## test           0.8724   0.8733     0.5949
+## training       0.9912   0.9913     0.1563
+## test           0.8728   0.8736     0.5945
 ```
 
 ```r
@@ -993,20 +989,20 @@ pandoc.table(perftable, justify = perf_justify)
 
 
 
-00417_example_10.9_of_section_10.1.4.R
+00340_example_10.9_of_section_10.1.4.R
 
 
 
 ```r
 # example 10.9 of section 10.1.4 
-# (example 10.9 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient-boosted trees 
+# (example 10.9 of section 10.1.4)  : Exploring advanced methods : Tree-based methods : Gradient-boosted trees 
 # Title: Load the natality data 
 
 load("../CDC/NatalBirthData.rData")
-train <- sdata[sdata$ORIGRANDGROUP <= 5, ]  	# Note: 1  
+train <- sdata[sdata$ORIGRANDGROUP <= 5, ]                                   	# Note: 1  
 test <- sdata[sdata$ORIGRANDGROUP >5 , ]
 
-input_vars <- setdiff(colnames(train), c("DBWT", "ORIGRANDGROUP"))  	# Note: 2 
+input_vars <- setdiff(colnames(train), c("DBWT", "ORIGRANDGROUP"))    	# Note: 2 
                    
 str(train[, input_vars])
 ```
@@ -1052,20 +1048,20 @@ str(train[, input_vars])
 
 
 
-00418_example_10.10_of_section_10.1.4.R
+00341_example_10.10_of_section_10.1.4.R
 
 
 
 ```r
 # example 10.10 of section 10.1.4 
-# (example 10.10 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient-boosted trees 
+# (example 10.10 of section 10.1.4)  : Exploring advanced methods : Tree-based methods : Gradient-boosted trees 
 # Title: Use vtreat to prepare data for xgboost 
 
 library(vtreat)
 
-treatplan <- designTreatmentsZ(train,  	# Note: 1 
+treatplan <- designTreatmentsZ(train,                                 	# Note: 1 
                                input_vars,
-                               codeRestriction = c("clean", "isBAD", "lev" ), 	# Note: 2                               
+                               codeRestriction = c("clean", "isBAD", "lev" ),   	# Note: 2 
                                verbose = FALSE)
 
 train_treated <- prepare(treatplan, train) 	# Note: 3 
@@ -1123,19 +1119,20 @@ str(train_treated)
 
 
 
-00419_example_10.11_of_section_10.1.4.R
+00342_example_10.11_of_section_10.1.4.R
 
 
 
 ```r
 # example 10.11 of section 10.1.4 
-# (example 10.11 of section 10.1.4)  : Exploring advanced methods : Tree-based Methods : Gradient-boosted trees 
+# (example 10.11 of section 10.1.4)  : Exploring advanced methods : Tree-based methods : Gradient-boosted trees 
 # Title: Fit and apply an xgboost model for birth weight 
 
 birthwt_model <- xgboost(as.matrix(train_treated), 
                          train$DBWT,
                          params = list(
-                           objective = "reg:linear"
+                           objective = "reg:linear",
+                           base_score = mean(train$DBWT)
                          ),
                          nrounds = 50,
                          verbose = FALSE)
@@ -1147,7 +1144,7 @@ pred <- predict(birthwt_model, as.matrix(test_treated))
 
 
 
-00422_example_10.12_of_section_10.2.2.R
+00345_example_10.12_of_section_10.2.2.R
 
 
 
@@ -1173,7 +1170,7 @@ test <-frame[select <= 0.1, ]
 
 
 
-00423_example_10.13_of_section_10.2.2.R
+00346_example_10.13_of_section_10.2.2.R
 
 
 
@@ -1227,11 +1224,11 @@ summary(lin_model)
 ## Multiple R-squared:  0.04075,    Adjusted R-squared:  0.03968 
 ## F-statistic: 38.19 on 1 and 899 DF,  p-value: 9.737e-10
 
-rmse <- function(residuals) {     	# Note: 1 
+rmse <- function(residuals) {                    	# Note: 1 
   sqrt(mean(residuals^2))
 }
 
-train$pred_lin <- predict(lin_model, train)  	# Note: 2 
+train$pred_lin <- predict(lin_model, train)              	# Note: 2 
 resid_lin <- with(train, y - pred_lin)
 rmse(resid_lin)
 ```
@@ -1243,14 +1240,14 @@ rmse(resid_lin)
 ```r
 ## [1] 3.481091
 
-library(ggplot2)   	# Note: 3 
+library(ggplot2)                                  	# Note: 3 
 
 ggplot(train, aes(x = pred_lin, y = y)) + 
   geom_point(alpha = 0.3) + 
   geom_abline()
 ```
 
-![plot of chunk 00423_example_10.13_of_section_10.2.2.R](figure/00423_example_10.13_of_section_10.2.2.R-1.png)
+![plot of chunk 00346_example_10.13_of_section_10.2.2.R](figure/00346_example_10.13_of_section_10.2.2.R-1.png)
 
 ```r
 # Note 1: 
@@ -1267,7 +1264,7 @@ ggplot(train, aes(x = pred_lin, y = y)) +
 
 
 
-00424_example_10.14_of_section_10.2.2.R
+00347_example_10.14_of_section_10.2.2.R
 
 
 
@@ -1276,7 +1273,7 @@ ggplot(train, aes(x = pred_lin, y = y)) +
 # (example 10.14 of section 10.2.2)  : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : A one-dimensional regression example 
 # Title: GAM applied to the artificial example 
 
-library(mgcv)                             	# Note: 1 
+library(mgcv)                                   	# Note: 1 
 ```
 
 ```
@@ -1288,8 +1285,8 @@ library(mgcv)                             	# Note: 1
 ```
 
 ```r
-gam_model <- gam(y ~ s(x), data = train)   	# Note: 2 
-gam_model$converged                      	# Note: 3 
+gam_model <- gam(y ~ s(x), data = train)        	# Note: 2 
+gam_model$converged                             	# Note: 3 
 ```
 
 ```
@@ -1339,7 +1336,7 @@ summary(gam_model)
 ## ---
 ## Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 ##
-## Approximate significance of smooth terms:       	# Note: 6 
+## Approximate significance of smooth terms:            	# Note: 6 
 ##        edf Ref.df     F p-value
 ## s(x) 8.685  8.972 497.8  <2e-16 ***
 ## ---
@@ -1348,7 +1345,7 @@ summary(gam_model)
 ## R-sq.(adj) =  0.832   Deviance explained = 83.4%          	# Note: 7 
 ## GCV score =  2.144  Scale est. = 2.121     n = 901
 
-train$pred <- predict(gam_model, train)  	# Note: 8 
+train$pred <- predict(gam_model, train)                	# Note: 8 
 resid_gam <- with(train, y - pred)
 rmse(resid_gam)
 ```
@@ -1360,12 +1357,12 @@ rmse(resid_gam)
 ```r
 ## [1] 1.448514
 
-ggplot(train, aes(x = pred, y = y)) +   	# Note: 9 
+ggplot(train, aes(x = pred, y = y)) +                   	# Note: 9 
   geom_point(alpha = 0.3) + 
   geom_abline()
 ```
 
-![plot of chunk 00424_example_10.14_of_section_10.2.2.R](figure/00424_example_10.14_of_section_10.2.2.R-1.png)
+![plot of chunk 00347_example_10.14_of_section_10.2.2.R](figure/00347_example_10.14_of_section_10.2.2.R-1.png)
 
 ```r
 # Note 1: 
@@ -1412,7 +1409,7 @@ ggplot(train, aes(x = pred, y = y)) +   	# Note: 9
 
 
 
-00425_example_10.15_of_section_10.2.2.R
+00348_example_10.15_of_section_10.2.2.R
 
 
 
@@ -1421,17 +1418,17 @@ ggplot(train, aes(x = pred, y = y)) +   	# Note: 9
 # (example 10.15 of section 10.2.2)  : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : A one-dimensional regression example 
 # Title: Comparing linear regression and GAM performance 
 
-test <- transform(test,                                 	# Note: 1 
+test <- transform(test,                                   	# Note: 1 
                  pred_lin = predict(lin_model, test),
                  pred_gam = predict(gam_model, test) )
 
 
-test <- transform(test,                          	# Note: 2                 
+test <- transform(test,                                   	# Note: 2 
                  resid_lin = y - pred_lin,
                  resid_gam = y - pred_gam)
 
 
-rmse(test$resid_lin)              	# Note: 3 
+rmse(test$resid_lin)                                      	# Note: 3 
 ```
 
 ```
@@ -1452,7 +1449,7 @@ rmse(test$resid_gam)
 ## [1] 1.401399
 
 
-library(sigr)      	# Note: 4 
+library(sigr)                                            	# Note: 4 
 wrapFTest(test, "pred_lin", "y")$R2
 ```
 
@@ -1491,7 +1488,7 @@ wrapFTest(test, "pred_gam", "y")$R2
 
 
 
-00426_example_10.16_of_section_10.2.3.R
+00349_example_10.16_of_section_10.2.3.R
 
 
 
@@ -1530,12 +1527,12 @@ ggplot(xframe, aes(x = x)) +
      geom_line(aes(y = sx))
 ```
 
-![plot of chunk 00426_example_10.16_of_section_10.2.3.R](figure/00426_example_10.16_of_section_10.2.3.R-1.png)
+![plot of chunk 00349_example_10.16_of_section_10.2.3.R](figure/00349_example_10.16_of_section_10.2.3.R-1.png)
 
 
 
 
-00427_example_10.17_of_section_10.2.4.R
+00350_example_10.17_of_section_10.2.4.R
 
 
 
@@ -1551,7 +1548,7 @@ train <- sdata[sdata$ORIGRANDGROUP <= 5, ]
 test <- sdata[sdata$ORIGRANDGROUP > 5, ]
 
 form_lin <- as.formula("DBWT ~ PWGT + WTGAIN + MAGER + UPREVIS")
-linmodel <- lm(form_lin, data = train)    	# Note: 1  
+linmodel <- lm(form_lin, data = train)                                	# Note: 1  
 summary(linmodel)
 ```
 
@@ -1598,13 +1595,13 @@ summary(linmodel)
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
 ## Residual standard error: 562.7 on 14381 degrees of freedom
-## Multiple R-squared:  0.06596,    Adjusted R-squared:  0.0657   	# Note: 2 
+## Multiple R-squared:  0.06596,    Adjusted R-squared:  0.0657       	# Note: 2 
 ## F-statistic: 253.9 on 4 and 14381 DF,  p-value: < 2.2e-16
 
 form_gam <- as.formula("DBWT ~ s(PWGT) + s(WTGAIN) +
                         s(MAGER) + s(UPREVIS)")
-gammodel <- gam(form_gam, data = train)                       	# Note: 3 
-gammodel$converged                                             	# Note: 4 
+gammodel <- gam(form_gam, data = train)                            	# Note: 3 
+gammodel$converged                                                	# Note: 4 
 ```
 
 ```
@@ -1667,7 +1664,7 @@ summary(gammodel)
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## R-sq.(adj) =  0.0927   Deviance explained = 9.42%  	# Note: 5 
+## R-sq.(adj) =  0.0927   Deviance explained = 9.42%                  	# Note: 5 
 ## GCV = 3.0804e+05  Scale est. = 3.0752e+05  n = 14386
 
 # Note 1: 
@@ -1695,7 +1692,7 @@ summary(gammodel)
 
 
 
-00428_example_10.18_of_section_10.2.4.R
+00351_example_10.18_of_section_10.2.4.R
 
 
 
@@ -1704,17 +1701,17 @@ summary(gammodel)
 # (example 10.18 of section 10.2.4)  : Exploring advanced methods : Using generalized additive models (GAMs) to learn non-monotone relationships : Using GAM on actual data 
 # Title: Plotting GAM results 
 
-terms <- predict(gammodel, type = "terms")        	# Note: 1 
-terms <- cbind(DBWT = train$DBWT, terms)        	# Note: 2 
+terms <- predict(gammodel, type = "terms")             	# Note: 1 
+terms <- cbind(DBWT = train$DBWT, terms)                   	# Note: 2 
 
 
-tframe <- as.data.frame(scale(terms, scale = FALSE))  	# Note: 3 
+tframe <- as.data.frame(scale(terms, scale = FALSE))         	# Note: 3 
 colnames(tframe) <- gsub('[()]', '', colnames(tframe))      	# Note: 4 
 
 vars = c("PWGT", "WTGAIN", "MAGER", "UPREVIS")
-pframe <- cbind(tframe, train[, vars])         	# Note: 5 
+pframe <- cbind(tframe, train[, vars])                        	# Note: 5 
                     
-ggplot(pframe, aes(PWGT)) +   	# Note: 6 
+ggplot(pframe, aes(PWGT)) +                                  	# Note: 6 
   geom_point(aes(y = sPWGT)) + 
   geom_smooth(aes(y = DBWT), se = FALSE)
 ```
@@ -1723,10 +1720,10 @@ ggplot(pframe, aes(PWGT)) +   	# Note: 6
 ## `geom_smooth()` using method = 'gam' and formula 'y ~ s(x, bs = "cs")'
 ```
 
-![plot of chunk 00428_example_10.18_of_section_10.2.4.R](figure/00428_example_10.18_of_section_10.2.4.R-1.png)
+![plot of chunk 00351_example_10.18_of_section_10.2.4.R](figure/00351_example_10.18_of_section_10.2.4.R-1.png)
 
 ```r
-# [...]  	# Note: 7
+# [...]                                                     	# Note: 7
 
 # Note 1: 
 #   Get the matrix of s() 
@@ -1747,8 +1744,8 @@ ggplot(pframe, aes(PWGT)) +   	# Note: 6
 #   Bind in the input variables. 
 
 # Note 6: 
-#   Compare the spline s(PWGT) to the smoothed curve of  
-#   DBWT (baby's weight) as a function of mother's weight (PWGT). 
+#   Compare the spline s(PWGT) to the smoothed curve of DBWT (baby’s weight) 
+#   as a function of mother’s weight (PWGT). 
 
 # Note 7: 
 #   Repeat for remaining variables (omitted for 
@@ -1758,7 +1755,7 @@ ggplot(pframe, aes(PWGT)) +   	# Note: 6
 
 
 
-00429_example_10.19_of_section_10.2.4.R
+00352_example_10.19_of_section_10.2.4.R
 
 
 
@@ -1833,7 +1830,7 @@ wrapFTest(test, "pred_gam", "DBWT")$R2
 
 
 
-00430_example_10.20_of_section_10.2.5.R
+00353_example_10.20_of_section_10.2.5.R
 
 
 
@@ -1849,7 +1846,7 @@ logmod <- glm(form, data = train, family = binomial(link = "logit"))
 
 
 
-00431_example_10.21_of_section_10.2.5.R
+00354_example_10.21_of_section_10.2.5.R
 
 
 
@@ -1917,20 +1914,20 @@ summary(glogmod)
 ##
 ## Approximate significance of smooth terms: 
 ##              edf Ref.df  Chi.sq  p-value    
-## s(PWGT)    1.905  2.420   2.463  0.36412    	# Note: 1 
+## s(PWGT)    1.905  2.420   2.463  0.36412                 	# Note: 1 
 ## s(WTGAIN)  3.674  4.543  64.426 1.72e-12 ***
 ## s(MAGER)   1.003  1.005   8.335  0.00394 ** 
 ## s(UPREVIS) 6.802  7.216 217.631  < 2e-16 ***
 ## ---
 ## Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 ##
-## R-sq.(adj) =  0.0331   Deviance explained = 9.14% 	# Note: 2 
+## R-sq.(adj) =  0.0331   Deviance explained = 9.14%        	# Note: 2 
 ## UBRE score = -0.76987  Scale est. = 1         n = 14386
 
 # Note 1: 
-#   Note the large p-value associated with mother's weight (PGWT). That means that there’s  
-#   no statistical proof that the mother’s weight (PWGT) has a significant effect on 
-#   outcome. 
+#   Note the large p-value associated with mother’s weight (PGWT). That means 
+#   that there’s no statistical proof that the mother’s weight (PWGT) has a 
+#   significant effect on outcome. 
 
 # Note 2: 
 #   “Deviance explained” is the pseudo R-squared: 1 - 
@@ -1940,13 +1937,13 @@ summary(glogmod)
 
 
 
-00432_example_10.22_of_section_10.3.1.R
+00355_example_10.22_of_section_10.3.1.R
 
 
 
 ```r
 # example 10.22 of section 10.3.1 
-# (example 10.22 of section 10.3.1)  : Exploring advanced methods : Solving "Inseparable" Problems Using Support Vector Machines : Using a SVM to solve a problem 
+# (example 10.22 of section 10.3.1)  : Exploring advanced methods : Solving “inseparable” problems using support vector machines : Using a SVM to solve a problem 
 # Title: Setting up the spirals data as an example classification problem 
 
 library('kernlab')
@@ -1964,13 +1961,13 @@ library('kernlab')
 ```
 
 ```r
-data(spirals)  		# Note: 1 
-sc <- specc(spirals, centers = 2) 		# Note: 2 
+data(spirals)                                  		# Note: 1 
+sc <- specc(spirals, centers = 2)            		# Note: 2 
 s <- data.frame(x = spirals[, 1], y = spirals[, 2],  	# Note: 3 
    class = as.factor(sc)) 	
 
 library('ggplot2') 
-ggplot(data = s) + 	# Note: 4 
+ggplot(data = s) +                                  	# Note: 4 
   geom_text(aes(x = x, y = y,
                 label = class, color = class)) +
   scale_color_manual(values = c("#d95f02", "#1b9e77")) +
@@ -1980,13 +1977,12 @@ ggplot(data = s) + 	# Note: 4
   ggtitle("example task: separate the 1s from the 2s")
 ```
 
-![plot of chunk 00432_example_10.22_of_section_10.3.1.R](figure/00432_example_10.22_of_section_10.3.1.R-1.png)
+![plot of chunk 00355_example_10.22_of_section_10.3.1.R](figure/00355_example_10.22_of_section_10.3.1.R-1.png)
 
 ```r
 # Note 1: 
-#   Load the kernlab kernel and support vector 
-#   machine package and then ask that the included example "spirals" be made 
-#   available. 
+#   Load the kernlab kernel and support vector machine package and then ask that the included 
+#   example “spirals” be made available. 
 
 # Note 2: 
 #   Use kernlab’s spectral clustering routine 
@@ -2003,30 +1999,30 @@ ggplot(data = s) + 	# Note: 4
 
 
 
-00433_example_10.23_of_section_10.3.1.R
+00356_example_10.23_of_section_10.3.1.R
 
 
 
 ```r
 # example 10.23 of section 10.3.1 
-# (example 10.23 of section 10.3.1)  : Exploring advanced methods : Solving "Inseparable" Problems Using Support Vector Machines : Using a SVM to solve a problem 
+# (example 10.23 of section 10.3.1)  : Exploring advanced methods : Solving “inseparable” problems using support vector machines : Using a SVM to solve a problem 
 # Title: SVM with a poor choice of kernel 
 
 set.seed(2335246L)
 s$group <- sample.int(100, size = dim(s)[[1]], replace = TRUE)
 sTrain <- subset(s, group > 10)
-sTest <- subset(s,group <= 10) 		# Note: 1  
+sTest <- subset(s,group <= 10)                           		# Note: 1  
 
 library('e1071')
 mSVMV <- svm(class ~ x + y, data = sTrain, kernel = 'linear', type = 'nu-classification') 		# Note: 2 
-sTest$predSVMV <- predict(mSVMV, newdata = sTest, type = 'response') 		# Note: 3 
+sTest$predSVMV <- predict(mSVMV, newdata = sTest, type = 'response')     		# Note: 3 
 
 shading <- expand.grid( 	# Note: 4 
   x = seq(-1.5, 1.5, by = 0.01),
   y = seq(-1.5, 1.5, by = 0.01))
 shading$predSVMV <- predict(mSVMV, newdata = shading, type = 'response')
 
-ggplot(mapping = aes(x = x, y = y)) + 	# Note: 5 
+ggplot(mapping = aes(x = x, y = y)) +                         	# Note: 5 
   geom_tile(data = shading, aes(fill = predSVMV),
             show.legend = FALSE, alpha = 0.5) +
   scale_color_manual(values = c("#d95f02", "#1b9e77")) +
@@ -2041,7 +2037,7 @@ ggplot(mapping = aes(x = x, y = y)) + 	# Note: 5
   ggtitle("linear kernel")
 ```
 
-![plot of chunk 00433_example_10.23_of_section_10.3.1.R](figure/00433_example_10.23_of_section_10.3.1.R-1.png)
+![plot of chunk 00356_example_10.23_of_section_10.3.1.R](figure/00356_example_10.23_of_section_10.3.1.R-1.png)
 
 ```r
 # Note 1: 
@@ -2068,13 +2064,13 @@ ggplot(mapping = aes(x = x, y = y)) + 	# Note: 5
 
 
 
-00434_example_10.24_of_section_10.3.1.R
+00357_example_10.24_of_section_10.3.1.R
 
 
 
 ```r
 # example 10.24 of section 10.3.1 
-# (example 10.24 of section 10.3.1)  : Exploring advanced methods : Solving "Inseparable" Problems Using Support Vector Machines : Using a SVM to solve a problem 
+# (example 10.24 of section 10.3.1)  : Exploring advanced methods : Solving “inseparable” problems using support vector machines : Using a SVM to solve a problem 
 # Title: SVM with a good choice of kernel 
 
 mSVMG <- svm(class ~ x + y, data = sTrain, kernel = 'radial', type = 'nu-classification') 		# Note: 1 
@@ -2100,40 +2096,39 @@ ggplot(mapping = aes(x = x, y = y)) +
   ggtitle("radial/Gaussian kernel")
 ```
 
-![plot of chunk 00434_example_10.24_of_section_10.3.1.R](figure/00434_example_10.24_of_section_10.3.1.R-1.png)
+![plot of chunk 00357_example_10.24_of_section_10.3.1.R](figure/00357_example_10.24_of_section_10.3.1.R-1.png)
 
 ```r
 # Note 1: 
-#   This time use the "radial" or 
-#   Gaussian kernel, which is a nice geometric distance measure. 
+#   This time use the “radial” or Gaussian kernel, which is a nice geometric distance measure. 
 ```
 
 
 
 
-00438_example_10.25_of_section_10.3.3.R
+00361_example_10.25_of_section_10.3.3.R
 
 
 
 ```r
 # example 10.25 of section 10.3.3 
-# (example 10.25 of section 10.3.3)  : Exploring advanced methods : Solving "Inseparable" Problems Using Support Vector Machines : Understanding kernel functions 
+# (example 10.25 of section 10.3.3)  : Exploring advanced methods : Solving “inseparable” problems using support vector machines : Understanding kernel functions 
 # Title: An artificial kernel example 
 
 u <- c(1, 2)
 v <- c(3, 4)
-k <- function(u, v) { 	# Note: 1 
+k <- function(u, v) {                       	# Note: 1 
      u[1] * v[1] + 
         u[2] * v[2] +
         u[1] * u[1] * v[1] * v[1] + 
         u[2] * u[2] * v[2] * v[2] +
         u[1] * u[2] * v[1] * v[2]
   }
-phi <- function(x) { 	# Note: 2 
+phi <- function(x) {                        	# Note: 2 
      x <- as.numeric(x)
      c(x, x*x, combn(x, 2, FUN = prod))
   }
-print(k(u, v)) 	# Note: 3 
+print(k(u, v))                             	# Note: 3 
 ```
 
 ```
@@ -2160,7 +2155,7 @@ print(phi(v))
 
 ```r
 ## [1]  3  4  9 16 12
-print(as.numeric(phi(u) %*% phi(v))) 	# Note: 4 
+print(as.numeric(phi(u) %*% phi(v)))       	# Note: 4 
 ```
 
 ```

@@ -12,7 +12,7 @@ output: github_document
 # (example 3.1 of section 3.1)  : Exploring data : Using summary statistics to spot problems 
 # Title: The summary() command 
 
-setwd("../../PDSwR2/Custdata") 	# Note: 1 
+setwd("../../PDSwR2/Custdata")                                               	# Note: 1 
 customer_data = readRDS("../Custdata/custdata.RDS")
 summary(customer_data)
 ##     custid              sex        is_employed       income       	# Note: 2 
@@ -23,7 +23,7 @@ summary(customer_data)
 ##                                                  3rd Qu.:  51700  
 ##                                                  Max.   :1257000  
 ##                                                                   
-##             marital_status  health_ins     	# Note: 3 
+##             marital_status  health_ins                                  	# Note: 3 
 ##  Divorced/Separated:10693   Mode :logical  
 ##  Married           :38400   FALSE:7307     
 ##  Never married     :19407   TRUE :65955    
@@ -31,7 +31,7 @@ summary(customer_data)
 ##                                            
 ##                                            
 ##                                            
-##                        housing_type   recent_move      num_vehicles   	# Note: 4 
+##                        housing_type   recent_move      num_vehicles         	# Note: 4 
 ##  Homeowner free and clear    :16763   Mode :logical   Min.   :0.000  
 ##  Homeowner with mortgage/loan:31387   FALSE:62418     1st Qu.:1.000  
 ##  Occupied with no rent       : 1138   TRUE :9123      Median :2.000  
@@ -39,7 +39,7 @@ summary(customer_data)
 ##  NA's                        : 1720                   3rd Qu.:3.000  
 ##                                                       Max.   :6.000  
 ##                                                       NA's   :1720   
-##       age               state_of_res     gas_usage       	# Note: 5 
+##       age               state_of_res     gas_usage                     	# Note: 5 
 ##  Min.   :  0.00   California  : 8962   Min.   :  1.00  
 ##  1st Qu.: 34.00   Texas       : 6026   1st Qu.:  3.00  
 ##  Median : 48.00   Florida     : 4979   Median : 10.00  
@@ -85,7 +85,7 @@ summary(customer_data)
 # (example 3.2 of section 3.1.1)  : Exploring data : Using summary statistics to spot problems : Typical problems revealed by data summaries 
 # Title: Will the variable is.employed be useful for modeling? 
 
-## is_employed         	# Note: 1                 
+## is_employed                                         	# Note: 1 
 ## FALSE: 2321   
 ## TRUE :44887  
 ## NA's :24333  
@@ -115,9 +115,9 @@ summary(customer_data)
 #   parents)? 
 
 # Note 2: 
-#   The variables housing_type, recent_move, 
-#   num_vehicles and gas_usage are missing relatively few values—about 2% of the data. It’s probably safe to just 
-#   drop the rows that are missing values, especially if the missing values are  
+#   The variables housing_type, recent_move, num_vehicles, and gas_usage are missing relatively 
+#   few values—about 2% of the data. It’s probably safe to just drop the 
+#   rows that are missing values, especially if the missing values are 
 #   all in the same 1720 rows. 
 
 
@@ -137,11 +137,11 @@ summary(customer_data)
 
 summary(customer_data$income)
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   -6900   11200   27300   42522   52000 1257000  	# Note: 1 
+##   -6900   11200   27300   42522   52000 1257000    	# Note: 1 
                         
 summary(customer_data$age)
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##    0.00   34.00   48.00   49.17   62.00  120.00 	# Note: 2
+##    0.00   34.00   48.00   49.17   62.00  120.00    	# Note: 2
 
 # Note 1: 
 #   Negative values for income could indicate 
@@ -151,9 +151,8 @@ summary(customer_data$age)
 #   convert negative values to zero? 
 
 # Note 2: 
-#   Customers of age zero, or customers of an 
-#   age greater than about 110 are outliers. They fall out of the range of 
-#   expected customer values. Outliers could be data input errors. 
+#   Customers of age zero, or customers of an age greater than about 110, are outliers. They fall 
+#   out of the range of expected customer values. Outliers could be data input errors. 
 #   They could be special sentinel values: zero might mean “age unknown” or 
 #   “refuse to state.” And some of your customers might be especially 
 #   long-lived. 
@@ -175,7 +174,7 @@ summary(customer_data$age)
 
 summary(customer_data$income)
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   -6900   10700   26200   41764   51700 1257000  	# Note: 1
+##   -6900   10700   26200   41764   51700 1257000     	# Note: 1
 
 # Note 1: 
 #   Income ranges from zero to over a million 
@@ -197,7 +196,7 @@ summary(customer_data$income)
 # Title: Checking units sounds silly, but mistakes can lead to spectacular errors if not caught 
 
 IncomeK = customer_data$income/1000
-summary(IncomeK) 	# Note: 1 
+summary(IncomeK)                                            	# Note: 1 
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   -6.90   10.70   26.20   41.76   51.70 1257.00
 
@@ -222,9 +221,9 @@ summary(IncomeK) 	# Note: 1
 # (example 3.6 of section 3.2.1)  : Exploring data : Spotting problems using graphics and visualization : Visually checking distributions for a single variable 
 # Title: Plotting a histogram 
 
-library(ggplot2)     	# Note: 1 
+library(ggplot2)                                    	# Note: 1 
 ggplot(customer_data, aes(x=gas_usage)) + 
-  geom_histogram(binwidth=10, fill="gray") 	# Note: 2
+  geom_histogram(binwidth=10, fill="gray")          	# Note: 2
 
 # Note 1: 
 #   Load the ggplot2 library, if you haven’t 
@@ -251,10 +250,10 @@ ggplot(customer_data, aes(x=gas_usage)) +
 # (example 3.7 of section 3.2.1)  : Exploring data : Spotting problems using graphics and visualization : Visually checking distributions for a single variable 
 # Title: Producing a density plot 
 
-library(scales) 	# Note: 1 
+library(scales)                                      	# Note: 1 
                        
 ggplot(customer_data, aes(x=income)) + geom_density() + 
-  scale_x_continuous(labels=dollar) 	# Note: 2
+  scale_x_continuous(labels=dollar)                   	# Note: 2
 
 # Note 1: 
 #   The scales package brings in the dollar 
@@ -281,8 +280,8 @@ ggplot(customer_data, aes(x=income)) + geom_density() +
 
 ggplot(customer_data, aes(x=income)) + 
   geom_density() + 
-  scale_x_log10(breaks = c(10, 100, 1000, 10000, 100000, 1000000), labels=dollar) + 	# Note: 1 
-  annotation_logticks(sides="bt", color="gray") 	# Note: 2
+  scale_x_log10(breaks = c(10, 100, 1000, 10000, 100000, 1000000), labels=dollar) +    	# Note: 1 
+  annotation_logticks(sides="bt", color="gray")                                        	# Note: 2
 
 # Note 1: 
 #   Set the x-axis to be in log10 scale, with 
@@ -324,12 +323,11 @@ ggplot(customer_data, aes(x=marital_status)) + geom_bar(fill="gray")
 # Title: Producing a horizontal bar chart 
 
 ggplot(customer_data, aes(x=state_of_res)) + 
-  geom_bar(fill="gray") + 	# Note: 1 
-  coord_flip() 	# Note: 2
+  geom_bar(fill="gray") +                       	# Note: 1 
+  coord_flip()                                  	# Note: 2
 
 # Note 1: 
-#   Plot bar chart as before: state_of_res 
-#   is on x axis, count is on y-axis. 
+#   Plot bar chart as before: state_of_res is on x-axis, count is on y-axis. 
 
 # Note 2: 
 #   Flip the x and y axes: state_of_res is 
@@ -350,8 +348,8 @@ ggplot(customer_data, aes(x=state_of_res)) +
 # (example 3.10 of section 3.2.1)  : Exploring data : Spotting problems using graphics and visualization : Visually checking distributions for a single variable 
 # Title: Producing a dot plot with sorted categories 
 
-library(WVPlots) 	# Note: 1 
-ClevelandDotPlot(customer_data, "state_of_res",                    	# Note: 2 
+library(WVPlots)                                              	# Note: 1 
+ClevelandDotPlot(customer_data, "state_of_res",               	# Note: 2 
     sort = 1, title="Customers by state") +                   	# Note: 3 
 coord_flip()                                                  	# Note: 4
 
@@ -362,7 +360,7 @@ coord_flip()                                                  	# Note: 4
 #   Plot the state_of_res column of the customer_data data frame. 
 
 # Note 3: 
-#   "sort = 1" sorts the categories in increasing order (most frequent last). 
+#   “sort = 1” sorts the categories in increasing order (most frequent last). 
 
 # Note 4: 
 #   Flip the axes as before. 
@@ -382,8 +380,8 @@ coord_flip()                                                  	# Note: 4
 # (example 3.11 of section 3.2.2)  : Exploring data : Spotting problems using graphics and visualization : Visually checking relationships between two variables 
 # Title: Producing a line plot 
 
-x <- runif(100)   	# Note: 1 
-y <- x^2 + 0.2*x   	# Note: 2 
+x <- runif(100)                                           	# Note: 1 
+y <- x^2 + 0.2*x                                          	# Note: 2 
 ggplot(data.frame(x=x,y=y), aes(x=x,y=y)) + geom_line()  	# Note: 3
 
 # Note 1: 
@@ -415,10 +413,10 @@ ggplot(data.frame(x=x,y=y), aes(x=x,y=y)) + geom_line()  	# Note: 3
 
 customer_data2 <- subset(customer_data,
                    0 < age & age < 100 & 
-                    0 < income & income < 200000) 	# Note: 1 
+                    0 < income & income < 200000)      	# Note: 1 
                     
-cor(customer_data2$age, customer_data2$income) 	# Note: 2 
-## [1] 0.005766697                   	# Note: 3
+cor(customer_data2$age, customer_data2$income)          	# Note: 2 
+## [1] 0.005766697                                     	# Note: 3
 
 # Note 1: 
 #   Only consider a subset of data with 
@@ -445,10 +443,10 @@ cor(customer_data2$age, customer_data2$income) 	# Note: 2
 # (example 3.13 of section 3.2.2)  : Exploring data : Spotting problems using graphics and visualization : Visually checking relationships between two variables 
 # Title: Creating a scatterplot of age and income 
 
-set.seed(245566)             	# Note: 1 
-customer_data_samp <- dplyr::sample_frac(customer_data2, size=0.1, replace=FALSE) 	# Note: 2 
+set.seed(245566)                                                                   	# Note: 1 
+customer_data_samp <- dplyr::sample_frac(customer_data2, size=0.1, replace=FALSE)   	# Note: 2 
                     
-ggplot(customer_data_samp, aes(x=age, y=income)) +                              	# Note: 3 
+ggplot(customer_data_samp, aes(x=age, y=income)) +                                  	# Note: 3 
        geom_point() +
        ggtitle("Income as a function of age")
 
@@ -511,10 +509,10 @@ BinaryYScatterPlot(customer_data_samp, "age", "health_ins",
 # (example 3.14 of section 3.2.2)  : Exploring data : Spotting problems using graphics and visualization : Visually checking relationships between two variables 
 # Title: Producing a hexbin plot 
 
-library(WVPlots) 	# Note: 1 
+library(WVPlots)                                                             	# Note: 1 
                         
 HexBinPlot(customer_data2, "age", "income", "Income as a function of age") +  	# Note: 2 
-  geom_smooth(color="black", se=FALSE) 	# Note: 3
+  geom_smooth(color="black", se=FALSE)                                        	# Note: 3
 
 # Note 1: 
 #   Load the WVPlots library 
@@ -542,16 +540,16 @@ HexBinPlot(customer_data2, "age", "income", "Income as a function of age") +  	#
 # Title: Specifying different styles of bar chart 
 
 ggplot(customer_data, aes(x=marital_status, fill=health_ins)) + 
-                        geom_bar() 	# Note: 1 
+                        geom_bar()                                             	# Note: 1 
                         
 ggplot(customer_data, aes(x=marital_status, fill=health_ins)) + 
-                     geom_bar(position = "dodge")  	# Note: 2 
+                     geom_bar(position = "dodge")                               	# Note: 2 
                       
 ShadowPlot(customer_data, "marital_status", "health_ins",
-                         title = "Health insurance status by marital status")   	# Note: 3                     
-                       
+                         title = "Health insurance status by marital status")   	# Note: 3 
+
 ggplot(customer_data, aes(x=marital_status, fill=health_ins)) + 
-                     geom_bar(position = "fill")  	# Note: 4
+                     geom_bar(position = "fill")                                	# Note: 4
 
 # Note 1: 
 #   Stacked bar chart, the 
@@ -629,8 +627,8 @@ ggplot(cdata, aes(x=marital_status)) +                    	# Note: 4
 # (example 3.17 of section 3.2.2)  : Exploring data : Spotting problems using graphics and visualization : Visually checking relationships between two variables 
 # Title: Comparing population densities across categories 
 
-customer_data3 = subset(customer_data2, marital_status %in% c("Never married", "Widowed")) 	# Note: 1 
-ggplot(customer_data3, aes(x=age, color=marital_status, linetype=marital_status)) +  	# Note: 2 
+customer_data3 = subset(customer_data2, marital_status %in% c("Never married", "Widowed"))    	# Note: 1 
+ggplot(customer_data3, aes(x=age, color=marital_status, linetype=marital_status)) +          	# Note: 2 
   geom_density() + scale_color_brewer(palette="Dark2")
 
 # Note 1: 
@@ -656,7 +654,7 @@ ggplot(customer_data3, aes(x=age, color=marital_status, linetype=marital_status)
 
 ShadowHist(customer_data3, "age", "marital_status", 
 "Age distribution for never married vs. widowed populations",
-           binwidth=5) 	# Note: 1
+           binwidth=5)                                    	# Note: 1
 
 # Note 1: 
 #   Set the bin widths of the histogram to 5. 

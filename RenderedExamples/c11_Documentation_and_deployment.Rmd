@@ -4,10 +4,10 @@ output: github_document
 
 
 
-00442_informalexample_11.1_of_section_11.2.1.R
+00365_informalexample_11.1_of_section_11.2.1.R
 
 
-```{r 00442_informalexample_11.1_of_section_11.2.1.R }
+```{r 00365_informalexample_11.1_of_section_11.2.1.R }
 # informalexample 11.1 of section 11.2.1 
 # (informalexample 11.1 of section 11.2.1)  : Documentation and deployment : Using R markdown to produce milestone documentation : What is R markdown? 
 
@@ -20,10 +20,10 @@ rmarkdown::render("../Buzz/Buzz_score_example.Rmd", rmarkdown::html_document())
 
 
 
-00446_example_11.5_of_section_11.3.1.R
+00369_example_11.5_of_section_11.3.1.R
 
 
-```{r 00446_example_11.5_of_section_11.3.1.R }
+```{r 00369_example_11.5_of_section_11.3.1.R }
 # example 11.5 of section 11.3.1 
 # (example 11.5 of section 11.3.1)  : Documentation and deployment : Using comments and version control for running documentation : Writing effective comments 
 # Title: Example code comment 

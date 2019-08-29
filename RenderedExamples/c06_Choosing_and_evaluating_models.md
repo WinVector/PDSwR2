@@ -4,7 +4,7 @@ output: github_document
 
 
 
-00219_example_6.1_of_section_6.2.3.R
+00142_example_6.1_of_section_6.2.3.R
 
 
 
@@ -13,12 +13,12 @@ output: github_document
 # (example 6.1 of section 6.2.3)  : Choosing and evaluating models : Evaluating models : Evaluating classification models 
 # Title: Building and applying a logistic regression spam model 
 
-spamD <- read.table('../Spambase/spamD.tsv',header=T,sep='\t') 	# Note: 1 
+spamD <- read.table('../Spambase/spamD.tsv',header=T,sep='\t')              	# Note: 1 
 
-spamTrain <- subset(spamD,spamD$rgroup  >= 10)  	# Note: 2 
+spamTrain <- subset(spamD,spamD$rgroup  >= 10)                	# Note: 2 
 spamTest <- subset(spamD,spamD$rgroup < 10)
 
-spamVars <- setdiff(colnames(spamD), list('rgroup','spam'))  	# Note: 3 
+spamVars <- setdiff(colnames(spamD), list('rgroup','spam'))     	# Note: 3 
 spamFormula <- as.formula(paste('spam == "spam"',
 paste(spamVars, collapse = ' + '),sep = ' ~ '))
 
@@ -31,7 +31,7 @@ spamModel <- glm(spamFormula,family = binomial(link = 'logit'),     	# Note: 4
 ```
 
 ```r
-spamTrain$pred <- predict(spamModel,newdata = spamTrain,   	# Note: 5 
+spamTrain$pred <- predict(spamModel,newdata = spamTrain,        	# Note: 5 
                              type = 'response')
 spamTest$pred <- predict(spamModel,newdata = spamTest,
                             type = 'response')
@@ -55,7 +55,7 @@ spamTest$pred <- predict(spamModel,newdata = spamTest,
 
 
 
-00220_example_6.2_of_section_6.2.3.R
+00143_example_6.2_of_section_6.2.3.R
 
 
 
@@ -77,22 +77,24 @@ print(sample)
 ```
 
 ```r
-##          spam         pred  	# Note: 1 
+##          spam         pred                       	# Note: 1 
 ## 115      spam 0.9903246227
 ## 361      spam 0.4800498077
 ## 2300 non-spam 0.0006846551
 ## 3428 non-spam 0.0001434345
 
 # Note 1: 
-#   The first column gives the predicted class label (spam or non-spam). The 
-#   second column gives the predicted probability that an email is spam. If the  
-#   probability > 0.5 the email is labeled "spam," otherwise it is "non-spam". 
+#   The first column gives the predicted class 
+#   label (spam or non-spam). The second column gives 
+#   the predicted probability that an email is spam. 
+#   If the probability > 0.5 the email is labeled 
+#   “spam”; otherwise it is “non-spam”. 
 ```
 
 
 
 
-00221_example_6.3_of_section_6.2.3.R
+00144_example_6.3_of_section_6.2.3.R
 
 
 
@@ -124,7 +126,7 @@ print(confmat_spam)
 
 
 
-00222_informalexample_6.1_of_section_6.2.3.R
+00145_informalexample_6.1_of_section_6.2.3.R
 
 
 
@@ -146,7 +148,7 @@ print(confmat_spam)
 
 
 
-00223_example_6.4_of_section_6.2.3.R
+00146_example_6.4_of_section_6.2.3.R
 
 
 
@@ -176,7 +178,7 @@ print(confmat_akismet)
 
 
 
-00224_informalexample_6.2_of_section_6.2.3.R
+00147_informalexample_6.2_of_section_6.2.3.R
 
 
 
@@ -198,7 +200,7 @@ print(confmat_akismet)
 
 
 
-00225_informalexample_6.3_of_section_6.2.3.R
+00148_informalexample_6.3_of_section_6.2.3.R
 
 
 
@@ -220,7 +222,7 @@ confmat_spam[2,2] / (confmat_spam[2,2]+ confmat_spam[1,2])
 
 
 
-00226_informalexample_6.4_of_section_6.2.3.R
+00149_informalexample_6.4_of_section_6.2.3.R
 
 
 
@@ -242,7 +244,7 @@ confmat_akismet[2,2] / (confmat_akismet[2,2] + confmat_akismet[1,2])
 
 
 
-00227_informalexample_6.5_of_section_6.2.3.R
+00150_informalexample_6.5_of_section_6.2.3.R
 
 
 
@@ -274,7 +276,7 @@ confmat_akismet[2,2] / (confmat_akismet[2,2] + confmat_akismet[2,1])
 
 
 
-00228_informalexample_6.6_of_section_6.2.3.R
+00151_informalexample_6.6_of_section_6.2.3.R
 
 
 
@@ -299,7 +301,7 @@ recall <- confmat_spam[2,2] / (confmat_spam[2,2] + confmat_spam[2,1])
 
 
 
-00229_example_6.5_of_section_6.2.3.R
+00152_example_6.5_of_section_6.2.3.R
 
 
 
@@ -458,7 +460,7 @@ get_performance(rbind(sTest, subset(removed, spam=="non-spam")))   	# Note: 5
 
 
 
-00230_informalexample_6.7_of_section_6.2.3.R
+00153_informalexample_6.7_of_section_6.2.3.R
 
 
 
@@ -480,7 +482,7 @@ confmat_spam[1,1] / (confmat_spam[1,1] + confmat_spam[1,2])
 
 
 
-00231_example_6.6_of_section_6.2.4.R
+00154_example_6.6_of_section_6.2.4.R
 
 
 
@@ -498,7 +500,7 @@ crickets$temp_pred <- predict(cricket_model, newdata=crickets)
 
 
 
-00232_example_6.7_of_section_6.2.4.R
+00155_example_6.7_of_section_6.2.4.R
 
 
 
@@ -522,7 +524,7 @@ error_sq <- (crickets$temp_pred - crickets$temperatureF)^2
 
 
 
-00233_example_6.8_of_section_6.2.4.R
+00156_example_6.8_of_section_6.2.4.R
 
 
 
@@ -531,13 +533,13 @@ error_sq <- (crickets$temp_pred - crickets$temperatureF)^2
 # (example 6.8 of section 6.2.4)  : Choosing and evaluating models : Evaluating models : Evaluating scoring models 
 # Title: Calculating R-squared 
 
-error_sq <- (crickets$temp_pred - crickets$temperatureF)^2        	# Note: 1 
-numerator <- sum(error_sq)                                         	# Note: 2 
+error_sq <- (crickets$temp_pred - crickets$temperatureF)^2               	# Note: 1 
+numerator <- sum(error_sq)                                               	# Note: 2 
  
 delta_sq <- (mean(crickets$temperatureF) - crickets$temperatureF)^2       	# Note: 3 
-denominator = sum(delta_sq)                                                   	# Note: 4 
+denominator = sum(delta_sq)                                               	# Note: 4 
  
-(R2 <- 1 - numerator/denominator)                                 	# Note: 5 
+(R2 <- 1 - numerator/denominator)                                         	# Note: 5 
 ```
 
 ```
@@ -551,13 +553,13 @@ denominator = sum(delta_sq)                                                   	#
 #   Calculate the squared error terms. 
 
 # Note 2: 
-#   Sum them to get the model's sum squared error, or variance. 
+#   Sum them to get the model’s sum squared error, or variance. 
 
 # Note 3: 
 #   Calculate the squared error terms from the null model. 
 
 # Note 4: 
-#   Calculate the data's total variance. 
+#   Calculate the data’s total variance. 
 
 # Note 5: 
 #   Calculate R-squared. 
@@ -566,7 +568,7 @@ denominator = sum(delta_sq)                                                   	#
 
 
 
-00234_example_6.9_of_section_6.2.5.R
+00157_example_6.9_of_section_6.2.5.R
 
 
 
@@ -576,29 +578,18 @@ denominator = sum(delta_sq)                                                   	#
 # Title: Making a double density plot 
 
 library(WVPlots)
-```
-
-```
-## Registered S3 methods overwritten by 'ggplot2':
-##   method         from 
-##   [.quosures     rlang
-##   c.quosures     rlang
-##   print.quosures rlang
-```
-
-```r
 DoubleDensityPlot(spamTest, 
                   xvar = "pred",
                   truthVar = "spam",
                   title = "Distribution of scores for spam filter")
 ```
 
-![plot of chunk 00234_example_6.9_of_section_6.2.5.R](figure/00234_example_6.9_of_section_6.2.5.R-1.png)
+![plot of chunk 00157_example_6.9_of_section_6.2.5.R](figure/00157_example_6.9_of_section_6.2.5.R-1.png)
 
 
 
 
-00235_example_6.10_of_section_6.2.5.R
+00158_example_6.10_of_section_6.2.5.R
 
 
 
@@ -608,18 +599,18 @@ DoubleDensityPlot(spamTest,
 # Title: Plotting the receiver operating characteristic curve 
 
 library(WVPlots)
-ROCPlot(spamTest,                      	# Note: 1 
+ROCPlot(spamTest,                                       	# Note: 1 
         xvar = 'pred', 
         truthVar = 'spam', 
         truthTarget = 'spam', 
         title = 'Spam filter test performance')
 ```
 
-![plot of chunk 00235_example_6.10_of_section_6.2.5.R](figure/00235_example_6.10_of_section_6.2.5.R-1.png)
+![plot of chunk 00158_example_6.10_of_section_6.2.5.R](figure/00158_example_6.10_of_section_6.2.5.R-1.png)
 
 ```r
 library(sigr)
-calcAUC(spamTest$pred, spamTest$spam=='spam')   	# Note: 2 
+calcAUC(spamTest$pred, spamTest$spam=='spam')       	# Note: 2 
 ```
 
 ```
@@ -639,7 +630,7 @@ calcAUC(spamTest$pred, spamTest$spam=='spam')   	# Note: 2
 
 
 
-00236_example_6.11_of_section_6.2.5.R
+00159_example_6.11_of_section_6.2.5.R
 
 
 
@@ -648,14 +639,14 @@ calcAUC(spamTest$pred, spamTest$spam=='spam')   	# Note: 2
 # (example 6.11 of section 6.2.5)  : Choosing and evaluating models : Evaluating models : Evaluating probability models 
 # Title: Calculating log likelihood 
 
-ylogpy <- function(y, py) {           	# Note: 1 
+ylogpy <- function(y, py) {                       	# Note: 1 
   logpy = ifelse(py > 0, log(py), 0)
   y*logpy
 }
 
-y <- spamTest$spam == 'spam' 	# Note: 2 
+y <- spamTest$spam == 'spam'                  	# Note: 2 
 
-sum(ylogpy(y, spamTest$pred) +            	# Note: 3 
+sum(ylogpy(y, spamTest$pred) +                    	# Note: 3 
       ylogpy(1-y, 1-spamTest$pred))
 ```
 
@@ -673,13 +664,13 @@ sum(ylogpy(y, spamTest$pred) +            	# Note: 3
 #   Get the class labels of the test set as TRUE/FALSE, which R treats as 1/0 in arithmetic operations. 
 
 # Note 3: 
-#   Calculate the log likelihood of the model's predictions on the test set. 
+#   Calculate the log likelihood of the model’s predictions on the test set. 
 ```
 
 
 
 
-00237_example_6.12_of_section_6.2.5.R
+00160_example_6.12_of_section_6.2.5.R
 
 
 
@@ -712,7 +703,7 @@ sum(ylogpy(y, pNull) + ylogpy(1-y, 1-pNull))
 
 
 
-00238_example_6.13_of_section_6.2.5.R
+00161_example_6.13_of_section_6.2.5.R
 
 
 
@@ -756,7 +747,7 @@ library(sigr)
 
 
 
-00239_example_6.14_of_section_6.3.2.R
+00162_example_6.14_of_section_6.3.2.R
 
 
 
@@ -767,10 +758,10 @@ library(sigr)
 
 iris <- iris
                                         
-iris$class <- as.numeric(iris$Species == "setosa")  	# Note: 1 
+iris$class <- as.numeric(iris$Species == "setosa")     	# Note: 1 
                                         
 set.seed(2345)  
-intrain <- runif(nrow(iris)) < 0.75 	# Note: 2  
+intrain <- runif(nrow(iris)) < 0.75                       	# Note: 2  
 train <- iris[intrain,]
 test <- iris[!intrain,]
                                         
@@ -806,7 +797,7 @@ head(train)
 
 
 
-00240_example_6.15_of_section_6.3.2.R
+00163_example_6.15_of_section_6.3.2.R
 
 
 
@@ -815,9 +806,9 @@ head(train)
 # (example 6.15 of section 6.3.2)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Walking through LIME: a small example 
 # Title: Fit a model to the iris training data 
 
-source("../LIME_iris/lime_iris_example.R") 	# Note: 1  
+source("../LIME_iris/lime_iris_example.R")                   	# Note: 1  
                                         
-input <- as.matrix(train[, 1:4])              	# Note: 2                  
+input <- as.matrix(train[, 1:4])                    	# Note: 2 
 model <- fit_iris_example(input, train$class)
 ```
 
@@ -840,14 +831,15 @@ model <- fit_iris_example(input, train$class)
 #   Load the convenience function. 
 
 # Note 2: 
-#   The input to the model is the first 4 columns of the training data,  
-#   converted to a matrix. 
+#   The input to the model is the first four 
+#   columns of the training data, converted to a 
+#   matrix. 
 ```
 
 
 
 
-00241_example_6.16_of_section_6.3.2.R
+00164_example_6.16_of_section_6.3.2.R
 
 
 
@@ -858,13 +850,13 @@ model <- fit_iris_example(input, train$class)
 
 predictions <- predict(model, newdata=as.matrix(test[,1:4])) 		# Note: 1 
                                         
-teframe <- data.frame(isSetosa = ifelse(test$class == 1, 	# Note: 2 
+teframe <- data.frame(isSetosa = ifelse(test$class == 1,         	# Note: 2 
                                         "setosa",
                                         "not setosa"),
                       pred = ifelse(predictions > 0.5, 
                                 "setosa",
                                 "not setosa"))
-with(teframe, table(truth=isSetosa, pred=pred))    		# Note: 3 
+with(teframe, table(truth=isSetosa, pred=pred))    	          	# Note: 3 
 ```
 
 ```
@@ -894,20 +886,20 @@ with(teframe, table(truth=isSetosa, pred=pred))    		# Note: 3
 
 
 
-00242_example_6.17_of_section_6.3.2.R
+00165_example_6.17_of_section_6.3.2.R
 
 
 
 ```r
 # example 6.17 of section 6.3.2 
 # (example 6.17 of section 6.3.2)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Walking through LIME: a small example 
-# Title: Build a LIME "explainer" from the model and training data 
+# Title: Build a LIME explainer from the model and training data 
 
 library(lime)
-explainer <- lime(train[,1:4],            	# Note: 1 
+explainer <- lime(train[,1:4],                       	# Note: 1 
                      model = model, 
-                     bin_continuous = TRUE,   	# Note: 2 
-                     n_bins = 10)             	# Note: 3
+                     bin_continuous = TRUE,          	# Note: 2 
+                     n_bins = 10)                    	# Note: 3
 
 # Note 1: 
 #   Build the explainer from the training data. 
@@ -922,7 +914,7 @@ explainer <- lime(train[,1:4],            	# Note: 1
 
 
 
-00243_example_6.18_of_section_6.3.2.R
+00166_example_6.18_of_section_6.3.2.R
 
 
 
@@ -931,7 +923,7 @@ explainer <- lime(train[,1:4],            	# Note: 1
 # (example 6.18 of section 6.3.2)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Walking through LIME: a small example 
 # Title: An example iris datum 
 
-(example <- test[5, 1:4, drop=FALSE])   	# Note: 1 
+(example <- test[5, 1:4, drop=FALSE])                     	# Note: 1 
 ```
 
 ```
@@ -951,7 +943,7 @@ test$class[5]
 ```
 
 ```r
-## [1] 1        	# Note: 2 
+## [1] 1                                                  	# Note: 2 
                                         
 round(predict(model, newdata = as.matrix(example))) 
 ```
@@ -961,10 +953,10 @@ round(predict(model, newdata = as.matrix(example)))
 ```
 
 ```r
-## [1] 1          	# Note: 3
+## [1] 1                                                  	# Note: 3
 
 # Note 1: 
-#   A single row dataframe. 
+#   A single row data frame. 
 
 # Note 2: 
 #   This example is a setosa. 
@@ -976,7 +968,7 @@ round(predict(model, newdata = as.matrix(example)))
 
 
 
-00244_example_6.19_of_section_6.3.2.R
+00167_example_6.19_of_section_6.3.2.R
 
 
 
@@ -1000,7 +992,7 @@ explanation <- lime::explain(example,
 
 
 
-00245_informalexample_6.8_of_section_6.3.2.R
+00168_informalexample_6.8_of_section_6.3.2.R
 
 
 
@@ -1011,12 +1003,12 @@ explanation <- lime::explain(example,
 plot_features(explanation)
 ```
 
-![plot of chunk 00245_informalexample_6.8_of_section_6.3.2.R](figure/00245_informalexample_6.8_of_section_6.3.2.R-1.png)
+![plot of chunk 00168_informalexample_6.8_of_section_6.3.2.R](figure/00168_informalexample_6.8_of_section_6.3.2.R-1.png)
 
 
 
 
-00248_example_6.20_of_section_6.3.2.R
+00171_example_6.20_of_section_6.3.2.R
 
 
 
@@ -1037,9 +1029,9 @@ plot_features(explanation)
 ```r
 ##     Sepal.Length Sepal.Width Petal.Length Petal.Width
 ## 58           4.9         2.4          3.3         1.0
-## 110          7.2         3.6          6.1         2.5                                               
+## 110          7.2         3.6          6.1         2.5
    
-test$class[c(13,24)] 	# Note: 1                                               
+test$class[c(13,24)]                                            	# Note: 1 
 ```
 
 ```
@@ -1049,7 +1041,7 @@ test$class[c(13,24)] 	# Note: 1
 ```r
 ## [1] 0 0                                              
    
-round(predict(model, newdata=as.matrix(example))) 	# Note: 2        
+round(predict(model, newdata=as.matrix(example)))               	# Note: 2 
 ```
 
 ```
@@ -1068,7 +1060,7 @@ explanation <- explain(example,
 plot_features(explanation)
 ```
 
-![plot of chunk 00248_example_6.20_of_section_6.3.2.R](figure/00248_example_6.20_of_section_6.3.2.R-1.png)
+![plot of chunk 00171_example_6.20_of_section_6.3.2.R](figure/00171_example_6.20_of_section_6.3.2.R-1.png)
 
 ```r
 # Note 1: 
@@ -1081,40 +1073,85 @@ plot_features(explanation)
 
 
 
-00249_example_6.21_of_section_6.3.3.R
+00172_example_6.21_of_section_6.3.3.R
 
 
 
 ```r
 # example 6.21 of section 6.3.3 
-# (example 6.21 of section 6.3.3)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : LIME for Text Classification 
+# (example 6.21 of section 6.3.3)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : LIME for text classification 
 # Title: Loading the IMDB training data 
 
-library(zeallot) 	# Note: 1 
+library(zeallot)                                     	# Note: 1 
                                 
-c(texts, labels) %<-% readRDS("../IMDB/IMDBtrain.RDS") 	# Note: 2
+c(texts, labels) %<-% readRDS("../IMDB/IMDBtrain.RDS")   	# Note: 2
 
 # Note 1: 
 #   Load the zeallot library. Call install.packages("zeallot") if this fails. 
 
 # Note 2: 
-#   The command "read(../IMDB/IMDBtrain.RDS)" returns a list object. 
-#   The zeallot assignment arrow %<-% unpacks the list into two elements: 
-#   "texts" is a character vector of reviews and 
-#   "labels" is a 0/1 vector of class labels.  
-#   The label 1 designates a positive review. 
+#   The command “read(../IMDB/IMDBtrain.RDS)” returns a list object. The zeallot assignment arrow %<-% 
+#   unpacks the list into two elements: “texts” is a 
+#   character vector of reviews and “labels” is a 0/1 
+#   vector of class labels. The label 1 designates a 
+#   positive review. 
 ```
 
 
 
 
-00251_informalexample_6.12_of_section_6.3.3.R
+00173_informalexample_6.11_of_section_6.3.3.R
+
+
+
+```r
+# informalexample 6.11 of section 6.3.3 
+# (informalexample 6.11 of section 6.3.3)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : LIME for text classification 
+
+list(text = texts[1], label = labels[1]) 
+```
+
+```
+## $text
+##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          train_21317 
+## "Forget depth of meaning, leave your logic at the door, and have a great time with this maniacally funny, totally absurdist, ultra-campy live-action \"cartoon\". MYSTERY MEN is a send-up of every superhero flick you've ever seen, but its unlikely super-wannabes are so interesting, varied, and well-cast that they are memorable characters in their own right. Dark humor, downright silliness, bona fide action, and even a touching moment or two, combine to make this comic fantasy about lovable losers a true winner. The comedic talents of the actors playing the Mystery Men -- including one Mystery Woman -- are a perfect foil for Wes Studi as what can only be described as a bargain-basement Yoda, and Geoffrey Rush as one of the most off-the-wall (and bizarrely charming) villains ever to walk off the pages of a Dark Horse comic book and onto the big screen. Get ready to laugh, cheer, and say \"huh?\" more than once.... enjoy!" 
+## 
+## $label
+## train_21317 
+##           1
+```
+
+```r
+## $text
+## train_21317 
+## train_21317 
+## "Forget depth of meaning, leave your logic at the door, and have a great time with this 
+## maniacally funny, totally absurdist, ultra-campy live-action \"cartoon\". 
+## MYSTERY MEN is a send-up of every superhero flick you've ever seen, but its unlikely 
+## super-wannabes are so interesting, varied, and well-cast that they are memorable characters 
+## in their own right. Dark humor, downright silliness, bona fide action, and even a touching 
+## moment or two, combine to make this comic fantasy about lovable losers a true winner. 
+## The comedic talents of the actors playing the Mystery Men -- including one Mystery Woman -- 
+## are a perfect foil for Wes Studi as what can only be described as a bargain-basement Yoda, 
+## and Geoffrey Rush as one of the most off-the-wall (and bizarrely charming) villains ever to 
+## walk off the pages of a Dark Horse comic book and onto the big screen. Get ready to laugh, 
+## cheer, and say \"huh?\" more than once.... enjoy!" 
+## 
+## $label
+## train_21317 
+##           1
+```
+
+
+
+
+00174_informalexample_6.12_of_section_6.3.3.R
 
 
 
 ```r
 # informalexample 6.12 of section 6.3.3 
-# (informalexample 6.12 of section 6.3.3)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : LIME for Text Classification 
+# (informalexample 6.12 of section 6.3.3)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : LIME for text classification 
 
 list(text = texts[12], label = labels[12])
 ```
@@ -1132,7 +1169,7 @@ list(text = texts[12], label = labels[12])
 ```r
 ## $text
 ## train_385 
-##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               train_385 
+## train_385 
 ## "Jameson Parker And Marilyn Hassett are the screen's most unbelievable couple since John 
 ## Travolta and Lily Tomlin. Larry Peerce's direction wavers uncontrollably between black farce 
 ## and Roman tragedy. Robert Klein certainly think it's the former and his self-centered 
@@ -1149,7 +1186,7 @@ list(text = texts[12], label = labels[12])
 
 
 
-00252_example_6.22_of_section_6.3.4.R
+00175_example_6.22_of_section_6.3.4.R
 
 
 
@@ -1160,9 +1197,9 @@ list(text = texts[12], label = labels[12])
 
 source("../IMDB/lime_imdb_example.R")
                                 
-vocab <- create_pruned_vocabulary(texts) 	# Note: 1                                
-dtm_train <- make_matrix(texts, vocab)  	# Note: 2 
-model <- fit_imdb_model(dtm_train, labels) 	# Note: 3
+vocab <- create_pruned_vocabulary(texts)          	# Note: 1 
+dtm_train <- make_matrix(texts, vocab)            	# Note: 2 
+model <- fit_imdb_model(dtm_train, labels)        	# Note: 3
 
 # Note 1: 
 #   Create the vocabulary from the training data. 
@@ -1177,7 +1214,7 @@ model <- fit_imdb_model(dtm_train, labels) 	# Note: 3
 
 
 
-00253_example_6.23_of_section_6.3.4.R
+00176_example_6.23_of_section_6.3.4.R
 
 
 
@@ -1186,15 +1223,15 @@ model <- fit_imdb_model(dtm_train, labels) 	# Note: 3
 # (example 6.23 of section 6.3.4)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Train the text classifier 
 # Title: Evaluate the review classifier 
 
-c(test_txt, test_labels) %<-%  readRDS("../IMDB/IMDBtest.RDS") 	# Note: 1 
-dtm_test <- make_matrix(test_txt, vocab) 	# Note: 2 
+c(test_txt, test_labels) %<-%  readRDS("../IMDB/IMDBtest.RDS")                        	# Note: 1 
+dtm_test <- make_matrix(test_txt, vocab)                                      	# Note: 2 
                                 
-predicted <- predict(model, newdata=dtm_test)  	# Note: 3 
+predicted <- predict(model, newdata=dtm_test)                                 	# Note: 3 
                                 
 teframe <- data.frame(true_label = test_labels, 
                          pred = predicted)                                    	# Note: 4 
                                 
-(cmat <- with(teframe, table(truth=true_label, pred=pred > 0.5))) 	# Note: 5 
+(cmat <- with(teframe, table(truth=true_label, pred=pred > 0.5)))           	# Note: 5 
 ```
 
 ```
@@ -1210,7 +1247,7 @@ teframe <- data.frame(true_label = test_labels,
 ##     0 10836  1664
 ##     1  1485 11015
                                 
-sum(diag(cmat))/sum(cmat) 	# Note: 6                                  
+sum(diag(cmat))/sum(cmat)                                                     	# Note: 6 
 ```
 
 ```
@@ -1222,10 +1259,10 @@ sum(diag(cmat))/sum(cmat) 	# Note: 6
                    
 library(WVPlots)                   
 DoubleDensityPlot(teframe, "pred", "true_label", 
-                  "Distribution of test prediction scores") 	# Note: 7
+                  "Distribution of test prediction scores")                   	# Note: 7
 ```
 
-![plot of chunk 00253_example_6.23_of_section_6.3.4.R](figure/00253_example_6.23_of_section_6.3.4.R-1.png)
+![plot of chunk 00176_example_6.23_of_section_6.3.4.R](figure/00176_example_6.23_of_section_6.3.4.R-1.png)
 
 ```r
 # Note 1: 
@@ -1253,13 +1290,13 @@ DoubleDensityPlot(teframe, "pred", "true_label",
 
 
 
-00254_example_6.24_of_section_6.3.5.R
+00177_example_6.24_of_section_6.3.5.R
 
 
 
 ```r
 # example 6.24 of section 6.3.5 
-# (example 6.24 of section 6.3.5)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Explaining the classifier's predictions 
+# (example 6.24 of section 6.3.5)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Explaining the classifier’s predictions 
 # Title: Build an explainer for a text classifier 
 
 explainer <- lime(texts, model = model, 
@@ -1269,14 +1306,14 @@ explainer <- lime(texts, model = model,
 
 
 
-00255_example_6.25_of_section_6.3.5.R
+00178_example_6.25_of_section_6.3.5.R
 
 
 
 ```r
 # example 6.25 of section 6.3.5 
-# (example 6.25 of section 6.3.5)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Explaining the classifier's predictions 
-# Title: Explaining the model's prediction on a review 
+# (example 6.25 of section 6.3.5)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Explaining the classifier’s predictions 
+# Title: Explaining the model’s prediction on a review 
 
 casename <- "test_19552"; 
 sample_case <- test_txt[casename]
@@ -1316,13 +1353,13 @@ list(text = sample_case,
 
 
 
-00256_example_6.26_of_section_6.3.5.R
+00179_example_6.26_of_section_6.3.5.R
 
 
 
 ```r
 # example 6.26 of section 6.3.5 
-# (example 6.26 of section 6.3.5)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Explaining the classifier's predictions 
+# (example 6.26 of section 6.3.5)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Explaining the classifier’s predictions 
 # Title: Explain the model's prediction 
 
 explanation <- lime::explain(sample_case, 
@@ -1333,34 +1370,34 @@ explanation <- lime::explain(sample_case,
 plot_features(explanation)
 ```
 
-![plot of chunk 00256_example_6.26_of_section_6.3.5.R](figure/00256_example_6.26_of_section_6.3.5.R-1.png)
+![plot of chunk 00179_example_6.26_of_section_6.3.5.R](figure/00179_example_6.26_of_section_6.3.5.R-1.png)
 
 
 
 
-00257_informalexample_6.13_of_section_6.3.5.R
+00180_informalexample_6.13_of_section_6.3.5.R
 
 
 
 ```r
 # informalexample 6.13 of section 6.3.5 
-# (informalexample 6.13 of section 6.3.5)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Explaining the classifier's predictions 
+# (informalexample 6.13 of section 6.3.5)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Explaining the classifier’s predictions 
 
 plot_text_explanations(explanation)
 ```
 
-![plot of chunk 00257_informalexample_6.13_of_section_6.3.5.R](figure/00257_informalexample_6.13_of_section_6.3.5.R-1.png)
+![plot of chunk 00180_informalexample_6.13_of_section_6.3.5.R](figure/00180_informalexample_6.13_of_section_6.3.5.R-1.png)
 
 
 
 
-00258_example_6.27_of_section_6.3.5.R
+00181_example_6.27_of_section_6.3.5.R
 
 
 
 ```r
 # example 6.27 of section 6.3.5 
-# (example 6.27 of section 6.3.5)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Explaining the classifier's predictions 
+# (example 6.27 of section 6.3.5)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Explaining the classifier’s predictions 
 # Title: Examining two more reviews 
 
 casenames <-  c("test_12034", "test_10294")
@@ -1398,10 +1435,10 @@ list(texts = sample_cases,
 ## much better acting by R. Dueringer in \"Hinterholz 8\"".
 ## 
 ## $labels
-## test_12034 test_10294    	# Note: 1 
+## test_12034 test_10294                                        	# Note: 1 
 ##          0          0 
 ## 
-## $predictions             	# Note: 2 
+## $predictions                                                  	# Note: 2 
 ## [1] 0 1
                        
 explanation <- lime::explain(sample_cases, 
@@ -1412,13 +1449,13 @@ explanation <- lime::explain(sample_cases,
 plot_features(explanation)
 ```
 
-![plot of chunk 00258_example_6.27_of_section_6.3.5.R](figure/00258_example_6.27_of_section_6.3.5.R-1.png)
+![plot of chunk 00181_example_6.27_of_section_6.3.5.R](figure/00181_example_6.27_of_section_6.3.5.R-1.png)
 
 ```r
 plot_text_explanations(explanation)
 ```
 
-![plot of chunk 00258_example_6.27_of_section_6.3.5.R](figure/00258_example_6.27_of_section_6.3.5.R-2.png)
+![plot of chunk 00181_example_6.27_of_section_6.3.5.R](figure/00181_example_6.27_of_section_6.3.5.R-2.png)
 
 ```r
 # Note 1: 
@@ -1431,13 +1468,13 @@ plot_text_explanations(explanation)
 
 
 
-00259_informalexample_6.14_of_section_6.3.5.R
+00182_informalexample_6.14_of_section_6.3.5.R
 
 
 
 ```r
 # informalexample 6.14 of section 6.3.5 
-# (informalexample 6.14 of section 6.3.5)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Explaining the classifier's predictions 
+# (informalexample 6.14 of section 6.3.5)  : Choosing and evaluating models : Local Interpretable Model-Agnostic Explanations (LIME) for explaining model predictions : Explaining the classifier’s predictions 
 
 predict(model, newdata=make_matrix(sample_cases[2], vocab))
 ```
@@ -1447,7 +1484,7 @@ predict(model, newdata=make_matrix(sample_cases[2], vocab))
 ```
 
 ```r
-                                ## [1] 0.6052929
+## [1] 0.6052929
 ```
 
 

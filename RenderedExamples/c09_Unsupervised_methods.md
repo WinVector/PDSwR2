@@ -4,7 +4,7 @@ output: github_document
 
 
 
-00366_example_9.1_of_section_9.1.2.R
+00289_example_9.1_of_section_9.1.2.R
 
 
 
@@ -73,7 +73,7 @@ summary(protein)
 
 
 
-00367_example_9.2_of_section_9.1.2.R
+00290_example_9.2_of_section_9.1.2.R
 
 
 
@@ -82,18 +82,18 @@ summary(protein)
 # (example 9.2 of section 9.1.2)  : Unsupervised methods : Cluster analysis : Preparing the data 
 # Title: Rescaling the dataset 
 
-vars_to_use <- colnames(protein)[-1]       	# Note: 1 
+vars_to_use <- colnames(protein)[-1]              	# Note: 1 
 pmatrix <- scale(protein[, vars_to_use])    
-pcenter <- attr(pmatrix, "scaled:center")  	# Note: 2 
+pcenter <- attr(pmatrix, "scaled:center")         	# Note: 2 
 pscale <- attr(pmatrix, "scaled:scale")
 
-rm_scales <- function(scaled_matrix) {     	# Note: 3 
+rm_scales <- function(scaled_matrix) {            	# Note: 3 
   attr(scaled_matrix, "scaled:center") <- NULL
   attr(scaled_matrix, "scaled:scale") <- NULL
   scaled_matrix
 }
 
-pmatrix <- rm_scales(pmatrix)  	# Note: 4
+pmatrix <- rm_scales(pmatrix)                     	# Note: 4
 
 # Note 1: 
 #   Use all the columns except the first 
@@ -112,7 +112,7 @@ pmatrix <- rm_scales(pmatrix)  	# Note: 4
 
 
 
-00368_example_9.3_of_section_9.1.3.R
+00291_example_9.3_of_section_9.1.3.R
 
 
 
@@ -121,12 +121,12 @@ pmatrix <- rm_scales(pmatrix)  	# Note: 4
 # (example 9.3 of section 9.1.3)  : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
 # Title: Hierarchical clustering 
 
-distmat <- dist(pmatrix, method = "euclidean")   	# Note: 1 
-pfit <- hclust(distmat, method = "ward.D")         	# Note: 2 
-plot(pfit, labels = protein$Country)      	# Note: 3
+distmat <- dist(pmatrix, method = "euclidean")       	# Note: 1 
+pfit <- hclust(distmat, method = "ward.D")           	# Note: 2 
+plot(pfit, labels = protein$Country)                 	# Note: 3
 ```
 
-![plot of chunk 00368_example_9.3_of_section_9.1.3.R](figure/00368_example_9.3_of_section_9.1.3.R-1.png)
+![plot of chunk 00291_example_9.3_of_section_9.1.3.R](figure/00291_example_9.3_of_section_9.1.3.R-1.png)
 
 ```r
 # Note 1: 
@@ -142,7 +142,7 @@ plot(pfit, labels = protein$Country)      	# Note: 3
 
 
 
-00370_example_9.4_of_section_9.1.3.R
+00293_example_9.4_of_section_9.1.3.R
 
 
 
@@ -153,7 +153,7 @@ plot(pfit, labels = protein$Country)      	# Note: 3
 
 groups <- cutree(pfit, k = 5)
 
-print_clusters = function(data, groups, columns) { 	# Note: 1 
+print_clusters = function(data, groups, columns) {               	# Note: 1 
   groupedD = split(data, groups)
   lapply(groupedD,
          function(df) df[, columns])
@@ -258,7 +258,7 @@ print_clusters(protein, groups, cols_to_print)
 
 
 
-00371_example_9.5_of_section_9.1.3.R
+00294_example_9.5_of_section_9.1.3.R
 
 
 
@@ -268,25 +268,14 @@ print_clusters(protein, groups, cols_to_print)
 # Title: Projecting the clusters on the first two principal components 
 
 library(ggplot2)
-```
-
-```
-## Registered S3 methods overwritten by 'ggplot2':
-##   method         from 
-##   [.quosures     rlang
-##   c.quosures     rlang
-##   print.quosures rlang
-```
-
-```r
-princ <- prcomp(pmatrix)        	# Note: 1 
+princ <- prcomp(pmatrix)                                       	# Note: 1 
 nComp <- 2
-project <- predict(princ, pmatrix)[, 1:nComp]            	# Note: 2 
-project_plus <- cbind(as.data.frame(project),               	# Note: 3 
+project <- predict(princ, pmatrix)[, 1:nComp]                  	# Note: 2 
+project_plus <- cbind(as.data.frame(project),                  	# Note: 3 
                      cluster = as.factor(groups),
                      country = protein$Country)
 
-ggplot(project_plus, aes(x = PC1, y = PC2)) +        	# Note: 4 
+ggplot(project_plus, aes(x = PC1, y = PC2)) +                  	# Note: 4 
   geom_point(data = as.data.frame(project), color = "darkgrey") + 
   geom_point() +
   geom_text(aes(label = country),
@@ -294,7 +283,7 @@ ggplot(project_plus, aes(x = PC1, y = PC2)) +        	# Note: 4
   facet_wrap(~ cluster, ncol = 3, labeller = label_both)
 ```
 
-![plot of chunk 00371_example_9.5_of_section_9.1.3.R](figure/00371_example_9.5_of_section_9.1.3.R-1.png)
+![plot of chunk 00294_example_9.5_of_section_9.1.3.R](figure/00294_example_9.5_of_section_9.1.3.R-1.png)
 
 ```r
 # Note 1: 
@@ -320,7 +309,7 @@ ggplot(project_plus, aes(x = PC1, y = PC2)) +        	# Note: 4
 
 
 
-00372_example_9.6_of_section_9.1.3.R
+00295_example_9.6_of_section_9.1.3.R
 
 
 
@@ -329,7 +318,7 @@ ggplot(project_plus, aes(x = PC1, y = PC2)) +        	# Note: 4
 # (example 9.6 of section 9.1.3)  : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
 # Title: Running clusterboot() on the protein data 
 
-library(fpc)                                    	# Note: 1 
+library(fpc)                                                	# Note: 1 
 kbest_p <- 5                                                      	# Note: 2 
 cboot_hclust <- clusterboot(pmatrix,
                            clustermethod = hclustCBI,    	# Note: 3  
@@ -556,7 +545,7 @@ cboot_hclust$bootmean                                       	# Note: 7
 ```
 
 ```
-## [1] 0.8406667 0.7824603 0.6399405 0.8442857 0.7763333
+## [1] 0.8313333 0.8190754 0.6443571 0.8719683 0.7291667
 ```
 
 ```r
@@ -566,7 +555,7 @@ cboot_hclust$bootbrd                                        	# Note: 8
 ```
 
 ```
-## [1] 16 16 40 21 26
+## [1] 19 11 40 17 43
 ```
 
 ```r
@@ -610,7 +599,7 @@ cboot_hclust$bootbrd                                        	# Note: 8
 
 
 
-00373_example_9.7_of_section_9.1.3.R
+00296_example_9.7_of_section_9.1.3.R
 
 
 
@@ -619,12 +608,12 @@ cboot_hclust$bootbrd                                        	# Note: 8
 # (example 9.7 of section 9.1.3)  : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
 # Title: Calculating total within sum of squares 
 
-sqr_edist <- function(x, y) {             	# Note: 1 
+sqr_edist <- function(x, y) {                              	# Note: 1 
   sum((x - y)^2)
 }
 
-wss_cluster <- function(clustermat) {     	# Note: 2 
-  c0 <- colMeans(clustermat)     	# Note: 3 
+wss_cluster <- function(clustermat) {                     	# Note: 2 
+  c0 <- colMeans(clustermat)                              	# Note: 3 
   sum(apply(clustermat, 1, FUN = function(row) { sqr_edist(row, c0) }))     	# Note: 4 
 }
 
@@ -636,7 +625,7 @@ wss_total <- function(dmatrix, labels) {                               	# Note: 
   wsstot
 }
 
-wss_total(pmatrix, groups)  	# Note: 7  
+wss_total(pmatrix, groups)                                 	# Note: 7  
 ```
 
 ```
@@ -679,7 +668,7 @@ wss_total(pmatrix, groups)  	# Note: 7
 
 
 
-00374_example_9.8_of_section_9.1.3.R
+00297_example_9.8_of_section_9.1.3.R
 
 
 
@@ -688,16 +677,16 @@ wss_total(pmatrix, groups)  	# Note: 7
 # (example 9.8 of section 9.1.3)  : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
 # Title: Plot WSS for a range of k 
 
-get_wss <- function(dmatrix, max_clusters) { 	# Note: 1 
+get_wss <- function(dmatrix, max_clusters) {       	# Note: 1 
    wss = numeric(max_clusters)
   
  
-  wss[1] <- wss_cluster(dmatrix)   	# Note: 2 
+  wss[1] <- wss_cluster(dmatrix)                  	# Note: 2 
   
   d <- dist(dmatrix, method = "euclidean")
-  pfit <- hclust(d, method = "ward.D")    	# Note: 3 
+  pfit <- hclust(d, method = "ward.D")       	# Note: 3 
   
-  for(k in 2:max_clusters) {    	# Note: 4     
+  for(k in 2:max_clusters) {                     	# Note: 4     
     labels <- cutree(pfit, k = k)
     wss[k] <- wss_total(dmatrix, labels)
   }
@@ -710,12 +699,12 @@ cluster_meas <- data.frame(nclusters = 1:kmax,
                           wss = get_wss(pmatrix, kmax))
 
 breaks <- 1:kmax
-ggplot(cluster_meas, aes(x=nclusters, y = wss)) +    	# Note: 5 
+ggplot(cluster_meas, aes(x=nclusters, y = wss)) +      	# Note: 5 
   geom_point() + geom_line() +
   scale_x_continuous(breaks = breaks)
 ```
 
-![plot of chunk 00374_example_9.8_of_section_9.1.3.R](figure/00374_example_9.8_of_section_9.1.3.R-1.png)
+![plot of chunk 00297_example_9.8_of_section_9.1.3.R](figure/00297_example_9.8_of_section_9.1.3.R-1.png)
 
 ```r
 # Note 1: 
@@ -738,7 +727,7 @@ ggplot(cluster_meas, aes(x=nclusters, y = wss)) +    	# Note: 5
 
 
 
-00376_example_9.9_of_section_9.1.3.R
+00299_example_9.9_of_section_9.1.3.R
 
 
 
@@ -747,7 +736,7 @@ ggplot(cluster_meas, aes(x=nclusters, y = wss)) +    	# Note: 5
 # (example 9.9 of section 9.1.3)  : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
 # Title: Plot BSS and WSS as a function of k 
 
-total_ss <- function(dmatrix) {                    	# Note: 1 
+total_ss <- function(dmatrix) {                              	# Note: 1 
   grandmean <- colMeans(dmatrix)
   sum(apply(dmatrix, 1, FUN = function(row) { sqr_edist(row, grandmean) }))
 }
@@ -755,8 +744,8 @@ total_ss <- function(dmatrix) {                    	# Note: 1
 tss <- total_ss(pmatrix)
 cluster_meas$bss <- with(cluster_meas, tss - wss)
 
-library(cdata)                                      	# Note: 2 
-cmlong <- unpivot_to_blocks(cluster_meas,        	# Note: 3 
+library(cdata)                                                 	# Note: 2 
+cmlong <- unpivot_to_blocks(cluster_meas,                       	# Note: 3 
                            nameForNewKeyColumn = "measure",
                            nameForNewValueColumn = "value",
                            columnsToTakeFrom = c("wss", "bss"))
@@ -767,7 +756,7 @@ ggplot(cmlong, aes(x = nclusters, y = value)) +
   scale_x_continuous(breaks = 1:10)
 ```
 
-![plot of chunk 00376_example_9.9_of_section_9.1.3.R](figure/00376_example_9.9_of_section_9.1.3.R-1.png)
+![plot of chunk 00299_example_9.9_of_section_9.1.3.R](figure/00299_example_9.9_of_section_9.1.3.R-1.png)
 
 ```r
 # Note 1: 
@@ -783,7 +772,7 @@ ggplot(cmlong, aes(x = nclusters, y = value)) +
 
 
 
-00379_example_9.10_of_section_9.1.3.R
+00302_example_9.10_of_section_9.1.3.R
 
 
 
@@ -792,12 +781,12 @@ ggplot(cmlong, aes(x = nclusters, y = value)) +
 # (example 9.10 of section 9.1.3)  : Unsupervised methods : Cluster analysis : Hierarchical clustering with hclust 
 # Title: The Calinski-Harabasz index 
 
-cluster_meas$B <- with(cluster_meas,  bss / (nclusters - 1))   	# Note: 1 
+cluster_meas$B <- with(cluster_meas,  bss / (nclusters - 1))                	# Note: 1 
 
 n = nrow(pmatrix)
-cluster_meas$W <- with(cluster_meas,  wss / (n - nclusters))  	# Note: 2 
+cluster_meas$W <- with(cluster_meas,  wss / (n - nclusters))                 	# Note: 2 
                                                         
-cluster_meas$ch_crit <- with(cluster_meas, B / W)  	# Note: 3 
+cluster_meas$ch_crit <- with(cluster_meas, B / W)                           	# Note: 3 
                            
 ggplot(cluster_meas, aes(x = nclusters, y = ch_crit)) + 
   geom_point() + geom_line() + 
@@ -812,7 +801,7 @@ ggplot(cluster_meas, aes(x = nclusters, y = ch_crit)) +
 ## Warning: Removed 1 rows containing missing values (geom_path).
 ```
 
-![plot of chunk 00379_example_9.10_of_section_9.1.3.R](figure/00379_example_9.10_of_section_9.1.3.R-1.png)
+![plot of chunk 00302_example_9.10_of_section_9.1.3.R](figure/00302_example_9.10_of_section_9.1.3.R-1.png)
 
 ```r
 # Note 1: 
@@ -828,7 +817,7 @@ ggplot(cluster_meas, aes(x = nclusters, y = ch_crit)) +
 
 
 
-00380_example_9.11_of_section_9.1.4.R
+00303_example_9.11_of_section_9.1.4.R
 
 
 
@@ -840,7 +829,7 @@ ggplot(cluster_meas, aes(x = nclusters, y = ch_crit)) +
 kbest_p <- 5
 
 pclusters <- kmeans(pmatrix, kbest_p, nstart = 100, iter.max = 100)     	# Note: 1 
-summary(pclusters)                                                  	# Note: 2 
+summary(pclusters)                                                      	# Note: 2 
 ```
 
 ```
@@ -873,17 +862,17 @@ pclusters$centers                                                   	# Note: 3
 
 ```
 ##        RedMeat  WhiteMeat        Eggs       Milk       Fish    Cereals
-## 1 -0.508801956 -1.1088009 -0.41248496 -0.8320414  0.9819154  0.1300253
-## 2  1.011180399  0.7421332  0.94084150  0.5700581 -0.2671539 -0.6877583
-## 3 -0.570049402  0.5803879 -0.08589708 -0.4604938 -0.4537795  0.3181839
+## 1 -0.807569986 -0.8719354 -1.55330561 -1.0783324 -1.0386379  1.7200335
+## 2 -0.570049402  0.5803879 -0.08589708 -0.4604938 -0.4537795  0.3181839
+## 3 -0.508801956 -1.1088009 -0.41248496 -0.8320414  0.9819154  0.1300253
 ## 4  0.006572897 -0.2290150  0.19147892  1.3458748  1.1582546 -0.8722721
-## 5 -0.807569986 -0.8719354 -1.55330561 -1.0783324 -1.0386379  1.7200335
+## 5  1.011180399  0.7421332  0.94084150  0.5700581 -0.2671539 -0.6877583
 ##       Starch       Nuts      Fr.Veg
-## 1 -0.1842010  1.3108846  1.62924487
-## 2  0.2288743 -0.5083895  0.02161979
-## 3  0.7857609 -0.2679180  0.06873983
+## 1 -1.4234267  0.9961313 -0.64360439
+## 2  0.7857609 -0.2679180  0.06873983
+## 3 -0.1842010  1.3108846  1.62924487
 ## 4  0.1676780 -0.9553392 -1.11480485
-## 5 -1.4234267  0.9961313 -0.64360439
+## 5  0.2288743 -0.5083895  0.02161979
 ```
 
 ```r
@@ -904,7 +893,7 @@ pclusters$size                                                      	# Note: 4
 ```
 
 ```
-## [1] 4 8 5 4 4
+## [1] 4 5 4 4 8
 ```
 
 ```r
@@ -918,30 +907,26 @@ print_clusters(protein, groups, cols_to_print)                                  
 
 ```
 ## $`1`
-##     Country RedMeat Fish Fr.Veg
-## 10   Greece    10.2  5.9    6.5
-## 13    Italy     9.0  3.4    6.7
-## 17 Portugal     6.2 14.2    7.9
-## 19    Spain     7.1  7.0    7.2
+##       Country RedMeat Fish Fr.Veg
+## 1     Albania    10.1  0.2    1.7
+## 4    Bulgaria     7.8  1.2    4.2
+## 18    Romania     6.2  1.0    2.8
+## 25 Yugoslavia     4.4  0.6    3.2
 ## 
 ## $`2`
-##        Country RedMeat Fish Fr.Veg
-## 2      Austria     8.9  2.1    4.3
-## 3      Belgium    13.5  4.5    4.0
-## 9       France    18.0  5.7    6.5
-## 12     Ireland    13.9  2.2    2.9
-## 14 Netherlands     9.5  2.5    3.7
-## 21 Switzerland    13.1  2.3    4.9
-## 22          UK    17.4  4.3    3.3
-## 24   W Germany    11.4  3.4    3.8
-## 
-## $`3`
 ##           Country RedMeat Fish Fr.Veg
 ## 5  Czechoslovakia     9.7  2.0    4.0
 ## 7       E Germany     8.4  5.4    3.6
 ## 11        Hungary     5.3  0.3    4.2
 ## 16         Poland     6.9  3.0    6.6
 ## 23           USSR     9.3  3.0    2.9
+## 
+## $`3`
+##     Country RedMeat Fish Fr.Veg
+## 10   Greece    10.2  5.9    6.5
+## 13    Italy     9.0  3.4    6.7
+## 17 Portugal     6.2 14.2    7.9
+## 19    Spain     7.1  7.0    7.2
 ## 
 ## $`4`
 ##    Country RedMeat Fish Fr.Veg
@@ -951,11 +936,15 @@ print_clusters(protein, groups, cols_to_print)                                  
 ## 20  Sweden     9.9  7.5    2.0
 ## 
 ## $`5`
-##       Country RedMeat Fish Fr.Veg
-## 1     Albania    10.1  0.2    1.7
-## 4    Bulgaria     7.8  1.2    4.2
-## 18    Romania     6.2  1.0    2.8
-## 25 Yugoslavia     4.4  0.6    3.2
+##        Country RedMeat Fish Fr.Veg
+## 2      Austria     8.9  2.1    4.3
+## 3      Belgium    13.5  4.5    4.0
+## 9       France    18.0  5.7    6.5
+## 12     Ireland    13.9  2.2    2.9
+## 14 Netherlands     9.5  2.5    3.7
+## 21 Switzerland    13.1  2.3    4.9
+## 22          UK    17.4  4.3    3.3
+## 24   W Germany    11.4  3.4    3.8
 ```
 
 ```r
@@ -1033,7 +1022,7 @@ print_clusters(protein, groups, cols_to_print)                                  
 
 
 
-00381_example_9.12_of_section_9.1.4.R
+00304_example_9.12_of_section_9.1.4.R
 
 
 
@@ -1043,7 +1032,7 @@ print_clusters(protein, groups, cols_to_print)                                  
 # Title: Plotting cluster criteria 
 
 clustering_ch <- kmeansruns(pmatrix, krange = 1:10, criterion = "ch")       	# Note: 1                                                 
-clustering_ch$bestk                                                 	# Note: 2 
+clustering_ch$bestk                                                             	# Note: 2 
 ```
 
 ```
@@ -1154,9 +1143,10 @@ summary(clustering_ch)                                              	# Note: 7
 #   Look at the values of the CH criterion as a function of k. 
 
 # Note 6: 
-#   Compare the above to the CH values for the 
-#   hclust() clustering. They’re not quite the same, because the 
-#   two algorithms didn’t pick the same clusters. 
+#   Compare these to the CH values for the 
+#   hclust() clustering. They’re not quite the same, 
+#   because the two algorithms didn’t pick the same 
+#   clusters. 
 
 # Note 7: 
 #   kmeansruns() also returns the output of 
@@ -1166,7 +1156,7 @@ summary(clustering_ch)                                              	# Note: 7
 
 
 
-00382_example_9.13_of_section_9.1.4.R
+00305_example_9.13_of_section_9.1.4.R
 
 
 
@@ -1400,7 +1390,7 @@ cboot$bootbrd
 
 
 
-00383_example_9.14_of_section_9.1.5.R
+00306_example_9.14_of_section_9.1.5.R
 
 
 
@@ -1430,7 +1420,7 @@ assign_cluster <- function(newpt, centers, xcenter = 0, xscale = 1) {
 
 
 
-00384_example_9.15_of_section_9.1.5.R
+00307_example_9.15_of_section_9.1.5.R
 
 
 
@@ -1439,7 +1429,7 @@ assign_cluster <- function(newpt, centers, xcenter = 0, xscale = 1) {
 # (example 9.15 of section 9.1.5)  : Unsupervised methods : Cluster analysis : Assigning new points to clusters 
 # Title: Generate and cluster synthetic data for cluster assignment example 
 
-mean1 <- c(1, 1, 1)                     	# Note: 1 
+mean1 <- c(1, 1, 1)                                  	# Note: 1 
 sd1 <- c(1, 2, 1)
 
 mean2 <- c(10, -3, 5)
@@ -1448,7 +1438,7 @@ sd2 <- c(2, 1, 2)
 mean3 <- c(-5, -5, -5)
 sd3 <- c(1.5, 2, 1)
 
-library(MASS)                                	# Note: 2 
+library(MASS)                                       	# Note: 2 
 clust1 <- mvrnorm(100, mu = mean1, Sigma = diag(sd1))
 clust2 <- mvrnorm(100, mu = mean2, Sigma = diag(sd2))
 clust3 <- mvrnorm(100, mu = mean3, Sigma = diag(sd3))
@@ -1462,7 +1452,7 @@ tmatrix <- rm_scales(tmatrix)
 kbest_t <- 3
 tclusters <- kmeans(tmatrix, kbest_t, nstart = 100, iter.max = 100)     	# Note: 5 
 
-tclusters$size           	# Note: 6        
+tclusters$size                                   	# Note: 6        
 ```
 
 ```
@@ -1473,7 +1463,8 @@ tclusters$size           	# Note: 6
 ## [1] 101 100  99
 
 # Note 1: 
-#   Set the parameters for three 3-D Gaussian clusters. 
+#   Set the parameters for three 3D 
+#   Gaussian clusters. 
 
 # Note 2: 
 #   Use the mvrnorm() function from MASS package to generate 
@@ -1495,7 +1486,7 @@ tclusters$size           	# Note: 6
 
 
 
-00385_example_9.16_of_section_9.1.5.R
+00308_example_9.16_of_section_9.1.5.R
 
 
 
@@ -1525,7 +1516,7 @@ rm_scales(scale(unscaled, center = -tcenter, scale = FALSE))
 
 
 
-00386_example_9.17_of_section_9.1.5.R
+00309_example_9.17_of_section_9.1.5.R
 
 
 
@@ -1589,7 +1580,7 @@ assign_cluster(mvrnorm(1, mean3, diag(sd3)),        	# Note: 3
 
 
 
-00388_example_9.18_of_section_9.2.3.R
+00311_example_9.18_of_section_9.2.3.R
 
 
 
@@ -1598,7 +1589,7 @@ assign_cluster(mvrnorm(1, mean3, diag(sd3)),        	# Note: 3
 # (example 9.18 of section 9.2.3)  : Unsupervised methods : Association rules : Mining association rules with the arules package 
 # Title: Reading in the book data 
 
-library(arules)  	# Note: 1 
+library(arules)                                                	# Note: 1 
 ```
 
 ```
@@ -1618,8 +1609,8 @@ library(arules)  	# Note: 1
 
 ```r
 bookbaskets <- read.transactions("../Bookdata/bookdata.tsv.gz", 
-                                     format = "single",  	# Note: 2 
-                                     header = TRUE,      	# Note: 3            
+                                     format = "single",        	# Note: 2 
+                                     header = TRUE,           	# Note: 3 
                                      sep = "\t",                    	# Note: 4 
                                      cols = c("userid", "title"),    	# Note: 5 
                                      rm.duplicates = TRUE)       	# Note: 6
@@ -1649,7 +1640,7 @@ bookbaskets <- read.transactions("../Bookdata/bookdata.tsv.gz",
 
 
 
-00389_example_9.19_of_section_9.2.3.R
+00312_example_9.19_of_section_9.2.3.R
 
 
 
@@ -1658,7 +1649,7 @@ bookbaskets <- read.transactions("../Bookdata/bookdata.tsv.gz",
 # (example 9.19 of section 9.2.3)  : Unsupervised methods : Association rules : Mining association rules with the arules package 
 # Title: Examining the transaction data 
 
-class(bookbaskets)             	# Note: 1 
+class(bookbaskets)                              	# Note: 1 
 ```
 
 ```
@@ -1671,7 +1662,7 @@ class(bookbaskets)             	# Note: 1
 ## [1] "transactions"
 ## attr(,"package")
 ## [1] "arules"
-bookbaskets                    	# Note: 2 
+bookbaskets                                     	# Note: 2 
 ```
 
 ```
@@ -1684,7 +1675,7 @@ bookbaskets                    	# Note: 2
 ## transactions in sparse format with
 ##  92108 transactions (rows) and
 ##  220447 items (columns)
-dim(bookbaskets)               	# Note: 3 
+dim(bookbaskets)                                	# Note: 3 
 ```
 
 ```
@@ -1693,7 +1684,7 @@ dim(bookbaskets)               	# Note: 3
 
 ```r
 ## [1]  92108 220447
-colnames(bookbaskets)[1:5]     	# Note: 4 
+colnames(bookbaskets)[1:5]                      	# Note: 4 
 ```
 
 ```
@@ -1710,7 +1701,7 @@ colnames(bookbaskets)[1:5]     	# Note: 4
 ## [3] " Apple Magic"
 ## [4] " Ask Lily"
 ## [5] " Beyond IBM: Leadership Marketing and Finance for the 1990s"
-rownames(bookbaskets)[1:5]        	# Note: 5 
+rownames(bookbaskets)[1:5]                      	# Note: 5 
 ```
 
 ```
@@ -1742,7 +1733,7 @@ rownames(bookbaskets)[1:5]        	# Note: 5
 
 
 
-00390_informalexample_9.10_of_section_9.2.3.R
+00313_informalexample_9.10_of_section_9.2.3.R
 
 
 
@@ -1767,7 +1758,7 @@ summary(basketSizes)
 
 
 
-00391_example_9.20_of_section_9.2.3.R
+00314_example_9.20_of_section_9.2.3.R
 
 
 
@@ -1776,7 +1767,7 @@ summary(basketSizes)
 # (example 9.20 of section 9.2.3)  : Unsupervised methods : Association rules : Mining association rules with the arules package 
 # Title: Examining the size distribution 
 
-quantile(basketSizes, probs = seq(0, 1, 0.1))     	# Note: 1 
+quantile(basketSizes, probs = seq(0, 1, 0.1))         	# Note: 1 
 ```
 
 ```
@@ -1787,13 +1778,13 @@ quantile(basketSizes, probs = seq(0, 1, 0.1))     	# Note: 1
 ```r
 ##    0%   10%   20%   30%   40%   50%   60%   70%   80%   90%  100%
 ##     1     1     1     1     1     1     2     3     5    13 10253
-library(ggplot2)                              	# Note: 2 
+library(ggplot2)                                     	# Note: 2 
 ggplot(data.frame(count = basketSizes)) +
   geom_density(aes(x = count)) +
   scale_x_log10()
 ```
 
-![plot of chunk 00391_example_9.20_of_section_9.2.3.R](figure/00391_example_9.20_of_section_9.2.3.R-1.png)
+![plot of chunk 00314_example_9.20_of_section_9.2.3.R](figure/00314_example_9.20_of_section_9.2.3.R-1.png)
 
 ```r
 # Note 1: 
@@ -1808,7 +1799,7 @@ ggplot(data.frame(count = basketSizes)) +
 
 
 
-00392_example_9.21_of_section_9.2.3.R
+00315_example_9.21_of_section_9.2.3.R
 
 
 
@@ -1834,14 +1825,14 @@ summary(bookCount)
 
 
 
-00393_example_9.22_of_section_9.2.3.R
+00316_example_9.22_of_section_9.2.3.R
 
 
 
 ```r
 # example 9.22 of section 9.2.3 
 # (example 9.22 of section 9.2.3)  : Unsupervised methods : Association rules : Mining association rules with the arules package 
-# Title: Finding the ten most frequent books 
+# Title: Finding the 10 most frequent books 
 
 orderedBooks <- sort(bookCount, decreasing = TRUE)   	# Note: 1 
 knitr::kable(orderedBooks[1:10])                   	# Note: 2 
@@ -1902,7 +1893,7 @@ orderedBooks[1] / nrow(bookbaskets)               	# Note: 3
 
 
 
-00394_informalexample_9.11_of_section_9.2.3.R
+00317_informalexample_9.11_of_section_9.2.3.R
 
 
 
@@ -1925,7 +1916,7 @@ dim(bookbaskets_use)
 
 
 
-00395_example_9.23_of_section_9.2.3.R
+00318_example_9.23_of_section_9.2.3.R
 
 
 
@@ -1954,12 +1945,12 @@ rules <- apriori(bookbaskets_use,                                  	# Note: 1
 ## Absolute minimum support count: 81 
 ## 
 ## set item appearances ...[0 item(s)] done [0.00s].
-## set transactions ...[216031 item(s), 40822 transaction(s)] done [1.21s].
-## sorting and recoding items ... [1256 item(s)] done [0.03s].
-## creating transaction tree ... done [0.02s].
-## checking subsets of size 1 2 3 4 5 done [0.06s].
+## set transactions ...[216031 item(s), 40822 transaction(s)] done [0.94s].
+## sorting and recoding items ... [1256 item(s)] done [0.02s].
+## creating transaction tree ... done [0.01s].
+## checking subsets of size 1 2 3 4 5 done [0.04s].
 ## writing ... [191 rule(s)] done [0.00s].
-## creating S4 object  ... done [0.06s].
+## creating S4 object  ... done [0.05s].
 ```
 
 ```r
@@ -1991,16 +1982,16 @@ summary(rules)
 ```
 
 ```r
-## set of 191 rules  	# Note: 2 
+## set of 191 rules                                               	# Note: 2 
 ## 
-## rule length distribution (lhs + rhs):sizes    	# Note: 3 
+## rule length distribution (lhs + rhs):sizes                     	# Note: 3 
 ##   2   3   4   5 
 ##  11 100  66  14 
 ## 
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   2.000   3.000   3.000   3.435   4.000   5.000 
 ## 
-## summary of quality measures:                   	# Note: 4 
+## summary of quality measures:                                   	# Note: 4 
 ##     support           confidence          lift            count      
 ##  Min.   :0.002009   Min.   :0.7500   Min.   : 40.89   Min.   : 82.0  
 ##  1st Qu.:0.002131   1st Qu.:0.8113   1st Qu.: 86.44   1st Qu.: 87.0  
@@ -2009,37 +2000,36 @@ summary(rules)
 ##  3rd Qu.:0.002695   3rd Qu.:0.9065   3rd Qu.:158.77   3rd Qu.:110.0  
 ##  Max.   :0.005830   Max.   :0.9882   Max.   :321.89   Max.   :238.0  
 ## 
-## mining info:                                        	# Note: 5 
+## mining info:                                                  	# Note: 5 
 ##             data ntransactions support confidence
 ##  bookbaskets_use         40822   0.002       0.75
 
 # Note 1: 
 #   Call apriori() with a minimum support of 
-#   0.002 and a minimum confidence of 0.75. 
+#   0.002 and a minimum confidence of 0.75 
 
 # Note 2: 
-#   The summary of the apriori() output reports 
-#   the number of rules found;... 
+#   The number of rules found 
 
 # Note 3: 
-#   ...the distribution of rule lengths (in this 
+#   The distribution of rule lengths (in this 
 #   example, most rules contain 3 items—2 on the left 
 #   side, X (lhs), and one on the right side, Y 
-#   (rhs));... 
+#   (rhs)) 
 
 # Note 4: 
-#   ...a summary of rule quality measures, 
-#   including support and confidence;... 
+#   A summary of rule quality measures, 
+#   including support and confidence 
 
 # Note 5: 
-#   ...and some information on how apriori() was 
-#   called. 
+#   Some information on how apriori() was 
+#   called 
 ```
 
 
 
 
-00396_example_9.24_of_section_9.2.3.R
+00319_example_9.24_of_section_9.2.3.R
 
 
 
@@ -2074,17 +2064,17 @@ summary(measures)
 ##  Max.   :0.006982   Max.   :9.702e-136
 
 # Note 1: 
-#   The call to interestMeasure() takes as 
-#   arguments the discovered rules,... 
+#   The first argument to interestMeasure() is 
+#   the discovered rules 
 
 # Note 2: 
-#   ...a list of interest measures to 
-#   apply,... 
+#   Second argument is a list of interest 
+#   measures to apply 
 
 # Note 3: 
-#   ...and a dataset to evaluate the interest 
-#   measures over. This is usually the same set used 
-#   to mine the rules, but it needn’t be. For 
+#   Last argument is a dataset to evaluate the 
+#   interest measures over. This is usually the same 
+#   set used to mine the rules, but it needn’t be. For 
 #   instance, you can evaluate the rules over the full 
 #   dataset, bookbaskets, to get coverage estimates 
 #   that reflect all the customers, not just the ones 
@@ -2094,7 +2084,7 @@ summary(measures)
 
 
 
-00397_example_9.25_of_section_9.2.3.R
+00320_example_9.25_of_section_9.2.3.R
 
 
 
@@ -2151,7 +2141,7 @@ rules %>%
 
 
 
-00398_example_9.26_of_section_9.2.3.R
+00321_example_9.26_of_section_9.2.3.R
 
 
 
@@ -2161,7 +2151,7 @@ rules %>%
 # Title: Finding rules with restrictions 
 
 brules <- apriori(bookbaskets_use,
-                parameter = list(support = 0.001,    	# Note: 1 
+                parameter = list(support = 0.001,                       	# Note: 1 
                                  confidence = 0.6),
                 appearance = list(rhs = c("The Lovely Bones: A Novel"),  	# Note: 2 
                                   default = "lhs"))                      	# Note: 3 
@@ -2183,12 +2173,12 @@ brules <- apriori(bookbaskets_use,
 ## Absolute minimum support count: 40 
 ## 
 ## set item appearances ...[1 item(s)] done [0.00s].
-## set transactions ...[216031 item(s), 40822 transaction(s)] done [1.07s].
+## set transactions ...[216031 item(s), 40822 transaction(s)] done [0.82s].
 ## sorting and recoding items ... [3172 item(s)] done [0.03s].
 ## creating transaction tree ... done [0.02s].
-## checking subsets of size 1 2 3 4 5 6 7 8 done [0.25s].
+## checking subsets of size 1 2 3 4 5 6 7 8 done [0.21s].
 ## writing ... [46 rule(s)] done [0.04s].
-## creating S4 object  ... done [0.07s].
+## creating S4 object  ... done [0.06s].
 ```
 
 ```r
@@ -2247,9 +2237,8 @@ summary(brules)
 #   minimum confidence to 0.6. 
 
 # Note 2: 
-#   Only The Lovely Bones 
-#   is allowed to appear on the right side of the 
-#   rules. 
+#   Only “The Lovely Bones” is allowed to appear 
+#   on the right side of the rules. 
 
 # Note 3: 
 #   By default, all the books can go into the 
@@ -2259,7 +2248,7 @@ summary(brules)
 
 
 
-00399_example_9.27_of_section_9.2.3.R
+00322_example_9.27_of_section_9.2.3.R
 
 
 
@@ -2270,7 +2259,7 @@ summary(brules)
 
 brules %>% 
   sort(., by = "confidence") %>%   
-  lhs(.) %>%               	# Note: 1  
+  lhs(.) %>%                                     	# Note: 1  
   head(., n = 5) %>%         
   inspect(.)                                               
 ```
@@ -2309,7 +2298,7 @@ brules %>%
 
 
 
-00400_example_9.28_of_section_9.2.3.R
+00323_example_9.28_of_section_9.2.3.R
 
 
 

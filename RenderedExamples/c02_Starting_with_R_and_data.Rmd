@@ -30,21 +30,21 @@ print(seq_len(25))
 # informalexample 2.2 of section 2.1.2 
 # (informalexample 2.2 of section 2.1.2)  : Starting with R and data : Starting with R : R programming 
 
-example_vector <- c(10, 20, 30) 	# Note: 1 
-example_list <- list(a = 10, b = 20, c = 30) 	# Note: 2 
+example_vector <- c(10, 20, 30)                 	# Note: 1 
+example_list <- list(a = 10, b = 20, c = 30)    	# Note: 2 
 
-example_vector[1]   	# Note: 3 
+example_vector[1]                               	# Note: 3 
 ## [1] 10
 example_list[1]
 ## $a
 ## [1] 10
 
-example_vector[[2]] 	# Note: 4 
+example_vector[[2]]                             	# Note: 4 
 ## [1] 20
 example_list[[2]]
 ## [1] 20
 
-example_vector[c(FALSE, TRUE, TRUE)] 	# Note: 5 
+example_vector[c(FALSE, TRUE, TRUE)]            	# Note: 5 
 ## [1] 20 30
 example_list[c(FALSE, TRUE, TRUE)]
 ## $b
@@ -53,15 +53,19 @@ example_list[c(FALSE, TRUE, TRUE)]
 ## $c
 ## [1] 30
 
-example_list$b  	# Note: 6 
+example_list$b                                  	# Note: 6 
 ## [1] 20
 
 example_list[["b"]]
 ## [1] 20
 
 # Note 1: 
-#   Build an example vector. c() is R's concatenate operator- it builds longer vectors and lists from shorter without nesting. For example c(1) is 
-#   just the number 1, and c(1, c(2, 3)) is equivalent to c(1, 2, 3) which in turn is the integers 1 through 3 (though stored in a floating point format). 
+#   Build an example vector. c() is R’s concatenate operator—it builds longer vectors and lists 
+#   from shorter ones without nesting. For example 
+#   c(1) is just the number 1, and c(1, c(2, 3)) is 
+#   equivalent to c(1, 2, 3), which in turn is the 
+#   integers 1 through 3 (though stored in a floating 
+#   point format). 
 
 # Note 2: 
 #   Build an example list. 
@@ -76,7 +80,9 @@ example_list[["b"]]
 #   Vectors and lists be indexed by vectors of logicals, integers, and (if the vector or list has names) characters. 
 
 # Note 6: 
-#   For named example_list$b is essentially a short-hand for example_list[["b"]] (the same is true for named vectors). 
+#   For named examples, the syntax example_list$b is essentially a short-hand for 
+#   example_list[["b"]] (the same is true for named 
+#   vectors). 
 
 
 
@@ -93,16 +99,16 @@ example_list[["b"]]
 # (informalexample 2.3 of section 2.1.2)  : Starting with R and data : Starting with R : R programming 
 
 x <- 1:5
-print(x)  	# Note: 1 
+print(x)                                  	# Note: 1 
 # [1] 1 2 3 4 5
 
-# x <- cumsumMISSPELLED(x)  	# Note: 2 
+# x <- cumsumMISSPELLED(x)                  	# Note: 2 
 # Error in cumsumMISSPELLED(x) : could not find function "cumsumMISSPELLED"
 
-print(x) 	# Note: 3 
+print(x)                                  	# Note: 3 
 # [1] 1 2 3 4 5
 
-x <- cumsum(x) 	# Note: 4 
+x <- cumsum(x)                            	# Note: 4 
 print(x)
 # [1]  1  3  6 10 15
 
@@ -116,7 +122,7 @@ print(x)
 #   Notice in addition to supply a useful error message, R preserved the original value of x. 
 
 # Note 4: 
-#   Try the operation again, using the correct spelling of cumsum(). cumsum() is a useful function that computes running totals quickly. 
+#   Try the operation again, using the correct spelling of cumsum(). cumsum(), short for cumulative sum, is a useful function that computes running totals quickly. 
 
 
 
@@ -186,14 +192,14 @@ nchar(c("a", "aa", "aaa", "aaaa"))
 # informalexample 2.7 of section 2.1.2 
 # (informalexample 2.7 of section 2.1.2)  : Starting with R and data : Starting with R : R programming 
 
-d <- data.frame(x = c(1, NA, 3)) 	# Note: 1 
+d <- data.frame(x = c(1, NA, 3))       	# Note: 1 
 print(d)
 #    x
 # 1  1
 # 2 NA
-# 3  3 	# Note: 2 
+# 3  3                                 	# Note: 2 
 
-d$x[is.na(d$x)] <- 0 	# Note: 3 
+d$x[is.na(d$x)] <- 0                   	# Note: 3 
 print(d)
 #   x
 # 1 1
@@ -201,10 +207,13 @@ print(d)
 # 3 3
 
 # Note 1: 
-#   “data.frame” is R's tabular data type, and the most important data type in R. A data.frame holds data organized in rows and columns. 
+#   “data.frame” is R’s tabular data type, and the most important data type in R. A data.frame 
+#   holds data organized in rows and columns. 
 
 # Note 2: 
-#   When printing data.frames row-numbers are shown in the fist (unnamed) column, and column values are shown under their matching column names. 
+#   When printing data.frames, row numbers are shown in the fist (unnamed) column, and column 
+#   values are shown under their matching column 
+#   names. 
 
 # Note 3: 
 #   We can place a slice or selection of the x column of d on the left-hand side of an assignment to easily replace all NA values with zero. 
@@ -223,9 +232,9 @@ print(d)
 # informalexample 2.8 of section 2.1.2 
 # (informalexample 2.8 of section 2.1.2)  : Starting with R and data : Starting with R : R programming 
 
-d <- data.frame(x = 1, y = 2) 	# Note: 1 
-d2 <- d 	# Note: 2 
-d$x <- 5 	# Note: 3 
+d <- data.frame(x = 1, y = 2)      	# Note: 1 
+d2 <- d                            	# Note: 2 
+d$x <- 5                           	# Note: 3 
         
 print(d)
 #   x y
@@ -258,7 +267,7 @@ print(d2)
 # informalexample 2.9 of section 2.1.2 
 # (informalexample 2.9 of section 2.1.2)  : Starting with R and data : Starting with R : R programming 
 
-data <- data.frame(revenue = c(2, 1, 2), 	# Note: 1 
+data <- data.frame(revenue = c(2, 1, 2),    	# Note: 1 
                    sort_key = c("b", "c", "a"), 
                    stringsAsFactors = FALSE)
 print(data)
@@ -268,11 +277,11 @@ print(data)
 # 2       1        c
 # 3       2        a
 
-. <- data 	# Note: 2 
-. <- .[order(.$sort_key), , drop = FALSE] 	# Note: 3 
+. <- data                                     	# Note: 2 
+. <- .[order(.$sort_key), , drop = FALSE]     	# Note: 3 
 .$ordered_sum_revenue <- cumsum(.$revenue)
 .$fraction_revenue_seen <- .$ordered_sum_revenue/sum(.$revenue)
-result <- . 	# Note: 4 
+result <- .                                   	# Note: 4 
 
 print(result)
 
@@ -285,15 +294,27 @@ print(result)
 #   Our notional, or example data. 
 
 # Note 2: 
-#   Assign our data to a temporary variable named ".". The original values will remain available in the "data" variable, making it easy to re-start the calculation from the beginning if necessary. 
+#   Assign our data to a temporary variable named “.”. The original values will remain available 
+#   in the “data” variable, making it easy to re-start 
+#   the calculation from the beginning if 
+#   necessary. 
 
 # Note 3: 
-#   Use the order command to sort the rows. The "drop = FALSE" is not strictly needed, but it is good to get in the habit of including it. For single column data.frames without the "drop = FALSE" argument 
-#   the "[,]" indexing operator will convert the result to a vector, which is almost never the R user's true intent. The "drop = FALSE" argument turns off this conversion, and it is a good idea to include it "just in case" and a  
-#   definite requirement when either the data.frame has a single column or when we don't know that the data.frame has more than one column (as the data.frame come from somewhere else). 
+#   Use the order command to sort the rows. The “drop = FALSE” is not strictly needed, but it is 
+#   good to get in the habit of including it. For 
+#   single column data.frames without the “drop = 
+#   FALSE” argument, the “[,]” indexing operator will 
+#   convert the result to a vector, which is almost 
+#   never the R user's true intent. The “drop = FALSE” 
+#   argument turns off this conversion, and it is a 
+#   good idea to include it “just in case” and a 
+#   definite requirement when either the data.frame 
+#   has a single column or when we don’t know if the 
+#   data.frame has more than one column (as the 
+#   data.frame comes from somewhere else). 
 
 # Note 4: 
-#   Assign the result away from "." to a more memorable variable name. 
+#   Assign the result away from “.” to a more memorable variable name. 
 
 
 
@@ -353,14 +374,14 @@ print(d)
 # (example 2.1 of section 2.2.1)  : Starting with R and data : Working with data from files : Working with well-structured data from files or URLs 
 # Title: Reading the UCI car data 
 
-uciCar <- read.table(  	# Note: 1 
-   '../UCICar/car.data.csv', 	# Note: 2 
-   sep = ',', 	# Note: 3 
-   header = TRUE, 	# Note: 4 
-   stringsAsFactor = TRUE 	# Note: 5 
+uciCar <- read.table(               	# Note: 1 
+   '../UCICar/car.data.csv',                  	# Note: 2 
+   sep = ',',                       	# Note: 3 
+   header = TRUE,                   	# Note: 4 
+   stringsAsFactor = TRUE           	# Note: 5 
    )
                                         
-View(uciCar)	# Note: 6
+View(uciCar)                        	# Note: 6
 
 # Note 1: 
 #   Command to read from a file or URL and store the result in a new data frame object 
@@ -382,7 +403,8 @@ View(uciCar)	# Note: 6
 #   Tell R to convert string values to factors. This is the default behavior, so we are just using this argument to document intent. 
 
 # Note 6: 
-#   Examine the data with R's built-in table viewer. 
+#   Examine the data with R’s built-in 
+#   table viewer. 
 
 
 
@@ -400,7 +422,7 @@ View(uciCar)	# Note: 6
 # Title: Exploring the car data 
 
 class(uciCar)
-## [1] "data.frame" 	# Note: 1 
+## [1] "data.frame"                     	# Note: 1 
 summary(uciCar)
 ##    buying      maint       doors
 ##  high :432   high :432   2    :432
@@ -420,7 +442,7 @@ summary(uciCar)
 ##  vgood:  65
 
 dim(uciCar)
-## [1] 1728    7   	# Note: 2
+## [1] 1728    7                       	# Note: 2
 
 # Note 1: 
 #   The loaded object uciCar is of type data.frame. 
@@ -450,12 +472,12 @@ dim(uciCar)
 # (example 2.3 of section 2.2.2)  : Starting with R and data : Working with data from files : Using R with less-structured data 
 # Title: Loading the credit dataset 
 
-setwd("../../PDSwR2/Statlog") 	# Note: 1 
+setwd("../../PDSwR2/Statlog")                 	# Note: 1 
 d <- read.table('../Statlog/german.data', sep=' ',
    stringsAsFactors = FALSE, header = FALSE)
 
 # Note 1: 
-#   Replace this path to include the actual path where you have saved PDSwR2. 
+#   Replace this path with the actual path where you have saved PDSwR2. 
 
 
 
@@ -525,8 +547,8 @@ str(d)
 # (example 2.5 of section 2.2.2)  : Starting with R and data : Working with data from files : Using R with less-structured data 
 # Title: Transforming the car data 
 
-source("../Statlog/mapping.R") 	# Note: 1 
-for(ci in colnames(d)) {            	# Note: 2 
+source("../Statlog/mapping.R")                      	# Note: 1 
+for(ci in colnames(d)) {                     	# Note: 2 
    if(is.character(d[[ci]])) {
       d[[ci]] <- as.factor(mapping[d[[ci]]])  	# Note: 3 
    }
@@ -539,8 +561,11 @@ for(ci in colnames(d)) {            	# Note: 2
 #   Prefer using column names to column indices. 
 
 # Note 3: 
-#   The [[]] notation is using the fact that data.frames are named lists of columns. So we are working 
-#   on each column in turn. Notice the mapping lookup is vectorized: i.e. it is applied to all elements in the column in one step. 
+#   The [[]] notation is using the fact 
+#   that data.frames are named lists of columns. So we 
+#   are working on each column in turn. Notice the 
+#   mapping lookup is vectorized: i.e. it is applied 
+#   to all elements in the column in one step. 
 
 
 
@@ -557,8 +582,8 @@ for(ci in colnames(d)) {            	# Note: 2
 # (example 2.6 of section 2.2.2)  : Starting with R and data : Working with data from files : Using R with less-structured data 
 # Title: Summary of Good_Loan and Purpose 
 
-setwd("../../PDSwR2/Statlog") 	# Note: 1 
-d <- readRDS("creditdata.RDS") 	# Note: 2 
+setwd("../../PDSwR2/Statlog")               	# Note: 1 
+d <- readRDS("creditdata.RDS")        	# Note: 2 
 
 table(d$Purpose, d$Good_Loan) 
                      
@@ -596,40 +621,45 @@ table(d$Purpose, d$Good_Loan)
 # Title: Loading data into R from a relational database 
 
 library("DBI")
-library("dplyr") 	# Note: 1 
+library("dplyr")                                    	# Note: 1 
 library("rquery")
 
-dlist <- readRDS("../PUMS/PUMSsample.RDS")  	# Note: 2 
-db <- dbConnect(RSQLite::SQLite(), ":memory:") 	# Note: 3 
+dlist <- readRDS("../PUMS/PUMSsample.RDS")                   	# Note: 2 
+db <- dbConnect(RSQLite::SQLite(), ":memory:")      	# Note: 3 
 dbWriteTable(db, "dpus", as.data.frame(dlist$ss16pus)) 	# Note: 4 
 dbWriteTable(db, "dhus", as.data.frame(dlist$ss16hus))
-rm(list = "dlist") 	# Note: 5 
+rm(list = "dlist")                                  	# Note: 5 
 
-dbGetQuery(db, "SELECT * FROM dpus LIMIT 5") 	# Note: 6 
+dbGetQuery(db, "SELECT * FROM dpus LIMIT 5")            	# Note: 6 
 
-dpus <- tbl(db, "dpus") 	# Note: 7 
+dpus <- tbl(db, "dpus")                         	# Note: 7 
 dhus <- tbl(db, "dhus")
 
-print(dpus)  	# Note: 8 
+print(dpus)                                              	# Note: 8 
 glimpse(dpus)
 
-View(rsummary(db, "dpus")) 	# Note: 9
+View(rsummary(db, "dpus"))                     	# Note: 9
 
 # Note 1: 
-#   Attach some packages we wish to use commands and functions from. 
+#   Attach some packages we wish to use commands 
+#   and functions from. 
 
 # Note 2: 
-#   Load the data from the compressed RDS disk format into R memory. 
-#   Note: you will need to change the path PUMSsample to where you have 
-#   saved the contents of PDSwR2/PUMS. 
+#   Load the data from the compressed RDS disk 
+#   format into R memory. Note: you will need to 
+#   change the path PUMSsample to where you have saved 
+#   the contents of PDSwR2/PUMS. 
 
 # Note 3: 
 #   Connect to a new RSQLite in-memory database. 
-#   We are going to use RSQLite for our examples, in practice you 
-#   would connect to a pre-existing database such as PostgreSQL or Spark with pre-existing tables. 
+#   We are going to use RSQLite for our examples. In 
+#   practice you would connect to a pre-existing 
+#   database such as PostgreSQL or Spark with 
+#   pre-existing tables. 
 
 # Note 4: 
-#   Copy the data from the in-memory structure dlist into the database. 
+#   Copy the data from the in-memory structure 
+#   dlist into the database. 
 
 # Note 5: 
 #   Remove our local copy of the data, as we are simulating having found the data in the database. 
@@ -661,26 +691,28 @@ View(rsummary(db, "dpus")) 	# Note: 9
 # (example 2.9 of section 2.3.1)  : Starting with R and data : Working with relational databases : A production-size example 
 # Title: Loading data from a database 
 
-dpus <- dbReadTable(db, "dpus") 	# Note: 1 
+dpus <- dbReadTable(db, "dpus")                                  	# Note: 1 
 
 dpus <- dpus[, c("AGEP", "COW", "ESR",  "PERNP", 
-                 "PINCP","SCHL", "SEX", "WKHP")] 	# Note: 2 
+                 "PINCP","SCHL", "SEX", "WKHP")]   	# Note: 2 
                  
-for(ci in c("AGEP", "PERNP", "PINCP", "WKHP")) { 	# Note: 3 
+for(ci in c("AGEP", "PERNP", "PINCP", "WKHP")) {   	# Note: 3 
   dpus[[ci]] <- as.numeric(dpus[[ci]])
 }
 
-dpus$COW <- strtrim(dpus$COW, 50) 	# Note: 4 
+dpus$COW <- strtrim(dpus$COW, 50)                                  	# Note: 4 
 
-str(dpus) 	# Note: 5
+str(dpus)                                                       	# Note: 5
 
 # Note 1: 
-#   Copy data from the database into R memory. This assumes will are continuing from the previous example, so  
-#   the packages we have attached are still available and the database handle db is still valid. 
+#   Copy data from the database into R memory. This assumes we are continuing from the previous 
+#   example, so the packages we have attached are 
+#   still available and the database handle 
+#   db is still valid. 
 
 # Note 2: 
 #   Select a subset of columns we want to work with. Restricting columns is not required, but 
-#   improve legibility of later printing. 
+#   improves legibility of later printing. 
 
 # Note 3: 
 #   All of the columns in this copy of PUMS data are stored as character type to preserve features such as leading zeros 
@@ -688,8 +720,11 @@ str(dpus) 	# Note: 5
 #   get coded with the symbol NA which stands for not available. 
 
 # Note 4: 
-#   The PUMS level names are very long (which is one of the reasons these columns are distributed as integers), so  
-#   for this data set that has level names instead of level codes we are shortening the employment codes to no more than 50 characters. 
+#   The PUMS level names are very long (which is one of the reasons these columns are distributed 
+#   as integers), so for this dataset that has level 
+#   names instead of level codes we are shortening the 
+#   employment codes to no more than 50 
+#   characters. 
 
 # Note 5: 
 #   Look at the first few rows of data in a column orientation. 
@@ -709,7 +744,7 @@ str(dpus) 	# Note: 5
 # (example 2.10 of section 2.3.1)  : Starting with R and data : Working with relational databases : A production-size example 
 # Title: Re-mapping values and selecting rows from data 
 
-target_emp_levs <- c(  	# Note: 1 
+target_emp_levs <- c(                                          	# Note: 1 
   "Employee of a private for-profit company or busine",
   "Employee of a private not-for-profit, tax-exempt, ",
   "Federal government employee",                    
@@ -719,9 +754,9 @@ target_emp_levs <- c(  	# Note: 1
   "State government employee")
 
 
-complete <- complete.cases(dpus) 	# Note: 2 
+complete <- complete.cases(dpus)                              	# Note: 2 
 
-stdworker <- with(dpus,  	# Note: 3 
+stdworker <- with(dpus,                                        	# Note: 3 
                   (PINCP>1000) & 
                     (ESR=="Civilian employed, at work") & 
                     (PINCP<=250000) & 
@@ -730,9 +765,9 @@ stdworker <- with(dpus,  	# Note: 3
                     (AGEP>=18) & (AGEP<=65) & 
                     (COW %in% target_emp_levs))
                     
-dpus <- dpus[complete & stdworker, , drop = FALSE] 	# Note: 4 
+dpus <- dpus[complete & stdworker, , drop = FALSE]              	# Note: 4 
 
-no_advanced_degree <- is.na(dpus$SCHL) |  	# Note: 5 
+no_advanced_degree <- is.na(dpus$SCHL) |                     	# Note: 5 
   (!(dpus$SCHL %in% c("Associate's degree",
                       "Bachelor's degree",
                       "Doctorate degree",
@@ -740,7 +775,7 @@ no_advanced_degree <- is.na(dpus$SCHL) |  	# Note: 5
                       "Professional degree beyond a bachelor's degree")))
 dpus$SCHL[no_advanced_degree] <- "No Advanced Degree"
 
-dpus$SCHL <- relevel(factor(dpus$SCHL), 	# Note: 6 
+dpus$SCHL <- relevel(factor(dpus$SCHL),                     	# Note: 6 
                      "No Advanced Degree")                
 dpus$COW <- relevel(factor(dpus$COW), 
                     target_emp_levs[[1]])
@@ -749,43 +784,55 @@ dpus$ESR <- relevel(factor(dpus$ESR),
 dpus$SEX <- relevel(factor(dpus$SEX), 
                     "Male")
                     
-saveRDS(dpus, "dpus_std_employee.RDS") 	# Note: 7 
+saveRDS(dpus, "dpus_std_employee.RDS")                           	# Note: 7 
                     
-summary(dpus) 	# Note: 8
+summary(dpus)                                                  	# Note: 8
 
 # Note 1: 
-#   Define a vector of employment definitions we consider "standard." 
+#   Define a vector of employment definitions we consider “standard.” 
 
 # Note 2: 
-#   Build a new logical vector indicating which rows have valid values in all of our columns of interest. 
-#   In real applications dealing with missing values is important and can not always be handled by skipping incomplete rows. We will return 
-#   to the issue of properly dealing with missing values when we discuss managing data. 
+#   Build a new logical vector indicating which rows have valid values in all of our columns of 
+#   interest. In real applications, dealing with 
+#   missing values is important and cannot always be 
+#   handled by skipping incomplete rows. We will 
+#   return to the issue of properly dealing with 
+#   missing values when we discuss managing 
+#   data. 
 
 # Note 3: 
-#   Build a new logical vector indicating which workers we consider typical full-time employees. Each of these 
-#   column names are the ones we discussed earlier. The results of any analysis will be heavily influenced by this definition, so in a real 
-#   task we would spend a lot of time researching the choices in this step. It literally controls who and what we are studying. Notice to keep things 
-#   simple and homogenous we 
-#   restricted this study to civilians- which would be an unacceptable limitation in a complete work. 
+#   Build a new logical vector indicating which workers we consider typical full-time employees. 
+#   Each of these column names are the ones we 
+#   discussed earlier. The results of any analysis 
+#   will be heavily influenced by this definition, so 
+#   in a real task we would spend a lot of time 
+#   researching the choices in this step. It literally 
+#   controls who and what we are studying. Notice to 
+#   keep things simple and homogeneous we restricted 
+#   this study to civilians, which would be an 
+#   unacceptable limitation in a complete work. 
 
 # Note 4: 
 #   Restrict only to rows or examples that meet or definition of typical worker. 
 
 # Note 5: 
-#   Re-code education, merging the less that bachelor's degree levels to the single level “No Advanced Degree". 
+#   Re-code education, merging the less-than-bachelor’s-degree levels to the single level “No 
+#   Advanced Degree”. 
 
 # Note 6: 
 #   Convert our string-valued columns to factors, picking the reference level with the re-level() 
 #   function. 
 
 # Note 7: 
-#   Save this data to a file so we can use it in later examples. This file 
-#   is also already available at the path PDSwR2/PUMS/dpus_std_employee.RDS 
+#   Save this data to a file so we can use it in later examples. This file is also already 
+#   available at the path 
+#   PDSwR2/PUMS/dpus_std_employee.RDS 
 
 # Note 8: 
-#   Take a look at our data. One of the advantages of factors is summary() 
-#   builds up useful counts for them. However, it was best to delay having string codes as factors until after we finished with re-mapping  
-#   level codes. 
+#   Take a look at our data. One of the advantages of factors is summary() builds up useful counts 
+#   for them. However, it was best to delay having 
+#   string codes as factors until after we finished 
+#   with re-mapping level codes. 
 
 
 
@@ -801,16 +848,16 @@ summary(dpus) 	# Note: 8
 # informalexample 2.15 of section 2.3.1 
 # (informalexample 2.15 of section 2.3.1)  : Starting with R and data : Working with relational databases : A production-size example 
 
-levels(dpus$SCHL) 	# Note: 1 
+levels(dpus$SCHL)                                 	# Note: 1 
 ## [1] "No Advanced Degree"                             "Associate's degree"                            
 ## [3] "Bachelor's degree"                              "Doctorate degree"                              
 ## [5] "Master's degree"                                "Professional degree beyond a bachelor's degree"
 
-head(dpus$SCHL) 	# Note: 2 
+head(dpus$SCHL)                                  	# Note: 2 
 ## [1] Associate's degree Associate's degree Associate's degree No Advanced Degree Doctorate degree   Associate's degree
 ##   6 Levels: No Advanced Degree Associate's degree Bachelor's degree Doctorate degree ... Professional degree beyond a bachelor's degree
 
-str(dpus$SCHL) 	# Note: 3 
+str(dpus$SCHL)                                   	# Note: 3 
 ##  Factor w/ 6 levels "No Advanced Degree",..: 2 2 2 1 4 2 1 5 1 1 ...
 
 # Note 1: 
@@ -836,13 +883,13 @@ str(dpus$SCHL) 	# Note: 3
 # informalexample 2.16 of section 2.3.1 
 # (informalexample 2.16 of section 2.3.1)  : Starting with R and data : Working with relational databases : A production-size example 
 
-d <- cbind( 	# Note: 1 
-  data.frame(SCHL = as.character(dpus$SCHL), 	# Note: 2 
+d <- cbind(                                                        	# Note: 1 
+  data.frame(SCHL = as.character(dpus$SCHL),                       	# Note: 2 
              stringsAsFactors = FALSE),
-  model.matrix(~SCHL, dpus) 	# Note: 3 
+  model.matrix(~SCHL, dpus)                                        	# Note: 3 
 )
-d$'(Intercept)' <- NULL 	# Note: 4 
-str(d) 	# Note: 5 
+d$'(Intercept)' <- NULL                                        	# Note: 4 
+str(d)                                                             	# Note: 5 
 
 ## 'data.frame':    41305 obs. of  6 variables:
 ##  $ SCHL                                              : chr  "Associate's degree" "Associate's degree" "Associate's degree" "No Advanced Degree" ...
@@ -882,7 +929,7 @@ str(d) 	# Note: 5
 # informalexample 2.17 of section 2.3.1 
 # (informalexample 2.17 of section 2.3.1)  : Starting with R and data : Working with relational databases : A production-size example 
 
-table(schooling = dpus$SCHL, sex = dpus$SEX) 	# Note: 1 
+table(schooling = dpus$SCHL, sex = dpus$SEX)                 	# Note: 1 
                                                 
 ##                                                 sex
 ## schooling                                         Male Female
@@ -893,10 +940,10 @@ table(schooling = dpus$SCHL, sex = dpus$SEX) 	# Note: 1
 ##   Master's degree                                 1792   2225
 ##   Professional degree beyond a bachelor's degree   421    379
 
-tapply(    	# Note: 2 
-   dpus$PINCP,  	# Note: 3 
-   list(dpus$SCHL, dpus$SEX), 	# Note: 4 
-   FUN = mean 	# Note: 5 
+tapply(                                                   	# Note: 2 
+   dpus$PINCP,                                       	# Note: 3 
+   list(dpus$SCHL, dpus$SEX),                        	# Note: 4 
+   FUN = mean                                        	# Note: 5 
    )
 
 ##                                                     Male   Female

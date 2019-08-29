@@ -4,25 +4,25 @@ output: github_document
 
 
 
-00265_example_7.2_of_section_7.1.1.R
+00188_example_7.1_of_section_7.1.1.R
 
 
 
 ```r
-# example 7.2 of section 7.1.1 
-# (example 7.2 of section 7.1.1)  : Linear and logistic regression : Using linear regression : Understanding linear regression 
+# example 7.1 of section 7.1.1 
+# (example 7.1 of section 7.1.1)  : Linear and logistic regression : Using linear regression : Understanding linear regression 
 # Title: Loading the PUMS data and fitting a model 
 
 psub <- readRDS("../PUMS/psub.RDS")
                                                 
 set.seed(3454351)     
-gp <- runif(nrow(psub))    	# Note: 1 
+gp <- runif(nrow(psub))                                            	# Note: 1 
                                                 
-dtrain <- subset(psub, gp >= 0.5)   	# Note: 2 
+dtrain <- subset(psub, gp >= 0.5)                                	# Note: 2 
 dtest <- subset(psub, gp < 0.5)
                                                 
 model <- lm(log10(PINCP) ~ AGEP + SEX + COW + SCHL, data = dtrain)  	# Note: 3 
-dtest$predLogPINCP <- predict(model, newdata = dtest) 	# Note: 4 
+dtest$predLogPINCP <- predict(model, newdata = dtest)              	# Note: 4 
 dtrain$predLogPINCP <- predict(model, newdata = dtrain)
 
 # Note 1: 
@@ -32,7 +32,7 @@ dtrain$predLogPINCP <- predict(model, newdata = dtrain)
 #   Split 50-50 into training and test sets 
 
 # Note 3: 
-#   Fit a linear model to log(income). We will expand this command in the section below. 
+#   Fit a linear model to log(income). 
 
 # Note 4: 
 #   Get the predicted log(income) on the test and training sets. 
@@ -41,34 +41,23 @@ dtrain$predLogPINCP <- predict(model, newdata = dtrain)
 
 
 
-00266_example_7.3_of_section_7.1.3.R
+00189_example_7.2_of_section_7.1.3.R
 
 
 
 ```r
-# example 7.3 of section 7.1.3 
-# (example 7.3 of section 7.1.3)  : Linear and logistic regression : Using linear regression : Making predictions 
+# example 7.2 of section 7.1.3 
+# (example 7.2 of section 7.1.3)  : Linear and logistic regression : Using linear regression : Making predictions 
 # Title: Plotting log income as a function of predicted log income 
 
 library('ggplot2')
-```
-
-```
-## Registered S3 methods overwritten by 'ggplot2':
-##   method         from 
-##   [.quosures     rlang
-##   c.quosures     rlang
-##   print.quosures rlang
-```
-
-```r
 ggplot(data = dtest, aes(x = predLogPINCP, y = log10(PINCP))) +
    geom_point(alpha = 0.2, color = "darkgray") +
    geom_smooth(color = "darkblue") +
-   geom_line(aes(x = log10(PINCP),   	# Note: 1 
+   geom_line(aes(x = log10(PINCP),                              	# Note: 1 
                  y = log10(PINCP)),
              color = "blue", linetype = 2) +
-   coord_cartesian(xlim = c(4, 5.25),          	# Note: 2 
+   coord_cartesian(xlim = c(4, 5.25),                           	# Note: 2 
                    ylim = c(3.5, 5.5))
 ```
 
@@ -76,7 +65,7 @@ ggplot(data = dtest, aes(x = predLogPINCP, y = log10(PINCP))) +
 ## `geom_smooth()` using method = 'gam' and formula 'y ~ s(x, bs = "cs")'
 ```
 
-![plot of chunk 00266_example_7.3_of_section_7.1.3.R](figure/00266_example_7.3_of_section_7.1.3.R-1.png)
+![plot of chunk 00189_example_7.2_of_section_7.1.3.R](figure/00189_example_7.2_of_section_7.1.3.R-1.png)
 
 ```r
 # Note 1: 
@@ -89,13 +78,13 @@ ggplot(data = dtest, aes(x = predLogPINCP, y = log10(PINCP))) +
 
 
 
-00267_example_7.4_of_section_7.1.3.R
+00190_example_7.3_of_section_7.1.3.R
 
 
 
 ```r
-# example 7.4 of section 7.1.3 
-# (example 7.4 of section 7.1.3)  : Linear and logistic regression : Using linear regression : Making predictions 
+# example 7.3 of section 7.1.3 
+# (example 7.3 of section 7.1.3)  : Linear and logistic regression : Using linear regression : Making predictions 
 # Title: Plotting residuals income as a function of predicted log income 
 
 ggplot(data = dtest, aes(x = predLogPINCP,
@@ -109,23 +98,23 @@ ggplot(data = dtest, aes(x = predLogPINCP,
 ## `geom_smooth()` using method = 'gam' and formula 'y ~ s(x, bs = "cs")'
 ```
 
-![plot of chunk 00267_example_7.4_of_section_7.1.3.R](figure/00267_example_7.4_of_section_7.1.3.R-1.png)
+![plot of chunk 00190_example_7.3_of_section_7.1.3.R](figure/00190_example_7.3_of_section_7.1.3.R-1.png)
 
 
 
 
-00268_example_7.5_of_section_7.1.3.R
+00191_example_7.4_of_section_7.1.3.R
 
 
 
 ```r
-# example 7.5 of section 7.1.3 
-# (example 7.5 of section 7.1.3)  : Linear and logistic regression : Using linear regression : Making predictions 
+# example 7.4 of section 7.1.3 
+# (example 7.4 of section 7.1.3)  : Linear and logistic regression : Using linear regression : Making predictions 
 # Title: Computing R-squared 
 
 rsq <- function(y, f) { 1 - sum((y - f)^2)/sum((y - mean(y))^2) }
 
-rsq(log10(dtrain$PINCP), dtrain$predLogPINCP) 	# Note: 1 
+rsq(log10(dtrain$PINCP), dtrain$predLogPINCP)           	# Note: 1 
 ```
 
 ```
@@ -135,7 +124,7 @@ rsq(log10(dtrain$PINCP), dtrain$predLogPINCP) 	# Note: 1
 ```r
 ## [1] 0.2976165
 
-rsq(log10(dtest$PINCP), dtest$predLogPINCP)   	# Note: 2 
+rsq(log10(dtest$PINCP), dtest$predLogPINCP)              	# Note: 2 
 ```
 
 ```
@@ -155,18 +144,18 @@ rsq(log10(dtest$PINCP), dtest$predLogPINCP)   	# Note: 2
 
 
 
-00269_example_7.6_of_section_7.1.3.R
+00192_example_7.5_of_section_7.1.3.R
 
 
 
 ```r
-# example 7.6 of section 7.1.3 
-# (example 7.6 of section 7.1.3)  : Linear and logistic regression : Using linear regression : Making predictions 
+# example 7.5 of section 7.1.3 
+# (example 7.5 of section 7.1.3)  : Linear and logistic regression : Using linear regression : Making predictions 
 # Title: Calculating root mean square error 
 
 rmse <- function(y, f) { sqrt(mean( (y-f)^2 )) }
         
-rmse(log10(dtrain$PINCP), dtrain$predLogPINCP)  	# Note: 1 
+rmse(log10(dtrain$PINCP), dtrain$predLogPINCP)    	# Note: 1 
 ```
 
 ```
@@ -176,7 +165,7 @@ rmse(log10(dtrain$PINCP), dtrain$predLogPINCP)  	# Note: 1
 ```r
 ## [1] 0.2685855
 
-rmse(log10(dtest$PINCP), dtest$predLogPINCP)  	# Note: 2 
+rmse(log10(dtest$PINCP), dtest$predLogPINCP)       	# Note: 2 
 ```
 
 ```
@@ -196,13 +185,13 @@ rmse(log10(dtest$PINCP), dtest$predLogPINCP)  	# Note: 2
 
 
 
-00274_example_7.7_of_section_7.1.5.R
+00197_example_7.6_of_section_7.1.5.R
 
 
 
 ```r
-# example 7.7 of section 7.1.5 
-# (example 7.7 of section 7.1.5)  : Linear and logistic regression : Using linear regression : Reading the model summary and characterizing coefficient quality 
+# example 7.6 of section 7.1.5 
+# (example 7.6 of section 7.1.5)  : Linear and logistic regression : Using linear regression : Reading the model summary and characterizing coefficient quality 
 # Title: Summarizing residuals 
 
 ( resids_train <- summary(log10(dtrain$PINCP) - predict(model, newdata = dtrain)) )
@@ -233,7 +222,7 @@ rmse(log10(dtest$PINCP), dtest$predLogPINCP)  	# Note: 2
 
 
 
-00276_informalexample_7.10_of_section_7.1.5.R
+00199_informalexample_7.10_of_section_7.1.5.R
 
 
 
@@ -255,7 +244,7 @@ rmse(log10(dtest$PINCP), dtest$predLogPINCP)  	# Note: 2
 
 
 
-00277_informalexample_7.11_of_section_7.1.5.R
+00200_informalexample_7.11_of_section_7.1.5.R
 
 
 
@@ -277,7 +266,7 @@ rmse(log10(dtest$PINCP), dtest$predLogPINCP)  	# Note: 2
 
 
 
-00280_informalexample_7.14_of_section_7.2.1.R
+00203_informalexample_7.14_of_section_7.2.1.R
 
 
 
@@ -312,13 +301,13 @@ logit(s(-2))
 
 
 
-00284_example_7.9_of_section_7.2.1.R
+00207_example_7.7_of_section_7.2.1.R
 
 
 
 ```r
-# example 7.9 of section 7.2.1 
-# (example 7.9 of section 7.2.1)  : Linear and logistic regression : Using logistic regression : Understanding logistic regression 
+# example 7.7 of section 7.2.1 
+# (example 7.7 of section 7.2.1)  : Linear and logistic regression : Using logistic regression : Understanding logistic regression 
 # Title: Loading the CDC data 
 
 load("../CDC/NatalRiskData.rData")
@@ -329,13 +318,13 @@ test <- sdata[sdata$ORIGRANDGROUP > 5, ]
 
 
 
-00285_example_7.10_of_section_7.2.2.R
+00208_example_7.8_of_section_7.2.2.R
 
 
 
 ```r
-# example 7.10 of section 7.2.2 
-# (example 7.10 of section 7.2.2)  : Linear and logistic regression : Using logistic regression : Building a logistic regression model 
+# example 7.8 of section 7.2.2 
+# (example 7.8 of section 7.2.2)  : Linear and logistic regression : Using logistic regression : Building a logistic regression model 
 # Title: Building the model formula 
 
 complications <- c("ULD_MECO","ULD_PRECIP","ULD_BREECH")
@@ -356,13 +345,13 @@ fmla <- mk_formula(y, x)
 
 
 
-00286_example_7.11_of_section_7.2.2.R
+00209_example_7.9_of_section_7.2.2.R
 
 
 
 ```r
-# example 7.11 of section 7.2.2 
-# (example 7.11 of section 7.2.2)  : Linear and logistic regression : Using logistic regression : Building a logistic regression model 
+# example 7.9 of section 7.2.2 
+# (example 7.9 of section 7.2.2)  : Linear and logistic regression : Using logistic regression : Building a logistic regression model 
 # Title: Fitting the logistic regression model 
 
 print(fmla)
@@ -387,13 +376,13 @@ model <- glm(fmla, data = train, family = binomial(link = "logit"))
 
 
 
-00287_example_7.12_of_section_7.2.3.R
+00210_example_7.10_of_section_7.2.3.R
 
 
 
 ```r
-# example 7.12 of section 7.2.3 
-# (example 7.12 of section 7.2.3)  : Linear and logistic regression : Using logistic regression : Making predictions 
+# example 7.10 of section 7.2.3 
+# (example 7.10 of section 7.2.3)  : Linear and logistic regression : Using logistic regression : Making predictions 
 # Title: Applying the logistic regression model 
 
 train$pred <- predict(model, newdata=train, type = "response")
@@ -403,13 +392,13 @@ test$pred <- predict(model, newdata=test, type="response")
 
 
 
-00288_example_7.13_of_section_7.2.3.R
+00211_example_7.11_of_section_7.2.3.R
 
 
 
 ```r
-# example 7.13 of section 7.2.3 
-# (example 7.13 of section 7.2.3)  : Linear and logistic regression : Using logistic regression : Making predictions 
+# example 7.11 of section 7.2.3 
+# (example 7.11 of section 7.2.3)  : Linear and logistic regression : Using logistic regression : Making predictions 
 # Title: Logistic regression preserves marginal probabilities 
 
 sum(train$atRisk == TRUE)  	# Note: 1 
@@ -470,13 +459,13 @@ sum(premature$pred)  	# Note: 4
 
 
 
-00289_example_7.14_of_section_7.2.3.R
+00212_example_7.12_of_section_7.2.3.R
 
 
 
 ```r
-# example 7.14 of section 7.2.3 
-# (example 7.14 of section 7.2.3)  : Linear and logistic regression : Using logistic regression : Making predictions 
+# example 7.12 of section 7.2.3 
+# (example 7.12 of section 7.2.3)  : Linear and logistic regression : Using logistic regression : Making predictions 
 # Title: Plotting distribution of prediction score grouped by known outcome 
 
 library(WVPlots)
@@ -484,18 +473,18 @@ DoubleDensityPlot(train, "pred", "atRisk",
                   title = "Distribution of natality risk scores")
 ```
 
-![plot of chunk 00289_example_7.14_of_section_7.2.3.R](figure/00289_example_7.14_of_section_7.2.3.R-1.png)
+![plot of chunk 00212_example_7.12_of_section_7.2.3.R](figure/00212_example_7.12_of_section_7.2.3.R-1.png)
 
 
 
 
-00290_example_7.15_of_section_7.2.3.R
+00213_example_7.13_of_section_7.2.3.R
 
 
 
 ```r
-# example 7.15 of section 7.2.3 
-# (example 7.15 of section 7.2.3)  : Linear and logistic regression : Using logistic regression : Making predictions 
+# example 7.13 of section 7.2.3 
+# (example 7.13 of section 7.2.3)  : Linear and logistic regression : Using logistic regression : Making predictions 
 # Title: Exploring modeling trade-offs 
 
 library("WVPlots")
@@ -507,12 +496,13 @@ plt <- PRTPlot(train, "pred", "atRisk", TRUE,    	# Note: 1
 plt + geom_vline(xintercept = 0.02, color="red", linetype = 2)   	# Note: 2
 ```
 
-![plot of chunk 00290_example_7.15_of_section_7.2.3.R](figure/00290_example_7.15_of_section_7.2.3.R-1.png)
+![plot of chunk 00213_example_7.13_of_section_7.2.3.R](figure/00213_example_7.13_of_section_7.2.3.R-1.png)
 
 ```r
 # Note 1: 
-#   Call PRTPlot() where "pred" is the column of predictions, 
-#   "atRisk" is the true outcome column, and TRUE is the class of interest. 
+#   Call PRTPlot() where “pred” is the column 
+#   of predictions, “atRisk” is the true outcome 
+#   column, and TRUE is the class of interest. 
 
 # Note 2: 
 #   Add a line to mark threshold = 0.02. 
@@ -521,13 +511,13 @@ plt + geom_vline(xintercept = 0.02, color="red", linetype = 2)   	# Note: 2
 
 
 
-00291_example_7.16_of_section_7.2.3.R
+00214_example_7.14_of_section_7.2.3.R
 
 
 
 ```r
-# example 7.16 of section 7.2.3 
-# (example 7.16 of section 7.2.3)  : Linear and logistic regression : Using logistic regression : Making predictions 
+# example 7.14 of section 7.2.3 
+# (example 7.14 of section 7.2.3)  : Linear and logistic regression : Using logistic regression : Making predictions 
 # Title: Evaluating the chosen model 
 
 ( ctab.test <- table(pred = test$pred > 0.02, atRisk = test$atRisk)  )    	# Note: 1  
@@ -585,13 +575,13 @@ plt + geom_vline(xintercept = 0.02, color="red", linetype = 2)   	# Note: 2
 
 
 
-00292_example_7.17_of_section_7.2.4.R
+00215_example_7.15_of_section_7.2.4.R
 
 
 
 ```r
-# example 7.17 of section 7.2.4 
-# (example 7.17 of section 7.2.4)  : Linear and logistic regression : Using logistic regression : Finding relations and extracting advice from logistic models 
+# example 7.15 of section 7.2.4 
+# (example 7.15 of section 7.2.4)  : Linear and logistic regression : Using logistic regression : Finding relations and extracting advice from logistic models 
 # Title: The model coefficients 
 
 coefficients(model)
@@ -630,13 +620,13 @@ coefficients(model)
 
 
 
-00294_example_7.18_of_section_7.2.5.R
+00217_example_7.16_of_section_7.2.5.R
 
 
 
 ```r
-# example 7.18 of section 7.2.5 
-# (example 7.18 of section 7.2.5)  : Linear and logistic regression : Using logistic regression : Reading the model summary and characterizing coefficients 
+# example 7.16 of section 7.2.5 
+# (example 7.16 of section 7.2.5)  : Linear and logistic regression : Using logistic regression : Reading the model summary and characterizing coefficients 
 # Title: The model summary 
 
 summary(model)
@@ -718,13 +708,13 @@ summary(model)
 
 
 
-00299_example_7.19_of_section_7.2.5.R
+00222_example_7.17_of_section_7.2.5.R
 
 
 
 ```r
-# example 7.19 of section 7.2.5 
-# (example 7.19 of section 7.2.5)  : Linear and logistic regression : Using logistic regression : Reading the model summary and characterizing coefficients 
+# example 7.17 of section 7.2.5 
+# (example 7.17 of section 7.2.5)  : Linear and logistic regression : Using logistic regression : Reading the model summary and characterizing coefficients 
 # Title: Computing deviance 
 
 loglikelihood <- function(y, py) {                                 	# Note: 1 
@@ -817,10 +807,9 @@ testpred <- predict(model, newdata = test,
 
 # Note 1: 
 #   Function to calculate the log likelihood of 
-#   a dataset. Variable y is the outcome 
-#   in numeric form (1 for positive examples, 0 for 
-#   negative). Variable py is the 
-#   predicted probability that 
+#   a dataset. Variable y is the outcome in numeric 
+#   form (1 for positive examples, 0 for negative). 
+#   Variable py is the predicted probability that 
 #   y==1. 
 
 # Note 2: 
@@ -854,13 +843,13 @@ testpred <- predict(model, newdata = test,
 
 
 
-00300_example_7.20_of_section_7.2.5.R
+00223_example_7.18_of_section_7.2.5.R
 
 
 
 ```r
-# example 7.20 of section 7.2.5 
-# (example 7.20 of section 7.2.5)  : Linear and logistic regression : Using logistic regression : Reading the model summary and characterizing coefficients 
+# example 7.18 of section 7.2.5 
+# (example 7.18 of section 7.2.5)  : Linear and logistic regression : Using logistic regression : Reading the model summary and characterizing coefficients 
 # Title: Calculating the pseudo R-squared 
 
 pr2 <- 1 - (resid.dev / null.dev)
@@ -889,13 +878,13 @@ print(pr2.test)
 
 
 
-00303_example_7.21_of_section_7.2.5.R
+00226_example_7.19_of_section_7.2.5.R
 
 
 
 ```r
-# example 7.21 of section 7.2.5 
-# (example 7.21 of section 7.2.5)  : Linear and logistic regression : Using logistic regression : Reading the model summary and characterizing coefficients 
+# example 7.19 of section 7.2.5 
+# (example 7.19 of section 7.2.5)  : Linear and logistic regression : Using logistic regression : Reading the model summary and characterizing coefficients 
 # Title: Calculating the significance of the observed fit 
 
 ( df.null <- dim(train)[[1]] - 1  )                          	# Note: 1 
@@ -967,13 +956,13 @@ print(pr2.test)
 
 
 
-00304_example_7.22_of_section_7.2.5.R
+00227_example_7.20_of_section_7.2.5.R
 
 
 
 ```r
-# example 7.22 of section 7.2.5 
-# (example 7.22 of section 7.2.5)  : Linear and logistic regression : Using logistic regression : Reading the model summary and characterizing coefficients 
+# example 7.20 of section 7.2.5 
+# (example 7.20 of section 7.2.5)  : Linear and logistic regression : Using logistic regression : Reading the model summary and characterizing coefficients 
 # Title: Calculating the Akaike information criterion 
 
 aic <- 2 * (length(model$coefficients) -
@@ -992,13 +981,13 @@ aic
 
 
 
-00307_example_7.23_of_section_7.3.1.R
+00230_example_7.21_of_section_7.3.1.R
 
 
 
 ```r
-# example 7.23 of section 7.3.1 
-# (example 7.23 of section 7.3.1)  : Linear and logistic regression : Regularization : An Example of Quasi-separation 
+# example 7.21 of section 7.3.1 
+# (example 7.21 of section 7.3.1)  : Linear and logistic regression : Regularization : An example of quasi-separation 
 # Title: Preparing the cars data 
 
 cars <- read.table(
@@ -1009,13 +998,13 @@ cars <- read.table(
 )
 
 
-vars <- setdiff(colnames(cars), "rating") 	# Note: 1 
+vars <- setdiff(colnames(cars), "rating")        	# Note: 1 
 
 cars$fail <- cars$rating == "unacc"
-outcome <- "fail"                     	# Note: 2 
+outcome <- "fail"                                	# Note: 2 
 
 set.seed(24351)
-gp <- runif(nrow(cars))  	# Note: 3 
+gp <- runif(nrow(cars))                              	# Note: 3 
                                 
 library("zeallot")
 c(cars_test, cars_train) %<-% split(cars, gp < 0.7)  	# Note: 4 
@@ -1043,27 +1032,30 @@ nrow(cars_train)
 #   Get the input variables. 
 
 # Note 2: 
-#   You want to predict whether the car gets an "unacceptable" rating 
+#   You want to predict whether the car gets an 
+#   “unacceptable” rating 
 
 # Note 3: 
 #   Create the grouping variable for the test/train split (70% for training, 30% for test). 
 
 # Note 4: 
-#   The split() function returns a list of two groups with the group "gp < 0.7 == FALSE" first. 
-#   The zeallot packages's %<-% multi-assignment takes this list of values and unpacks them 
-#   into the variables named cars_test and cars_train. 
+#   The split() function returns a list of two groups with 
+#   the group “gp < 0.7 == FALSE” first. The 
+#   zeallot packages's %<-% multi-assignment takes 
+#   this list of values and unpacks them into the 
+#   variables named cars_test and cars_train. 
 ```
 
 
 
 
-00308_example_7.24_of_section_7.3.1.R
+00231_example_7.22_of_section_7.3.1.R
 
 
 
 ```r
-# example 7.24 of section 7.3.1 
-# (example 7.24 of section 7.3.1)  : Linear and logistic regression : Regularization : An Example of Quasi-separation 
+# example 7.22 of section 7.3.1 
+# (example 7.22 of section 7.3.1)  : Linear and logistic regression : Regularization : An example of quasi-separation 
 # Title: Fitting a logistic regression model 
 
 library(wrapr)
@@ -1092,13 +1084,13 @@ model_glm <- glm(fmla,
 
 
 
-00309_informalexample_7.26_of_section_7.3.1.R
+00232_informalexample_7.26_of_section_7.3.1.R
 
 
 
 ```r
 # informalexample 7.26 of section 7.3.1 
-# (informalexample 7.26 of section 7.3.1)  : Linear and logistic regression : Regularization : An Example of Quasi-separation 
+# (informalexample 7.26 of section 7.3.1)  : Linear and logistic regression : Regularization : An example of quasi-separation 
 
 ## Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
 ```
@@ -1106,13 +1098,13 @@ model_glm <- glm(fmla,
 
 
 
-00310_example_7.25_of_section_7.3.1.R
+00233_example_7.23_of_section_7.3.1.R
 
 
 
 ```r
-# example 7.25 of section 7.3.1 
-# (example 7.25 of section 7.3.1)  : Linear and logistic regression : Regularization : An Example of Quasi-separation 
+# example 7.23 of section 7.3.1 
+# (example 7.23 of section 7.3.1)  : Linear and logistic regression : Regularization : An example of quasi-separation 
 # Title: Looking at the model summary 
 
 summary(model_glm)
@@ -1210,16 +1202,16 @@ summary(model_glm)
 
 
 
-00311_example_7.26_of_section_7.3.1.R
+00234_example_7.24_of_section_7.3.1.R
 
 
 
 ```r
-# example 7.26 of section 7.3.1 
-# (example 7.26 of section 7.3.1)  : Linear and logistic regression : Regularization : An Example of Quasi-separation 
-# Title: Looking at the logistic model's coefficients 
+# example 7.24 of section 7.3.1 
+# (example 7.24 of section 7.3.1)  : Linear and logistic regression : Regularization : An example of quasi-separation 
+# Title: Looking at the logistic model’s coefficients 
 
-coefs <- coef(model_glm)[-1]                  	# Note: 1 
+coefs <- coef(model_glm)[-1]                         	# Note: 1 
 coef_frame <- data.frame(coef = names(coefs),
                         value = coefs)
 
@@ -1230,7 +1222,7 @@ ggplot(coef_frame, aes(x = coef, y = value)) +
   coord_flip()
 ```
 
-![plot of chunk 00311_example_7.26_of_section_7.3.1.R](figure/00311_example_7.26_of_section_7.3.1.R-1.png)
+![plot of chunk 00234_example_7.24_of_section_7.3.1.R](figure/00234_example_7.24_of_section_7.3.1.R-1.png)
 
 ```r
 # Note 1: 
@@ -1240,22 +1232,22 @@ ggplot(coef_frame, aes(x = coef, y = value)) +
 
 
 
-00312_example_7.27_of_section_7.3.1.R
+00235_example_7.25_of_section_7.3.1.R
 
 
 
 ```r
-# example 7.27 of section 7.3.1 
-# (example 7.27 of section 7.3.1)  : Linear and logistic regression : Regularization : An Example of Quasi-separation 
+# example 7.25 of section 7.3.1 
+# (example 7.25 of section 7.3.1)  : Linear and logistic regression : Regularization : An example of quasi-separation 
 # Title: The logistic model's test performance 
 
 cars_test$pred_glm <- predict(model_glm, 
                              newdata=cars_test,
-                             type = "response")  	# Note: 1 
+                             type = "response")                 	# Note: 1 
                              
-library(sigr)    	# Note: 2  
+library(sigr)                                                       	# Note: 2  
 
-confmat <- function(dframe, predvar) {     	# Note: 3 
+confmat <- function(dframe, predvar) {                               	# Note: 3 
   cmat <- table(truth = ifelse(dframe$fail, "unacceptable", "passed"),
                prediction = ifelse(dframe[[predvar]] > 0.5, 
                                    "unacceptable", "passed"))
@@ -1299,7 +1291,8 @@ confmat(cars_test, "pred_glm")
 ## [1] 97.14902
 
 # Note 1: 
-#   Get the model's predictions on the test set 
+#   Get the model’s predictions on the test 
+#   set 
 
 # Note 2: 
 #   Attach the sigr package for deviance calculation (sigr includes a number of goodness of fit summaries and tests) 
@@ -1312,13 +1305,13 @@ confmat(cars_test, "pred_glm")
 
 
 
-00317_example_7.28_of_section_7.3.3.R
+00240_example_7.26_of_section_7.3.3.R
 
 
 
 ```r
-# example 7.28 of section 7.3.3 
-# (example 7.28 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
+# example 7.26 of section 7.3.3 
+# (example 7.26 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
 # Title: Fitting the ridge regression model 
 
 library(glmnet)
@@ -1333,7 +1326,7 @@ library(glmnet)
 ```
 
 ```
-## Loaded glmnet 2.0-16
+## Loaded glmnet 2.0-18
 ```
 
 ```r
@@ -1355,7 +1348,7 @@ library(glmnetUtils)
 (model_ridge <- cv.glmnet(fmla,
                          cars_train,
                          alpha = 0,
-                         family = "binomial"))  	# Note: 1 
+                         family = "binomial"))    	# Note: 1 
 ```
 
 ```
@@ -1368,7 +1361,7 @@ library(glmnetUtils)
 ##     Use model.frame: FALSE
 ##     Number of crossvalidation folds: 10
 ##     Alpha: 0
-##     Deviance-minimizing lambda: 0.02272432  (+1 SE): 0.02493991
+##     Deviance-minimizing lambda: 0.02070555  (+1 SE): 0.02272432
 ```
 
 ```r
@@ -1384,21 +1377,22 @@ library(glmnetUtils)
 ##     Deviance-minimizing lambda: 0.02272432  (+1 SE): 0.02493991
 
 # Note 1: 
-#   For logistic regression style models, use 'family = "binomial"'.  
-#   For linear regression style models, use 'family = "gaussian"'. 
+#   For logistic regression style models, 
+#   use family = "binomial". For linear regression 
+#   style models, use family = "gaussian". 
 ```
 
 
 
 
-00318_example_7.29_of_section_7.3.3.R
+00241_example_7.27_of_section_7.3.3.R
 
 
 
 ```r
-# example 7.29 of section 7.3.3 
-# (example 7.29 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
-# Title: Looking at the ridge model's coefficients 
+# example 7.27 of section 7.3.3 
+# (example 7.27 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
+# Title: Looking at the ridge model’s coefficients 
 
 (coefs <- coef(model_ridge)) 
 ```
@@ -1406,28 +1400,28 @@ library(glmnetUtils)
 ```
 ## 22 x 1 sparse Matrix of class "dgCMatrix"
 ##                         1
-## (Intercept)    2.01098708
-## buyinghigh     0.34564041
-## buyinglow     -0.76418240
-## buyingmed     -0.62791346
-## buyingvhigh    1.05949870
-## mainthigh      0.18896383
-## maintlow      -0.72148497
-## maintmed      -0.60000546
-## maintvhigh     1.14059599
-## doors2         0.37594292
-## doors3         0.01067978
-## doors4        -0.21546650
-## doors5more    -0.17649206
-## persons2       2.61102897
-## persons4      -1.35476871
-## personsmore   -1.26074907
-## lug_bootbig   -0.52193562
-## lug_bootmed   -0.18681644
-## lug_bootsmall  0.68419343
-## safetyhigh    -1.70022006
-## safetylow      2.54353980
-## safetymed     -0.83688361
+## (Intercept)    2.07036883
+## buyinghigh     0.36087302
+## buyinglow     -0.79254703
+## buyingmed     -0.65142106
+## buyingvhigh    1.09666271
+## mainthigh      0.19759816
+## maintlow      -0.74515941
+## maintmed      -0.62369242
+## maintvhigh     1.17974674
+## doors2         0.39060689
+## doors3         0.01157841
+## doors4        -0.22310921
+## doors5more    -0.18460775
+## persons2       2.70267398
+## persons4      -1.40286590
+## personsmore   -1.30448195
+## lug_bootbig   -0.54140935
+## lug_bootmed   -0.19315198
+## lug_bootsmall  0.70910326
+## safetyhigh    -1.75604427
+## safetylow      2.63014095
+## safetymed     -0.86745196
 ```
 
 ```r
@@ -1446,7 +1440,7 @@ library(glmnetUtils)
 ## doors3            0.01067978
 ## doors4           -0.21546650
 ## doors5more       -0.17649206
-## persons2          2.61102897   	# Note: 1 
+## persons2          2.61102897                     	# Note: 1 
 ## persons4         -1.35476871
 ## personsmore      -1.26074907
 ## lug_bootbig      -0.52193562
@@ -1465,30 +1459,32 @@ ggplot(coef_frame, aes(x = coef, y = value)) +
   coord_flip()
 ```
 
-![plot of chunk 00318_example_7.29_of_section_7.3.3.R](figure/00318_example_7.29_of_section_7.3.3.R-1.png)
+![plot of chunk 00241_example_7.27_of_section_7.3.3.R](figure/00241_example_7.27_of_section_7.3.3.R-1.png)
 
 ```r
 # Note 1: 
-#   Note that all the levels of the categorical variable "persons" are present (no reference level). 
+#   Note that all the levels of the 
+#   categorical variable “persons” are present (no 
+#   reference level). 
 ```
 
 
 
 
-00319_example_7.30_of_section_7.3.3.R
+00242_example_7.28_of_section_7.3.3.R
 
 
 
 ```r
-# example 7.30 of section 7.3.3 
-# (example 7.30 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
-# Title: Looking at the ridge model's test performance 
+# example 7.28 of section 7.3.3 
+# (example 7.28 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
+# Title: Looking at the ridge model’s test performance 
 
 prediction <- predict(model_ridge,
                      newdata = cars_test,
                      type = "response")
 
-cars_test$pred_ridge <- as.numeric(prediction)  	# Note: 1 
+cars_test$pred_ridge <- as.numeric(prediction)       	# Note: 1 
 
 confmat(cars_test, "pred_ridge")
 ```
@@ -1497,14 +1493,14 @@ confmat(cars_test, "pred_ridge")
 ## $confusion_matrix
 ##               prediction
 ## truth          passed unacceptable
-##   passed          147           12
+##   passed          148           11
 ##   unacceptable     16          324
 ## 
 ## $accuracy
-## [1] 0.9438878
+## [1] 0.9458918
 ## 
 ## $deviance
-## [1] 191.9248
+## [1] 187.2484
 ```
 
 ```r
@@ -1528,7 +1524,7 @@ confmat(cars_test, "pred_ridge")
 
 
 
-00320_informalexample_7.31_of_section_7.3.3.R
+00243_informalexample_7.31_of_section_7.3.3.R
 
 
 
@@ -1545,14 +1541,14 @@ prediction <- predict(model_ridge,
 
 
 
-00321_example_7.31_of_section_7.3.3.R
+00244_example_7.29_of_section_7.3.3.R
 
 
 
 ```r
-# example 7.31 of section 7.3.3 
-# (example 7.31 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
-# Title: The lasso model's coefficients 
+# example 7.29 of section 7.3.3 
+# (example 7.29 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
+# Title: The lasso model’s coefficients 
 
 ## 22 x 1 sparse Matrix of class "dgCMatrix"
 ##                             1
@@ -1583,13 +1579,13 @@ prediction <- predict(model_ridge,
 
 
 
-00322_example_7.32_of_section_7.3.3.R
+00245_example_7.30_of_section_7.3.3.R
 
 
 
 ```r
-# example 7.32 of section 7.3.3 
-# (example 7.32 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
+# example 7.30 of section 7.3.3 
+# (example 7.30 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
 # Title: The lasso model's test performance 
 
 ### $confusion_matrix
@@ -1608,13 +1604,13 @@ prediction <- predict(model_ridge,
 
 
 
-00323_example_7.33_of_section_7.3.3.R
+00246_example_7.31_of_section_7.3.3.R
 
 
 
 ```r
-# example 7.33 of section 7.3.3 
-# (example 7.33 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
+# example 7.31 of section 7.3.3 
+# (example 7.31 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
 # Title: Crossvalidating for both alpha and lambda 
 
 (elastic_net <- cva.glmnet(fmla, 
@@ -1647,26 +1643,26 @@ prediction <- predict(model_ridge,
 
 
 
-00324_example_7.34_of_section_7.3.3.R
+00247_example_7.32_of_section_7.3.3.R
 
 
 
 ```r
-# example 7.34 of section 7.3.3 
-# (example 7.34 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
+# example 7.32 of section 7.3.3 
+# (example 7.32 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
 # Title: Finding the minimum error alpha 
 
-get_cvm <- function(model) {                        	# Note: 1 
+get_cvm <- function(model) {                                  	# Note: 1 
   index <- match(model$lambda.1se, model$lambda)
   model$cvm[index]
 }
 
-enet_performance <- data.frame(alpha = elastic_net$alpha)  	# Note: 2 
-models <- elastic_net$modlist                  	# Note: 3 
+enet_performance <- data.frame(alpha = elastic_net$alpha)     	# Note: 2 
+models <- elastic_net$modlist                                 	# Note: 3 
 enet_performance$cvm <- vapply(models, get_cvm, numeric(1))  	# Note: 4 
                        
-minix <- which.min(enet_performance$cvm)           	# Note: 5 
-(best_alpha <- elastic_net$alpha[minix])           	# Note: 6 
+minix <- which.min(enet_performance$cvm)                     	# Note: 5 
+(best_alpha <- elastic_net$alpha[minix])                     	# Note: 6 
 ```
 
 ```
@@ -1683,14 +1679,15 @@ ggplot(enet_performance, aes(x = alpha, y = cvm)) +          	# Note: 7
   ggtitle("CV loss as a function of alpha")
 ```
 
-![plot of chunk 00324_example_7.34_of_section_7.3.3.R](figure/00324_example_7.34_of_section_7.3.3.R-1.png)
+![plot of chunk 00247_example_7.32_of_section_7.3.3.R](figure/00247_example_7.32_of_section_7.3.3.R-1.png)
 
 ```r
 # Note 1: 
 #   A function to get the mean cross-validation error of a cv.glmnet lambda.1se model. 
 
 # Note 2: 
-#   Get the alphas that the algorithm tried 
+#   Get the alphas that the algorithm 
+#   tried. 
 
 # Note 3: 
 #   Get the model objects produced. 
@@ -1711,13 +1708,13 @@ ggplot(enet_performance, aes(x = alpha, y = cvm)) +          	# Note: 7
 
 
 
-00325_example_7.35_of_section_7.3.3.R
+00248_example_7.33_of_section_7.3.3.R
 
 
 
 ```r
-# example 7.35 of section 7.3.3 
-# (example 7.35 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
+# example 7.33 of section 7.3.3 
+# (example 7.33 of section 7.3.3)  : Linear and logistic regression : Regularization : Regularized regression with glmnet 
 # Title: Fitting and evaluating the elastic net model 
 
 (model_enet <- cv.glmnet(fmla, 

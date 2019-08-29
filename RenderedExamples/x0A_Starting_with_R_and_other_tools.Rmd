@@ -4,10 +4,10 @@ output: github_document
 
 
 
-00460_example_A.1_of_section_A.2.R
+00383_example_A.1_of_section_A.2.R
 
 
-```{r 00460_example_A.1_of_section_A.2.R }
+```{r 00383_example_A.1_of_section_A.2.R }
 # example A.1 of section A.2 
 # (example A.1 of section A.2)  : Starting with R and other tools : Starting with R 
 # Title: Trying a few R commands 
@@ -47,10 +47,10 @@ vec
 
 
 
-00461_informalexample_A.3_of_section_A.2.1.R
+00384_informalexample_A.3_of_section_A.2.1.R
 
 
-```{r 00461_informalexample_A.3_of_section_A.2.1.R }
+```{r 00384_informalexample_A.3_of_section_A.2.1.R }
 # informalexample A.3 of section A.2.1 
 # (informalexample A.3 of section A.2.1)  : Starting with R and other tools : Starting with R : Primary features of R 
 
@@ -67,10 +67,10 @@ print(x)
 
 
 
-00462_example_A.2_of_section_A.2.1.R
+00385_example_A.2_of_section_A.2.1.R
 
 
-```{r 00462_example_A.2_of_section_A.2.1.R }
+```{r 00385_example_A.2_of_section_A.2.1.R }
 # example A.2 of section A.2.1 
 # (example A.2 of section A.2.1)  : Starting with R and other tools : Starting with R : Primary features of R 
 # Title: Binding values to function arguments 
@@ -95,10 +95,10 @@ divide(denominator <- 2, numerator <- 1)  # wrong symbol <-, yields 2, a wrong a
 
 
 
-00463_example_A.3_of_section_A.2.1.R
+00386_example_A.3_of_section_A.2.1.R
 
 
-```{r 00463_example_A.3_of_section_A.2.1.R }
+```{r 00386_example_A.3_of_section_A.2.1.R }
 # example A.3 of section A.2.1 
 # (example A.3 of section A.2.1)  : Starting with R and other tools : Starting with R : Primary features of R 
 # Title: Demonstrating side effects 
@@ -121,10 +121,10 @@ print(x)
 
 
 
-00464_example_A.4_of_section_A.2.1.R
+00387_example_A.4_of_section_A.2.1.R
 
 
-```{r 00464_example_A.4_of_section_A.2.1.R }
+```{r 00387_example_A.4_of_section_A.2.1.R }
 # example A.4 of section A.2.1 
 # (example A.4 of section A.2.1)  : Starting with R and other tools : Starting with R : Primary features of R 
 # Title: R truth tables for Boolean operators 
@@ -145,10 +145,10 @@ c(TRUE, TRUE, FALSE, FALSE) | c(TRUE, FALSE, TRUE, FALSE)
 
 
 
-00465_example_A.5_of_section_A.2.1.R
+00388_example_A.5_of_section_A.2.1.R
 
 
-```{r 00465_example_A.5_of_section_A.2.1.R }
+```{r 00388_example_A.5_of_section_A.2.1.R }
 # example A.5 of section A.2.1 
 # (example A.5 of section A.2.1)  : Starting with R and other tools : Starting with R : Primary features of R 
 # Title: Call-by-value effect 
@@ -158,18 +158,22 @@ b <- a
 
 print(b)
 
-a[[1]] <- 5 	# Note: 1 
+a[[1]] <- 5            	# Note: 1 
 
 print(a)
 
-print(b) 	# Note: 2
+print(b)               	# Note: 2
 
 # Note 1: 
-#   "Alter a". Actually this is implemented by building an entirely new vector and reassigning a to refer to this new vector. 
-#   The old value remains as-was, and any references continue to see the old unaltered value. 
+#   “Alter a”. Actually this is 
+#   implemented by building an entirely new vector and 
+#   reassigning a to refer to this new vector. The old 
+#   value remains as it was, and any references 
+#   continue to see the old unaltered value. 
 
 # Note 2: 
-#   Notice b's value is not changed. 
+#   Notice b’s value is not 
+#   changed. 
 
 
 
@@ -178,10 +182,10 @@ print(b) 	# Note: 2
 
 
 
-00466_informalexample_A.4_of_section_A.2.2.R
+00389_informalexample_A.4_of_section_A.2.2.R
 
 
-```{r 00466_informalexample_A.4_of_section_A.2.2.R }
+```{r 00389_informalexample_A.4_of_section_A.2.2.R }
 # informalexample A.4 of section A.2.2 
 # (informalexample A.4 of section A.2.2)  : Starting with R and other tools : Starting with R : Primary R data types 
 
@@ -197,10 +201,10 @@ print(vec)
 
 
 
-00467_example_A.6_of_section_A.2.2.R
+00390_example_A.6_of_section_A.2.2.R
 
 
-```{r 00467_example_A.6_of_section_A.2.2.R }
+```{r 00390_example_A.6_of_section_A.2.2.R }
 # example A.6 of section A.2.2 
 # (example A.6 of section A.2.2)  : Starting with R and other tools : Starting with R : Primary R data types 
 # Title: Examples of R indexing operators 
@@ -236,10 +240,10 @@ x[c('a', 'a', 'b', 'b')]
 
 
 
-00468_example_A.7_of_section_A.2.2.R
+00391_example_A.7_of_section_A.2.2.R
 
 
-```{r 00468_example_A.7_of_section_A.2.2.R }
+```{r 00391_example_A.7_of_section_A.2.2.R }
 # example A.7 of section A.2.2 
 # (example A.7 of section A.2.2)  : Starting with R and other tools : Starting with R : Primary R data types 
 # Title: R’s treatment of unexpected factor levels 
@@ -259,22 +263,22 @@ factor('apple', levels = c('red', 'orange'))
 
 
 
-00469_example_A.8_of_section_A.2.2.R
+00392_example_A.8_of_section_A.2.2.R
 
 
-```{r 00469_example_A.8_of_section_A.2.2.R }
+```{r 00392_example_A.8_of_section_A.2.2.R }
 # example A.8 of section A.2.2 
 # (example A.8 of section A.2.2)  : Starting with R and other tools : Starting with R : Primary R data types 
-# Title: Confirm lm() encodes new strings correctly. 
+# Title: Confirm lm() encodes new strings correctly 
 
 d <- data.frame(x=factor(c('a','b','c')),
                    y=c(1,2,3))
-m <- lm(y~0+x,data=d) 	# Note: 1 
+m <- lm(y~0+x,data=d)                             	# Note: 1 
 print(predict(m,
-   newdata=data.frame(x='b'))[[1]]) 	# Note: 2 
+   newdata=data.frame(x='b'))[[1]])               	# Note: 2 
 # [1] 2
 print(predict(m,
-   newdata=data.frame(x=factor('b',levels=c('b'))))[[1]]) 	# Note: 3 
+   newdata=data.frame(x=factor('b',levels=c('b'))))[[1]])        	# Note: 3 
 # [1] 2
 
 # Note 1: 
@@ -298,28 +302,28 @@ print(predict(m,
 
 
 
-00470_informalexample_A.5_of_section_A.3.1.R
+00393_informalexample_A.5_of_section_A.3.1.R
 
 
-```{r 00470_informalexample_A.5_of_section_A.3.1.R }
+```{r 00393_informalexample_A.5_of_section_A.3.1.R }
 # informalexample A.5 of section A.3.1 
 # (informalexample A.5 of section A.3.1)  : Starting with R and other tools : Using databases with R : Running database queries using a query generator 
 
 library("rquery")
 
-raw_connection <- ﻿DBI::dbConnect(RPostgres::Postgres(),
+raw_connection <- DBI::dbConnect(RPostgres::Postgres(),
                                  host = 'localhost',
                                  port = 5432,
                                  user = 'johnmount',
-                                 password = '') 	# Note: 1 
+                                 password = '')            	# Note: 1 
         
-dbopts <- rq_connection_tests(raw_connection) 	# Note: 2 
+dbopts <- rq_connection_tests(raw_connection)                  	# Note: 2 
 db <- rquery_db_info(
   connection = raw_connection,
   is_dbi = TRUE,
   connection_options = dbopts)
 
-data_handle <- rq_copy_to( 	# Note: 3 
+data_handle <- rq_copy_to(                                      	# Note: 3 
   db, 
   'offers',
   wrapr::build_frame(
@@ -351,21 +355,21 @@ data_handle <- rq_copy_to( 	# Note: 3
 
 
 
-00471_informalexample_A.6_of_section_A.3.1.R
+00394_informalexample_A.6_of_section_A.3.1.R
 
 
-```{r 00471_informalexample_A.6_of_section_A.3.1.R }
+```{r 00394_informalexample_A.6_of_section_A.3.1.R }
 # informalexample A.6 of section A.3.1 
 # (informalexample A.6 of section A.3.1)  : Starting with R and other tools : Using databases with R : Running database queries using a query generator 
 
-data_handle %.>% 	# Note: 1 
+data_handle %.>%                                        	# Note: 1 
   extend(.,
-         simple_rank = rank(), 	# Note: 2 
-         partitionby = "user_name",  	# Note: 3 
-         orderby = "predicted_offer_affinity", 	# Note: 4 
+         simple_rank = rank(),                            	# Note: 2 
+         partitionby = "user_name",                   	# Note: 3 
+         orderby = "predicted_offer_affinity",        	# Note: 4 
          reverse = "predicted_offer_affinity") %.>%
-  execute(db, .) %.>% 	# Note: 5 
-  knitr::kable(.) 	# Note: 6 
+  execute(db, .) %.>%                                   	# Note: 5 
+  knitr::kable(.)                                         	# Note: 6 
 
 # |user_name |product                        | discount| predicted_offer_affinity| simple_rank|
 # |:---------|:------------------------------|--------:|------------------------:|-----------:|
@@ -379,7 +383,9 @@ data_handle %.>% 	# Note: 1
 # |John      |Dell XPS Laptop                |     0.10|                  0.24020|           4|
 
 # Note 1: 
-#   Pipe our data into the execute() method. Notice we are using the "wrapr dot pipe." 
+#   Pipe our data into the 
+#   execute() method. Notice we are using the “wrapr dot 
+#   pipe.” 
 
 # Note 2: 
 #   We are going to calculate rank() or the order of the data rows. 
@@ -403,26 +409,26 @@ data_handle %.>% 	# Note: 1
 
 
 
-00472_informalexample_A.7_of_section_A.3.1.R
+00395_informalexample_A.7_of_section_A.3.1.R
 
 
-```{r 00472_informalexample_A.7_of_section_A.3.1.R }
+```{r 00395_informalexample_A.7_of_section_A.3.1.R }
 # informalexample A.7 of section A.3.1 
 # (informalexample A.7 of section A.3.1)  : Starting with R and other tools : Using databases with R : Running database queries using a query generator 
 
-ops <- data_handle %.>% 	# Note: 1 
-  extend(.,  	# Note: 2 
+ops <- data_handle %.>%                      	# Note: 1 
+  extend(.,                                    	# Note: 2 
          simple_rank = rank(),
          partitionby = "user_name",
          orderby = "predicted_offer_affinity",
          reverse = "predicted_offer_affinity") %.>%
-  select_rows(.,  	# Note: 3 
+  select_rows(.,                               	# Note: 3 
               simple_rank <= 2) %.>%
-   orderby(., c("user_name", "simple_rank")) 	# Note: 4 
+   orderby(., c("user_name", "simple_rank"))      	# Note: 4 
 
-result_table <- materialize(db, ops) 	# Note: 5 
+result_table <- materialize(db, ops)                      	# Note: 5 
 
-DBI::dbReadTable(db$connection, result_table$table_name) %.>% 	# Note: 6 
+DBI::dbReadTable(db$connection, result_table$table_name) %.>%     	# Note: 6 
   knitr::kable(.)
 
 # |user_name |product                   | discount| predicted_offer_affinity| simple_rank|
@@ -433,22 +439,24 @@ DBI::dbReadTable(db$connection, result_table$table_name) %.>% 	# Note: 6
 # |Nina      |Dell XPS Laptop           |     0.05|                   0.3179|           2|
 
 # Note 1: 
-#   define our sequence of operations 
+#   Define our sequence of operations 
 
 # Note 2: 
-#   mark each row with its simple per-user rank 
+#   Mark each row with its simple per-user rank 
 
 # Note 3: 
-#   select the two rows with highest rank for each user 
+#   Select the two rows with highest rank for each 
+#   user 
 
 # Note 4: 
-#   order the rows by user and product rank 
+#   Order the rows by user and product rank 
 
 # Note 5: 
-#   run the result in the database, instantiating a new result table 
+#   Run the result in the database, instantiating a new 
+#   result table 
 
 # Note 6: 
-#   copy the result back to R and pretty print it. 
+#   Copy the result back to R and pretty print it. 
 
 
 
@@ -457,10 +465,10 @@ DBI::dbReadTable(db$connection, result_table$table_name) %.>% 	# Note: 6
 
 
 
-00473_informalexample_A.8_of_section_A.3.1.R
+00396_informalexample_A.8_of_section_A.3.1.R
 
 
-```{r 00473_informalexample_A.8_of_section_A.3.1.R }
+```{r 00396_informalexample_A.8_of_section_A.3.1.R }
 # informalexample A.8 of section A.3.1 
 # (informalexample A.8 of section A.3.1)  : Starting with R and other tools : Using databases with R : Running database queries using a query generator 
 
@@ -468,7 +476,7 @@ ops %.>%
   to_sql(., db) %.>% 
   cat(.)
   
-﻿## SELECT * FROM (
+## SELECT * FROM (
 ##  SELECT * FROM (
 ##   SELECT
 ##    "user_name",

@@ -13,11 +13,11 @@ output: github_document
 # Title: Treating the age and income variables 
 
 library(dplyr)
-customer_data = readRDS("../Custdata/custdata.RDS") 	# Note: 1 
+customer_data = readRDS("../Custdata/custdata.RDS")                      	# Note: 1 
 
 customer_data <- customer_data %>%
-   mutate(age = na_if(age, 0),                 	# Note: 2 
-          income = ifelse(income < 0, NA, income)) 	# Note: 3
+   mutate(age = na_if(age, 0),                               	# Note: 2 
+          income = ifelse(income < 0, NA, income))           	# Note: 3
 
 # Note 1: 
 #   Load the data. 
@@ -50,7 +50,7 @@ customer_data <- customer_data %>%
   mutate(gas_with_rent = (gas_usage == 1),                    	# Note: 1 
          gas_with_electricity = (gas_usage == 2),
          no_gas_bill = (gas_usage == 3) ) %>%
-  mutate(gas_usage = ifelse(gas_usage < 4, NA, gas_usage)) 	# Note: 2
+  mutate(gas_usage = ifelse(gas_usage < 4, NA, gas_usage))    	# Note: 2
 
 # Note 1: 
 #   Create the three indicator variables. 
@@ -153,7 +153,7 @@ colnames(customer_data)
 ## [10] "age"                  "state_of_res"         "gas_usage"           
 ## [13] "gas_with_rent"        "gas_with_electricity" "no_gas_bill"    
                                         
-colnames(training_prepared) 	# Note: 1 
+colnames(training_prepared)                                               	# Note: 1 
 ##  [1] "custid"                     "sex"                       
 ##  [3] "is_employed"                "income"                    
 ##  [5] "marital_status"             "health_ins"                
@@ -167,7 +167,7 @@ colnames(training_prepared) 	# Note: 1
 ## [21] "gas_usage_isBAD"            "gas_with_rent_isBAD"       
 ## [23] "gas_with_electricity_isBAD" "no_gas_bill_isBAD"                                    
                                         
-nacounts <- sapply(training_prepared, FUN=function(col) sum(is.na(col)) ) 	# Note: 2 
+nacounts <- sapply(training_prepared, FUN=function(col) sum(is.na(col)) )  	# Note: 2 
 sum(nacounts)
 ## [1] 0
 
@@ -193,12 +193,12 @@ sum(nacounts)
 # (example 4.6 of section 4.1.3)  : Managing data : Cleaning data : The vtreat package for automatically treating missing variables 
 # Title: Examining the data treatment 
 
-htmissing <- which(is.na(customer_data$housing_type)) 	# Note: 1 
+htmissing <- which(is.na(customer_data$housing_type))                                  	# Note: 1 
                                         
 columns_to_look_at <- c("custid", "is_employed", "num_vehicles",
                            "housing_type", "health_ins")
                                         
-customer_data[htmissing, columns_to_look_at] %>% head()                                       	# Note: 2 
+customer_data[htmissing, columns_to_look_at] %>% head()                                 	# Note: 2 
 ##           custid is_employed num_vehicles housing_type health_ins
 ## 55  000082691_01        TRUE           NA         <NA>      FALSE
 ## 65  000116191_01        TRUE           NA         <NA>       TRUE
@@ -211,7 +211,7 @@ columns_to_look_at = c("custid", "is_employed", "is_employed_isBAD",
                        "num_vehicles","num_vehicles_isBAD",
                        "housing_type", "health_ins")
                                         
-training_prepared[htmissing, columns_to_look_at] %>%  head()                                          	# Note: 3 
+training_prepared[htmissing, columns_to_look_at] %>%  head()                         	# Note: 3 
 ##           custid is_employed is_employed_isBAD num_vehicles
 ## 55  000082691_01   1.0000000                 0       2.0655
 ## 65  000116191_01   1.0000000                 0       2.0655
@@ -229,7 +229,7 @@ training_prepared[htmissing, columns_to_look_at] %>%  head()                    
                                         
 customer_data %>%
     summarize(mean_vehicles = mean(num_vehicles, na.rm = TRUE),
-    mean_employed = mean(as.numeric(is_employed), na.rm = TRUE)) 	# Note: 4 
+    mean_employed = mean(as.numeric(is_employed), na.rm = TRUE))                       	# Note: 4 
 ##   mean_vehicles mean_employed
 ## 1        2.0655     0.9504928
 
@@ -243,7 +243,9 @@ customer_data %>%
 #   Look at those rows and columns in the treated data (along with the isBADS) 
 
 # Note 4: 
-#   Verify the expected number of vehicles and the expected unemployment rate in the data set 
+#   Verify the expected number of 
+#   vehicles and the expected unemployment rate in the 
+#   dataset 
 
 
 
@@ -261,7 +263,7 @@ customer_data %>%
 # Title: Normalizing income by state 
 
 library(dplyr)
-median_income_table <- readRDS("../Custdata/median_income.RDS") 	# Note: 1 
+median_income_table <- readRDS("../Custdata/median_income.RDS")                      	# Note: 1 
 head(median_income_table)  
 
 ##   state_of_res median_income
@@ -273,7 +275,7 @@ head(median_income_table)
 ## 6     Colorado         32000
 
 training_prepared <-  training_prepared %>%
-  left_join(., median_income_table, by="state_of_res") %>%  	# Note: 2 
+  left_join(., median_income_table, by="state_of_res") %>%             	# Note: 2 
   mutate(income_normalized = income/median_income) 
 
 head(training_prepared[, c("income", "median_income", "income_normalized")]) 	# Note: 3 
@@ -296,8 +298,9 @@ summary(training_prepared$income_normalized)
 #   directory ../../PDSwR2/Custdata. Here we assume that this is your working directory. 
 
 # Note 2: 
-#   Join median_income_table into the customer data, so you can normalize each person's income 
-#   by the median income of their state. 
+#   Join median_income_table into the customer data, so 
+#   you can normalize each person’s income by the median 
+#   income of their state. 
 
 # Note 3: 
 #   Compare the values of income and income_normalized. 
@@ -344,13 +347,13 @@ summary(age_normalized)
 # (example 4.9 of section 4.2.2)  : Managing data : Data transformations : Centering and scaling 
 # Title: Centering and scaling age 
 
-(mean_age <- mean(training_prepared$age)) 	# Note: 1 
+(mean_age <- mean(training_prepared$age))                 	# Note: 1 
 ## [1] 49.21647
 
-(sd_age <- sd(training_prepared$age))  	# Note: 2 
+(sd_age <- sd(training_prepared$age))                     	# Note: 2 
 ## [1] 18.0124
 
-print(mean_age + c(-sd_age, sd_age))  	# Note: 3 
+print(mean_age + c(-sd_age, sd_age))                      	# Note: 3 
 ## [1] 31.20407 67.22886
 
 training_prepared$scaled_age <- (training_prepared$age - mean_age) / sd_age 	# Note: 4 
@@ -360,7 +363,7 @@ training_prepared %>%
   select(age, scaled_age) %>%
   head()
 
-##   age scaled_age      	# Note: 5 
+##   age scaled_age                                      	# Note: 5 
 ## 1  67  0.9872942
 ## 2  54  0.2655690
 ## 3  61  0.6541903
@@ -373,7 +376,7 @@ training_prepared %>%
   select(age, scaled_age) %>%
   head()
 
-##   age scaled_age      	# Note: 6 
+##   age scaled_age                                       	# Note: 6 
 ## 1  24  -1.399951
 ## 2  82   1.820054
 ## 3  31  -1.011329
@@ -388,7 +391,8 @@ training_prepared %>%
 #   Take the standard deviation. 
 
 # Note 3: 
-#   The "typical" age range for this population is from about 31 to 67. 
+#   The “typical” age range for this population is 
+#   from about 31 to 67. 
 
 # Note 4: 
 #   Use the mean value as the origin (or 
@@ -427,7 +431,7 @@ summary(dataf)
 ##  3rd Qu.: 62.00   3rd Qu.:  51700   3rd Qu.:3.000   3rd Qu.: 76.01  
 ##  Max.   :120.00   Max.   :1257000   Max.   :6.000   Max.   :570.00
 
-dataf_scaled <- scale(dataf, center=TRUE, scale=TRUE)   	# Note: 1 
+dataf_scaled <- scale(dataf, center=TRUE, scale=TRUE)               	# Note: 1 
                                         
 summary(dataf_scaled)
 ##       age               income         num_vehicles        gas_usage      
@@ -438,7 +442,7 @@ summary(dataf_scaled)
 ##  3rd Qu.: 0.70971   3rd Qu.: 0.1705   3rd Qu.: 0.80819   3rd Qu.: 0.0000  
 ##  Max.   : 3.92971   Max.   :20.9149   Max.   : 3.40268   Max.   : 9.7400
 
-(means <- attr(dataf_scaled, 'scaled:center'))  	# Note: 2 
+(means <- attr(dataf_scaled, 'scaled:center'))                  	# Note: 2 
 ##          age       income num_vehicles    gas_usage 
 ##     49.21647  41792.51062      2.06550     76.00745
 
@@ -468,19 +472,19 @@ summary(dataf_scaled)
 # (example 4.11 of section 4.2.2)  : Managing data : Data transformations : Centering and scaling 
 # Title: Treating new data before feeding it to a model 
 
-newdata <- customer_data 	# Note: 1 
+newdata <- customer_data                                       	# Note: 1 
                                                 
-library(vtreat) 	# Note: 2 
+library(vtreat)                                                	# Note: 2 
 newdata_treated <- prepare(treatment_plan, newdata)
                                                 
-new_dataf <- newdata_treated[, c("age", "income", "num_vehicles", "gas_usage")] 	# Note: 3  
+new_dataf <- newdata_treated[, c("age", "income", "num_vehicles", "gas_usage")]       	# Note: 3  
 dataf_scaled <- scale(new_dataf, center=means, scale=sds)
 
 # Note 1: 
-#   Simulate having a new customer data set. 
+#   Simulate having a new customer dataset. 
 
 # Note 2: 
-#   Clean it using the treatment plan from the original data set. 
+#   Clean it using the treatment plan from the original dataset. 
 
 # Note 3: 
 #   Scale age, income, num_vehicles, and gas_usage using the means 
@@ -519,7 +523,7 @@ signedlog10 <- function(x) {
 # (example 4.12 of section 4.3.2)  : Managing data : Sampling for modeling and validation : Creating a sample group column 
 # Title: Splitting into test and training using a random group mark 
 
-set.seed(25643) 	# Note: 1 
+set.seed(25643)                                                     	# Note: 1 
 customer_data$gp <- runif(nrow(customer_data))                        	# Note: 2 
 customer_test <- subset(customer_data, gp <= 0.1)                  	# Note: 3 
 customer_train <- subset(customer_data, gp > 0.1)                  	# Note: 4 
@@ -559,15 +563,15 @@ dim(customer_train)
 # (example 4.13 of section 4.3.3)  : Managing data : Sampling for modeling and validation : Record grouping 
 # Title: Ensuring test/train split doesn’t split inside a household 
 
-household_data <- readRDS("../Custdata/hhdata.RDS") 	# Note: 1 
-hh <- unique(household_data$household_id) 	# Note: 2 
+household_data <- readRDS("../Custdata/hhdata.RDS")            	# Note: 1 
+hh <- unique(household_data$household_id)              	# Note: 2 
 
 set.seed(243674)
-households <- data.frame(household_id = hh, 	# Note: 3 
+households <- data.frame(household_id = hh,            	# Note: 3 
                          gp = runif(length(hh)),
                          stringsAsFactors=FALSE)
 
-household_data <- dplyr::left_join(household_data, 	# Note: 4 
+household_data <- dplyr::left_join(household_data,     	# Note: 4 
                             households,
                             by = "household_id")
 
@@ -576,13 +580,15 @@ household_data <- dplyr::left_join(household_data, 	# Note: 4
 #   directory ../../PDSwR2/Custdata. Here we assume that this is your working directory. 
 
 # Note 2: 
-#   Get the unique household ids. 
+#   Get the unique household IDs. 
 
 # Note 3: 
-#   Generate a unique sampling group id per household, and put in a column named gp. 
+#   Generate a unique sampling group ID per 
+#   household, and put in a column named gp. 
 
 # Note 4: 
-#   Join the household ids back into the original data. 
+#   Join the household IDs back into the original 
+#   data. 
 
 
 

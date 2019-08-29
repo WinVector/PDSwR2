@@ -4,7 +4,7 @@ output: github_document
 
 
 
-00460_example_A.1_of_section_A.2.R
+00383_example_A.1_of_section_A.2.R
 
 
 
@@ -136,7 +136,7 @@ vec
 
 
 
-00461_informalexample_A.3_of_section_A.2.1.R
+00384_informalexample_A.3_of_section_A.2.1.R
 
 
 
@@ -168,7 +168,7 @@ print(x)
 
 
 
-00462_example_A.2_of_section_A.2.1.R
+00385_example_A.2_of_section_A.2.1.R
 
 
 
@@ -222,7 +222,7 @@ divide(denominator <- 2, numerator <- 1)  # wrong symbol <-, yields 2, a wrong a
 
 
 
-00463_example_A.3_of_section_A.2.1.R
+00386_example_A.3_of_section_A.2.1.R
 
 
 
@@ -260,7 +260,7 @@ print(x)
 
 
 
-00464_example_A.4_of_section_A.2.1.R
+00387_example_A.4_of_section_A.2.1.R
 
 
 
@@ -303,7 +303,7 @@ c(TRUE, TRUE, FALSE, FALSE) | c(TRUE, FALSE, TRUE, FALSE)
 
 
 
-00465_example_A.5_of_section_A.2.1.R
+00388_example_A.5_of_section_A.2.1.R
 
 
 
@@ -323,7 +323,7 @@ print(b)
 ```
 
 ```r
-a[[1]] <- 5 	# Note: 1 
+a[[1]] <- 5            	# Note: 1 
 
 print(a)
 ```
@@ -333,7 +333,7 @@ print(a)
 ```
 
 ```r
-print(b) 	# Note: 2
+print(b)               	# Note: 2
 ```
 
 ```
@@ -342,17 +342,21 @@ print(b) 	# Note: 2
 
 ```r
 # Note 1: 
-#   "Alter a". Actually this is implemented by building an entirely new vector and reassigning a to refer to this new vector. 
-#   The old value remains as-was, and any references continue to see the old unaltered value. 
+#   “Alter a”. Actually this is 
+#   implemented by building an entirely new vector and 
+#   reassigning a to refer to this new vector. The old 
+#   value remains as it was, and any references 
+#   continue to see the old unaltered value. 
 
 # Note 2: 
-#   Notice b's value is not changed. 
+#   Notice b’s value is not 
+#   changed. 
 ```
 
 
 
 
-00466_informalexample_A.4_of_section_A.2.2.R
+00389_informalexample_A.4_of_section_A.2.2.R
 
 
 
@@ -376,7 +380,7 @@ print(vec)
 
 
 
-00467_example_A.6_of_section_A.2.2.R
+00390_example_A.6_of_section_A.2.2.R
 
 
 
@@ -458,7 +462,7 @@ x[c('a', 'a', 'b', 'b')]
 
 
 
-00468_example_A.7_of_section_A.2.2.R
+00391_example_A.7_of_section_A.2.2.R
 
 
 
@@ -495,20 +499,20 @@ factor('apple', levels = c('red', 'orange'))
 
 
 
-00469_example_A.8_of_section_A.2.2.R
+00392_example_A.8_of_section_A.2.2.R
 
 
 
 ```r
 # example A.8 of section A.2.2 
 # (example A.8 of section A.2.2)  : Starting with R and other tools : Starting with R : Primary R data types 
-# Title: Confirm lm() encodes new strings correctly. 
+# Title: Confirm lm() encodes new strings correctly 
 
 d <- data.frame(x=factor(c('a','b','c')),
                    y=c(1,2,3))
-m <- lm(y~0+x,data=d) 	# Note: 1 
+m <- lm(y~0+x,data=d)                             	# Note: 1 
 print(predict(m,
-   newdata=data.frame(x='b'))[[1]]) 	# Note: 2 
+   newdata=data.frame(x='b'))[[1]])               	# Note: 2 
 ```
 
 ```
@@ -518,7 +522,7 @@ print(predict(m,
 ```r
 # [1] 2
 print(predict(m,
-   newdata=data.frame(x=factor('b',levels=c('b'))))[[1]]) 	# Note: 3 
+   newdata=data.frame(x=factor('b',levels=c('b'))))[[1]])        	# Note: 3 
 ```
 
 ```
@@ -546,14 +550,246 @@ print(predict(m,
 
 
 
-00470_informalexample_A.5_of_section_A.3.1.R
+00393_informalexample_A.5_of_section_A.3.1.R
+
+
+
+```r
+# informalexample A.5 of section A.3.1 
+# (informalexample A.5 of section A.3.1)  : Starting with R and other tools : Using databases with R : Running database queries using a query generator 
+
+library("rquery")
+
+raw_connection <- DBI::dbConnect(RPostgres::Postgres(),
+                                 host = 'localhost',
+                                 port = 5432,
+                                 user = 'johnmount',
+                                 password = '')            	# Note: 1 
+        
+dbopts <- rq_connection_tests(raw_connection)                  	# Note: 2 
+db <- rquery_db_info(
+  connection = raw_connection,
+  is_dbi = TRUE,
+  connection_options = dbopts)
+
+data_handle <- rq_copy_to(                                      	# Note: 3 
+  db, 
+  'offers',
+  wrapr::build_frame(
+   "user_name"  , "product"                       , "discount", "predicted_offer_affinity" |
+     "John"     , "Pandemic Board Game"           , 0.1       , 0.8596                     |
+     "Nina"     , "Pandemic Board Game"           , 0.2       , 0.1336                     |
+     "John"     , "Dell XPS Laptop"               , 0.1       , 0.2402                     |
+     "Nina"     , "Dell XPS Laptop"               , 0.05      , 0.3179                     |
+     "John"     , "Capek's Tales from Two Pockets", 0.05      , 0.2439                     |
+     "Nina"     , "Capek's Tales from Two Pockets", 0.05      , 0.06909                    |
+     "John"     , "Pelikan M200 Fountain Pen"     , 0.2       , 0.6706                     |
+     "Nina"     , "Pelikan M200 Fountain Pen"     , 0.1       , 0.616                      ),
+  temporary = TRUE, 
+  overwrite = TRUE)
+
+# Note 1: 
+#   Use DBI to connect to a database. In this case it creates a new in-memory SQLite. 
+
+# Note 2: 
+#   Build an rquery wrapper of the connection. 
+
+# Note 3: 
+#   Copy some example data into the database. 
+```
 
 
 
 
+00394_informalexample_A.6_of_section_A.3.1.R
+
+
+
+```r
+# informalexample A.6 of section A.3.1 
+# (informalexample A.6 of section A.3.1)  : Starting with R and other tools : Using databases with R : Running database queries using a query generator 
+
+data_handle %.>%                                        	# Note: 1 
+  extend(.,
+         simple_rank = rank(),                            	# Note: 2 
+         partitionby = "user_name",                   	# Note: 3 
+         orderby = "predicted_offer_affinity",        	# Note: 4 
+         reverse = "predicted_offer_affinity") %.>%
+  execute(db, .) %.>%                                   	# Note: 5 
+  knitr::kable(.)                                         	# Note: 6 
+```
+
+
+
+|user_name |product                        | discount| predicted_offer_affinity| simple_rank|
+|:---------|:------------------------------|--------:|------------------------:|-----------:|
+|John      |Pandemic Board Game            |     0.10|                  0.85960|           1|
+|John      |Pelikan M200 Fountain Pen      |     0.20|                  0.67060|           2|
+|John      |Capek's Tales from Two Pockets |     0.05|                  0.24390|           3|
+|John      |Dell XPS Laptop                |     0.10|                  0.24020|           4|
+|Nina      |Pelikan M200 Fountain Pen      |     0.10|                  0.61600|           1|
+|Nina      |Dell XPS Laptop                |     0.05|                  0.31790|           2|
+|Nina      |Pandemic Board Game            |     0.20|                  0.13360|           3|
+|Nina      |Capek's Tales from Two Pockets |     0.05|                  0.06909|           4|
+
+```r
+# |user_name |product                        | discount| predicted_offer_affinity| simple_rank|
+# |:---------|:------------------------------|--------:|------------------------:|-----------:|
+# |Nina      |Pelikan M200 Fountain Pen      |     0.10|                  0.61600|           1|
+# |Nina      |Dell XPS Laptop                |     0.05|                  0.31790|           2|
+# |Nina      |Pandemic Board Game            |     0.20|                  0.13360|           3|
+# |Nina      |Capek's Tales from Two Pockets |     0.05|                  0.06909|           4|
+# |John      |Pandemic Board Game            |     0.10|                  0.85960|           1|
+# |John      |Pelikan M200 Fountain Pen      |     0.20|                  0.67060|           2|
+# |John      |Capek's Tales from Two Pockets |     0.05|                  0.24390|           3|
+# |John      |Dell XPS Laptop                |     0.10|                  0.24020|           4|
+
+# Note 1: 
+#   Pipe our data into the 
+#   execute() method. Notice we are using the “wrapr dot 
+#   pipe.” 
+
+# Note 2: 
+#   We are going to calculate rank() or the order of the data rows. 
+
+# Note 3: 
+#   The ranking will be re-calculated for each user (our window partition). 
+
+# Note 4: 
+#   The window ordering that controls the rank is to be from predicted_offer_affinity, reversed (largest first). 
+
+# Note 5: 
+#   Translate the operation plan into SQL, send it to the database for execution, and bring the results back to R. 
+
+# Note 6: 
+#   Pretty print the results. 
+```
 
 
 
 
+00395_informalexample_A.7_of_section_A.3.1.R
+
+
+
+```r
+# informalexample A.7 of section A.3.1 
+# (informalexample A.7 of section A.3.1)  : Starting with R and other tools : Using databases with R : Running database queries using a query generator 
+
+ops <- data_handle %.>%                      	# Note: 1 
+  extend(.,                                    	# Note: 2 
+         simple_rank = rank(),
+         partitionby = "user_name",
+         orderby = "predicted_offer_affinity",
+         reverse = "predicted_offer_affinity") %.>%
+  select_rows(.,                               	# Note: 3 
+              simple_rank <= 2) %.>%
+   orderby(., c("user_name", "simple_rank"))      	# Note: 4 
+
+result_table <- materialize(db, ops)                      	# Note: 5 
+
+DBI::dbReadTable(db$connection, result_table$table_name) %.>%     	# Note: 6 
+  knitr::kable(.)
+```
+
+
+
+|user_name |product                   | discount| predicted_offer_affinity| simple_rank|
+|:---------|:-------------------------|--------:|------------------------:|-----------:|
+|John      |Pandemic Board Game       |     0.10|                   0.8596|           1|
+|John      |Pelikan M200 Fountain Pen |     0.20|                   0.6706|           2|
+|Nina      |Pelikan M200 Fountain Pen |     0.10|                   0.6160|           1|
+|Nina      |Dell XPS Laptop           |     0.05|                   0.3179|           2|
+
+```r
+# |user_name |product                   | discount| predicted_offer_affinity| simple_rank|
+# |:---------|:-------------------------|--------:|------------------------:|-----------:|
+# |John      |Pandemic Board Game       |     0.10|                   0.8596|           1|
+# |John      |Pelikan M200 Fountain Pen |     0.20|                   0.6706|           2|
+# |Nina      |Pelikan M200 Fountain Pen |     0.10|                   0.6160|           1|
+# |Nina      |Dell XPS Laptop           |     0.05|                   0.3179|           2|
+
+# Note 1: 
+#   Define our sequence of operations 
+
+# Note 2: 
+#   Mark each row with its simple per-user rank 
+
+# Note 3: 
+#   Select the two rows with highest rank for each 
+#   user 
+
+# Note 4: 
+#   Order the rows by user and product rank 
+
+# Note 5: 
+#   Run the result in the database, instantiating a new 
+#   result table 
+
+# Note 6: 
+#   Copy the result back to R and pretty print it. 
+```
+
+
+
+
+00396_informalexample_A.8_of_section_A.3.1.R
+
+
+
+```r
+# informalexample A.8 of section A.3.1 
+# (informalexample A.8 of section A.3.1)  : Starting with R and other tools : Using databases with R : Running database queries using a query generator 
+
+ops %.>% 
+  to_sql(., db) %.>% 
+  cat(.)
+```
+
+```
+## SELECT * FROM (
+##  SELECT * FROM (
+##   SELECT
+##    "user_name",
+##    "product",
+##    "discount",
+##    "predicted_offer_affinity",
+##    rank ( ) OVER (  PARTITION BY "user_name" ORDER BY "predicted_offer_affinity" DESC ) AS "simple_rank"
+##   FROM (
+##    SELECT
+##     "user_name",
+##     "product",
+##     "discount",
+##     "predicted_offer_affinity"
+##    FROM
+##     "offers"
+##    ) tsql_06000420686671207048_0000000000
+##  ) tsql_06000420686671207048_0000000001
+##  WHERE "simple_rank" <= 2
+## ) tsql_06000420686671207048_0000000002 ORDER BY "user_name", "simple_rank"
+```
+
+```r
+## SELECT * FROM (
+##  SELECT * FROM (
+##   SELECT
+##    "user_name",
+##    "product",
+##    "discount",
+##    "predicted_offer_affinity",
+##    rank ( ) OVER (  PARTITION BY "user_name" ORDER BY "predicted_offer_affinity" DESC ) AS "simple_rank"
+##   FROM (
+##    SELECT
+##     "user_name",
+##     "product",
+##     "discount",
+##     "predicted_offer_affinity"
+##    FROM
+##     "offers"
+##    ) tsql_17135820721167795865_0000000000
+##  ) tsql_17135820721167795865_0000000001
+##  WHERE "simple_rank" <= 2
+## ) tsql_17135820721167795865_0000000002 ORDER BY "user_name", "simple_rank"
+```
 
 

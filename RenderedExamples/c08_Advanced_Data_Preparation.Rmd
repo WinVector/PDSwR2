@@ -4,24 +4,24 @@ output: github_document
 
 
 
-00326_example_8.1_of_section_8.2.1.R
+00249_example_8.1_of_section_8.2.1.R
 
 
-```{r 00326_example_8.1_of_section_8.2.1.R }
+```{r 00249_example_8.1_of_section_8.2.1.R }
 # example 8.1 of section 8.2.1 
-# (example 8.1 of section 8.2.1)  : Advanced Data Preparation : KDD and KDD Cup 2009 : Getting started with KDD Cup 2009 data 
+# (example 8.1 of section 8.2.1)  : Advanced data preparation : KDD and KDD Cup 2009 : Getting started with KDD Cup 2009 data 
 # Title: Preparing the KDD data for analysis 
 
-d <- read.table('../KDD2009/orange_small_train.data.gz',  	# Note: 1 
+d <- read.table('../KDD2009/orange_small_train.data.gz',             	# Note: 1 
    header = TRUE,
    sep = '\t',
-   na.strings = c('NA', '')) 	# Note: 2 
+   na.strings = c('NA', ''))                                  	# Note: 2 
                                                 
 churn <- read.table('../KDD2009/orange_small_train_churn.labels.txt',
-   header = FALSE, sep = '\t') 	# Note: 3 
-d$churn <- churn$V1 	# Note: 4 
+   header = FALSE, sep = '\t')                             	# Note: 3 
+d$churn <- churn$V1                                     	# Note: 4 
 
-set.seed(729375) 	# Note: 5 
+set.seed(729375)                                         	# Note: 5 
 rgroup <- base::sample(c('train', 'calibrate', 'test'), 	# Note: 6 
    nrow(d), 
    prob = c(0.8, 0.1, 0.1),
@@ -34,7 +34,7 @@ dTest <- d[rgroup == 'test', , drop = FALSE]
 outcome <- 'churn' 
 vars <- setdiff(colnames(dTrainAll), outcome)
 
-rm(list=c('d', 'churn', 'rgroup')) 	# Note: 7
+rm(list=c('d', 'churn', 'rgroup'))                         	# Note: 7
 
 # Note 1: 
 #   Read the file of independent variables. All 
@@ -72,16 +72,16 @@ rm(list=c('d', 'churn', 'rgroup')) 	# Note: 7
 
 
 
-00327_informalexample_8.1_of_section_8.2.1.R
+00250_informalexample_8.1_of_section_8.2.1.R
 
 
-```{r 00327_informalexample_8.1_of_section_8.2.1.R }
+```{r 00250_informalexample_8.1_of_section_8.2.1.R }
 # informalexample 8.1 of section 8.2.1 
-# (informalexample 8.1 of section 8.2.1)  : Advanced Data Preparation : KDD and KDD Cup 2009 : Getting started with KDD Cup 2009 data 
+# (informalexample 8.1 of section 8.2.1)  : Advanced data preparation : KDD and KDD Cup 2009 : Getting started with KDD Cup 2009 data 
 
 outcome_summary <- table(
-   churn = dTrain[, outcome], 	# Note: 1 
-   useNA = 'ifany') 	# Note: 2 
+   churn = dTrain[, outcome],                	# Note: 1 
+   useNA = 'ifany')                               	# Note: 2 
 
 knitr::kable(outcome_summary)
 
@@ -98,12 +98,12 @@ knitr::kable(outcome_summary)
 
 
 
-00328_informalexample_8.2_of_section_8.2.1.R
+00251_informalexample_8.2_of_section_8.2.1.R
 
 
-```{r 00328_informalexample_8.2_of_section_8.2.1.R }
+```{r 00251_informalexample_8.2_of_section_8.2.1.R }
 # informalexample 8.2 of section 8.2.1 
-# (informalexample 8.2 of section 8.2.1)  : Advanced Data Preparation : KDD and KDD Cup 2009 : Getting started with KDD Cup 2009 data 
+# (informalexample 8.2 of section 8.2.1)  : Advanced data preparation : KDD and KDD Cup 2009 : Getting started with KDD Cup 2009 data 
 
 outcome_summary["1"] / sum(outcome_summary) 	# Note: 1 
 #          1 
@@ -119,12 +119,12 @@ outcome_summary["1"] / sum(outcome_summary) 	# Note: 1
 
 
 
-00330_example_8.3_of_section_8.2.2.R
+00253_example_8.3_of_section_8.2.2.R
 
 
-```{r 00330_example_8.3_of_section_8.2.2.R }
+```{r 00253_example_8.3_of_section_8.2.2.R }
 # example 8.3 of section 8.2.2 
-# (example 8.3 of section 8.2.2)  : Advanced Data Preparation : KDD and KDD Cup 2009 : The Bull in The China Shop Approach 
+# (example 8.3 of section 8.2.2)  : Advanced data preparation : KDD and KDD Cup 2009 : The bull in the china shop approach 
 # Title: Trying just one variable 
 
 model2 <- glm((churn == 1) ~ Var1, data = dTrainAll, family = binomial)
@@ -148,7 +148,7 @@ summary(model2)
 # 
 #     Null deviance: 302.09  on 620  degrees of freedom
 # Residual deviance: 302.08  on 619  degrees of freedom
-#   (44407 observations deleted due to missingness) 	# Note: 1 
+#   (44407 observations deleted due to missingness)                  	# Note: 1 
 # AIC: 306.08
 # 
 # Number of Fisher Scoring iterations: 5
@@ -166,12 +166,12 @@ dim(dTrainAll)
 
 
 
-00331_informalexample_8.3_of_section_8.2.2.R
+00254_informalexample_8.3_of_section_8.2.2.R
 
 
-```{r 00331_informalexample_8.3_of_section_8.2.2.R }
+```{r 00254_informalexample_8.3_of_section_8.2.2.R }
 # informalexample 8.3 of section 8.2.2 
-# (informalexample 8.3 of section 8.2.2)  : Advanced Data Preparation : KDD and KDD Cup 2009 : The Bull in The China Shop Approach 
+# (informalexample 8.3 of section 8.2.2)  : Advanced data preparation : KDD and KDD Cup 2009 : The bull in the china shop approach 
 
 head(dTrainAll$Var200)
 # [1] <NA>    <NA>    vynJTq9 <NA>    0v21jmy <NA>   
@@ -187,19 +187,19 @@ length(unique(dTrainAll$Var200))
 
 
 
-00332_example_8.4_of_section_8.3.R
+00255_example_8.4_of_section_8.3.R
 
 
-```{r 00332_example_8.4_of_section_8.3.R }
+```{r 00255_example_8.4_of_section_8.3.R }
 # example 8.4 of section 8.3 
-# (example 8.4 of section 8.3)  : Advanced Data Preparation : Basic data preparation for classification 
+# (example 8.4 of section 8.3)  : Advanced data preparation : Basic data preparation for classification 
 # Title: Basic data preparation for classification 
 
-library("vtreat")  	# Note: 1 
+library("vtreat")                                               	# Note: 1 
 
-(parallel_cluster <- parallel::makeCluster(parallel::detectCores())) 	# Note: 2 
+(parallel_cluster <- parallel::makeCluster(parallel::detectCores()))  	# Note: 2 
 
-treatment_plan <- vtreat::designTreatmentsC( 	# Note: 3 
+treatment_plan <- vtreat::designTreatmentsC(                        	# Note: 3 
   dTrain, 
   varlist = vars, 
   outcomename = "churn", 
@@ -211,7 +211,9 @@ treatment_plan <- vtreat::designTreatmentsC( 	# Note: 3
 #   Attach the vtreat package for functions such as designTreatmentsC(). 
 
 # Note 2: 
-#   Start up a parallel cluster to speed up calculation. If you don't want a parallel cluster just set parallel_cluster to NULL. 
+#   Start up a parallel cluster to speed up 
+#   calculation. If you don’t want a parallel cluster, just set 
+#   parallel_cluster to NULL. 
 
 # Note 3: 
 #   Use designTreatmentsC() to learn the treatment plan from the training data. For a dataset of the size and complexity of KDD2009, this can take a few minutes. 
@@ -223,12 +225,12 @@ treatment_plan <- vtreat::designTreatmentsC( 	# Note: 3
 
 
 
-00333_example_8.5_of_section_8.3.R
+00256_example_8.5_of_section_8.3.R
 
 
-```{r 00333_example_8.5_of_section_8.3.R }
+```{r 00256_example_8.5_of_section_8.3.R }
 # example 8.5 of section 8.3 
-# (example 8.5 of section 8.3)  : Advanced Data Preparation : Basic data preparation for classification 
+# (example 8.5 of section 8.3)  : Advanced data preparation : Basic data preparation for classification 
 # Title: Preparing data with vtreat 
 
 dTrain_treated <- prepare(treatment_plan, 
@@ -237,7 +239,7 @@ dTrain_treated <- prepare(treatment_plan,
                         
 head(colnames(dTrain))
 ## [1] "Var1" "Var2" "Var3" "Var4" "Var5" "Var6"
-head(colnames(dTrain_treated))      	# Note: 1      
+head(colnames(dTrain_treated))                          	# Note: 1 
 ## [1] "Var1"       "Var1_isBAD" "Var2"       "Var2_isBAD" "Var3"      
 ## [6] "Var3_isBAD"
 
@@ -251,12 +253,12 @@ head(colnames(dTrain_treated))      	# Note: 1
 
 
 
-00334_informalexample_8.4_of_section_8.3.1.R
+00257_informalexample_8.4_of_section_8.3.1.R
 
 
-```{r 00334_informalexample_8.4_of_section_8.3.1.R }
+```{r 00257_informalexample_8.4_of_section_8.3.1.R }
 # informalexample 8.4 of section 8.3.1 
-# (informalexample 8.4 of section 8.3.1)  : Advanced Data Preparation : Basic data preparation for classification : The variable score frame 
+# (informalexample 8.4 of section 8.3.1)  : Advanced data preparation : Basic data preparation for classification : The variable score frame 
 
 score_frame <-  treatment_plan$scoreFrame
 t(subset(score_frame, origName %in% c("Var126", "Var189")))
@@ -278,10 +280,14 @@ t(subset(score_frame, origName %in% c("Var126", "Var189")))
 #   An indicator that this variable is not always the same value (not a constant, which would be useless for modeling). 
 
 # Note 3: 
-#   The r-squared or pseudo-r-squared of the variable, what fraction of the outcome variation this variable can explain on its own in a linear model. 
+#   The R-squared or pseudo R-squared of the 
+#   variable, what fraction of the outcome variation 
+#   this variable can explain on its own in a linear 
+#   model. 
 
 # Note 4: 
-#   The significance of the estimated r-squared. 
+#   The significance of the estimated 
+#   R-squared. 
 
 # Note 5: 
 #   An indicator that when TRUE is a warning to the user that the variable is  
@@ -303,12 +309,12 @@ t(subset(score_frame, origName %in% c("Var126", "Var189")))
 
 
 
-00335_informalexample_8.5_of_section_8.3.1.R
+00258_informalexample_8.5_of_section_8.3.1.R
 
 
-```{r 00335_informalexample_8.5_of_section_8.3.1.R }
+```{r 00258_informalexample_8.5_of_section_8.3.1.R }
 # informalexample 8.5 of section 8.3.1 
-# (informalexample 8.5 of section 8.3.1)  : Advanced Data Preparation : Basic data preparation for classification : The variable score frame 
+# (informalexample 8.5 of section 8.3.1)  : Advanced data preparation : Basic data preparation for classification : The variable score frame 
 
 t(subset(score_frame, origName == "Var218"))
 
@@ -329,12 +335,12 @@ t(subset(score_frame, origName == "Var218"))
 
 
 
-00336_informalexample_8.6_of_section_8.3.1.R
+00259_informalexample_8.6_of_section_8.3.1.R
 
 
-```{r 00336_informalexample_8.6_of_section_8.3.1.R }
+```{r 00259_informalexample_8.6_of_section_8.3.1.R }
 # informalexample 8.6 of section 8.3.1 
-# (informalexample 8.6 of section 8.3.1)  : Advanced Data Preparation : Basic data preparation for classification : The variable score frame 
+# (informalexample 8.6 of section 8.3.1)  : Advanced data preparation : Basic data preparation for classification : The variable score frame 
 
 comparison <- data.frame(original218 = dTrain$Var218,
                          impact218 = dTrain_treated$Var218_catB) 
@@ -355,15 +361,15 @@ head(comparison)
 
 
 
-00337_informalexample_8.7_of_section_8.3.1.R
+00260_informalexample_8.7_of_section_8.3.1.R
 
 
-```{r 00337_informalexample_8.7_of_section_8.3.1.R }
+```{r 00260_informalexample_8.7_of_section_8.3.1.R }
 # informalexample 8.7 of section 8.3.1 
-# (informalexample 8.7 of section 8.3.1)  : Advanced Data Preparation : Basic data preparation for classification : The variable score frame 
+# (informalexample 8.7 of section 8.3.1)  : Advanced data preparation : Basic data preparation for classification : The variable score frame 
 
-treatmet_plan_2 <- design_missingness_treatment(dTrain, varlist = vars) 	# Note: 1 
-dtrain_2 <- prepare(treatmet_plan_2, dTrain)                           	# Note: 2 
+treatment_plan_2 <- design_missingness_treatment(dTrain, varlist = vars) 	# Note: 1 
+dtrain_2 <- prepare(treatment_plan_2, dTrain)                           	# Note: 2 
 head(dtrain_2$Var218)
 
 ## [1] "cJvF"      "_invalid_" "UYBR"      "UYBR"      "UYBR"      "UYBR"
@@ -416,7 +422,10 @@ head(comparison)
 #   Calculate the catB values by hand. 
 
 # Note 8: 
-#   Notice the impact codes from vtreat match the "delta logit" encoded predictions from the standard glm model. This helps illustrate how vtreat is implemented. 
+#   Notice the impact codes 
+#   from vtreat match the “delta logit” encoded 
+#   predictions from the standard glm model. This helps 
+#   illustrate how vtreat is implemented. 
 
 
 
@@ -425,12 +434,12 @@ head(comparison)
 
 
 
-00338_informalexample_8.8_of_section_8.3.1.R
+00261_informalexample_8.8_of_section_8.3.1.R
 
 
-```{r 00338_informalexample_8.8_of_section_8.3.1.R }
+```{r 00261_informalexample_8.8_of_section_8.3.1.R }
 # informalexample 8.8 of section 8.3.1 
-# (informalexample 8.8 of section 8.3.1)  : Advanced Data Preparation : Basic data preparation for classification : The variable score frame 
+# (informalexample 8.8 of section 8.3.1)  : Advanced data preparation : Basic data preparation for classification : The variable score frame 
 
 score_frame[score_frame$origName == "Var200", , drop = FALSE]
 
@@ -446,12 +455,12 @@ score_frame[score_frame$origName == "Var200", , drop = FALSE]
 
 
 
-00339_informalexample_8.9_of_section_8.3.2.R
+00262_informalexample_8.9_of_section_8.3.2.R
 
 
-```{r 00339_informalexample_8.9_of_section_8.3.2.R }
+```{r 00262_informalexample_8.9_of_section_8.3.2.R }
 # informalexample 8.9 of section 8.3.2 
-# (informalexample 8.9 of section 8.3.2)  : Advanced Data Preparation : Basic data preparation for classification : Properly using the treatment plan 
+# (informalexample 8.9 of section 8.3.2)  : Advanced data preparation : Basic data preparation for classification : Properly using the treatment plan 
 
 dCal_treated <- prepare(treatment_plan, 
                         dCal,
@@ -464,12 +473,12 @@ dCal_treated <- prepare(treatment_plan,
 
 
 
-00340_informalexample_8.10_of_section_8.3.2.R
+00263_informalexample_8.10_of_section_8.3.2.R
 
 
-```{r 00340_informalexample_8.10_of_section_8.3.2.R }
+```{r 00263_informalexample_8.10_of_section_8.3.2.R }
 # informalexample 8.10 of section 8.3.2 
-# (informalexample 8.10 of section 8.3.2)  : Advanced Data Preparation : Basic data preparation for classification : Properly using the treatment plan 
+# (informalexample 8.10 of section 8.3.2)  : Advanced data preparation : Basic data preparation for classification : Properly using the treatment plan 
 
 library("sigr")
 
@@ -488,12 +497,12 @@ calcAUC(dCal_treated$Var200_catB, dCal_treated$churn)
 
 
 
-00341_example_8.6_of_section_8.4.1.R
+00264_example_8.6_of_section_8.4.1.R
 
 
-```{r 00341_example_8.6_of_section_8.4.1.R }
+```{r 00264_example_8.6_of_section_8.4.1.R }
 # example 8.6 of section 8.4.1 
-# (example 8.6 of section 8.4.1)  : Advanced Data Preparation : Advanced data preparation for classification : Using mkCrossFrameCExperiment() 
+# (example 8.6 of section 8.4.1)  : Advanced data preparation : Advanced data preparation for classification : Using mkCrossFrameCExperiment() 
 # Title: Advanced data preparation for classification 
 
 library("vtreat")
@@ -529,12 +538,12 @@ dTest_treated <- prepare(treatment_plan, 	# Note: 2
 
 
 
-00342_informalexample_8.11_of_section_8.4.1.R
+00265_informalexample_8.11_of_section_8.4.1.R
 
 
-```{r 00342_informalexample_8.11_of_section_8.4.1.R }
+```{r 00265_informalexample_8.11_of_section_8.4.1.R }
 # informalexample 8.11 of section 8.4.1 
-# (informalexample 8.11 of section 8.4.1)  : Advanced Data Preparation : Advanced data preparation for classification : Using mkCrossFrameCExperiment() 
+# (informalexample 8.11 of section 8.4.1)  : Advanced data preparation : Advanced data preparation for classification : Using mkCrossFrameCExperiment() 
 
 library("sigr")
 
@@ -553,12 +562,12 @@ calcAUC(dTest_treated$Var200_catB, dTest_treated$churn)
 
 
 
-00343_informalexample_8.12_of_section_8.4.2.R
+00266_informalexample_8.12_of_section_8.4.2.R
 
 
-```{r 00343_informalexample_8.12_of_section_8.4.2.R }
+```{r 00266_informalexample_8.12_of_section_8.4.2.R }
 # informalexample 8.12 of section 8.4.2 
-# (informalexample 8.12 of section 8.4.2)  : Advanced Data Preparation : Advanced data preparation for classification : Building a model 
+# (informalexample 8.12 of section 8.4.2)  : Advanced data preparation : Advanced data preparation for classification : Building a model 
 
 k <- 1       	# Note: 1 
 (significance_cutoff <- k / nrow(score_frame))
@@ -601,20 +610,20 @@ score_frame %>%
 
 
 
-00344_example_8.7_of_section_8.4.2.R
+00267_example_8.7_of_section_8.4.2.R
 
 
-```{r 00344_example_8.7_of_section_8.4.2.R }
+```{r 00267_example_8.7_of_section_8.4.2.R }
 # example 8.7 of section 8.4.2 
-# (example 8.7 of section 8.4.2)  : Advanced Data Preparation : Advanced data preparation for classification : Building a model 
+# (example 8.7 of section 8.4.2)  : Advanced data preparation : Advanced data preparation for classification : Building a model 
 # Title: Basic variable re-coding and selection 
 
 library("wrapr")
 
-newvars <- score_frame$varName[score_frame$selected] 	# Note: 1 
+newvars <- score_frame$varName[score_frame$selected]             	# Note: 1 
 
-f <- mk_formula("churn", newvars, outcome_target = 1) 	# Note: 2 
-model <- glm(f, data = dTrainAll_treated, family = binomial) 	# Note: 3 
+f <- mk_formula("churn", newvars, outcome_target = 1)       	# Note: 2 
+model <- glm(f, data = dTrainAll_treated, family = binomial)    	# Note: 3 
 # Warning message:
 # glm.fit: fitted probabilities numerically 0 or 1 occurred
 
@@ -622,10 +631,11 @@ model <- glm(f, data = dTrainAll_treated, family = binomial) 	# Note: 3
 #   Build a formula specifying modeling churn == 1 as a function of all variables. 
 
 # Note 2: 
-#   Use the modeling formula with R's glm() function. 
+#   Use the modeling formula with R’s glm() function. 
 
 # Note 3: 
-#   Take heed of this warning, it is hinting we should move on to a regularized method such as glmnet. 
+#   Take heed of this warning: it is hinting we should move on to a regularized method such as 
+#   glmnet. 
 
 
 
@@ -634,29 +644,29 @@ model <- glm(f, data = dTrainAll_treated, family = binomial) 	# Note: 3
 
 
 
-00345_informalexample_8.13_of_section_8.4.2.R
+00268_informalexample_8.13_of_section_8.4.2.R
 
 
-```{r 00345_informalexample_8.13_of_section_8.4.2.R }
+```{r 00268_informalexample_8.13_of_section_8.4.2.R }
 # informalexample 8.13 of section 8.4.2 
-# (informalexample 8.13 of section 8.4.2)  : Advanced Data Preparation : Advanced data preparation for classification : Building a model 
+# (informalexample 8.13 of section 8.4.2)  : Advanced data preparation : Advanced data preparation for classification : Building a model 
 
 library("sigr")
 
-dTest_treated$glm_pred <- predict(model,   	# Note: 1 
+dTest_treated$glm_pred <- predict(model,                                   	# Note: 1 
                                   newdata = dTest_treated, 
                                   type = 'response')
-# Warning message:    	# Note: 2 
+# Warning message:                                                         	# Note: 2 
 # In predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
 #   prediction from a rank-deficient fit may be misleading
 
-calcAUC(dTest_treated$glm_pred, dTest_treated$churn == 1) 	# Note: 3 
+calcAUC(dTest_treated$glm_pred, dTest_treated$churn == 1)                	# Note: 3 
 ## [1] 0.7232192
 
-permTestAUC(dTest_treated, "glm_pred", "churn", yTarget = 1) 	# Note: 4 
+permTestAUC(dTest_treated, "glm_pred", "churn", yTarget = 1)     	# Note: 4 
 ## [1] "AUC test alt. hyp. AUC>AUC(permuted): (AUC=0.7232, s.d.=0.01535, p<1e-05)."
        
-var_aucs <- vapply(newvars, 	# Note: 5 
+var_aucs <- vapply(newvars,                                              	# Note: 5 
        function(vi) {
          calcAUC(dTrainAll_treated[[vi]], dTrainAll_treated$churn == 1)
        }, numeric(1))
@@ -668,7 +678,9 @@ var_aucs <- vapply(newvars, 	# Note: 5
 #   Add the model prediction to the evaluation data as a new column. 
 
 # Note 2: 
-#   Again, take heed of this warning, it is hinting we should move on to a regularized method such as glmnet. 
+#   Again, take heed of this warning: it is hinting we should 
+#   move on to a regularized method such as 
+#   glmnet. 
 
 # Note 3: 
 #   Calculate the AUC of the model on hold-out data. 
@@ -686,12 +698,12 @@ var_aucs <- vapply(newvars, 	# Note: 5
 
 
 
-00346_informalexample_8.14_of_section_8.4.2.R
+00269_informalexample_8.14_of_section_8.4.2.R
 
 
-```{r 00346_informalexample_8.14_of_section_8.4.2.R }
+```{r 00269_informalexample_8.14_of_section_8.4.2.R }
 # informalexample 8.14 of section 8.4.2 
-# (informalexample 8.14 of section 8.4.2)  : Advanced Data Preparation : Advanced data preparation for classification : Building a model 
+# (informalexample 8.14 of section 8.4.2)  : Advanced data preparation : Advanced data preparation for classification : Building a model 
 
 table(prediction = dTest_treated$glm_pred >= 0.5, 
       truth = dTest$churn)
@@ -707,12 +719,12 @@ table(prediction = dTest_treated$glm_pred >= 0.5,
 
 
 
-00347_informalexample_8.15_of_section_8.4.2.R
+00270_informalexample_8.15_of_section_8.4.2.R
 
 
-```{r 00347_informalexample_8.15_of_section_8.4.2.R }
+```{r 00270_informalexample_8.15_of_section_8.4.2.R }
 # informalexample 8.15 of section 8.4.2 
-# (informalexample 8.15 of section 8.4.2)  : Advanced Data Preparation : Advanced data preparation for classification : Building a model 
+# (informalexample 8.15 of section 8.4.2)  : Advanced data preparation : Advanced data preparation for classification : Building a model 
 
 table(prediction = dTest_treated$glm_pred>0.15, 
       truth = dTest$churn)
@@ -728,12 +740,12 @@ table(prediction = dTest_treated$glm_pred>0.15,
 
 
 
-00348_informalexample_8.16_of_section_8.4.2.R
+00271_informalexample_8.16_of_section_8.4.2.R
 
 
-```{r 00348_informalexample_8.16_of_section_8.4.2.R }
+```{r 00271_informalexample_8.16_of_section_8.4.2.R }
 # informalexample 8.16 of section 8.4.2 
-# (informalexample 8.16 of section 8.4.2)  : Advanced Data Preparation : Advanced data preparation for classification : Building a model 
+# (informalexample 8.16 of section 8.4.2)  : Advanced data preparation : Advanced data preparation for classification : Building a model 
 
 WVPlots::DoubleDensityPlot(dTest_treated, "glm_pred", "churn", 
                            "glm prediction on test, double density plot")
@@ -751,12 +763,12 @@ WVPlots::PRTPlot(dTest_treated, "glm_pred", "churn",
 
 
 
-00349_informalexample_8.17_of_section_8.5.R
+00272_informalexample_8.17_of_section_8.5.R
 
 
-```{r 00349_informalexample_8.17_of_section_8.5.R }
+```{r 00272_informalexample_8.17_of_section_8.5.R }
 # informalexample 8.17 of section 8.5 
-# (informalexample 8.17 of section 8.5)  : Advanced Data Preparation : Preparing data for regression modeling 
+# (informalexample 8.17 of section 8.5)  : Advanced data preparation : Preparing data for regression modeling 
 
 auto_mpg <- readRDS('../auto_mpg/auto_mpg.RDS')
 
@@ -772,22 +784,22 @@ knitr::kable(head(auto_mpg)) 	# Note: 1
 
 
 
-00350_informalexample_8.18_of_section_8.5.R
+00273_informalexample_8.18_of_section_8.5.R
 
 
-```{r 00350_informalexample_8.18_of_section_8.5.R }
+```{r 00273_informalexample_8.18_of_section_8.5.R }
 # informalexample 8.18 of section 8.5 
-# (informalexample 8.18 of section 8.5)  : Advanced Data Preparation : Preparing data for regression modeling 
+# (informalexample 8.18 of section 8.5)  : Advanced data preparation : Preparing data for regression modeling 
 
 library("wrapr")
 
-vars <- c("cylinders", "displacement",  	# Note: 1 
+vars <- c("cylinders", "displacement",                       	# Note: 1 
           "horsepower", "weight", "acceleration",
           "model_year", "origin")
 f <- mk_formula("mpg", vars)
 model <- lm(f, data = auto_mpg)
 
-auto_mpg$prediction <- predict(model, newdata = auto_mpg) 	# Note: 2 
+auto_mpg$prediction <- predict(model, newdata = auto_mpg)            	# Note: 2 
 
 str(auto_mpg[!complete.cases(auto_mpg), , drop = FALSE])
 
@@ -795,13 +807,13 @@ str(auto_mpg[!complete.cases(auto_mpg), , drop = FALSE])
 #  $ mpg         : num  25 21 40.9 23.6 34.5 23
 #  $ cylinders   : num  4 6 4 4 4 4
 #  $ displacement: num  98 200 85 140 100 151
-#  $ horsepower  : num  NA NA NA NA NA NA       	# Note: 3 
+#  $ horsepower  : num  NA NA NA NA NA NA                            	# Note: 3 
 #  $ weight      : num  2046 2875 1835 2905 2320 ...
 #  $ acceleration: num  19 17 17.3 14.3 15.8 20.5
 #  $ model_year  : num  71 74 80 80 81 82
 #  $ origin      : Factor w/ 3 levels "1","2","3": 1 1 2 1 2 1
 #  $ car_name    : chr  "\"ford pinto\"" "\"ford maverick\"" "\"renault lecar deluxe\"" ...
-#  $ prediction  : num  NA NA NA NA NA NA         	# Note: 4
+#  $ prediction  : num  NA NA NA NA NA NA                            	# Note: 4
 
 # Note 1: 
 #   Jump into modeling without bothering to treat the data. 
@@ -822,16 +834,16 @@ str(auto_mpg[!complete.cases(auto_mpg), , drop = FALSE])
 
 
 
-00351_informalexample_8.19_of_section_8.5.R
+00274_informalexample_8.19_of_section_8.5.R
 
 
-```{r 00351_informalexample_8.19_of_section_8.5.R }
+```{r 00274_informalexample_8.19_of_section_8.5.R }
 # informalexample 8.19 of section 8.5 
-# (informalexample 8.19 of section 8.5)  : Advanced Data Preparation : Preparing data for regression modeling 
+# (informalexample 8.19 of section 8.5)  : Advanced data preparation : Preparing data for regression modeling 
 
 library("vtreat")
 
-cfe <- mkCrossFrameNExperiment(auto_mpg, vars, "mpg", 	# Note: 1 
+cfe <- mkCrossFrameNExperiment(auto_mpg, vars, "mpg",           	# Note: 1 
                                verbose = FALSE)
 treatment_plan <- cfe$treatments
 auto_mpg_treated <- cfe$crossFrame
@@ -855,7 +867,7 @@ str(auto_mpg[!complete.cases(auto_mpg), , drop = FALSE])
 #  $ model_year  : num  71 74 80 80 81 82
 #  $ origin      : Factor w/ 3 levels "1","2","3": 1 1 2 1 2 1
 #  $ car_name    : chr  "\"ford pinto\"" "\"ford maverick\"" "\"renault lecar deluxe\"" ...
-#  $ prediction  : num  24.6 22.4 34.2 26.1 33.3 ...  	# Note: 2
+#  $ prediction  : num  24.6 22.4 34.2 26.1 33.3 ...               	# Note: 2
 
 # Note 1: 
 #   Try it again with vtreat data preparation. 
@@ -870,14 +882,14 @@ str(auto_mpg[!complete.cases(auto_mpg), , drop = FALSE])
 
 
 
-00352_informalexample_8.20_of_section_8.6.2.R
+00275_informalexample_8.20_of_section_8.6.2.R
 
 
-```{r 00352_informalexample_8.20_of_section_8.6.2.R }
+```{r 00275_informalexample_8.20_of_section_8.6.2.R }
 # informalexample 8.20 of section 8.6.2 
-# (informalexample 8.20 of section 8.6.2)  : Advanced Data Preparation : Mastering the vtreat package : Missing values 
+# (informalexample 8.20 of section 8.6.2)  : Advanced data preparation : Mastering the vtreat package : Missing values 
 
-library("wrapr") 	# Note: 1 
+library("wrapr")                       	# Note: 1 
 
 d <- build_frame(
    "x1"    , "x2"         , "x3", "y" |
@@ -888,7 +900,8 @@ d <- build_frame(
 knitr::kable(d)
 
 # Note 1: 
-#   Bring in the wrapr package for build_frame and the wrapr "dot pipe". 
+#   Bring in the wrapr package for build_frame and the 
+#   wrapr “dot pipe”. 
 
 
 
@@ -897,19 +910,22 @@ knitr::kable(d)
 
 
 
-00353_informalexample_8.21_of_section_8.6.2.R
+00276_informalexample_8.21_of_section_8.6.2.R
 
 
-```{r 00353_informalexample_8.21_of_section_8.6.2.R }
+```{r 00276_informalexample_8.21_of_section_8.6.2.R }
 # informalexample 8.21 of section 8.6.2 
-# (informalexample 8.21 of section 8.6.2)  : Advanced Data Preparation : Mastering the vtreat package : Missing values 
+# (informalexample 8.21 of section 8.6.2)  : Advanced data preparation : Mastering the vtreat package : Missing values 
 
 plan1 <- vtreat::design_missingness_treatment(d)
-vtreat::prepare(plan1, d) %.>%  	# Note: 1 
+vtreat::prepare(plan1, d) %.>%            	# Note: 1 
    knitr::kable(.)
 
 # Note 1: 
-#   Here we are using wrapr's "dot pipe" instead of magrittr's forward pipe. The dot pipe requires the "explicit dot argument" notation discussed in chapter 5. 
+#   Here we are using wrapr’s dot pipe instead of 
+#   magrittr’s forward pipe. The dot pipe requires the 
+#   “explicit dot argument” notation discussed in 
+#   chapter 5. 
 
 
 
@@ -918,12 +934,12 @@ vtreat::prepare(plan1, d) %.>%  	# Note: 1
 
 
 
-00354_informalexample_8.22_of_section_8.6.3.R
+00277_informalexample_8.22_of_section_8.6.3.R
 
 
-```{r 00354_informalexample_8.22_of_section_8.6.3.R }
+```{r 00277_informalexample_8.22_of_section_8.6.3.R }
 # informalexample 8.22 of section 8.6.3 
-# (informalexample 8.22 of section 8.6.3)  : Advanced Data Preparation : Mastering the vtreat package : Indicator variables 
+# (informalexample 8.22 of section 8.6.3)  : Advanced data preparation : Mastering the vtreat package : Indicator variables 
 
 d <- build_frame(
    "x1"    , "x2"         , "x3", "y" |
@@ -934,7 +950,7 @@ d <- build_frame(
 print(d)
 #   x1   x2 x3  y
 # 1  1    a  6 10
-# 2 NA    b  7 20       	# Note: 1 
+# 2 NA    b  7 20                                                 	# Note: 1 
 # 3  3 <NA>  8 30
 plan2 <- vtreat::designTreatmentsZ(d, 
                                    varlist = c("x1", "x2", "x3"),
@@ -942,11 +958,11 @@ plan2 <- vtreat::designTreatmentsZ(d,
 vtreat::prepare(plan2, d)
 #   x1 x1_isBAD x3 x2_lev_NA x2_lev_x_a x2_lev_x_b
 # 1  1        0  6         0          1          0
-# 2  2        1  7         0          0          1 	# Note: 2 
+# 2  2        1  7         0          0          1                  	# Note: 2 
 # 3  3        0  8         1          0          0
 
 # Note 1: 
-#   The second value of x2 is "b" 
+#   The second value of x2 is “b” 
 
 # Note 2: 
 #   In the second row of the treated data, x2_lev_x_b = 1 
@@ -958,12 +974,12 @@ vtreat::prepare(plan2, d)
 
 
 
-00355_informalexample_8.23_of_section_8.6.4.R
+00278_informalexample_8.23_of_section_8.6.4.R
 
 
-```{r 00355_informalexample_8.23_of_section_8.6.4.R }
+```{r 00278_informalexample_8.23_of_section_8.6.4.R }
 # informalexample 8.23 of section 8.6.4 
-# (informalexample 8.23 of section 8.6.4)  : Advanced Data Preparation : Mastering the vtreat package : Impact coding 
+# (informalexample 8.23 of section 8.6.4)  : Advanced data preparation : Mastering the vtreat package : Impact coding 
 
 d <- build_frame(
    "x1"    , "x2"         , "x3", "y" |
@@ -994,12 +1010,12 @@ vtreat::prepare(plan3, d)
 
 
 
-00356_informalexample_8.24_of_section_8.6.4.R
+00279_informalexample_8.24_of_section_8.6.4.R
 
 
-```{r 00356_informalexample_8.24_of_section_8.6.4.R }
+```{r 00279_informalexample_8.24_of_section_8.6.4.R }
 # informalexample 8.24 of section 8.6.4 
-# (informalexample 8.24 of section 8.6.4)  : Advanced Data Preparation : Mastering the vtreat package : Impact coding 
+# (informalexample 8.24 of section 8.6.4)  : Advanced data preparation : Mastering the vtreat package : Impact coding 
 
 plan4 <- vtreat::designTreatmentsC(d, 
                                    varlist = c("x1", "x2", "x3"),
@@ -1020,12 +1036,12 @@ vtreat::prepare(plan4, d)
 
 
 
-00357_informalexample_8.25_of_section_8.6.5.R
+00280_informalexample_8.25_of_section_8.6.5.R
 
 
-```{r 00357_informalexample_8.25_of_section_8.6.5.R }
+```{r 00280_informalexample_8.25_of_section_8.6.5.R }
 # informalexample 8.25 of section 8.6.5 
-# (informalexample 8.25 of section 8.6.5)  : Advanced Data Preparation : Mastering the vtreat package : The treatment plan 
+# (informalexample 8.25 of section 8.6.5)  : Advanced data preparation : Mastering the vtreat package : The treatment plan 
 
 class(plan4)
 # [1] "treatmentplan"
@@ -1042,12 +1058,12 @@ names(plan4)
 
 
 
-00358_informalexample_8.26_of_section_8.6.5.R
+00281_informalexample_8.26_of_section_8.6.5.R
 
 
-```{r 00358_informalexample_8.26_of_section_8.6.5.R }
+```{r 00281_informalexample_8.26_of_section_8.6.5.R }
 # informalexample 8.26 of section 8.6.5 
-# (informalexample 8.26 of section 8.6.5)  : Advanced Data Preparation : Mastering the vtreat package : The treatment plan 
+# (informalexample 8.26 of section 8.6.5)  : Advanced data preparation : Mastering the vtreat package : The treatment plan 
 
 plan4$scoreFrame
 
@@ -1061,17 +1077,17 @@ plan4$scoreFrame
 
 
 
-00359_example_8.8_of_section_8.6.6.R
+00282_example_8.8_of_section_8.6.6.R
 
 
-```{r 00359_example_8.8_of_section_8.6.6.R }
+```{r 00282_example_8.8_of_section_8.6.6.R }
 # example 8.8 of section 8.6.6 
-# (example 8.8 of section 8.6.6)  : Advanced Data Preparation : Mastering the vtreat package : The cross-frame 
-# Title: An information-free data set 
+# (example 8.8 of section 8.6.6)  : Advanced data preparation : Mastering the vtreat package : The cross-frame 
+# Title: An information-free dataset 
 
-set.seed(2019) 	# Note: 1 
+set.seed(2019)                                               	# Note: 1 
 
-d <- data.frame( 	# Note: 2 
+d <- data.frame(                                             	# Note: 2 
   x_bad = sample(letters, 100, replace = TRUE),
   y = rnorm(100),
   stringsAsFactors = FALSE
@@ -1108,15 +1124,15 @@ head(d) 	# Note: 4
 
 
 
-00360_example_8.9_of_section_8.6.6.R
+00283_example_8.9_of_section_8.6.6.R
 
 
-```{r 00360_example_8.9_of_section_8.6.6.R }
+```{r 00283_example_8.9_of_section_8.6.6.R }
 # example 8.9 of section 8.6.6 
-# (example 8.9 of section 8.6.6)  : Advanced Data Preparation : Mastering the vtreat package : The cross-frame 
+# (example 8.9 of section 8.6.6)  : Advanced data preparation : Mastering the vtreat package : The cross-frame 
 # Title: The dangers of re-using data 
 
-plan5 <- vtreat::designTreatmentsN(d, 	# Note: 1 
+plan5 <- vtreat::designTreatmentsN(d,                      	# Note: 1 
                                    varlist = c("x_bad", "x_good"),
                                    outcomename = "y",
                                    codeRestriction = "catN",
@@ -1126,14 +1142,14 @@ plan5 <- vtreat::designTreatmentsN(d, 	# Note: 1
 class(plan5)
 # [1] "treatmentplan"
 
-print(plan5) 	# Note: 2 
+print(plan5)                                                	# Note: 2 
 #   origName     varName code          rsq          sig extraModelDegrees
 # 1    x_bad  x_bad_catN catN 4.906903e-05 9.448548e-01                24
 # 2   x_good x_good_catN catN 2.602702e-01 5.895285e-08                 1
 
-training_data1 <- vtreat::prepare(plan5, d) 	# Note: 3 
+training_data1 <- vtreat::prepare(plan5, d)                  	# Note: 3 
                                 
-res1 <- vtreat::patch_columns_into_frame(d, training_data1)  	# Note: 4 
+res1 <- vtreat::patch_columns_into_frame(d, training_data1)    	# Note: 4 
 head(res1)
 #   x_bad  x_good x_bad_catN x_good_catN           y
 # 1     u non-neg  0.4070979   0.4305195 -0.05294738
@@ -1143,10 +1159,10 @@ head(res1)
 # 5     b     neg -0.3890076  -0.5706886 -0.86159347
 # 6     b non-neg -0.3890076   0.4305195 -0.52766549
 
-sigr::wrapFTest(res1, "x_good_catN", "y") 	# Note: 5 
+sigr::wrapFTest(res1, "x_good_catN", "y")              	# Note: 5 
 # [1] "F Test summary: (R2=0.2717, F(1,98)=36.56, p<1e-05)."
 
-sigr::wrapFTest(res1, "x_bad_catN", "y") 	# Note: 6 
+sigr::wrapFTest(res1, "x_bad_catN", "y")               	# Note: 6 
 # [1] "F Test summary: (R2=0.2342, F(1,98)=29.97, p<1e-05)."
 
 # Note 1: 
@@ -1154,10 +1170,12 @@ sigr::wrapFTest(res1, "x_bad_catN", "y") 	# Note: 6
 
 # Note 2: 
 #   Notice the derived variable x_good_catN comes out as having a significant signal, and x_bad_catN does not.  
-#   This is due to proper cross-validation in estimating the variable qualities. 
+#   This is due to the proper use of cross-validation in the vtreat quality estimates. 
 
 # Note 3: 
-#   Call prepare() on the same data used to design the treatment plan- this is not always safe, as we shall see. 
+#   Call prepare() on the same data used to design the treatment 
+#   plan—this is not always safe, as we shall 
+#   see. 
 
 # Note 4: 
 #   Combine the data frames d an training_data1, using training_data1 when there are columns with duplicate names. 
@@ -1166,7 +1184,8 @@ sigr::wrapFTest(res1, "x_bad_catN", "y") 	# Note: 6
 #   Use a statistical F-test to check the predictive power of x_good_catN. 
 
 # Note 6: 
-#   x_bad_catN's F-test is inflated and falsely looks significant. 
+#   x_bad_catN’s F-test is inflated and falsely looks 
+#   significant, this is due to failure to use cross validated methods. 
 
 
 
@@ -1175,12 +1194,12 @@ sigr::wrapFTest(res1, "x_bad_catN", "y") 	# Note: 6
 
 
 
-00361_example_8.10_of_section_8.6.6.R
+00284_example_8.10_of_section_8.6.6.R
 
 
-```{r 00361_example_8.10_of_section_8.6.6.R }
+```{r 00284_example_8.10_of_section_8.6.6.R }
 # example 8.10 of section 8.6.6 
-# (example 8.10 of section 8.6.6)  : Advanced Data Preparation : Mastering the vtreat package : The cross-frame 
+# (example 8.10 of section 8.6.6)  : Advanced data preparation : Mastering the vtreat package : The cross-frame 
 # Title: Using mkCrossFrameNExperiment() 
 
 cfe <- vtreat::mkCrossFrameNExperiment(d, 
@@ -1209,7 +1228,7 @@ sigr::wrapFTest(res2, "x_bad_catN", "y")
 sigr::wrapFTest(res2, "x_good_catN", "y")
 # [1] "F Test summary: (R2=0.2532, F(1,98)=33.22, p<1e-05)."
 
-plan6$scoreFrame 	# Note: 1 
+plan6$scoreFrame                                               	# Note: 1 
 #       varName varMoves        rsq          sig needsSplit
 # 1  x_bad_catN     TRUE 0.01436145 2.349865e-01       TRUE
 # 2 x_good_catN     TRUE 0.26478467 4.332649e-08       TRUE

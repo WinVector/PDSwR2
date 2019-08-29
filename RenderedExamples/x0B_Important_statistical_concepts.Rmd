@@ -4,10 +4,10 @@ output: github_document
 
 
 
-00474_example_B.1_of_section_B.1.1.R
+00397_example_B.1_of_section_B.1.1.R
 
 
-```{r 00474_example_B.1_of_section_B.1.1.R }
+```{r 00397_example_B.1_of_section_B.1.1.R }
 # example B.1 of section B.1.1 
 # (example B.1 of section B.1.1)  : Important statistical concepts : Distributions : Normal distribution 
 # Title: Plotting the theoretical normal density 
@@ -25,10 +25,10 @@ ggplot(data.frame(x=x,y=f), aes(x=x,y=y)) + geom_line()
 
 
 
-00475_example_B.2_of_section_B.1.1.R
+00398_example_B.2_of_section_B.1.1.R
 
 
-```{r 00475_example_B.2_of_section_B.1.1.R }
+```{r 00398_example_B.2_of_section_B.1.1.R }
 # example B.2 of section B.1.1 
 # (example B.2 of section B.1.1)  : Important statistical concepts : Distributions : Normal distribution 
 # Title: Plotting an empirical normal density 
@@ -50,10 +50,10 @@ ggplot(data.frame(x=u), aes(x=x)) + geom_density() +
 
 
 
-00476_example_B.3_of_section_B.1.1.R
+00399_example_B.3_of_section_B.1.1.R
 
 
-```{r 00476_example_B.3_of_section_B.1.1.R }
+```{r 00399_example_B.3_of_section_B.1.1.R }
 # example B.3 of section B.1.1 
 # (example B.3 of section B.1.1)  : Important statistical concepts : Distributions : Normal distribution 
 # Title: Working with the normal cdf 
@@ -81,10 +81,10 @@ pnorm(2) - pnorm(-2)
 
 
 
-00477_example_B.4_of_section_B.1.1.R
+00400_example_B.4_of_section_B.1.1.R
 
 
-```{r 00477_example_B.4_of_section_B.1.1.R }
+```{r 00400_example_B.4_of_section_B.1.1.R }
 # example B.4 of section B.1.1 
 # (example B.4 of section B.1.1)  : Important statistical concepts : Distributions : Normal distribution 
 # Title: Plotting x < qnorm(0.75) 
@@ -130,10 +130,10 @@ ggplot(nframe, aes(x=x,y=y)) + geom_line() +
 
 
 
-00478_example_B.5_of_section_B.1.3.R
+00401_example_B.5_of_section_B.1.3.R
 
 
-```{r 00478_example_B.5_of_section_B.1.3.R }
+```{r 00401_example_B.5_of_section_B.1.3.R }
 # example B.5 of section B.1.3 
 # (example B.5 of section B.1.3)  : Important statistical concepts : Distributions : Lognormal distribution 
 # Title: Demonstrating some properties of the lognormal distribution 
@@ -197,10 +197,10 @@ nplot(list(p1, p2))
 
 
 
-00479_example_B.6_of_section_B.1.3.R
+00402_example_B.6_of_section_B.1.3.R
 
 
-```{r 00479_example_B.6_of_section_B.1.3.R }
+```{r 00402_example_B.6_of_section_B.1.3.R }
 # example B.6 of section B.1.3 
 # (example B.6 of section B.1.3)  : Important statistical concepts : Distributions : Lognormal distribution 
 # Title: Plotting the lognormal distribution 
@@ -241,10 +241,10 @@ ggplot(lnormframe, aes(x = x, y = y)) + geom_line() +
 
 
 
-00480_example_B.7_of_section_B.1.4.R
+00403_example_B.7_of_section_B.1.4.R
 
 
-```{r 00480_example_B.7_of_section_B.1.4.R }
+```{r 00403_example_B.7_of_section_B.1.4.R }
 # example B.7 of section B.1.4 
 # (example B.7 of section B.1.4)  : Important statistical concepts : Distributions : Binomial distribution 
 # Title: Plotting the binomial distribution 
@@ -290,10 +290,10 @@ ggplot(flips, aes(x = number_of_heads, y = probability)) +
 
 
 
-00481_example_B.8_of_section_B.1.4.R
+00404_example_B.8_of_section_B.1.4.R
 
 
-```{r 00481_example_B.8_of_section_B.1.4.R }
+```{r 00404_example_B.8_of_section_B.1.4.R }
 # example B.8 of section B.1.4 
 # (example B.8 of section B.1.4)  : Important statistical concepts : Distributions : Binomial distribution 
 # Title: Working with the theoretical binomial distribution 
@@ -342,10 +342,10 @@ ggplot(data.frame(number_of_girls = numFemales, dummy = 1),
 
 
 
-00482_example_B.9_of_section_B.1.4.R
+00405_example_B.9_of_section_B.1.4.R
 
 
-```{r 00482_example_B.9_of_section_B.1.4.R }
+```{r 00405_example_B.9_of_section_B.1.4.R }
 # example B.9 of section B.1.4 
 # (example B.9 of section B.1.4)  : Important statistical concepts : Distributions : Binomial distribution 
 # Title: Simulating a binomial distribution 
@@ -382,10 +382,10 @@ prettyprint_flips(flips_v2)
 
 
 
-00483_example_B.10_of_section_B.1.4.R
+00406_example_B.10_of_section_B.1.4.R
 
 
-```{r 00483_example_B.10_of_section_B.1.4.R }
+```{r 00406_example_B.10_of_section_B.1.4.R }
 # example B.10 of section B.1.4 
 # (example B.10 of section B.1.4)  : Important statistical concepts : Distributions : Binomial distribution 
 # Title: Working with the binomial distribution 
@@ -437,13 +437,13 @@ c(left.edge, right.edge)
 
 
 
-00484_example_B.11_of_section_B.1.4.R
+00407_example_B.11_of_section_B.1.4.R
 
 
-```{r 00484_example_B.11_of_section_B.1.4.R }
+```{r 00407_example_B.11_of_section_B.1.4.R }
 # example B.11 of section B.1.4 
 # (example B.11 of section B.1.4)  : Important statistical concepts : Distributions : Binomial distribution 
-# Title: Working with the binomial cdf 
+# Title: Working with the binomial CDF 
 
 # because this is a discrete probability distribution, 
 # pbinom and qbinom are not exact inverses of each other
@@ -467,18 +467,18 @@ pbinom(53, nflips, 0.5)
 
 
 
-00486_example_B.12_of_section_B.2.2.R
+00409_example_B.12_of_section_B.2.2.R
 
 
-```{r 00486_example_B.12_of_section_B.2.2.R }
+```{r 00409_example_B.12_of_section_B.2.2.R }
 # example B.12 of section B.2.2 
 # (example B.12 of section B.2.2)  : Important statistical concepts : Statistical theory : A/B tests 
 # Title: Building simulated A/B test data 
 
 set.seed(123515)
-d <- rbind( 	# Note: 1 
-   data.frame(group = 'A', converted = rbinom(100000, size = 1, p = 0.05)), 	# Note: 2 
-   data.frame(group = 'B', converted = rbinom(10000, size = 1, p = 0.055)) 	# Note: 3 
+d <- rbind(                               	# Note: 1 
+   data.frame(group = 'A', converted = rbinom(100000, size = 1, p = 0.05)),           	# Note: 2 
+   data.frame(group = 'B', converted = rbinom(10000, size = 1, p = 0.055))            	# Note: 3 
 )
 
 # Note 1: 
@@ -500,10 +500,10 @@ d <- rbind( 	# Note: 1
 
 
 
-00487_example_B.13_of_section_B.2.2.R
+00410_example_B.13_of_section_B.2.2.R
 
 
-```{r 00487_example_B.13_of_section_B.2.2.R }
+```{r 00410_example_B.13_of_section_B.2.2.R }
 # example B.13 of section B.2.2 
 # (example B.13 of section B.2.2)  : Important statistical concepts : Statistical theory : A/B tests 
 # Title: Summarizing the A/B test into a contingency table 
@@ -522,10 +522,10 @@ print(tab)
 
 
 
-00488_example_B.14_of_section_B.2.2.R
+00411_example_B.14_of_section_B.2.2.R
 
 
-```{r 00488_example_B.14_of_section_B.2.2.R }
+```{r 00411_example_B.14_of_section_B.2.2.R }
 # example B.14 of section B.2.2 
 # (example B.14 of section B.2.2)  : Important statistical concepts : Statistical theory : A/B tests 
 # Title: Calculating the observed A and B rates 
@@ -549,10 +549,10 @@ print(commonRate)
 
 
 
-00489_example_B.15_of_section_B.2.2.R
+00412_example_B.15_of_section_B.2.2.R
 
 
-```{r 00489_example_B.15_of_section_B.2.2.R }
+```{r 00412_example_B.15_of_section_B.2.2.R }
 # example B.15 of section B.2.2 
 # (example B.15 of section B.2.2)  : Important statistical concepts : Statistical theory : A/B tests 
 # Title: Calculating the significance of the observed difference in rates 
@@ -577,19 +577,19 @@ fisher.test(tab)
 
 
 
-00490_example_B.16_of_section_B.2.2.R
+00413_example_B.16_of_section_B.2.2.R
 
 
-```{r 00490_example_B.16_of_section_B.2.2.R }
+```{r 00413_example_B.16_of_section_B.2.2.R }
 # example B.16 of section B.2.2 
 # (example B.16 of section B.2.2)  : Important statistical concepts : Statistical theory : A/B tests 
 # Title: Computing frequentist significance 
 
-print(pbinom( 	# Note: 1 
-   lower.tail = FALSE, 	# Note: 2 
-   q = tab['B', '1'] - 1, 	# Note: 3 
-   size = sum(tab['B', ]), 	# Note: 4 
-   prob = commonRate 	# Note: 5 
+print(pbinom(                       	# Note: 1 
+   lower.tail = FALSE,              	# Note: 2 
+   q = tab['B', '1'] - 1,           	# Note: 3 
+   size = sum(tab['B', ]),          	# Note: 4 
+   prob = commonRate                	# Note: 5 
    )) 
 ## [1] 3.153319e-05
 
@@ -620,10 +620,10 @@ print(pbinom( 	# Note: 1
 
 
 
-00491_informalexample_B.2_of_section_B.2.3.R
+00414_informalexample_B.2_of_section_B.2.3.R
 
 
-```{r 00491_informalexample_B.2_of_section_B.2.3.R }
+```{r 00414_informalexample_B.2_of_section_B.2.3.R }
 # informalexample B.2 of section B.2.3 
 # (informalexample B.2 of section B.2.3)  : Important statistical concepts : Statistical theory : Power of tests 
 
@@ -648,20 +648,20 @@ pwr.p.test(h = ES.h(p1 = 0.045, p2 = 0.04),
 
 
 
-00492_example_B.17_of_section_B.2.4.R
+00415_example_B.17_of_section_B.2.4.R
 
 
-```{r 00492_example_B.17_of_section_B.2.4.R }
+```{r 00415_example_B.17_of_section_B.2.4.R }
 # example B.17 of section B.2.4 
 # (example B.17 of section B.2.4)  : Important statistical concepts : Statistical theory : Specialized statistical tests 
 # Title: Building synthetic uncorrelated income example 
 
-set.seed(235236) 	# Note: 1 
+set.seed(235236)                                         	# Note: 1 
 d <- data.frame(EarnedIncome = 100000 * rlnorm(100),
-                 CapitalGains = 100000 * rlnorm(100))  	# Note: 2 
+                 CapitalGains = 100000 * rlnorm(100))    	# Note: 2 
 print(with(d, cor(EarnedIncome, CapitalGains)))
 
-# [1] -0.01066116 	# Note: 3
+# [1] -0.01066116                                        	# Note: 3
 
 # Note 1: 
 #   Set the pseudo-random seed to a known 
@@ -680,10 +680,10 @@ print(with(d, cor(EarnedIncome, CapitalGains)))
 
 
 
-00493_example_B.18_of_section_B.2.4.R
+00416_example_B.18_of_section_B.2.4.R
 
 
-```{r 00493_example_B.18_of_section_B.2.4.R }
+```{r 00416_example_B.18_of_section_B.2.4.R }
 # example B.18 of section B.2.4 
 # (example B.18 of section B.2.4)  : Important statistical concepts : Statistical theory : Specialized statistical tests 
 # Title: Calculating the (non)significance of the observed correlation 
@@ -711,10 +711,10 @@ with(d, cor(EarnedIncome, CapitalGains, method = 'spearman'))
 
 
 
-00494_informalexample_B.3_of_section_B.2.4.R
+00417_informalexample_B.3_of_section_B.2.4.R
 
 
-```{r 00494_informalexample_B.3_of_section_B.2.4.R }
+```{r 00417_informalexample_B.3_of_section_B.2.4.R }
 # informalexample B.3 of section B.2.4 
 # (informalexample B.3 of section B.2.4)  : Important statistical concepts : Statistical theory : Specialized statistical tests 
 
@@ -729,10 +729,10 @@ sigr::wrapCorTest(ctest)
 
 
 
-00495_example_B.19_of_section_B.3.1.R
+00418_example_B.19_of_section_B.3.1.R
 
 
-```{r 00495_example_B.19_of_section_B.3.1.R }
+```{r 00418_example_B.19_of_section_B.3.1.R }
 # example B.19 of section B.3.1 
 # (example B.19 of section B.3.1)  : Important statistical concepts : Examples of the statistical view of data : Sampling bias 
 # Title: Misleading significance result from biased observations 
@@ -757,10 +757,10 @@ print(with(veryHighIncome,cor.test(EarnedIncome,CapitalGains,
 
 
 
-00496_example_B.20_of_section_B.3.1.R
+00419_example_B.20_of_section_B.3.1.R
 
 
-```{r 00496_example_B.20_of_section_B.3.1.R }
+```{r 00419_example_B.20_of_section_B.3.1.R }
 # example B.20 of section B.3.1 
 # (example B.20 of section B.3.1)  : Important statistical concepts : Examples of the statistical view of data : Sampling bias 
 # Title: Plotting biased view of income and capital gains 
@@ -768,7 +768,7 @@ print(with(veryHighIncome,cor.test(EarnedIncome,CapitalGains,
 library(ggplot2)
 ggplot(data=d,aes(x=EarnedIncome,y=CapitalGains)) +
    geom_point() + geom_smooth(method='lm') +
-   coord_cartesian(xlim=c(0,max(d)),ylim=c(0,max(d))) 	# Note: 1 
+   coord_cartesian(xlim=c(0,max(d)),ylim=c(0,max(d)))                   	# Note: 1 
 ggplot(data=veryHighIncome,aes(x=EarnedIncome,y=CapitalGains)) +
    geom_point() + geom_smooth(method='lm') +
    geom_point(data=subset(d,EarnedIncome+CapitalGains<500000),
@@ -776,9 +776,9 @@ ggplot(data=veryHighIncome,aes(x=EarnedIncome,y=CapitalGains)) +
       shape=4,alpha=0.5,color='red') +
    geom_segment(x=0,xend=500000,y=500000,yend=0,
       linetype=2,alpha=0.5,color='red') +
-   coord_cartesian(xlim=c(0,max(d)),ylim=c(0,max(d))) 	# Note: 2 
+   coord_cartesian(xlim=c(0,max(d)),ylim=c(0,max(d)))                   	# Note: 2 
 print(with(subset(d,EarnedIncome+CapitalGains<500000),
-    cor.test(EarnedIncome,CapitalGains,method='spearman'))) 	# Note: 3 
+    cor.test(EarnedIncome,CapitalGains,method='spearman')))              	# Note: 3 
 #
 #        Spearman's rank correlation rho
 #
@@ -808,10 +808,10 @@ print(with(subset(d,EarnedIncome+CapitalGains<500000),
 
 
 
-00497_example_B.21_of_section_B.3.2.R
+00420_example_B.21_of_section_B.3.2.R
 
 
-```{r 00497_example_B.21_of_section_B.3.2.R }
+```{r 00420_example_B.21_of_section_B.3.2.R }
 # example B.21 of section B.3.2 
 # (example B.21 of section B.3.2)  : Important statistical concepts : Examples of the statistical view of data : Omitted variable bias 
 # Title: Summarizing our synthetic biological data 
@@ -847,10 +847,10 @@ head(s)
 
 
 
-00498_example_B.22_of_section_B.3.2.R
+00421_example_B.22_of_section_B.3.2.R
 
 
-```{r 00498_example_B.22_of_section_B.3.2.R }
+```{r 00421_example_B.22_of_section_B.3.2.R }
 # example B.22 of section B.3.2 
 # (example B.22 of section B.3.2)  : Important statistical concepts : Examples of the statistical view of data : Omitted variable bias 
 # Title: Building data that improves over time 
@@ -860,11 +860,11 @@ s <- data.frame(week = 1:100)
 s$Caco2A2BPapp <- sort(sample(d$Caco2A2BPapp,100,replace=T),
    decreasing=T)
 sigmoid <- function(x) {1/(1 + exp(-x))}
-s$FractionHumanAbsorption <- 	# Note: 1 
+s$FractionHumanAbsorption <-                      	# Note: 1 
  sigmoid(
-   7.5 + 0.5 * log(s$Caco2A2BPapp) + 	# Note: 2 
-   s$week / 10 - mean(s$week / 10) + 	# Note: 3 
-   rnorm(100) / 3 	# Note: 4 
+   7.5 + 0.5 * log(s$Caco2A2BPapp) +              	# Note: 2 
+   s$week / 10 - mean(s$week / 10) +              	# Note: 3 
+   rnorm(100) / 3                                 	# Note: 4 
    )
 write.table(s, 'synth.csv', sep=',',
    quote = FALSE, row.names = FALSE)
@@ -892,10 +892,10 @@ write.table(s, 'synth.csv', sep=',',
 
 
 
-00499_example_B.23_of_section_B.3.2.R
+00422_example_B.23_of_section_B.3.2.R
 
 
-```{r 00499_example_B.23_of_section_B.3.2.R }
+```{r 00422_example_B.23_of_section_B.3.2.R }
 # example B.23 of section B.3.2 
 # (example B.23 of section B.3.2)  : Important statistical concepts : Examples of the statistical view of data : Omitted variable bias 
 # Title: A bad model (due to omitted variable bias) 
@@ -936,10 +936,10 @@ print(summary(glm(data = s,
 
 
 
-00500_example_B.24_of_section_B.3.2.R
+00423_example_B.24_of_section_B.3.2.R
 
 
-```{r 00500_example_B.24_of_section_B.3.2.R }
+```{r 00423_example_B.24_of_section_B.3.2.R }
 # example B.24 of section B.3.2 
 # (example B.24 of section B.3.2)  : Important statistical concepts : Examples of the statistical view of data : Omitted variable bias 
 # Title: A better model 

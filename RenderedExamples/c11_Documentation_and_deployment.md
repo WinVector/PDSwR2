@@ -4,7 +4,7 @@ output: github_document
 
 
 
-00442_informalexample_11.1_of_section_11.2.1.R
+00365_informalexample_11.1_of_section_11.2.1.R
 
 
 
@@ -47,7 +47,7 @@ rmarkdown::render("../Buzz/Buzz_score_example.Rmd", rmarkdown::html_document())
 ```
 
 ```
-## /usr/local/bin/pandoc +RTS -K512m -RTS Buzz_score_example.utf8.md --to html4 --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash --output Buzz_score_example.html --smart --email-obfuscation none --self-contained --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/3.6/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --variable 'theme:bootstrap' --include-in-header /var/folders/7q/h_jp2vj131g5799gfnpzhdp80000gn/T//RtmpOishpg/rmarkdown-str3d135218e46d.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+## /Users/johnmount/anaconda3/bin/pandoc +RTS -K512m -RTS Buzz_score_example.utf8.md --to html4 --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash+smart --output Buzz_score_example.html --email-obfuscation none --self-contained --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/3.6/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --variable 'theme:bootstrap' --include-in-header /var/folders/7q/h_jp2vj131g5799gfnpzhdp80000gn/T//Rtmp0mOy5S/rmarkdown-str1091e523a7a8a.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
 ```
 
 ```
@@ -58,7 +58,7 @@ rmarkdown::render("../Buzz/Buzz_score_example.Rmd", rmarkdown::html_document())
 
 
 
-00446_example_11.5_of_section_11.3.1.R
+00369_example_11.5_of_section_11.3.1.R
 
 
 

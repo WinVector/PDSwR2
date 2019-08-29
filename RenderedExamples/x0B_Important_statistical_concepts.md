@@ -4,7 +4,7 @@ output: github_document
 
 
 
-00474_example_B.1_of_section_B.1.1.R
+00397_example_B.1_of_section_B.1.1.R
 
 
 
@@ -14,28 +14,18 @@ output: github_document
 # Title: Plotting the theoretical normal density 
 
 library(ggplot2)
-```
 
-```
-## Registered S3 methods overwritten by 'ggplot2':
-##   method         from 
-##   [.quosures     rlang
-##   c.quosures     rlang
-##   print.quosures rlang
-```
-
-```r
 x <- seq(from=-5, to=5, length.out=100) # the interval [-5 5]
 f <- dnorm(x)                           # normal with mean 0 and sd 1
 ggplot(data.frame(x=x,y=f), aes(x=x,y=y)) + geom_line()
 ```
 
-![plot of chunk 00474_example_B.1_of_section_B.1.1.R](figure/00474_example_B.1_of_section_B.1.1.R-1.png)
+![plot of chunk 00397_example_B.1_of_section_B.1.1.R](figure/00397_example_B.1_of_section_B.1.1.R-1.png)
 
 
 
 
-00475_example_B.2_of_section_B.1.1.R
+00398_example_B.2_of_section_B.1.1.R
 
 
 
@@ -55,12 +45,12 @@ ggplot(data.frame(x=u), aes(x=x)) + geom_density() +
    geom_line(data=data.frame(x=x,y=f), aes(x=x,y=y), linetype=2)
 ```
 
-![plot of chunk 00475_example_B.2_of_section_B.1.1.R](figure/00475_example_B.2_of_section_B.1.1.R-1.png)
+![plot of chunk 00398_example_B.2_of_section_B.1.1.R](figure/00398_example_B.2_of_section_B.1.1.R-1.png)
 
 
 
 
-00476_example_B.3_of_section_B.1.1.R
+00399_example_B.3_of_section_B.1.1.R
 
 
 
@@ -110,7 +100,7 @@ pnorm(2) - pnorm(-2)
 
 
 
-00477_example_B.4_of_section_B.1.1.R
+00400_example_B.4_of_section_B.1.1.R
 
 
 
@@ -175,12 +165,12 @@ ggplot(nframe, aes(x=x,y=y)) + geom_line() +
   geom_text(x=line, y=0, label=xstr, vjust=1)
 ```
 
-![plot of chunk 00477_example_B.4_of_section_B.1.1.R](figure/00477_example_B.4_of_section_B.1.1.R-1.png)
+![plot of chunk 00400_example_B.4_of_section_B.1.1.R](figure/00400_example_B.4_of_section_B.1.1.R-1.png)
 
 
 
 
-00478_example_B.5_of_section_B.1.3.R
+00401_example_B.5_of_section_B.1.3.R
 
 
 
@@ -197,7 +187,7 @@ mean(u)
 ```
 
 ```
-## [1] 1.652672
+## [1] 1.706305
 ```
 
 ```r
@@ -206,7 +196,7 @@ median(u)
 ```
 
 ```
-## [1] 0.9555581
+## [1] 1.004122
 ```
 
 ```r
@@ -217,7 +207,7 @@ mean(log(u))
 ```
 
 ```
-## [1] -0.03066976
+## [1] 0.03152796
 ```
 
 ```r
@@ -228,7 +218,7 @@ sd(log(u))
 ```
 
 ```
-## [1] 1.028652
+## [1] 1.003505
 ```
 
 ```r
@@ -270,12 +260,12 @@ nplot <- function(plist) {
 nplot(list(p1, p2))
 ```
 
-![plot of chunk 00478_example_B.5_of_section_B.1.3.R](figure/00478_example_B.5_of_section_B.1.3.R-1.png)
+![plot of chunk 00401_example_B.5_of_section_B.1.3.R](figure/00401_example_B.5_of_section_B.1.3.R-1.png)
 
 
 
 
-00479_example_B.6_of_section_B.1.3.R
+00402_example_B.6_of_section_B.1.3.R
 
 
 
@@ -335,12 +325,12 @@ ggplot(lnormframe, aes(x = x, y = y)) + geom_line() +
   geom_text(x = line, y = 0, label = xstr, hjust = 0, vjust = 1)
 ```
 
-![plot of chunk 00479_example_B.6_of_section_B.1.3.R](figure/00479_example_B.6_of_section_B.1.3.R-1.png)
+![plot of chunk 00402_example_B.6_of_section_B.1.3.R](figure/00402_example_B.6_of_section_B.1.3.R-1.png)
 
 
 
 
-00480_example_B.7_of_section_B.1.4.R
+00403_example_B.7_of_section_B.1.4.R
 
 
 
@@ -384,12 +374,12 @@ ggplot(flips, aes(x = number_of_heads, y = probability)) +
   geom_line(aes(color = coin_type))
 ```
 
-![plot of chunk 00480_example_B.7_of_section_B.1.4.R](figure/00480_example_B.7_of_section_B.1.4.R-1.png)
+![plot of chunk 00403_example_B.7_of_section_B.1.4.R](figure/00403_example_B.7_of_section_B.1.4.R-1.png)
 
 
 
 
-00481_example_B.8_of_section_B.1.4.R
+00404_example_B.8_of_section_B.1.4.R
 
 
 
@@ -426,7 +416,7 @@ ggplot(data.frame(number_of_girls = numFemales, dummy = 1),
   scale_y_continuous("number of classrooms")
 ```
 
-![plot of chunk 00481_example_B.8_of_section_B.1.4.R](figure/00481_example_B.8_of_section_B.1.4.R-1.png)
+![plot of chunk 00404_example_B.8_of_section_B.1.4.R](figure/00404_example_B.8_of_section_B.1.4.R-1.png)
 
 ```r
 # Note 1: 
@@ -443,7 +433,7 @@ ggplot(data.frame(number_of_girls = numFemales, dummy = 1),
 
 
 
-00482_example_B.9_of_section_B.1.4.R
+00405_example_B.9_of_section_B.1.4.R
 
 
 
@@ -474,7 +464,7 @@ prettyprint_flips(flips_v1)
 ```
 ## outcome
 ## heads tails 
-##   764   236
+##   752   248
 ```
 
 ```r
@@ -487,7 +477,7 @@ prettyprint_flips(flips_v2)
 ```
 ## outcome
 ## heads tails 
-##   762   238
+##   733   267
 ```
 
 ```r
@@ -499,7 +489,7 @@ prettyprint_flips(flips_v2)
 
 
 
-00483_example_B.10_of_section_B.1.4.R
+00406_example_B.10_of_section_B.1.4.R
 
 
 
@@ -580,14 +570,14 @@ c(left.edge, right.edge)
 
 
 
-00484_example_B.11_of_section_B.1.4.R
+00407_example_B.11_of_section_B.1.4.R
 
 
 
 ```r
 # example B.11 of section B.1.4 
 # (example B.11 of section B.1.4)  : Important statistical concepts : Distributions : Binomial distribution 
-# Title: Working with the binomial cdf 
+# Title: Working with the binomial CDF 
 
 # because this is a discrete probability distribution, 
 # pbinom and qbinom are not exact inverses of each other
@@ -636,7 +626,7 @@ pbinom(53, nflips, 0.5)
 
 
 
-00486_example_B.12_of_section_B.2.2.R
+00409_example_B.12_of_section_B.2.2.R
 
 
 
@@ -646,9 +636,9 @@ pbinom(53, nflips, 0.5)
 # Title: Building simulated A/B test data 
 
 set.seed(123515)
-d <- rbind( 	# Note: 1 
-   data.frame(group = 'A', converted = rbinom(100000, size = 1, p = 0.05)), 	# Note: 2 
-   data.frame(group = 'B', converted = rbinom(10000, size = 1, p = 0.055)) 	# Note: 3 
+d <- rbind(                               	# Note: 1 
+   data.frame(group = 'A', converted = rbinom(100000, size = 1, p = 0.05)),           	# Note: 2 
+   data.frame(group = 'B', converted = rbinom(10000, size = 1, p = 0.055))            	# Note: 3 
 )
 
 # Note 1: 
@@ -667,7 +657,7 @@ d <- rbind( 	# Note: 1
 
 
 
-00487_example_B.13_of_section_B.2.2.R
+00410_example_B.13_of_section_B.2.2.R
 
 
 
@@ -697,7 +687,7 @@ print(tab)
 
 
 
-00488_example_B.14_of_section_B.2.2.R
+00411_example_B.14_of_section_B.2.2.R
 
 
 
@@ -743,7 +733,7 @@ print(commonRate)
 
 
 
-00489_example_B.15_of_section_B.2.2.R
+00412_example_B.15_of_section_B.2.2.R
 
 
 
@@ -785,7 +775,7 @@ fisher.test(tab)
 
 
 
-00490_example_B.16_of_section_B.2.2.R
+00413_example_B.16_of_section_B.2.2.R
 
 
 
@@ -794,11 +784,11 @@ fisher.test(tab)
 # (example B.16 of section B.2.2)  : Important statistical concepts : Statistical theory : A/B tests 
 # Title: Computing frequentist significance 
 
-print(pbinom( 	# Note: 1 
-   lower.tail = FALSE, 	# Note: 2 
-   q = tab['B', '1'] - 1, 	# Note: 3 
-   size = sum(tab['B', ]), 	# Note: 4 
-   prob = commonRate 	# Note: 5 
+print(pbinom(                       	# Note: 1 
+   lower.tail = FALSE,              	# Note: 2 
+   q = tab['B', '1'] - 1,           	# Note: 3 
+   size = sum(tab['B', ]),          	# Note: 4 
+   prob = commonRate                	# Note: 5 
    )) 
 ```
 
@@ -833,7 +823,7 @@ print(pbinom( 	# Note: 1
 
 
 
-00491_informalexample_B.2_of_section_B.2.3.R
+00414_informalexample_B.2_of_section_B.2.3.R
 
 
 
@@ -872,7 +862,7 @@ pwr.p.test(h = ES.h(p1 = 0.045, p2 = 0.04),
 
 
 
-00492_example_B.17_of_section_B.2.4.R
+00415_example_B.17_of_section_B.2.4.R
 
 
 
@@ -881,9 +871,9 @@ pwr.p.test(h = ES.h(p1 = 0.045, p2 = 0.04),
 # (example B.17 of section B.2.4)  : Important statistical concepts : Statistical theory : Specialized statistical tests 
 # Title: Building synthetic uncorrelated income example 
 
-set.seed(235236) 	# Note: 1 
+set.seed(235236)                                         	# Note: 1 
 d <- data.frame(EarnedIncome = 100000 * rlnorm(100),
-                 CapitalGains = 100000 * rlnorm(100))  	# Note: 2 
+                 CapitalGains = 100000 * rlnorm(100))    	# Note: 2 
 print(with(d, cor(EarnedIncome, CapitalGains)))
 ```
 
@@ -892,7 +882,7 @@ print(with(d, cor(EarnedIncome, CapitalGains)))
 ```
 
 ```r
-# [1] -0.01066116 	# Note: 3
+# [1] -0.01066116                                        	# Note: 3
 
 # Note 1: 
 #   Set the pseudo-random seed to a known 
@@ -908,7 +898,7 @@ print(with(d, cor(EarnedIncome, CapitalGains)))
 
 
 
-00493_example_B.18_of_section_B.2.4.R
+00416_example_B.18_of_section_B.2.4.R
 
 
 
@@ -957,7 +947,7 @@ with(d, cor(EarnedIncome, CapitalGains, method = 'spearman'))
 
 
 
-00494_informalexample_B.3_of_section_B.2.4.R
+00417_informalexample_B.3_of_section_B.2.4.R
 
 
 
@@ -979,7 +969,7 @@ sigr::wrapCorTest(ctest)
 
 
 
-00495_example_B.19_of_section_B.3.1.R
+00418_example_B.19_of_section_B.3.1.R
 
 
 
@@ -1020,7 +1010,7 @@ print(with(veryHighIncome,cor.test(EarnedIncome,CapitalGains,
 
 
 
-00496_example_B.20_of_section_B.3.1.R
+00419_example_B.20_of_section_B.3.1.R
 
 
 
@@ -1032,10 +1022,10 @@ print(with(veryHighIncome,cor.test(EarnedIncome,CapitalGains,
 library(ggplot2)
 ggplot(data=d,aes(x=EarnedIncome,y=CapitalGains)) +
    geom_point() + geom_smooth(method='lm') +
-   coord_cartesian(xlim=c(0,max(d)),ylim=c(0,max(d))) 	# Note: 1 
+   coord_cartesian(xlim=c(0,max(d)),ylim=c(0,max(d)))                   	# Note: 1 
 ```
 
-![plot of chunk 00496_example_B.20_of_section_B.3.1.R](figure/00496_example_B.20_of_section_B.3.1.R-1.png)
+![plot of chunk 00419_example_B.20_of_section_B.3.1.R](figure/00419_example_B.20_of_section_B.3.1.R-1.png)
 
 ```r
 ggplot(data=veryHighIncome,aes(x=EarnedIncome,y=CapitalGains)) +
@@ -1045,14 +1035,14 @@ ggplot(data=veryHighIncome,aes(x=EarnedIncome,y=CapitalGains)) +
       shape=4,alpha=0.5,color='red') +
    geom_segment(x=0,xend=500000,y=500000,yend=0,
       linetype=2,alpha=0.5,color='red') +
-   coord_cartesian(xlim=c(0,max(d)),ylim=c(0,max(d))) 	# Note: 2 
+   coord_cartesian(xlim=c(0,max(d)),ylim=c(0,max(d)))                   	# Note: 2 
 ```
 
-![plot of chunk 00496_example_B.20_of_section_B.3.1.R](figure/00496_example_B.20_of_section_B.3.1.R-2.png)
+![plot of chunk 00419_example_B.20_of_section_B.3.1.R](figure/00419_example_B.20_of_section_B.3.1.R-2.png)
 
 ```r
 print(with(subset(d,EarnedIncome+CapitalGains<500000),
-    cor.test(EarnedIncome,CapitalGains,method='spearman'))) 	# Note: 3 
+    cor.test(EarnedIncome,CapitalGains,method='spearman')))              	# Note: 3 
 ```
 
 ```
@@ -1094,7 +1084,7 @@ print(with(subset(d,EarnedIncome+CapitalGains<500000),
 
 
 
-00497_example_B.21_of_section_B.3.2.R
+00420_example_B.21_of_section_B.3.2.R
 
 
 
@@ -1157,7 +1147,7 @@ head(s)
 
 
 
-00498_example_B.22_of_section_B.3.2.R
+00421_example_B.22_of_section_B.3.2.R
 
 
 
@@ -1171,11 +1161,11 @@ s <- data.frame(week = 1:100)
 s$Caco2A2BPapp <- sort(sample(d$Caco2A2BPapp,100,replace=T),
    decreasing=T)
 sigmoid <- function(x) {1/(1 + exp(-x))}
-s$FractionHumanAbsorption <- 	# Note: 1 
+s$FractionHumanAbsorption <-                      	# Note: 1 
  sigmoid(
-   7.5 + 0.5 * log(s$Caco2A2BPapp) + 	# Note: 2 
-   s$week / 10 - mean(s$week / 10) + 	# Note: 3 
-   rnorm(100) / 3 	# Note: 4 
+   7.5 + 0.5 * log(s$Caco2A2BPapp) +              	# Note: 2 
+   s$week / 10 - mean(s$week / 10) +              	# Note: 3 
+   rnorm(100) / 3                                 	# Note: 4 
    )
 write.table(s, 'synth.csv', sep=',',
    quote = FALSE, row.names = FALSE)
@@ -1200,7 +1190,7 @@ write.table(s, 'synth.csv', sep=',',
 
 
 
-00499_example_B.23_of_section_B.3.2.R
+00422_example_B.23_of_section_B.3.2.R
 
 
 
@@ -1276,7 +1266,7 @@ print(summary(glm(data = s,
 
 
 
-00500_example_B.24_of_section_B.3.2.R
+00423_example_B.24_of_section_B.3.2.R
 
 
 

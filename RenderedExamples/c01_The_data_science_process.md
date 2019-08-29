@@ -71,7 +71,9 @@ conf_mat
 ## [1] 0.01857143
 
 # Note 1: 
-#   How to install all of the packages needed to run examples in this book can be founde here: https://github.com/WinVector/PDSwR2/blob/master/packages.R 
+#   How to install all of the packages needed to 
+#   run examples in this book can be found here: 
+#   https://github.com/WinVector/PDSwR2/blob/master/packages.R 
 
 # Note 2: 
 #   This file can be found at: https://github.com/WinVector/PDSwR2/tree/master/Statlog 
