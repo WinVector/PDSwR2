@@ -763,10 +763,10 @@ ops %.>%
 ##     "predicted_offer_affinity"
 ##    FROM
 ##     "offers"
-##    ) tsql_06000420686671207048_0000000000
-##  ) tsql_06000420686671207048_0000000001
+##    ) tsql_53910296180191624793_0000000000
+##  ) tsql_53910296180191624793_0000000001
 ##  WHERE "simple_rank" <= 2
-## ) tsql_06000420686671207048_0000000002 ORDER BY "user_name", "simple_rank"
+## ) tsql_53910296180191624793_0000000002 ORDER BY "user_name", "simple_rank"
 ```
 
 ```r

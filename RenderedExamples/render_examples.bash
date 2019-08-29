@@ -1,4 +1,5 @@
 
+
 /usr/local/bin/R -e 'knitr::knit("c01_The_data_science_process.Rmd")'
 /usr/local/bin/R -e 'knitr::knit("c02_Starting_with_R_and_data.Rmd")'
 /usr/local/bin/R -e 'knitr::knit("c03_Exploring_data.Rmd")'
@@ -12,4 +13,7 @@
 /usr/local/bin/R -e 'knitr::knit("c11_Documentation_and_deployment.Rmd")'
 /usr/local/bin/R -e 'knitr::knit("x0A_Starting_with_R_and_other_tools.Rmd")'
 /usr/local/bin/R -e 'knitr::knit("x0B_Important_statistical_concepts.Rmd")'
+
+rm *.RDS
+rm *.csv
 
