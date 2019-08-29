@@ -3,7 +3,7 @@
 
 library("rquery")
 
-raw_connection <- ﻿DBI::dbConnect(RPostgres::Postgres(),
+raw_connection <- DBI::dbConnect(RPostgres::Postgres(),
                                  host = 'localhost',
                                  port = 5432,
                                  user = 'johnmount',

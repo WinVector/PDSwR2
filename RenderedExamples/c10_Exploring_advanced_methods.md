@@ -202,8 +202,8 @@ pandoc.table(perftable, justify = perf_justify)
 ## 
 ## model                 accuracy       f1   dev.norm
 ## ------------------- ---------- -------- ----------
-## bagging, training       0.9155   0.8899     0.5107
-## bagging, test           0.9127   0.8824     0.5811
+## bagging, training       0.9158   0.8906     0.5124
+## bagging, test           0.9105   0.8791     0.5809
 ```
 
 ```r
@@ -349,7 +349,7 @@ pandoc.table(trainf, justify = perf_justify)
 ## model                    accuracy       f1   dev.norm
 ## ---------------------- ---------- -------- ----------
 ## tree, training             0.8996   0.8691     0.6304
-## bagging, training          0.9155   0.8899     0.5107
+## bagging, training          0.9158   0.8906     0.5124
 ## random forest, train       0.9884   0.9852     0.1440
 ```
 
@@ -384,7 +384,7 @@ pandoc.table(testf, justify = perf_justify)
 ## model                   accuracy       f1   dev.norm
 ## --------------------- ---------- -------- ----------
 ## tree, test                0.8712   0.8280     0.7531
-## bagging, test             0.9127   0.8824     0.5811
+## bagging, test             0.9105   0.8791     0.5809
 ## random forest, test       0.9498   0.9341     0.3011
 ```
 
@@ -420,11 +420,11 @@ pandoc.table(difff, justify=perf_justify)
 ```
 ## 
 ## 
-## model             accuracy         f1   dev.norm
-## --------------- ---------- ---------- ----------
-## tree              0.028411   0.041112    -0.1227
-## bagging           0.002856   0.007584    -0.0704
-## random forest     0.038633   0.051097    -0.1571
+## model             accuracy        f1   dev.norm
+## --------------- ---------- --------- ----------
+## tree              0.028411   0.04111   -0.12275
+## bagging           0.005281   0.01151   -0.06846
+## random forest     0.038633   0.05110   -0.15711
 ```
 
 ```r
