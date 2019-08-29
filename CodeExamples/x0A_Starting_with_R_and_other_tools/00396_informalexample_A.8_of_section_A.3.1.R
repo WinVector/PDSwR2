@@ -4,7 +4,7 @@
 ops %.>% 
   to_sql(., db) %.>% 
   cat(.)
-  
+
 ## SELECT * FROM (
 ##  SELECT * FROM (
 ##   SELECT

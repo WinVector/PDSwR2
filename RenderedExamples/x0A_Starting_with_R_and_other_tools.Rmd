@@ -475,7 +475,7 @@ DBI::dbReadTable(db$connection, result_table$table_name) %.>%     	# Note: 6
 ops %.>% 
   to_sql(., db) %.>% 
   cat(.)
-  
+
 ## SELECT * FROM (
 ##  SELECT * FROM (
 ##   SELECT
