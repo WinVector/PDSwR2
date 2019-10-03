@@ -2,8 +2,6 @@
 # (example 4.2 of section 4.1.1)  : Managing data : Cleaning data : Domain-specific data cleaning 
 # Title: Treating the gas_usage variable 
 
-N = nrow(customer_data)
-                                        
 customer_data <- customer_data %>%
   mutate(gas_with_rent = (gas_usage == 1),                    	# Note: 1 
          gas_with_electricity = (gas_usage == 2),
