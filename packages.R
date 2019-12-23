@@ -9,7 +9,7 @@ pkgs <- c(
     "glmnet", "glmnetUtils", "gridExtra", "hexbin", "kernlab",
     "igraph", "knitr", "lime", "lubridate", "magrittr", "MASS",
     "mgcv", "pander", "plotly", "pwr", "randomForest", "readr",
-    "readxls", "rmarkdown", "rpart", "rpart.plot", "RPostgres",
+    "readxl", "rmarkdown", "rpart", "rpart.plot", "RPostgres",
     "rqdatatable", "rquery", "RSQLite", "scales", "sigr", "sqldf",
     "tidypredict", "text2vec", "tidyr", "vtreat", "wrapr", "WVPlots",
     "xgboost", "xts", "webshot", "zeallot", "zoo")
