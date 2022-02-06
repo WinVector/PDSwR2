@@ -1,22 +1,18 @@
 UTF-8
 
-::: {.manning-logo}
-:::
-
-::: {.errata-body}
 ![](https://images.manning.com/book/6/17c08ae-cbab-4305-8385-a919445938d6/Zumel-PDSR-2ed-HI.png)
-Errata: February 6, 2022\
-\
+Errata: February 6, 2022
+
 Thank you for purchasing [*Practical Data Science with R, Second
 Edition*](https://www.manning.com/books/practical-data-science-with-r-second-edition?query=Practical%20Data%20Science%20with%20R,%20Second%20Edition).
 Please post errata not listed below in this book\'s [LiveBook Errata
 thread](https://livebook.manning.com/book/practical-data-science-with-r-second-edition/discussion).
 We\'ll update this list as necessary. Corrections are made to all
 formats during the book\'s second printing. Thank you! More notes and
-help can be found here: <https://github.com/WinVector/PDSwR2>.\
-\
-\
-\
+help can be found here: <https://github.com/WinVector/PDSwR2>.
+
+
+
 
 Page 20, subsection 2.1.1
 -------------------------
@@ -49,8 +45,6 @@ Page 285, subsection 8.3.1
 --------------------------
 
 \"Var116_isBAD\", should be \"Var126_isBAD\".
-:::
 
-::: {.copyright}
-© 2018 Manning Publications Co. All rights reserved.
-:::
+© 2018-2022 Manning Publications Co. All rights reserved.
+
