@@ -126,4 +126,6 @@ No guarantee, indemnification or claim of fitness is made regarding any of these
 
 No claim of license on works of others or derived data.
 
+[Errata](https://github.com/WinVector/PDSwR2/blob/main/PDSwR2_errata.md)
+)
 

@@ -1,6 +1,4 @@
-UTF-8
 
-![](https://images.manning.com/book/6/17c08ae-cbab-4305-8385-a919445938d6/Zumel-PDSR-2ed-HI.png)
 Errata: February 6, 2022
 
 Thank you for purchasing [*Practical Data Science with R, Second
